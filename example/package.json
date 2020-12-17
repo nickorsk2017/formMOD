@@ -21,6 +21,7 @@
     "react-dom": "link:../node_modules/react-dom",
     "react-scripts": "link:../node_modules/react-scripts",
     "typescript": "link:../node_modules/typescript",
+    "lodash": "link:../node_modules/lodash",
     "formmod": "link:.."
   },
   "devDependencies": {

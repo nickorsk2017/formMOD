@@ -1,0 +1,17 @@
+.container {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.label {
+
+}
+.input {
+    width: 100%;
+    max-width: 300px;
+    height: 30px;
+}
+.error {
+
+}

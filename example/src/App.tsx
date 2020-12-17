@@ -1,10 +1,8 @@
 import React from 'react'
-
-import { ExampleComponent } from 'formmod'
-import 'formmod/dist/index.css'
+import { Basic } from './Basic/Basic';
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <Basic/>
 }
 
 export default App
