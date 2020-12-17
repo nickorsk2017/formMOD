@@ -1,11 +1,10 @@
 import { useState } from 'react';
-import { getValue, setValue, setValues, getError, validate} from "./api"; 
+import { getValue, setValue, setValues, getError, validate, resetForm} from "./api"; 
 import {FormState, FormValue, ControlName} from "./types";
 
 export function useFormMod(initFormState: FormState) {
     const [formState, _updateFormState] = useState(initFormState);
     const updateFormState = (newFormState: FormState) => {
-      console.log('update state of form', newFormState.formValue);
       _updateFormState(newFormState);
     }
 
@@ -16,5 +15,6 @@ export function useFormMod(initFormState: FormState) {
       setValues: (controlsValues: FormValue) => { return setValues({formState, controlsValues, updateFormState})},
       validate: (updateValidation: boolean, callback: Function) => validate({formState, updateValidation, callback, fromSetValue: false, updateFormState}),
       getError: (controlName: ControlName) => getError({formState, controlName}),
+      resetForm: () => resetForm({initFormState, formState, updateFormState})
     };
   }

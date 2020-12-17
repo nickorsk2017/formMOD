@@ -26,7 +26,6 @@ export const validate = ({formState, updateValidation, callback, fromSetValue, u
             _formState.valid = formIsValid;
             _formState.rules = cloneRules;
             if(updateValidation){
-                console.log('update form', _formState);
                 updateFormState(_formState);
             }
             if(typeof callback == "function"){

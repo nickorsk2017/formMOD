@@ -5,3 +5,4 @@ export {getError} from "./getError";
 export {validate} from './validate';
 export {setStateForm} from "./setStateForm";
 export {getValidationControl} from "./getValidationControl";
+export {resetForm} from "./resetForm";
