@@ -10,21 +10,6 @@
 npm install --save formmod
 ```
 
-## Usage
-
-```tsx
-import React, { Component } from 'react'
-
-import MyComponent from 'formmod'
-import 'formmod/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
-```
-
 ## License
 
 MIT © [Nickolay Stepanov](https://github.com/Nickolay Stepanov)
