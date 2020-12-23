@@ -9,7 +9,7 @@
     "declaration": true,
     "esModuleInterop": true,
     "noImplicitReturns": true,
-    "noImplicitThis": true,
+    "noImplicitThis": false,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
