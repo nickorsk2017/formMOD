@@ -1,6 +1,6 @@
 {
   "name": "formmod",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Powerful form system for React with hooks",
   "author": "Stepanov Nickolay",
   "license": "MIT",

@@ -1,7 +1,7 @@
 {
   "name": "formmod-example",
   "homepage": ".",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "private": true,
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
