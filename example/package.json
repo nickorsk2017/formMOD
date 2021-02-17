@@ -1,7 +1,7 @@
 {
   "name": "formmod-example",
   "homepage": ".",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
@@ -17,15 +17,17 @@
     "@types/node": "link:../node_modules/@types/node",
     "@types/react": "link:../node_modules/@types/react",
     "@types/react-dom": "link:../node_modules/@types/react-dom",
+    "formmod": "link:..",
+    "lodash": "link:../node_modules/lodash",
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "link:../node_modules/react-scripts",
-    "typescript": "link:../node_modules/typescript",
-    "lodash": "link:../node_modules/lodash",
-    "formmod": "link:.."
+    "typescript": "link:../node_modules/typescript"
   },
   "devDependencies": {
-    "@babel/plugin-syntax-object-rest-spread": "^7.8.3"
+    "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
+    "@types/react-router-dom": "^5.1.7"
   },
   "eslintConfig": {
     "extends": "react-app"

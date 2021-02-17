@@ -3,7 +3,7 @@ export {setValue} from "./setValue";
 export {setValues} from "./setValues";
 export {getError} from "./getError";
 export {validate} from './validate';
-export {setStateForm} from "./setStateForm";
+export {useStateForm} from "./useStateForm";
 export {getValidationControl} from "./getValidationControl";
 export {resetForm} from "./resetForm";
 export {useRefmod} from "./useRefmod";

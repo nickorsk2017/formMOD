@@ -17,6 +17,10 @@
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true,
   },
+  "baseUrl": "./",
+  "paths": {
+  //  "@utils": ["/utils"]
+  },
   "include": ["src"],
   "exclude": ["node_modules", "dist", "example"]
 }

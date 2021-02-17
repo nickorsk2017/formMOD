@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import {
   getValue,
   setValue,
@@ -7,12 +7,14 @@ import {
   validate,
   resetForm,
   useRefmod,
+  useStateForm,
 } from "./api";
 import {FormState, FormValue, ControlName} from "./types";
 
-export function useFormMod(initFormState: FormState, useControledForm: boolean | undefined = false) {
-    const [formState, updateFormState] = useState(initFormState);
-    console.log(formState, useControledForm, 'useFormMod formState!!');
+export const useFormMod = (initFormState: FormState, useControledForm: boolean | undefined = false) => {
+    //const [formState, updateFormState] = useState(initFormState);
+    const {getFormState, updateFormState} = useStateForm(initFormState);
+    console.log(useControledForm, 'useControledForm!');
 
     const {eventListeners, updateEventListeners, deleteEventListener, deleteAllEventListeners} = useMemo(() => {
       let eventListeners: any = [];
@@ -30,22 +32,21 @@ export function useFormMod(initFormState: FormState, useControledForm: boolean |
       return {eventListeners, updateEventListeners, deleteEventListener, deleteAllEventListeners}
     }, []);
   
-    const effectResult = useEffect(() => {
+   useEffect(() => {
       return () => {
           console.log('unmount form');
           deleteAllEventListeners();
       }
     }, []);
-    console.log(effectResult, 'effectResult!!');
 
     return {
-      formState,
-      getValue: (controlName?: ControlName) => getValue({formState, controlName}),
-      setValue: (controlName: ControlName, controlValue: string | object | null | number) => setValue({formState, controlName, controlValue, updateFormState}),
-      setValues: (controlsValues: FormValue) => setValues({formState, controlsValues, updateFormState}),
-      validate: (updateValidation: boolean, callback: Function) => validate({formState, updateValidation, callback, fromSetValue: false, updateFormState}),
-      getError: (controlName: ControlName) => getError({formState, controlName}),
-      resetForm: () => resetForm({initFormState, formState, updateFormState}),
-      useRefmod: (controlName: ControlName) => useRefmod({formState, controlName, eventListeners, updateFormState, updateEventListeners, deleteEventListener}),
+      formState: getFormState(),
+      getValue: (controlName?: ControlName) => getValue({formState: getFormState(), controlName}),
+      setValue: (controlName: ControlName, controlValue: string | object | null | number, useUncontroledForm?: boolean) => setValue({formState: getFormState(), controlName, controlValue, updateFormState, useUncontroledForm}),
+      setValues: (controlsValues: FormValue) => setValues({formState: getFormState(), controlsValues, updateFormState}),
+      validate: (updateValidation: boolean, callback: Function) => validate({formState: getFormState(), updateValidation, callback, fromSetValue: false, updateFormState}),
+      getError: (controlName: ControlName) => getError({formState: getFormState(), controlName}),
+      resetForm: () => resetForm({initFormState, formState: getFormState(), updateFormState}),
+      useRefmod: (controlName: ControlName) => useRefmod({getFormState, controlName, eventListeners, updateFormState, updateEventListeners, deleteEventListener, getError}),
     };
   }

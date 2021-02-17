@@ -1,18 +1,18 @@
 import {setValue} from "../api";
 import * as _ from 'lodash';
 import {
-    ControlName,
-    FormState,
+    ControlName
 } from "../types";
+import {UpdateFormState} from "../api/useStateForm";
 
-export function addEventListeners({element, controlName, updateFormState} : {element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement, controlName: ControlName, updateFormState: (updateFormState: FormState) => void }) {
+export function addEventListeners({element, controlName, updateFormState} : {element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement, controlName: ControlName, updateFormState: UpdateFormState }) {
     if(element instanceof HTMLElement){
         const listenerHandler = function(event: any){
             const controlValue = event.target.value;
-            if(this.formState.formValue && !_.isEqual(this.formState.formValue[controlName], controlValue)){
+            if(this.getFormState().formValue && !_.isEqual(this.getFormState().formValue[controlName], controlValue)){
                 clearTimeout(this.timer);
                 this.timer = setTimeout(() => {
-                    setValue({formState: this.formState, controlName, controlValue: event.target.value, updateFormState});
+                    setValue({formState: this.getFormState(), controlName, controlValue: event.target.value, updateFormState, useUncontroledForm: true});
                 }, 300);
             }
         }

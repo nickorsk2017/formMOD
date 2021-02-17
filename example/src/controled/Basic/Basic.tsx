@@ -1,39 +1,14 @@
 import React from 'react'
 import {useFormMod} from "formmod";
 import {TextInput} from "../ui";
+import FORM_SCHEME from "./scheme";
 import styles from './Basic.module.css';
 
 export function Basic() {
-    const {setValue, getValue, getError, validate, resetForm} = useFormMod({
-		valid: null,
-		formValue: {
-            first_name: "",
-            last_name: "",
-        },
-        rules: {
-            first_name: [
-                {
-                    name: "empty",
-                    message: "first name is required"
-                },
-                {
-                    name: "func",
-                    params: {
-                        func: (value: string) => {
-                            return value.length > 5
-                        }
-                    },
-                    message: "Length should be more than 5 lenght"
-                }
-            ],
-            last_name: [
-                {
-                    name: "empty",
-                    message: "last name is required"
-                },
-            ]
-        }
-    });
+    const {setValue, getValue, getError, validate, resetForm} = useFormMod(
+        FORM_SCHEME,
+        false
+    );
     
     const handleSubmit = function(event: any){
         console.log("handleSubmit");
@@ -47,7 +22,7 @@ export function Basic() {
         });
         console.log(formState, 'result formState!');
     }
-    console.log('render!!');
+    console.log('render!!', getValue("first_name"));
 
     const setDefault = (event: any) => {
         if(event && event.preventDefault) {

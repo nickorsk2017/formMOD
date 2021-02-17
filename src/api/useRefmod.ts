@@ -2,10 +2,23 @@ import {useCallback, useEffect } from 'react';
 import {addEventListeners, removeEventListeners} from "../stategy";
 import {
     ControlName,
-    FormState,
+    FormState
 } from "../types";
+import {GetError} from "./getError";
+import {UpdateFormState} from "../api/useStateForm";
 
-export function useRefmod({formState, controlName, eventListeners, updateFormState, updateEventListeners, deleteEventListener} : {formState: FormState, controlName: ControlName, eventListeners: Array<any>, updateFormState: (updateFormState: FormState) => void, updateEventListeners: (_eventListeners: any) => void, deleteEventListener: (controlName: ControlName) => void }) {
+export type UserefmodParams = {
+    getFormState: () => FormState,
+    controlName: ControlName,
+    eventListeners: Array<any>,
+    updateFormState: UpdateFormState,
+    updateEventListeners: (_eventListeners: any) => void,
+    deleteEventListener: (controlName: ControlName) => void,
+    getError: GetError
+};
+export type UseRefmod = (params: UserefmodParams) => void;
+
+export function useRefmod({getFormState, controlName, eventListeners, updateFormState, updateEventListeners, deleteEventListener, getError} : UserefmodParams) {
     useEffect(() => {
         console.log('mount element!!');
         return () => {
@@ -15,18 +28,18 @@ export function useRefmod({formState, controlName, eventListeners, updateFormSta
         }
     }, []);
 
-    const callback = useCallback((element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) => {
+    const ref = useCallback((element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement) => {
         if(element){
             const listener = eventListeners.find((_eventListeners) => {
                 return _eventListeners.controlName == controlName;
             });
 
             if(listener){
-                listener.formState = formState;
+                //listener.getFormState = getFormState;
             } else {
                 let listenerObj = {
                     timer: null,
-                    formState,
+                    getFormState,
                     controlName,
                     element,
                     listenerHandler: () => {}
@@ -39,43 +52,14 @@ export function useRefmod({formState, controlName, eventListeners, updateFormSta
 
                 eventListeners.push(listenerObj);
 
-                /*
-                setTimeout(() => {
-
-                    var event = new Event('input', {
-                        bubbles: true,
-                        cancelable: true,
-                    });
-                    element.value = "111";
-                    element.dispatchEvent(event);
-
-                }, 4000);
-
-                setTimeout(() => {
-
-                    removeEventListeners({controlName, eventListeners});
-                    deleteEventListener(controlName);
-                    
-                }, 6000);
-
-
-
-                setTimeout(() => {
-                    
-
-                    var event = new Event('input', {
-                        bubbles: true,
-                        cancelable: true,
-                    });
-                    element.value = "222";
-                    element.dispatchEvent(event);
-
-                }, 10000)
-                
-                */
-
             }
         }
-    }, [formState]);
-    return callback;
+    }, [getFormState()]);
+    return {
+        ref,
+        getError: () => getError({
+            formState: getFormState(),
+            controlName,
+        })
+    };
 }
