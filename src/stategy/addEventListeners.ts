@@ -1,11 +1,15 @@
 import {setValue} from "../api";
 import * as _ from 'lodash';
 import {
-    ControlName
+    ControlName,
+    ElementMod,
 } from "../types";
 import {UpdateFormState} from "../api/useStateForm";
 
-export function addEventListeners({element, controlName, updateFormState} : {element: HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement, controlName: ControlName, updateFormState: UpdateFormState }) {
+export type AddEventListenersParams = {element: ElementMod, controlName: ControlName, updateFormState: UpdateFormState };
+export type AddEventListeners = (params: AddEventListenersParams) => Function;
+
+export const addEventListeners: AddEventListeners = ({element, controlName, updateFormState}) => {
     if(element instanceof HTMLElement){
         const listenerHandler = function(event: any){
             const controlValue = event.target.value;

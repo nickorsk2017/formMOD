@@ -14,6 +14,7 @@ export const useStateForm = (initFormState: FormState) => {
             if(!useUncontroledForm || formState.valid !== null){
                 forceUpdate();
             }
+            console.log(formState, 'formState!');
             return formState;
         };
         return {getFormState: () => formState, updateFormState}

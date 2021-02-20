@@ -1,8 +1,8 @@
 export default {
     valid: null,
     formValue: {
-        first_name: "",
-        last_name: "",
+        first_name: "Name",
+        last_name: "2",
     },
     rules: {
         first_name: [

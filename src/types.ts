@@ -1,4 +1,4 @@
-export type ControlValue = string | object | null | number;
+export type ControlValue = number | string | object | null ;
 export type ControlName = string;
 export type MessageError = string;
 export type ControlValidationResult = {
@@ -26,3 +26,14 @@ export type FormState = {
     rules?: FormRules,
     disabledControls?: Array<string> 
 }
+export type ElementMod = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+
+export type GetEventListeners = () => Array<ListenerObj>;
+
+export type ListenerObj = {
+    timer: ReturnType<typeof setTimeout> | null,
+    getFormState: () => FormState,
+    controlName: string,
+    element: ElementMod,
+    listenerHandler: () => void | EventListenerObject
+};
