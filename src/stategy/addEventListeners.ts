@@ -4,6 +4,7 @@ import {
     ControlName,
     ElementMod,
 } from "../types";
+import {toUseOnChangeEvent} from "../api/useRefmod";
 import {UpdateFormState} from "../api/useStateForm";
 
 export type AddEventListenersParams = {element: ElementMod, controlName: ControlName, updateFormState: UpdateFormState };
@@ -12,12 +13,21 @@ export type AddEventListeners = (params: AddEventListenersParams) => Function;
 export const addEventListeners: AddEventListeners = ({element, controlName, updateFormState}) => {
     if(element instanceof HTMLElement){
         const listenerHandler = function(event: any){
-            const controlValue = event.target.value;
-            if(this.getFormState().formValue && !_.isEqual(this.getFormState().formValue[controlName], controlValue)){
+            let controlValue = event.target.value;
+            let _skipUpdate = true;
+            let timer = 300;
+            const valueFromFormState = this.getFormState().formValue[controlName];
+            // toggle value for checkbox, option
+            if(toUseOnChangeEvent(event.target)){
+                controlValue = !valueFromFormState;
+                _skipUpdate = false;
+                timer = 0;
+            }
+            if(this.getFormState().formValue && !_.isEqual(valueFromFormState, controlValue)){
                 clearTimeout(this.timer);
                 this.timer = setTimeout(() => {
-                    setValue({formState: this.getFormState(), controlName, controlValue: event.target.value, updateFormState, useUncontroledForm: true});
-                }, 300);
+                    setValue({formState: this.getFormState(), controlName, controlValue, updateFormState, skipUpdate: _skipUpdate});
+                }, timer);
             }
         }
         //element.addEventListener("input", listenerHandler);

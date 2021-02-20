@@ -52,11 +52,11 @@ export const useFormMod = (initFormState: FormState, useControledForm: boolean |
     return {
       formState: getFormState(),
       getValue: (controlName?: ControlName) => getValue({formState: getFormState(), controlName}),
-      setValue: (controlName: ControlName, controlValue: string | object | null | number, useUncontroledForm?: boolean) => setValue({formState: getFormState(), controlName, controlValue, updateFormState, useUncontroledForm}),
+      setValue: (controlName: ControlName, controlValue: string | object | null | number, skipUpdate?: boolean) => setValue({formState: getFormState(), controlName, controlValue, updateFormState, skipUpdate}),
       setValues: (controlsValues: FormValue) => setValues({formState: getFormState(), controlsValues, updateFormState}),
       validate: (updateValidation: boolean, callback: Function) => validate({formState: getFormState(), updateValidation, callback, fromSetValue: false, updateFormState}),
       getError: (controlName: ControlName) => getError({formState: getFormState(), controlName}),
       resetForm: () => resetForm({initFormState, formState: getFormState(), updateFormState, getEventListeners}),
-      useRefmod: (controlName: ControlName) => useRefmod({getFormState, controlName, getEventListeners, updateFormState, updateEventListeners, deleteEventListener, getError}),
+      useRefmod: (controlName: ControlName) => useRefmod({getFormState, controlName, getEventListeners, updateFormState, updateEventListeners, deleteEventListener, getError, getValue}),
     };
   }

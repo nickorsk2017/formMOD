@@ -1,4 +1,4 @@
-export type ControlValue = number | string | object | null ;
+export type ControlValue = number | string | object | null | boolean;
 export type ControlName = string;
 export type MessageError = string;
 export type ControlValidationResult = {
@@ -20,9 +20,13 @@ export type ResultValidationControl = {
 export type FormRules = {
     [key: string]: Array<FormRule>,
 }
+export type FormVisibilities = {
+    [key: string]: any;
+}
 export type FormState = {
     valid: boolean | null,
     formValue: FormValue,
+    visibilities?: FormVisibilities,
     rules?: FormRules,
     disabledControls?: Array<string> 
 }

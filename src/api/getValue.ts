@@ -5,7 +5,10 @@ import {
     ControlValue
 } from "../types";
 
-export function getValue({formState, controlName} : {formState: FormState, controlName?: ControlName}): ControlValue | FormValue {
+export type GetValueParams = {formState: FormState, controlName?: ControlName};
+export type GetValue = (params: GetValueParams) => ControlValue | FormValue;
+
+export const getValue: GetValue = ({formState, controlName}) => {
     if(!controlName){
         if(formState.disabledControls && Array.isArray(formState.disabledControls)){
             let result = {};

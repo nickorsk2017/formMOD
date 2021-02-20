@@ -3,13 +3,26 @@ export default {
     formValue: {
         first_name: "Name",
         last_name: "2",
+        address: "",
+        havePets: false,
+    },
+    visibilities: {
+
     },
     rules: {
         first_name: [
             {
                 name: "empty",
                 message: "first name is required"
-            },
+            }
+        ],
+        last_name: [
+            {
+                name: "empty",
+                message: "last name is required"
+            }
+        ],
+        address: [
             {
                 name: "func",
                 params: {
@@ -17,13 +30,13 @@ export default {
                         return value.length > 5
                     }
                 },
-                message: "Length should be more than 5 lenght"
+                message: "Length should be more than 2 lenght"
             }
         ],
-        last_name: [
+        havePets: [
             {
                 name: "empty",
-                message: "last name is required"
+                message: "Do you have pets?"
             },
         ]
     }

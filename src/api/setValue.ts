@@ -12,17 +12,17 @@ export type SetValueParams = {
     controlName: ControlName,
     controlValue: ControlValue,
     updateFormState: UpdateFormState,
-    useUncontroledForm: boolean | undefined,
+    skipUpdate: boolean | undefined,
 };
 
 export type SetValue = (params: SetValueParams) => FormState | false;
 
-export const setValue: SetValue = ({formState, controlName, controlValue, updateFormState, useUncontroledForm} : SetValueParams) => {
+export const setValue: SetValue = ({formState, controlName, controlValue, updateFormState, skipUpdate} : SetValueParams) => {
     if(!_.isEqual(controlValue, formState.formValue[controlName])){
         let _formState: FormState = _.cloneDeep(formState);
         _formState.formValue[controlName] = controlValue;
         if(_formState.valid === null){
-            updateFormState(_formState, useUncontroledForm);
+            updateFormState(_formState, skipUpdate);
             return _formState;
         } else {
             return validate({formState: _formState, updateValidation: true, fromSetValue: true, updateFormState});
