@@ -8,7 +8,9 @@ export function resetForm({initFormState, formState, updateFormState, getEventLi
     if(!_.isEqual(initFormState, formState)){
         const listeners = getEventListeners();
         listeners.forEach((listener) => {
-            listener.element.value = initFormState.formValue[listener.controlName]?.toString() || "";
+            if(listener.element){
+                listener.element.value = initFormState.formValue[listener.controlName]?.toString() || "";
+            }
         });
         updateFormState(initFormState);
         return initFormState;

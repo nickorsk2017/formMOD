@@ -2,7 +2,7 @@
 import * as _ from 'lodash';
 import {
     ControlName
-} from "../types";
+} from "../../types";
 
 export function removeEventListeners({controlName, eventListeners} : {controlName: ControlName, eventListeners: Array<any>}) {
     return eventListeners.filter((eventListener) => {

@@ -8,6 +8,7 @@ import {
   resetForm,
   useRefmod,
   useStateForm,
+  getVisibilities,
 } from "./api";
 import {
   FormState,
@@ -16,12 +17,16 @@ import {
   ListenerObj,
   GetEventListeners,
 } from "./types";
+export * as Types from "./types";
 
 export const useFormMod = (initFormState: FormState, useControledForm: boolean | undefined = false) => {
-    const {getFormState, updateFormState} = useStateForm(initFormState);
+    const {
+      getFormState,
+      updateFormState
+    } = useStateForm(initFormState);
     console.log(useControledForm, 'useControledForm!');
 
-    const {updateEventListeners, deleteEventListener, deleteAllEventListeners, getEventListeners} = useMemo(() => {
+    const {deleteEventListener, deleteAllEventListeners, getEventListeners} = useMemo(() => {
       let eventListeners: Array<ListenerObj> = [];
 
       const updateEventListeners = (_eventListeners: Array<ListenerObj>) => {
@@ -57,6 +62,7 @@ export const useFormMod = (initFormState: FormState, useControledForm: boolean |
       validate: (updateValidation: boolean, callback: Function) => validate({formState: getFormState(), updateValidation, callback, fromSetValue: false, updateFormState}),
       getError: (controlName: ControlName) => getError({formState: getFormState(), controlName}),
       resetForm: () => resetForm({initFormState, formState: getFormState(), updateFormState, getEventListeners}),
-      useRefmod: (controlName: ControlName) => useRefmod({getFormState, controlName, getEventListeners, updateFormState, updateEventListeners, deleteEventListener, getError, getValue}),
+      useRefmod: (controlName: ControlName) => useRefmod({getFormState, controlName, getEventListeners, updateFormState, deleteEventListener, getError, getValue, getVisibilities}),
+      getVisibilities: () => getVisibilities({getFormState})
     };
   }

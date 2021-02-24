@@ -1,9 +1,13 @@
 import React from 'react';
-//import {useRef} from "react";
+import {Types} from "formmod";
 import styles from './TextInput.module.css';
 
-export const TextInput = (props: any) => {
+export const TextInput = (props: {label: string, refMod: Types.UseRefmodResult}) => {
     const {refMod, label} = props;
+    const isVisible = refMod.isVisible();
+    if(!isVisible){
+      return null;
+    }
     return (
       <div className={styles.textInput}>
         {label && <label className={styles.label}>{label}</label>}

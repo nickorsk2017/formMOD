@@ -30,7 +30,7 @@ export type FormState = {
     rules?: FormRules,
     disabledControls?: Array<string> 
 }
-export type ElementMod = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
+export type ElementMod = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | null;
 
 export type GetEventListeners = () => Array<ListenerObj>;
 
@@ -41,3 +41,12 @@ export type ListenerObj = {
     element: ElementMod,
     listenerHandler: () => void | EventListenerObject
 };
+
+export type UseRefmodResult = {
+    ref: ((instance: HTMLInputElement) => void),
+    getError: () => string | null,
+    getValue: () => ControlValue,
+    isVisible: () => boolean,
+    isDisable: () => boolean,
+};
+export type UseRefmodAPI = (controlName: ControlName) => UseRefmodResult

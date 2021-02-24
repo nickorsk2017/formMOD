@@ -5,9 +5,14 @@ export default {
         last_name: "2",
         address: "",
         havePets: false,
+        petName: ""
     },
     visibilities: {
-
+        petName: ({formValue} : any) => {
+            return {
+                isVisible: formValue.havePets
+            }
+        },
     },
     rules: {
         first_name: [
@@ -30,13 +35,19 @@ export default {
                         return value.length > 5
                     }
                 },
-                message: "Length should be more than 2 lenght"
+                message: "length should be more than 2 lenght"
             }
         ],
         havePets: [
             {
                 name: "empty",
-                message: "Do you have pets?"
+                message: "do you have pets?"
+            },
+        ],
+        petName: [
+            {
+                name: "empty",
+                message: "pets names is required?"
             },
         ]
     }

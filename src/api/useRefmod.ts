@@ -1,44 +1,34 @@
-import {useCallback, useEffect } from 'react';
+import * as _ from 'lodash';
+import {useCallback, useEffect, useRef } from 'react';
 import {addEventListeners, removeEventListeners} from "../stategy";
 import {
-    ControlName,
     FormState,
     ElementMod,
     ListenerObj,
+    ControlName,
     GetEventListeners,
-    ControlValue,
+    UseRefmodResult,
 } from "../types";
-import {GetValue} from "./getValue";
-import {GetError} from "./getError";
+import {updateValueInputFromState, toUseOnChangeEvent} from "../stategy/refComponents/updateValueInputFromState";
+import {Visibilities} from "../api/visibilities";
+import {GetValue} from "../api/getValue";
+import {GetError} from "../api/getError";
 import {UpdateFormState} from "../api/useStateForm";
 
-export type UserefmodParams = {
+export type UseRefmodParams = {
     getFormState: () => FormState,
     controlName: ControlName,
     getEventListeners: GetEventListeners,
     updateFormState: UpdateFormState,
-    updateEventListeners: (_eventListeners: Array<ListenerObj>) => void,
+   // updateEventListeners: (_eventListeners: Array<ListenerObj>) => void,
     deleteEventListener: (controlName: ControlName) => void,
     getError: GetError,
     getValue: GetValue,
+    getVisibilities: Visibilities,
 };
-export type UseRefmod = (params: UserefmodParams) => void;
+export type UseRefmod = (params: UseRefmodParams) => UseRefmodResult
 
-export const toUseOnChangeEvent = (element: ElementMod) => element.type === "radio" || element.type === "checkbox";
-
-export const updateRefValuesFromFormState = (formState: FormState, element: ElementMod, controlName: string, toUseOnChangeEvent: boolean) => {
-    let controlValue: ControlValue = formState.formValue[controlName]?.toString() || "";
-
-    if(toUseOnChangeEvent && (controlValue === "" || controlValue === null)){
-        if(element instanceof HTMLInputElement){
-            element.checked = (controlValue === "" || controlValue === null) ? false : true;
-        }
-    } else {
-        element.value = controlValue;
-    }
-};
-
-export const useRefmod = ({getFormState, controlName, getEventListeners, updateFormState, updateEventListeners, deleteEventListener, getError, getValue} : UserefmodParams) => {
+export const useRefmod: UseRefmod = ({getFormState, controlName, getEventListeners, updateFormState, deleteEventListener, getError, getValue, getVisibilities}) => {
     useEffect(() => {
         const eventListeners = getEventListeners();
         console.log('mount element!!');
@@ -49,19 +39,30 @@ export const useRefmod = ({getFormState, controlName, getEventListeners, updateF
         }
     }, []);
 
-    const ref = useCallback((element: ElementMod) => {
+    const {visibilitiesChanges} = useRef((() => {
+        let visibilitiesResult = getVisibilities({getFormState}).getVisibilitiesResult();
+        let changedCount = 0;
+        const getVisibilitiesResultNew = () => {
+            return getVisibilities({getFormState}).getVisibilitiesResult()
+        }
+        const visibilitiesChanges = () => {
+            const changed = !_.isEqual(getVisibilitiesResultNew(), visibilitiesResult);
+            if(changed){
+                changedCount++;
+                visibilitiesResult = getVisibilitiesResultNew();
+            }
+            return changedCount;
+        }
+        return {
+            visibilitiesChanges
+        }
+    })()).current
+
+    const ref: ((instance: HTMLInputElement | null) => void) = useCallback((element: ElementMod) => {
         const eventListeners = getEventListeners();
         if(element){
-            const listener = eventListeners.find((eventListener: ListenerObj) => {
-                return eventListener.controlName == controlName;
-            });
 
-            if(listener){
-                // reinit input
-
-                //listener.getFormState = getFormState;
-            } else {
-                // init input
+            const initInput = (indexReinit?: number) => {
                 let listenerObj: ListenerObj = {
                     timer: null,
                     getFormState,
@@ -71,19 +72,48 @@ export const useRefmod = ({getFormState, controlName, getEventListeners, updateF
                 };
                 listenerObj.listenerHandler = addEventListeners({element, controlName, updateFormState}).bind(listenerObj);
                 // set init value from formState
-                updateRefValuesFromFormState(getFormState(), element, controlName, toUseOnChangeEvent(element));
+                updateValueInputFromState(getFormState, element, controlName, toUseOnChangeEvent(element));
 
                 if(toUseOnChangeEvent(element)){
                     element.addEventListener("change", listenerObj.listenerHandler);
                 } else {
                     element.addEventListener("input", listenerObj.listenerHandler);
                 }
+
+                if(typeof indexReinit === "number"){
+                    if(!Object.is(listenerObj.element, eventListeners[indexReinit].element)){
+                        console.log('new element');
+                        eventListeners[indexReinit] = listenerObj;
+                    }
+                    //eventListeners[indexReinit] = listenerObj;
+                } else {
+                    eventListeners.push(listenerObj);
+                }
+            }
+
+            const listener = eventListeners.find((eventListener: ListenerObj, index) => {
+                const isFound = eventListener.controlName == controlName;
+                if(isFound){
+                    initInput(index);
+                }
+                return eventListener.controlName == controlName;
+            });
+
+            if(listener){
+                // reinit input
+                console.log('reinit input', listener.controlName);
+
+                //listener.getFormState = getFormState;
+            } else {
+                // init input
+                console.log('init input', controlName);
+
+                initInput();
                 //updateEventListeners();
-                console.log(updateEventListeners, 'updateEventListeners!');
-                eventListeners.push(listenerObj);
             }
         }
-    }, [getFormState()]);
+    }, [visibilitiesChanges()]);
+    // API
     return {
         ref,
         getError: () => getError({
@@ -92,6 +122,14 @@ export const useRefmod = ({getFormState, controlName, getEventListeners, updateF
         }),
         getValue: () => {
             return getValue({formState: getFormState(), controlName});
-        }
+        },
+        isVisible: () => {
+            const visibilities = getVisibilities({getFormState});
+            return visibilities.getVisibilityControl(controlName).isVisible;
+        },
+        isDisable: () => {
+            const visibilities = getVisibilities({getFormState});
+            return visibilities.getVisibilityControl(controlName).disable;
+        },
     };
 }

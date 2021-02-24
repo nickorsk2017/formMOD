@@ -41,14 +41,18 @@ export function Basic() {
                 label={"Last name"}
                 refMod={useRefmod("last_name")}
             />
-            <TextInput
-                label={"Address"}
-                refMod={useRefmod("address")}
-            />
             <OptionBox
                 label={"Do you have pets?"}
                 refMod={useRefmod("havePets")}
                 id="havePets"
+            />
+            {<TextInput
+                label={"Pet names"}
+                refMod={useRefmod("petName")}
+            />}
+             <TextInput
+                label={"Address"}
+                refMod={useRefmod("address")}
             />
             <button type="submit">Submit</button>
             <button type="button" onClick={setDefault}>Reset</button>

@@ -7,3 +7,4 @@ export {useStateForm} from "./useStateForm";
 export {getValidationControl} from "./getValidationControl";
 export {resetForm} from "./resetForm";
 export {useRefmod} from "./useRefmod";
+export {getVisibilities} from "./visibilities";
