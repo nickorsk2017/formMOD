@@ -29,7 +29,6 @@ export const useStateForm = (initFormState: FormState) => {
                     forceUpdate();
                 }, 20);
             }
-            console.log(formState, 'formState!');
             return formState;
         };
       

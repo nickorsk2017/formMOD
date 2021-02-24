@@ -11,17 +11,17 @@ export function Basic() {
     );
     
     const handleSubmit = function(event: any){
-        console.log("handleSubmit");
         if(event && event.preventDefault) {
 			event.preventDefault();
 		}
-        const formState = validate(true, (validation: any) => {
-            if(validation.valid) {
-                console.log(validation, 'valid!!');
+        validate(true, (validation: any, formValue: any) => {
+            if(validation) {
+                console.log(formValue, 'RESULT TRUE');
+            } else {
+                console.log(formValue, 'RESULT FALSE');
             }
         });
-        console.log(formState, 'result formState!');
-    }
+    };
     console.log('render!!');
 
     const setDefault = (event: any) => {

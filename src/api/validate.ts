@@ -2,7 +2,7 @@ import * as _ from 'lodash';
 import {getValidationControl} from "./getValidationControl";
 import {getValue} from "./getValue";
 import {Visibilities} from "../api/visibilities";
-import {FormState, ControlName} from "../types";
+import {FormState, ControlName, FormValue} from "../types";
 
 export type ValidateParams = {
     formState: FormState,
@@ -17,9 +17,25 @@ export type Validate = (params: ValidateParams) => FormState;
 export const validate: Validate = ({formState, updateValidation, callback, fromSetValue, updateFormState, getVisibilities}) => {
     let cloneRules = {};
     let formIsValid = true;
-    if(formState.rules){
-        const visibilities = getVisibilities({getFormState: () => formState});
+    const visibilities = getVisibilities({getFormState: () => formState});
 
+    const getNotVisibleInputs = () => {
+        return Object.keys(formState.formValue).filter((controlName: ControlName) => {
+            const isVisible = visibilities.getVisibilityControl(controlName).isVisible;
+            return !isVisible
+        });
+    };
+
+    const getValueForm = (formState: FormState): FormValue => {
+        const formValue = _.cloneDeep(formState.formValue);
+        const notVisibleInputs = getNotVisibleInputs();
+        notVisibleInputs.forEach((controlName: ControlName) => {
+            delete formValue[controlName]
+        });
+        return formValue;
+    }
+
+    if(formState.rules){
         Object.keys(formState.rules).forEach((controlName: ControlName) => {
             const resultValidationControl = getValidationControl({formState, controlName, controlValue: getValue({formState, controlName})});
             if(resultValidationControl){
@@ -45,10 +61,13 @@ export const validate: Validate = ({formState, updateValidation, callback, fromS
                 updateFormState(_formState);
             }
             if(typeof callback == "function"){
-                callback(_formState.valid);
+                callback(_formState.valid, getValueForm(_formState));
             }
             return _formState;
         }
+    }
+    if(typeof callback == "function"){
+        callback(formState.valid, getValueForm(formState));
     }
     return formState;
 }
