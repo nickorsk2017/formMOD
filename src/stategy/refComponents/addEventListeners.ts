@@ -4,13 +4,19 @@ import {
     ControlName,
     ElementMod,
 } from "../../types";
+import {Visibilities} from "../../api/visibilities";
 import {toUseOnChangeEvent} from "../../stategy/refComponents/updateValueInputFromState";
 import {UpdateFormState} from "../../api/useStateForm";
 
-export type AddEventListenersParams = {element: ElementMod, controlName: ControlName, updateFormState: UpdateFormState };
+export type AddEventListenersParams = {
+    element: ElementMod,
+    controlName: ControlName,
+    updateFormState: UpdateFormState,
+    getVisibilities: Visibilities,
+};
 export type AddEventListeners = (params: AddEventListenersParams) => Function;
 
-export const addEventListeners: AddEventListeners = ({element, controlName, updateFormState}) => {
+export const addEventListeners: AddEventListeners = ({element, controlName, updateFormState, getVisibilities}) => {
     if(element instanceof HTMLElement){
         const listenerHandler = function(event: any){
             let controlValue = event.target.value;
@@ -28,7 +34,7 @@ export const addEventListeners: AddEventListeners = ({element, controlName, upda
             if(this.getFormState().formValue && !_.isEqual(valueFromFormState, controlValue)){
                 clearTimeout(this.timer);
                 this.timer = setTimeout(() => {
-                    setValue({formState: this.getFormState(), controlName, controlValue, updateFormState, skipUpdate: _skipUpdate});
+                    setValue({formState: this.getFormState(), controlName, controlValue, updateFormState, skipUpdate: _skipUpdate, getVisibilities});
                 }, timeout);
             }
         }

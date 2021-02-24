@@ -49,7 +49,7 @@ export const getVisibilities : Visibilities = ({getFormState}) => {
             result[key] = getVisibilityControl(key);
         }
         return result;
-    } 
+    };
 
     return {
         getVisibilityControl,

@@ -70,7 +70,7 @@ export const useRefmod: UseRefmod = ({getFormState, controlName, getEventListene
                     element,
                     listenerHandler: () => {}
                 };
-                listenerObj.listenerHandler = addEventListeners({element, controlName, updateFormState}).bind(listenerObj);
+                listenerObj.listenerHandler = addEventListeners({element, controlName, updateFormState, getVisibilities}).bind(listenerObj);
                 // set init value from formState
                 updateValueInputFromState(getFormState, element, controlName, toUseOnChangeEvent(element));
 

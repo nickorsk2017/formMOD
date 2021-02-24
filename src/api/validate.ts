@@ -1,21 +1,37 @@
 import * as _ from 'lodash';
 import {getValidationControl} from "./getValidationControl";
 import {getValue} from "./getValue";
+import {Visibilities} from "../api/visibilities";
 import {FormState, ControlName} from "../types";
 
-export const validate = ({formState, updateValidation, callback, fromSetValue, updateFormState} : {formState: FormState, updateValidation: boolean, callback?: Function, fromSetValue: boolean, updateFormState: (updateFormState: FormState) => any}): FormState  => {
+export type ValidateParams = {
+    formState: FormState,
+    updateValidation: boolean,
+    callback?: Function,
+    fromSetValue: boolean,
+    updateFormState: (updateFormState: FormState) => any,
+    getVisibilities: Visibilities
+};
+export type Validate = (params: ValidateParams) => FormState;
+
+export const validate: Validate = ({formState, updateValidation, callback, fromSetValue, updateFormState, getVisibilities}) => {
     let cloneRules = {};
     let formIsValid = true;
     if(formState.rules){
+        const visibilities = getVisibilities({getFormState: () => formState});
+
         Object.keys(formState.rules).forEach((controlName: ControlName) => {
             const resultValidationControl = getValidationControl({formState, controlName, controlValue: getValue({formState, controlName})});
             if(resultValidationControl){
-                if(!resultValidationControl.validationStatus){
+                // the input is ignored if input not visible
+                const isVisible = visibilities.getVisibilityControl(controlName).isVisible;
+                if(!resultValidationControl.validationStatus && isVisible){
                     formIsValid = false;
                 }
                 cloneRules[controlName] = resultValidationControl.rulesControl;
             }
         });
+
         if(!_.isEqual(formState.rules, cloneRules) || fromSetValue){
             let _formState: FormState;
             if(fromSetValue){
