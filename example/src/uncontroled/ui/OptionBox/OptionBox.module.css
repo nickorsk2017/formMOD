@@ -3,7 +3,6 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    margin-bottom: 16px;
     padding: 10px;
 }
 .checkBoxInputSpec {
@@ -44,7 +43,7 @@
 .checkBoxLabelText {
     font-style: normal;
     font-weight: normal;
-    color: #244D51;
+    color: green;
     font-size: 16px;
     letter-spacing: -0.3px;
 }

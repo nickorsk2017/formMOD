@@ -22,14 +22,16 @@ const App = () => {
           </li>
         </ul>
     </nav>
-    <Switch>
-      <Route path="/controlled">
-        <Basic />
-      </Route>
-      <Route path="/uncontrolled">
-        <BasicUncontroled />
-      </Route>
-    </Switch>
+    <div id="appContainer">
+      <Switch>
+        <Route path="/controlled">
+          <Basic />
+        </Route>
+        <Route path="/uncontrolled">
+          <BasicUncontroled />
+        </Route>
+      </Switch>
+    </div>
   </Router>)
 }
 

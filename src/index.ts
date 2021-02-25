@@ -17,6 +17,7 @@ import {
   ListenerObj,
   GetEventListeners,
 } from "./types";
+export {useCountRender} from "./utils";
 export * as Types from "./types";
 
 export const useFormMod = (initFormState: FormState, useControledForm: boolean | undefined = false) => {

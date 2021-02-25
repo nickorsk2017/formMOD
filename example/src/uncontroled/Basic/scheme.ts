@@ -35,19 +35,19 @@ export default {
                         return value.length > 5
                     }
                 },
-                message: "length should be more than 5 lenght"
+                message: "length should be more than 5"
             }
         ],
         havePets: [
             {
                 name: "empty",
-                message: "do you have pets?"
+                message: ""
             },
         ],
         petName: [
             {
                 name: "empty",
-                message: "pets names is required?"
+                message: "please write about your pets"
             },
         ]
     }

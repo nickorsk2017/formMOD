@@ -1,6 +1,6 @@
 import React from 'react'
-import {useFormMod} from "formmod";
-import {TextInput} from "../ui";
+import {useFormMod, useCountRender} from "formmod";
+import {TextInput, Button} from "../ui";
 import FORM_SCHEME from "./scheme";
 import styles from './Basic.module.css';
 
@@ -15,8 +15,8 @@ export function Basic() {
         if(event && event.preventDefault) {
 			event.preventDefault();
 		}
-        validate(true, (validation: any, formValue: any) => {
-            if(validation) {
+        validate(true, (valid: boolean, formValue: any) => {
+            if(valid) {
                 console.log(formValue, 'RESULT TRUE');
             } else {
                 console.log(formValue, 'RESULT FALSE');
@@ -32,8 +32,14 @@ export function Basic() {
         resetForm();
     };
 
+    // count of render
+    const {getCountRender, counter} = useCountRender();
+    counter();
+    // count of render [END]
+        
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
+            <div className={styles.count}>Count render: {getCountRender()}</div>
             <TextInput
                 label={"First name"}
                 value={getValue("first_name")}
@@ -46,8 +52,10 @@ export function Basic() {
                 error={getError("last_name")}
                 onChange={(value: string) => setValue("last_name", value)}
             />
-            <button type="submit">Submit</button>
-            <button type="button" onClick={setDefault}>Reset</button>
+            <div className={styles.buttons}>
+                <Button type="submit" title="Submit"/>
+                <Button theme="LIGHT" onClick={setDefault} title="Reset"/>
+            </div>
         </form>
     )
 }
