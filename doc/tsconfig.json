@@ -28,6 +28,10 @@
     "isolatedModules": true,
     "noEmit": true
   },
+  "baseUrl": "./",
+  "paths": {
+    "@ui": ["src/ui/"],
+  },
   "include": [
     "src",
    // "node_modules",

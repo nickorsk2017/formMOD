@@ -16,7 +16,7 @@ code {
 nav {
   display: flex;
   flex-direction: row;
-  background-color: green;
+  background-color: #54c270;
 }
 ul, li {
   display: inline-block;

@@ -18,7 +18,7 @@ const App = () => {
             <Link to="/controlled">Controlled</Link>
           </li>
           <li>
-            <Link to="/uncontrolled">Uncontrolled</Link>
+            <Link to="/uncontrolled">Reference</Link>
           </li>
         </ul>
     </nav>

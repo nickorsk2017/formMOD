@@ -5,7 +5,7 @@
     padding: 10px;
     display: flex;
     flex-direction: column;
-    background-color: green;
+    background-color: #54c270;
     color: #fff;
     padding: 4px 24px;
     border-radius: 4px;
@@ -21,7 +21,7 @@
 
 .containerLight {
     background-color: transparent;
-    color: green;
+    color: #54c270;
     border: 1px solid transparent;
 }
 

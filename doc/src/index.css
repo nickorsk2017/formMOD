@@ -8,6 +8,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   height: 100%;
+  display: block;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 * {
   box-sizing: border-box;
@@ -21,12 +24,15 @@ code {
 #app-nav {
   display: flex;
   flex-direction: column;
-  background-color: #e6e6e6;
-  border-right: 1px solid #3a3a3a;
+  background-color: #ffffff;
+  border-right: 1px solid #ededed;
   flex-basis: 280px;
   padding-top: 20px;
   box-sizing: border-box;
   height: 100%;
+  min-width: 280px;
+  overflow-y: auto;
+  box-shadow: 0 16px 38px -12px rgb(0 0 0 / 56%), 0 4px 25px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(0 0 0 / 20%);
 }
 ul, li {
   display: inline-block;
@@ -45,8 +51,8 @@ nav a {
   font-size: 15px;
 }
 nav .active {
-  color: green !important;
- }
+  color: #22a243 !important;
+}
 #root {
   display: flex;
   height: 100%;
@@ -56,4 +62,5 @@ nav .active {
   display: flex;
   flex-grow: 1;
   height: 100%;
+  overflow-y: auto;
 }

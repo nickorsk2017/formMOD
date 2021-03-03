@@ -1,6 +1,7 @@
 import * as _ from 'lodash';
 import {useCallback, useEffect, useRef } from 'react';
-import {addEventListeners, removeEventListeners} from "../stategy";
+import {addEventListeners} from "../stategy/refComponents/addEventListeners";
+import {removeEventListeners} from "../stategy/refComponents/removeEventListeners";
 import {
     FormState,
     ElementMod,

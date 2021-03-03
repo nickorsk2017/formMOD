@@ -1,0 +1,34 @@
+.container {
+    
+}
+.container [content-header] {
+    font-size: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: "Open sans";
+    color: #54c270;
+}
+.container [content-ul] {
+    display: inline-block;
+    width: 100%;
+    padding: 24px;
+    margin: 16px 0;
+    max-width: 700px;
+
+    border: 0;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-radius: 6px;
+    color: #333333;
+    background: #fff;
+    box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+}
+.container [content-ul] li {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 16px;
+}
+.container [content-help] {
+    height: 50px;
+    width: 100%;
+}
