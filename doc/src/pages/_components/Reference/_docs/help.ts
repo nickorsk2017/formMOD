@@ -1,0 +1,1 @@
+export default `<div content-help>Do you like it? Please support us.  </div>`

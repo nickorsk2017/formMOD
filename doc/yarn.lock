@@ -10115,6 +10115,11 @@ test-exclude@^5.2.3:
     read-pkg-up "^4.0.0"
     require-main-filename "^2.0.0"
 
+testing-library__dom@^7.29.4-beta.1:
+  version "7.29.4-beta.1"
+  resolved "https://registry.yarnpkg.com/testing-library__dom/-/testing-library__dom-7.29.4-beta.1.tgz#dc755f485837e923efbe12c1b7ae43b0ed326f96"
+  integrity sha512-vb/SMg8rXYcYYFY2eQ2n2a0p2VWNAseM4WHLfsckIyLwxRz5fYqKysUzUYpAX8SwRfruRK+tZqLuL4ND+D1s7Q==
+
 text-table@0.2.0, text-table@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"

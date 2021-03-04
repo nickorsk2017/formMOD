@@ -6,7 +6,7 @@ import {
   getError,
   validate,
   resetForm,
-  useRefmod,
+  useRefMod,
   useStateForm,
   getVisibilities,
 } from "./api";
@@ -62,7 +62,7 @@ export const useFormMod = (initFormState: FormState, useControledForm: boolean |
       validate: (updateValidation: boolean, callback: Function) => validate({formState: getFormState(), updateValidation, callback, fromSetValue: false, updateFormState, getVisibilities}),
       getError: (controlName: ControlName) => getError({formState: getFormState(), controlName}),
       resetForm: () => resetForm({initFormState, formState: getFormState(), updateFormState, getEventListeners}),
-      useRefmod: (controlName: ControlName) => useRefmod({getFormState, controlName, getEventListeners, updateFormState, deleteEventListener, getError, getValue, getVisibilities}),
+      useRefMod: (controlName: ControlName) => useRefMod({getFormState, controlName, getEventListeners, updateFormState, deleteEventListener, getError, getValue, getVisibilities}),
       getVisibilities: () => getVisibilities({getFormState})
     };
   }

@@ -23,6 +23,7 @@
     "react-dom": "link:../node_modules/react-dom",
     "react-router-dom": "^5.2.0",
     "react-scripts": "link:../node_modules/react-scripts",
+    "testing-library__dom": "^7.29.4-beta.1",
     "typescript": "link:../node_modules/typescript"
   },
   "devDependencies": {

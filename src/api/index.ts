@@ -6,5 +6,5 @@ export {validate} from './validate';
 export {useStateForm} from "./useStateForm";
 export {getValidationControl} from "./getValidationControl";
 export {resetForm} from "./resetForm";
-export {useRefmod} from "./useRefmod";
+export {useRefMod} from "./useRefMod";
 export {getVisibilities} from "./visibilities";

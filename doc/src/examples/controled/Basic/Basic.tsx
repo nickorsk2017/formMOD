@@ -1,10 +1,10 @@
-import React, {memo} from 'react'
+import React from 'react'
 import {useFormMod, useCountRender} from "formmod";
 import {TextInput, Button} from "../ui";
 import FORM_SCHEME from "./scheme";
 import styles from './Basic.module.css';
 
-export const Basic = memo(() => {
+export function Basic() {
     const {setValue, getValue, getError, validate, resetForm} = useFormMod(
         FORM_SCHEME,
         false
@@ -58,4 +58,4 @@ export const Basic = memo(() => {
             </div>
         </form>
     )
-});
+}

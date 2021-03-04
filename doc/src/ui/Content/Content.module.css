@@ -8,6 +8,8 @@
     font-family: "Open sans";
     color: #54c270;
 }
+.container[pre-wraped],
+.container [content-code],
 .container [content-ul] {
     display: inline-block;
     width: 100%;
@@ -22,6 +24,7 @@
     color: #333333;
     background: #fff;
     box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+    word-wrap: break-word;
 }
 .container [content-ul] li {
     display: inline-block;
@@ -31,4 +34,18 @@
 .container [content-help] {
     height: 50px;
     width: 100%;
+}
+.container [content-code] code {
+    display: inline-block;
+    word-break: break-word;
+    width: 100%;
+    /*white-space: pre-wrap;*/
+    overflow-y: auto;
+}
+.container[pre-wraped] {
+    display: inline-block;
+    word-break: break-word;
+    width: 100%;
+    white-space: pre-wrap;
+    overflow-y: auto;
 }

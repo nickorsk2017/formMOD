@@ -5,26 +5,43 @@ import {
   Route,
 } from "react-router-dom";
 import {RouterApp} from "./router";
-import {Introduction} from "./pages";
-import { Basic } from './controled/Basic/Basic';
-import { Basic as BasicUncontroled } from './uncontroled/Basic/Basic';
+import {Introduction, Controlled, Reference} from "./pages";
 
 const App = () => {
   return (
     <Router>
       <RouterApp/>
       <div id="appContainer">
+        <a className="super-github" href="https://github.com/nickorsk2017/formMOD"><i className="fab fa-github"></i></a>
         <Switch>
           <Route exact strict path="/"><Introduction/></Route>
           <Route path="/controlled">
-            <Basic/>
+            <Controlled/>
           </Route>
           <Route path="/uncontrolled">
-            <BasicUncontroled />
+            <Reference />
           </Route>
-          <Route path="/rules">
-            <BasicUncontroled />
+
+          <Route path="/roules/email">
+             Empty
           </Route>
+
+          <Route path="/roules/empty">
+            Empty
+          </Route>
+
+          <Route path="/roules/custom">
+            Empty
+          </Route>
+
+          <Route path="/roules/max">
+            Empty
+          </Route>
+
+          <Route path="/roules/min">
+            Empty
+          </Route>
+
         </Switch>
       </div>
   </Router>)

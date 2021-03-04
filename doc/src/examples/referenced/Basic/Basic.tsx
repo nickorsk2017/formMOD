@@ -1,13 +1,12 @@
-import React, {memo} from 'react'
+import React from 'react'
 import {useFormMod, useCountRender} from "formmod";
-import {TextInput, OptionBox, Button} from "../ui";
+import {TextInput, Button} from "../ui";
 import FORM_SCHEME from "./scheme";
 import styles from './Basic.module.css';
 
-export const Basic = memo(() => {
-    const {validate, resetForm, useRefmod} = useFormMod(
-        FORM_SCHEME,
-        true
+export function Basic() {
+    const {validate, resetForm, useRefMod} = useFormMod(
+        FORM_SCHEME
     );
     
     const handleSubmit = (event: React.SyntheticEvent) => {
@@ -16,13 +15,14 @@ export const Basic = memo(() => {
 		}
         validate(true, (valid: boolean, formValue: any) => {
             if(valid) {
+                alert("This form is VALID, check result in console of browser");
                 console.log(formValue, 'RESULT TRUE');
             } else {
+                alert("This form is NOT VALID, check result in console of browser");
                 console.log(formValue, 'RESULT FALSE');
             }
         });
     };
-    console.log('render!!');
 
     const setDefault = (event: any) => {
         if(event && event.preventDefault) {
@@ -40,30 +40,17 @@ export const Basic = memo(() => {
         <form onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.count}>Count render: {getCountRender()}</div>
             <TextInput
-                label={"First name"}
-                refMod={useRefmod("first_name")}
-            />
-             <TextInput
-                label={"Last name"}
-                refMod={useRefmod("last_name")}
-            />
-            <OptionBox
-                label={"Do you have pets?"}
-                refMod={useRefmod("havePets")}
-                id="havePets"
+                label={"Your full name"}
+                refMod={useRefMod("full_name")}
             />
             {<TextInput
-                label={"Pet names"}
-                refMod={useRefmod("petName")}
+                label={"Favorite pet"}
+                refMod={useRefMod("petName")}
             />}
-             <TextInput
-                label={"Address"}
-                refMod={useRefmod("address")}
-            />
             <div className={styles.buttons}>
                 <Button type="submit" title="Submit"/>
                 <Button theme="LIGHT" onClick={setDefault} title="Reset"/>
             </div>
         </form>
     )
-});
+}

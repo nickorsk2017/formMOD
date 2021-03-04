@@ -28,7 +28,7 @@ You can make a great apps faster and easy. </br></br>
 
 <ul content-ul>
     <li>
-        <b>1. The reference inputs </b> - make new inputs for your <b>UIkit</b> easy with fast performace.
+        <b>1. The reference inputs </b> - make new inputs for your <b>UIkit</b> easy and with fast performace.
     </li>
     <li>
         <b>2. The controlled inputs</b> - use this way for a legacy inputs or UIkit libraries.</br>
@@ -37,7 +37,7 @@ You can make a great apps faster and easy. </br></br>
         <b>3. The rules</b> - email, empty, max, min and custom validator from box</br>
     </li>
     <li>
-        <b>4. The visibilities </b> - make easy optional or disabled inputs.
+        <b>4. The visibilities </b> - make easy optional or disabled inputs by experiense or business logic.
     </li>
 </ul>
 

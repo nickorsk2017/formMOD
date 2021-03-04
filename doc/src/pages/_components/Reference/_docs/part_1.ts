@@ -1,0 +1,8 @@
+export default `
+<h1 content-header class="content-header">Referenced components</h1>
+
+Use this API for making your UIKit.<br/>
+This API has best performance and easy to use then controlled.<br/>
+The controll components work by links from form model.<br/><br/><br/>
+
+`

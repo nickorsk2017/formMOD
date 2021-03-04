@@ -64,3 +64,57 @@ nav .active {
   height: 100%;
   overflow-y: auto;
 }
+.super-github {
+  display: inline-block;
+  position: absolute;
+  right: 30px;
+  top: 5px;
+  font-size: 30px;
+  color: #333;
+  overflow: visible;
+  border: none;
+  text-transform: none;
+  background: transparent;
+}
+
+/* fixes code hightligh*/
+.token.punctuation {
+  color: #000 !important;
+}
+.token.selector,
+.token.important,
+.token.atrule,
+.token.keyword,
+.token.builtin {
+  color: #813782 !important;
+}
+.token.string, .token.char, .token.attr-value, .token.regex, .token.variable {
+  color: #207e43 !important;
+}
+.line-numbers-rows > span {
+  display: inline-block;
+  counter-increment: linenumber;
+}
+.line-numbers-rows > span:before {
+  content: counter(linenumber);
+  color: #999;
+  display: inline-block;
+  padding-right: 0.8em;
+  text-align: right;
+  position: unset !important;
+}
+.line-numbers .line-numbers-rows {
+  position: unset !important;
+  pointer-events: unset !important;
+  top: unset;
+  font-size: inherit;
+  left: inherit;
+  width: inherit;
+  letter-spacing: inherit;
+  border-right: inherit;
+  user-select: unset !important;
+}
+.formmod__subtitle {
+  color: #000;
+  font-size: 23px;
+}

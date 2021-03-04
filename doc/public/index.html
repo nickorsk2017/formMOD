@@ -17,12 +17,12 @@
     <link href="%PUBLIC_URL%/fontawesome/css/all.min.css" rel="stylesheet">
     <link href="%PUBLIC_URL%/fontawesome/css/solid.min.css" rel="stylesheet">
     <link href="%PUBLIC_URL%/fontawesome/css/fontawesome.min.css" rel="stylesheet">
-
+    <link href="%PUBLIC_URL%/lib/prism.css" rel="stylesheet"></javascript>
     <title>formMOD</title>
 
   </head>
 
-  <body>
+  <body class="line-numbers line-numbers-rows">
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>
@@ -39,5 +39,10 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+      window.Prism = window.Prism || {};
+      window.Prism.manual = true;
+    </script>
+    <script data-manual src="%PUBLIC_URL%/lib/prism.js"></script>
   </body>
 </html>

@@ -5,7 +5,7 @@ import FORM_SCHEME from "./scheme";
 import styles from './Basic.module.css';
 
 export function Basic() {
-    const {validate, resetForm, useRefmod} = useFormMod(
+    const {validate, resetForm, useRefMod} = useFormMod(
         FORM_SCHEME,
         true
     );
@@ -41,24 +41,24 @@ export function Basic() {
             <div className={styles.count}>Count render: {getCountRender()}</div>
             <TextInput
                 label={"First name"}
-                refMod={useRefmod("first_name")}
+                refMod={useRefMod("first_name")}
             />
              <TextInput
                 label={"Last name"}
-                refMod={useRefmod("last_name")}
+                refMod={useRefMod("last_name")}
             />
             <OptionBox
                 label={"Do you have pets?"}
-                refMod={useRefmod("havePets")}
+                refMod={useRefMod("havePets")}
                 id="havePets"
             />
             {<TextInput
                 label={"Pet names"}
-                refMod={useRefmod("petName")}
+                refMod={useRefMod("petName")}
             />}
              <TextInput
                 label={"Address"}
-                refMod={useRefmod("address")}
+                refMod={useRefMod("address")}
             />
             <div className={styles.buttons}>
                 <Button type="submit" title="Submit"/>

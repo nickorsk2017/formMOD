@@ -8,7 +8,7 @@ import {
     ListenerObj,
     ControlName,
     GetEventListeners,
-    UseRefmodResult,
+    useRefModResult,
 } from "../types";
 import {updateValueInputFromState, toUseOnChangeEvent} from "../stategy/refComponents/updateValueInputFromState";
 import {Visibilities} from "../api/visibilities";
@@ -16,7 +16,7 @@ import {GetValue} from "../api/getValue";
 import {GetError} from "../api/getError";
 import {UpdateFormState} from "../api/useStateForm";
 
-export type UseRefmodParams = {
+export type useRefModParams = {
     getFormState: () => FormState,
     controlName: ControlName,
     getEventListeners: GetEventListeners,
@@ -27,9 +27,9 @@ export type UseRefmodParams = {
     getValue: GetValue,
     getVisibilities: Visibilities,
 };
-export type UseRefmod = (params: UseRefmodParams) => UseRefmodResult
+export type useRefMod = (params: useRefModParams) => useRefModResult
 
-export const useRefmod: UseRefmod = ({getFormState, controlName, getEventListeners, updateFormState, deleteEventListener, getError, getValue, getVisibilities}) => {
+export const useRefMod: useRefMod = ({getFormState, controlName, getEventListeners, updateFormState, deleteEventListener, getError, getValue, getVisibilities}) => {
     useEffect(() => {
         const eventListeners = getEventListeners();
         console.log('mount element!!');

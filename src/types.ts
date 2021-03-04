@@ -42,11 +42,11 @@ export type ListenerObj = {
     listenerHandler: () => void | EventListenerObject
 };
 
-export type UseRefmodResult = {
+export type useRefModResult = {
     ref: ((instance: HTMLInputElement) => void),
     getError: () => string | null,
     getValue: () => ControlValue,
     isVisible: () => boolean,
     isDisable: () => boolean,
 };
-export type UseRefmodAPI = (controlName: ControlName) => UseRefmodResult
+export type useRefModAPI = (controlName: ControlName) => useRefModResult
