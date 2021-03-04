@@ -4,6 +4,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import {HelpUs} from "./ui";
 import {RouterApp} from "./router";
 import {Introduction, Controlled, Reference} from "./pages";
 
@@ -13,6 +14,7 @@ const App = () => {
       <RouterApp/>
       <div id="appContainer">
         <a className="super-github" href="https://github.com/nickorsk2017/formMOD"><i className="fab fa-github"></i></a>
+        <HelpUs/>
         <Switch>
           <Route exact strict path="/"><Introduction/></Route>
           <Route path="/controlled">

@@ -7,7 +7,6 @@ import {
   PART_4,
   CODE_INPUT,
   CODE_FORM,
-  HELP,
   SCHEME
 } from "./_docs";
 import {getCodeSnippet} from "../../../utils";
@@ -35,7 +34,6 @@ export const Reference = () => {
         <div className="formmod__subtitle">Control code:</div>
         <Content preWrap={true} content={_CODE_INPUT}/>
         <Content content={PART_4}/><br/>
-        <Content content={HELP}/>
       </div>
     )
 }
