@@ -1,23 +1,21 @@
 export default (() => {
     const code = `
     //The code of form
-
     import React from 'react'
     import {useFormMod} from "formmod";
-    // STEP 1 import form scheme
+    // STEP 1: import form scheme
     import FORM_SCHEME from "./scheme";
     // Some code ...
-
     
     export function MyForm(props: any) {
-        // STEP 2 useFormMod for making a model of form.
+        // STEP 2: use form system
         const {validate, resetForm, useRefMod} = useFormMod(
             FORM_SCHEME(props.value || {})
         );
 
         // Some code ...
 
-        // STEP 3 connect system to components.
+        // STEP 3: connect controls to components.
         return (
             <form onSubmit={handleSubmit} className={styles.form}>
                 ...

@@ -17,7 +17,7 @@ export const RouterApp = memo(() => {
     
     return (
         <nav id="app-nav">
-        <img className={styles.logo} alt="img" src="./formModLogo.svg"/>
+        <img className={styles.logo} alt="img" src="./public/formModLogo.svg"/>
 
         <div className={styles.selfItem}>
           <NavLink exact={true} activeClassName="active" to="/">Introduction</NavLink>

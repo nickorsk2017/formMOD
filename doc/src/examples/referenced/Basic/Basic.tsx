@@ -15,11 +15,9 @@ export function Basic() {
 		}
         validate(true, (valid: boolean, formValue: any) => {
             if(valid) {
-                alert("This form is VALID, check result in console of browser");
-                console.log(formValue, 'RESULT TRUE');
+                console.log(formValue, 'Form is valid');
             } else {
-                alert("This form is NOT VALID, check result in console of browser");
-                console.log(formValue, 'RESULT FALSE');
+                console.log(formValue, 'Form is not valid');
             }
         });
     };
@@ -35,7 +33,7 @@ export function Basic() {
     const {getCountRender, counter} = useCountRender();
     counter();
     // count of render [END]
-
+    
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.count}>Count render: {getCountRender()}</div>

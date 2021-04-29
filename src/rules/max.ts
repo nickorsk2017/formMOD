@@ -1,17 +1,17 @@
-import { FormRule } from "../types";
+import { FormRule } from '../types';
 
-export class max {
-  static validate = (value: string | number, rule: FormRule) => {
-    let valid = false;
-    if(rule.params){
-      if(typeof value === "number" && typeof rule.params.min === "number"){
+export const max = {
+  validate: (value: string | number, rule: FormRule) => {
+    const valid = false;
+    if (rule.params) {
+      if (typeof value === 'number' && typeof rule.params.min === 'number') {
         return value <= rule.params.min;
       } else {
-        if(typeof value === "string" && typeof rule.params.min === "number") {
+        if (typeof value === 'string' && typeof rule.params.min === 'number') {
           return value.length <= rule.params.min;
         }
       }
     }
     return valid;
   }
-}
+};

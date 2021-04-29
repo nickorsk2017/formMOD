@@ -1,6 +1,6 @@
 import React from 'react';
 import {Types} from "formmod";
-import './TextInput.css';
+import styles from './TextInput.module.css';
 
 export const TextInput = (props: {label: string, refMod: Types.useRefModResult}) => {
     const {refMod, label} = props;
@@ -11,10 +11,10 @@ export const TextInput = (props: {label: string, refMod: Types.useRefModResult})
     }
 
     return (
-      <div className="text-input">
-        {label && <label className="text-input__label">{label}</label>}
-        <input className="text-input__input" ref={refMod.ref}/>
-        {refMod.getError() && <span className="text-input__error">{refMod.getError()}</span>}
+      <div className={styles.textInput}>
+        {label && <label className={styles.label}>{label}</label>}
+        <input className={styles.input} ref={refMod.ref}/>
+        {refMod.getError() && <span className={styles.error}>{refMod.getError()}</span>}
       </div>
     )
 }

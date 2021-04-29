@@ -41,5 +41,4 @@ You can make a great apps faster and easy. </br></br>
     </li>
 </ul>
 
-<div content-help>Do you like it? Please support us.  </div>
 `

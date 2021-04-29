@@ -1,5 +1,4 @@
 export default `
-// FORM_SCHEME.json
 
 export default (initFormValue: {} || object) =>  {
     valid: null,

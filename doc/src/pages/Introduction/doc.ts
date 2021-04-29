@@ -10,17 +10,15 @@ You can make a great apps faster and easy. </br></br>
 <ul content-ul>
     <li>
         <b>1. Best performance </b> - the rendering and touching of application only when need. </br>
-        The maximum performace for the reference inputs from box.</br>
-        Use debouncing for controlled inputs.</br>
     </li>
     <li>
-        <b>2. Easy to use</b> - nake a hard things with easy and fast way.</br>
+        <b>2. Easy to use</b> - create a hard things with easy and fast way.</br>
     </li>
     <li>
-        <b>3. Maximum functionality and flexible</b> - use form system for all solutions</br>
+        <b>3. Maximum functionality and flexible</b> - use form system for all needs.</br>
     </li>
     <li>
-        <b>4. Make a forms faster</b> with JSON scheme</b>
+        <b>4. Make a forms faster</b> with JSON scheme. Minimum work.</b>
     </li>
 </ul>
 
@@ -28,16 +26,16 @@ You can make a great apps faster and easy. </br></br>
 
 <ul content-ul>
     <li>
-        <b>1. The reference inputs </b> - make new inputs for your <b>UIkit</b> easy with fast performace.
+        <b>1. The reference (uncontrolled) controls API </b> - make your <b>UIkit</b> easy with best performace.
     </li>
     <li>
-        <b>2. The controlled inputs</b> - use this way for a legacy inputs or UIkit libraries.</br>
+        <b>2. The controlled controls API</b> - better for UIkit libraries(e.g. material UI, bootstrap) or use it for classic UI components.</br>
     </li>
     <li>
-        <b>3. The rules</b> - email, empty, max, min and custom validator from box</br>
+        <b>3. The rules for validation</b> - email, empty, max, min, custom validator from box</br>
     </li>
     <li>
-        <b>4. The visibilities </b> - make easy optional or disabled inputs.
+        <b>4. The visibilities </b> - for optional / disabled controls.
     </li>
 </ul>
 

@@ -5,8 +5,8 @@ import {
   PART_2,
   PART_3,
   PART_4,
-  CODE_INPUT,
-  CODE_FORM,
+  INPUT_CODE,
+  FORM_CODE,
   SCHEME
 } from "./_docs";
 import {getCodeSnippet} from "../../../utils";
@@ -16,8 +16,8 @@ import styles from './Reference.module.css';
 export type ReferenceParams = {};
 
 export const Reference = () => {
-    const _CODE_INPUT = getCodeSnippet(CODE_INPUT, 'javascript');
-    const _CODE_FORM = getCodeSnippet(CODE_FORM, 'javascript');
+    const _INPUT_CODE = getCodeSnippet(INPUT_CODE, 'javascript');
+    const _FORM_CODE = getCodeSnippet(FORM_CODE, 'javascript');
     const _SCHEME = getCodeSnippet(SCHEME, 'javascript');
 
     return (
@@ -25,14 +25,14 @@ export const Reference = () => {
         <Content content={PART_1}/>
         <div className="formmod__subtitle">Live example:</div><br/>
         <BasicReferencedForm/><br/>
-        <div className="formmod__subtitle">Form code:</div>
-        <Content preWrap={true} content={_CODE_FORM}/>
+        <div className="formmod__subtitle">Form component:</div>
+        <Content preWrap={true} content={_FORM_CODE}/>
         <Content content={PART_2}/><br/>
         <div className="formmod__subtitle">Form scheme:</div>
         <Content preWrap={true} content={_SCHEME}/>
         <Content content={PART_3}/><br/>
-        <div className="formmod__subtitle">Control code:</div>
-        <Content preWrap={true} content={_CODE_INPUT}/>
+        <div className="formmod__subtitle">Control component:</div>
+        <Content preWrap={true} content={_INPUT_CODE}/>
         <Content content={PART_4}/><br/>
       </div>
     )
