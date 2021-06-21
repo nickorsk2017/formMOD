@@ -38,6 +38,4 @@ You can make a great apps faster and easy. </br></br>
         <b>4. The visibilities </b> - for optional / disabled controls.
     </li>
 </ul>
-
-<div content-help>Do you like it? Please support us.  </div>
 `

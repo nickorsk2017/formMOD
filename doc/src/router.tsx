@@ -29,7 +29,7 @@ export const RouterApp = memo(() => {
             {checkOpendItems("basicSection") && 
             <>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/uncontrolled">Referenced</NavLink>
+                <NavLink activeClassName="active" to="/uncontrolled">Reference</NavLink>
               </li>
                 <li className={styles.navItem}>
                 <NavLink to="/controlled">Controlled</NavLink>
@@ -44,19 +44,22 @@ export const RouterApp = memo(() => {
             {checkOpendItems("rules") && 
             <>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/roules/empty">empty</NavLink>
+                <NavLink exact={true} activeClassName="active" to="/rules">Introduction</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/roules/email">email</NavLink>
+                <NavLink activeClassName="active" to="/rules/empty">empty</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/roules/func">custom</NavLink>
+                <NavLink activeClassName="active" to="/rules/email">email</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/roules/max">max</NavLink>
+                <NavLink activeClassName="active" to="/rules/custom">custom</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/roules/min">min</NavLink>
+                <NavLink activeClassName="active" to="/rules/max">max</NavLink>
+              </li>
+              <li className={styles.navItem}>
+                <NavLink activeClassName="active" to="/rules/min">min</NavLink>
               </li>
             </>}
           </ul>

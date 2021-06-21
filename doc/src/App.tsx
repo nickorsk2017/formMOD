@@ -4,9 +4,19 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import {HelpUs} from "./ui";
+import {HelpUs, Page404} from "./ui";
 import {RouterApp} from "./router";
-import {Introduction, Controlled, Reference} from "./pages";
+import {
+  Introduction,
+  Controlled,
+  Reference,
+  IntroductionRules,
+  EmptyRule,
+  EmailRule,
+  MaxRule,
+  MinRule,
+  CustomRule
+} from "./pages";
 
 const App = () => {
   return (
@@ -23,26 +33,30 @@ const App = () => {
           <Route path="/uncontrolled">
             <Reference />
           </Route>
-
-          <Route path="/roules/email">
-             Empty
+  
+          <Route exact strict path='/rules'>
+            <IntroductionRules/>
+          </Route>
+          <Route path='/rules/empty' strict>
+            <EmptyRule/>
+          </Route>
+          <Route path='/rules/email' strict>
+            <EmailRule/>
           </Route>
 
-          <Route path="/roules/empty">
-            Empty
+          <Route path='/rules/max' strict>
+            <MaxRule/>
           </Route>
 
-          <Route path="/roules/custom">
-            Empty
+          <Route path='/rules/min' strict>
+            <MinRule/>
           </Route>
 
-          <Route path="/roules/max">
-            Empty
+          <Route path='/rules/custom' strict>
+            <CustomRule/>
           </Route>
 
-          <Route path="/roules/min">
-            Empty
-          </Route>
+          <Route component={Page404} />
 
         </Switch>
       </div>
