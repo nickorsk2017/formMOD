@@ -71,10 +71,10 @@ export const RouterApp = memo(() => {
             {checkOpendItems("visibilities") && 
             <>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/uncontrolled">Reference</NavLink>
+                <NavLink activeClassName="active" to="/uncontrolled-visibilities">Reference</NavLink>
               </li>
                 <li className={styles.navItem}>
-                <NavLink to="/controlled">Controlled</NavLink>
+                <NavLink to="/controlled-visibilities">Controlled</NavLink>
               </li>
             </>}
           </ul>

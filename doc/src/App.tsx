@@ -11,6 +11,8 @@ import {
   Controlled,
   Reference,
   IntroductionRules,
+  ControlledVisibilities,
+  ReferenceVisibilities,
   EmptyRule,
   EmailRule,
   MaxRule,
@@ -54,6 +56,15 @@ const App = () => {
 
           <Route path='/rules/custom' strict>
             <CustomRule/>
+          </Route>
+
+
+          <Route path='/uncontrolled-visibilities' strict>
+            <ReferenceVisibilities/>
+          </Route>
+
+          <Route path='/controlled-visibilities' strict>
+            <ControlledVisibilities/>
           </Route>
 
           <Route component={Page404} />

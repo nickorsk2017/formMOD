@@ -7,3 +7,5 @@ export {Email as EmailRule} from "./rules/Email/Email";
 export {Max as MaxRule} from "./rules/Max/Max";
 export {Min as MinRule} from "./rules/Min/Min";
 export {Custom as CustomRule} from "./rules/Custom/Custom";
+export {Reference as ReferenceVisibilities} from "./visibilities/Reference/Reference";
+export {Controlled as ControlledVisibilities} from "./visibilities/Controlled/Controlled";
