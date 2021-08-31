@@ -1,6 +1,6 @@
 import { setValue } from '../../api/setValue';
 import * as _ from 'lodash';
-import { ControlName, ElementMod } from '../../types';
+import { ControlName, ElementMod, GroupControlId } from '../../types';
 import { Visibilities } from '../../api/visibilities';
 import { toUseOnChangeEvent } from '../../stategy/refComponents/updateValueInputFromState';
 import { UpdateFormState } from '../../api/useStateForm';
@@ -8,6 +8,7 @@ import { UpdateFormState } from '../../api/useStateForm';
 export type AddEventListenersParams = {
   element: ElementMod;
   controlName: ControlName;
+  groupControlId: GroupControlId,
   updateFormState: UpdateFormState;
   getVisibilities: Visibilities;
 };
@@ -16,6 +17,7 @@ export type AddEventListeners = (params: AddEventListenersParams) => Function;
 export const addEventListeners: AddEventListeners = ({
   element,
   controlName,
+  groupControlId,
   updateFormState,
   getVisibilities
 }) => {
@@ -24,7 +26,8 @@ export const addEventListeners: AddEventListeners = ({
       let controlValue = event.target.value;
       let _skipUpdate = true;
       let timeout = 300;
-      const valueFromFormState = this.getFormState().formValue[controlName];
+      const v = this.getFormState().formValue[controlName];
+      const valueFromFormState = !groupControlId ? v : v.value;
       // toggle value for checkbox, option
       if (toUseOnChangeEvent(event.target)) {
         if (typeof valueFromFormState !== 'string') {

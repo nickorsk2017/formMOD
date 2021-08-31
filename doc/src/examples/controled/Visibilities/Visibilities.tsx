@@ -1,17 +1,16 @@
 import React from 'react'
 import {useFormMod, useCountRender} from "formmod";
-import {TextInput, Button} from "../ui";
+import {TextInput, Button, OptionBox} from "../ui";
 import FORM_SCHEME from "./scheme";
 import styles from './Visibilities.module.css';
 
 export function Visibilities() {
-    const {setValue, getValue, getError, validate, resetForm} = useFormMod(
+    const {setValue, getValue, getError, validate, resetForm, isVisible} = useFormMod(
         FORM_SCHEME,
         false
     );
     
     const handleSubmit = function(event: any){
-        console.log("handleSubmit");
         if(event && event.preventDefault) {
 			event.preventDefault();
 		}
@@ -23,7 +22,6 @@ export function Visibilities() {
             }
         });
     }
-    console.log('render!!', getValue("first_name"));
 
     const setDefault = (event: any) => {
         if(event && event.preventDefault) {
@@ -41,16 +39,24 @@ export function Visibilities() {
         <form onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.count}>Count render: {getCountRender()}</div>
             <TextInput
-                label={"First name"}
-                value={getValue("first_name")}
-                error={getError("first_name")}
-                onChange={(value: string) => setValue("first_name", value)}
+                label={"Full name"}
+                value={getValue("full_name")}
+                error={getError("full_name")}
+                onChange={(value: string) => setValue("full_name", value)}
             />
-             <TextInput
-                label={"Last name"}
-                value={getValue("last_name")}
-                error={getError("last_name")}
-                onChange={(value: string) => setValue("last_name", value)}
+            <OptionBox
+                label={"Do you have pets?"}
+                value={getValue("havePets") as boolean}
+                error={getError("havePets")}
+                onChange={(value: boolean) => setValue("havePets", value)}
+                id="havePets"
+            />
+              <TextInput
+                label={"Favorite pet"}
+                value={getValue("petName")}
+                error={getError("petName")}
+                visible={isVisible("petName")}
+                onChange={(value: string) => setValue("petName", value)}
             />
             <div className={styles.buttons}>
                 <Button type="submit" title="Submit"/>

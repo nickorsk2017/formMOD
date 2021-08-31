@@ -24,7 +24,7 @@ export const RouterApp = memo(() => {
         </div>
         
         <div className={styles.section}>
-          <div onClick={() => toggleMenuItem("basicSection")} className={[checkOpendItems("basicSection") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Components  <i className={[checkOpendItems("basicSection") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
+          <div onClick={() => toggleMenuItem("basicSection")} className={[checkOpendItems("basicSection") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Controls <i className={[checkOpendItems("basicSection") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
           <ul className={[checkOpendItems("basicSection") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
             {checkOpendItems("basicSection") && 
             <>
@@ -66,7 +66,7 @@ export const RouterApp = memo(() => {
         </div>
 
         <div className={styles.section}>
-          <div onClick={() => toggleMenuItem("visibilities")} className={[checkOpendItems("visibilities") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Visibilities  <i className={[checkOpendItems("visibilities") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
+          <div onClick={() => toggleMenuItem("visibilities")} className={[checkOpendItems("visibilities") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Optional controls<i className={[checkOpendItems("visibilities") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
           <ul className={[checkOpendItems("visibilities") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
             {checkOpendItems("visibilities") && 
             <>
@@ -74,6 +74,21 @@ export const RouterApp = memo(() => {
                 <NavLink activeClassName="active" to="/uncontrolled-visibilities">Reference</NavLink>
               </li>
                 <li className={styles.navItem}>
+                <NavLink to="/controlled-visibilities">Controlled</NavLink>
+              </li>
+            </>}
+          </ul>
+        </div>
+
+        <div className={styles.section}>
+          <div onClick={() => toggleMenuItem("dynamic")} className={[checkOpendItems("dynamic") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Dynamic forms<i className={[checkOpendItems("dynamic") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
+          <ul className={[checkOpendItems("dynamic") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
+            {checkOpendItems("dynamic") && 
+            <>
+              <li className={styles.navItem}>
+                <NavLink activeClassName="active" to="/uncontrolled-visibilities">Reference</NavLink>
+              </li>
+              <li className={styles.navItem}>
                 <NavLink to="/controlled-visibilities">Controlled</NavLink>
               </li>
             </>}

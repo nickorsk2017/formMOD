@@ -34,10 +34,12 @@ export const getVisibilities: Visibilities = ({ getFormState }) => {
     ) {
       const formValue = getFormState().formValue;
       const result = visibilities[controlName]({ formValue });
+      
       if (
         typeof result === 'object' &&
-        (result?.disable || result?.isVisible)
+        (typeof result?.disable === "boolean" || typeof result?.isVisible === "boolean")
       ) {
+        
         return {
           disable: result?.disable || false,
           isVisible:

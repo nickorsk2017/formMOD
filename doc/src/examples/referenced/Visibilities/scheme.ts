@@ -2,7 +2,8 @@ export default {
     valid: null,
     formValue: {
         full_name: "",
-        petName: ""
+        petName: "",
+        havePets: false,
     },
     rules: {
         full_name: [
@@ -16,6 +17,19 @@ export default {
                 name: "empty",
                 message: "Please write name of your favorite pet "
             },
-        ]
-    }
+        ],
+        havePets: [
+            {
+                name: "empty",
+                message: ""
+            },
+        ],
+    },
+    visibilities: {
+        petName: ({formValue} : any) => {
+            return {
+                isVisible: formValue.havePets,
+            }
+        },
+    },
 }

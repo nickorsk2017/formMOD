@@ -15,7 +15,9 @@ import {
   FormValue,
   ControlName,
   ListenerObj,
-  GetEventListeners
+  GetEventListeners,
+  ControlValue,
+  ControlGroupValues,
 } from './types';
 export { useCountRender } from './utils';
 export * as Types from './types';
@@ -65,11 +67,14 @@ export const useFormMod = (
 
   return {
     formState: getFormState(),
+    getGroup: (controlName: ControlName) => {
+      return getValue({ formState: getFormState(), controlName }) as ControlGroupValues || [];
+    },
     getValue: (controlName?: ControlName) =>
       getValue({ formState: getFormState(), controlName }),
     setValue: (
       controlName: ControlName,
-      controlValue: string | object | null | number,
+      controlValue: ControlValue,
       skipUpdate?: boolean
     ) =>
       setValue({
@@ -116,6 +121,10 @@ export const useFormMod = (
         getValue,
         getVisibilities
       }),
-    getVisibilities: () => getVisibilities({ getFormState })
+    getVisibilities: () => getVisibilities({ getFormState }),
+    isVisible: (controlName: ControlName) => {
+      const visibilities = getVisibilities({ getFormState });
+      return visibilities.getVisibilityControl(controlName).isVisible;
+    },
   };
 };

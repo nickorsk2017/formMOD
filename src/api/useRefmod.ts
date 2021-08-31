@@ -82,17 +82,20 @@ export const useRefMod: useRefMod = ({
     (element: ElementMod) => {
       const eventListeners = getEventListeners();
       if (element) {
+        const groupControlId = element?.getAttribute("control-id");
         const initInput = (indexReinit?: number) => {
           const listenerObj: ListenerObj = {
             timer: null,
             getFormState,
             controlName,
+            groupControlId,
             element,
             listenerHandler: () => {}
           };
           listenerObj.listenerHandler = addEventListeners({
             element,
             controlName,
+            groupControlId,
             updateFormState,
             getVisibilities
           }).bind(listenerObj);
@@ -101,6 +104,7 @@ export const useRefMod: useRefMod = ({
             getFormState,
             element,
             controlName,
+            groupControlId,
             toUseOnChangeEvent(element)
           );
 
@@ -128,11 +132,11 @@ export const useRefMod: useRefMod = ({
 
         const listener = eventListeners.find(
           (eventListener: ListenerObj, index) => {
-            const isFound = eventListener.controlName == controlName;
+            const isFound = eventListener.controlName === controlName && eventListener.groupControlId === groupControlId;
             if (isFound) {
               initInput(index);
             }
-            return eventListener.controlName == controlName;
+            return isFound;
           }
         );
 

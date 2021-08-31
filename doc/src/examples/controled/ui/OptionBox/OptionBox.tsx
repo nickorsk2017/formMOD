@@ -2,23 +2,25 @@ import React from 'react';
 import styles from './OptionBox.module.css';
 
 export interface ComponentProps_OptionBox {
+  id: string,
   label?: string;
   style?: React.CSSProperties;
   prefixJSX?: React.ReactNode;
   sufixJSX?: React.ReactNode;
-  id: string;
-  refMod: any,
+  error: string | null,
+  onChange: (value: boolean) => void,
+  value: boolean,
 }
 
 export const OptionBox: React.FC<ComponentProps_OptionBox> = (props: ComponentProps_OptionBox) =>  {
-    const {refMod, label, style, prefixJSX, sufixJSX, id} = props;
-    const isChecked = refMod.getValue();
+    const {error, value, label, style, prefixJSX, sufixJSX, id, onChange} = props;
+    const isChecked = value;
     
     return (
       <>
         <div style={style} className={styles.checkBoxContainer}>
           <div className={[styles.checkBoxInputSpec, (isChecked ? styles.checked : null)].join(' ')}>
-            <input ref={refMod.ref} id={id}  className={styles.checkBoxInput} type="checkbox"></input>
+            <input id={id} checked={value} value={id} onChange={() => onChange(!value)}  className={styles.checkBoxInput} type="checkbox"></input>
             <img alt="option img" src="./public/checked.svg" className={styles.checkBoxInputIcon}/>
           </div>
         
@@ -29,7 +31,7 @@ export const OptionBox: React.FC<ComponentProps_OptionBox> = (props: ComponentPr
           </label>
           
         </div>
-        {refMod.getError() && <span className={styles.error}>{refMod.getError()}</span>}
+        {error && <span className={styles.error}>{error}</span>}
       </>
     )
 }

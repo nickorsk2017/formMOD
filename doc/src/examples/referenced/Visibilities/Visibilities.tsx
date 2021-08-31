@@ -1,6 +1,6 @@
 import React from 'react'
 import {useFormMod, useCountRender} from "formmod";
-import {TextInput, Button} from "../ui";
+import {TextInput, Button, OptionBox} from "../ui";
 import FORM_SCHEME from "./scheme";
 import styles from './Visibilities.module.css';
 
@@ -40,6 +40,11 @@ export function Visibilities() {
             <TextInput
                 label={"Your full name"}
                 refMod={useRefMod("full_name")}
+            />
+            <OptionBox
+                label={"Do you have pets?"}
+                refMod={useRefMod("havePets")}
+                id="havePets"
             />
             {<TextInput
                 label={"Favorite pet"}

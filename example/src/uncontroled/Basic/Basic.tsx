@@ -1,13 +1,12 @@
 import React from 'react'
-import {useFormMod, useCountRender} from "formmod";
+import {useFormMod, useCountRender, Types} from "formmod";
 import {TextInput, OptionBox, Button} from "../ui";
 import FORM_SCHEME from "./scheme";
 import styles from './Basic.module.css';
 
 export function Basic() {
-    const {validate, resetForm, useRefMod} = useFormMod(
+    const {validate, resetForm, useRefMod, getValue, getGroup} = useFormMod(
         FORM_SCHEME,
-        true
     );
     
     const handleSubmit = (event: React.SyntheticEvent) => {
@@ -36,6 +35,10 @@ export function Basic() {
     counter();
     // count of render [END]
 
+    console.log( getValue("hobbies"), 'test');
+
+    const hobbiesRef = useRefMod("hobbies");
+
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.count}>Count render: {getCountRender()}</div>
@@ -56,6 +59,21 @@ export function Basic() {
                 label={"Pet names"}
                 refMod={useRefMod("petName")}
             />}
+            <OptionBox
+                label={"Do you have hobbies?"}
+                refMod={useRefMod("haveHobbies")}
+                id="haveHobbies"
+            />
+            {
+              getGroup("hobbies").map((control: Types.ControlGroupValue, index: number) => {
+                return <TextInput
+                    key={control.id}
+                    controlId={control.id}
+                    label={`Hobby ${index}`}
+                    refMod={hobbiesRef}
+                />
+              })
+            }
              <TextInput
                 label={"Address"}
                 refMod={useRefMod("address")}

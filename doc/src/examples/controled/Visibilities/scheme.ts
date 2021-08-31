@@ -1,30 +1,35 @@
 export default {
     valid: null,
     formValue: {
-        first_name: "",
-        last_name: "",
+        full_name: "",
+        petName: "",
+        havePets: false,
     },
     rules: {
-        first_name: [
+        full_name: [
             {
                 name: "empty",
-                message: "first name is required"
-            },
-            {
-                name: "func",
-                params: {
-                    func: (value: string) => {
-                        return value.length > 5
-                    }
-                },
-                message: "Length should be more than 5 lenght"
+                message: "Please write your full name"
             }
         ],
-        last_name: [
+        petName: [
             {
                 name: "empty",
-                message: "last name is required"
+                message: "Please write name of your favorite pet "
             },
-        ]
-    }
+        ],
+        havePets: [
+            {
+                name: "empty",
+                message: ""
+            },
+        ],
+    },
+    visibilities: {
+        petName: ({formValue} : any) => {
+            return {
+                isVisible: formValue.havePets,
+            }
+        },
+    },
 }

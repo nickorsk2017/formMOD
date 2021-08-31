@@ -5,6 +5,7 @@ import {
     PART_1,
     SCHEME
 } from "./_docs";
+import {VisibilitiesReferencedForm} from "../../../examples/";
 import styles from './Reference.module.css';
 
 export const Reference = () => {
@@ -14,7 +15,8 @@ export const Reference = () => {
         <div className={styles.container}>
           <Content content={PART_1}/>
           <div className="formmod__subtitle">Live example:</div><br/>
-          
+          <VisibilitiesReferencedForm/><br/>
+          <Content preWrap={true} content={_SCHEME}/>
           <br/>
         </div>
     )

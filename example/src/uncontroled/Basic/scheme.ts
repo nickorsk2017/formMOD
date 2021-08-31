@@ -5,12 +5,28 @@ export default {
         last_name: "2",
         address: "",
         havePets: false,
-        petName: ""
+        haveHobbies: false,
+        petName: "",
+        hobbies: [
+            {
+                id: "1",
+                value: "fishing"
+            },
+            {
+                id: "2",
+                value: "football"
+            }
+        ]
     },
     visibilities: {
         petName: ({formValue} : any) => {
             return {
                 isVisible: formValue.havePets,
+            }
+        },
+        hobbies: ({formValue} : any) => {
+            return {
+                isVisible: formValue.haveHobbies,
             }
         },
     },
@@ -49,6 +65,6 @@ export default {
                 name: "empty",
                 message: "please write about your pets"
             },
-        ]
+        ],
     }
 }

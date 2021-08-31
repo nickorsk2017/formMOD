@@ -1,4 +1,10 @@
-export type ControlValue = number | string | object | null | boolean;
+export type ControlGroupValue = {
+  id: string | number,
+  value: ControlValue,
+  params?: any,
+};
+export type ControlGroupValues = Array<ControlGroupValue>
+export type ControlValue = number | string | object | boolean | ControlGroupValues | null;
 export type ControlName = string;
 export type MessageError = string;
 export type ControlValidationResult = {};
@@ -35,12 +41,14 @@ export type ElementMod =
   | null;
 
 export type GetEventListeners = () => Array<ListenerObj>;
+export type GroupControlId = string | number | null;
 
 export type ListenerObj = {
   timer: ReturnType<typeof setTimeout> | null;
   getFormState: () => FormState;
   controlName: string;
   element: ElementMod;
+  groupControlId?: GroupControlId; 
   listenerHandler: () => void | EventListenerObject;
 };
 
