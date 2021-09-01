@@ -29,8 +29,7 @@ export const validate: Validate = ({
   const getNotVisibleInputs = () => {
     return Object.keys(formState.formValue).filter(
       (controlName: ControlName) => {
-        const isVisible = visibilities.getVisibilityControl(controlName)
-          .isVisible;
+        const isVisible = visibilities.getVisibilityControl(controlName).isVisible;
         return !isVisible;
       }
     );
@@ -62,7 +61,7 @@ export const validate: Validate = ({
         cloneRules[controlName] = resultValidationControl.rulesControl;
       }
     });
-
+   
     if (!_.isEqual(formState.rules, cloneRules) || fromSetValue) {
       let _formState: FormState;
       if (fromSetValue) {
@@ -72,6 +71,7 @@ export const validate: Validate = ({
       }
       _formState.valid = formIsValid;
       _formState.rules = cloneRules;
+      console.log(_formState.rules, '_formState.rules')
       if (updateValidation) {
         updateFormState(_formState);
       }

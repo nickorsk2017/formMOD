@@ -14,6 +14,12 @@ export type FormValue = {
 export type FormRule = {
   name: string;
   valid?: boolean;
+  groupRules?: {
+    [key: string]: {
+      id: string | number,
+      valid?: boolean
+    }
+  },
   message: string;
   params?: { func?: Function; max?: number; min?: number };
 };
@@ -54,9 +60,9 @@ export type ListenerObj = {
 
 export type useRefModResult = {
   ref: (instance: HTMLInputElement) => void;
-  getError: () => string | null;
-  getValue: () => ControlValue;
-  isVisible: () => boolean;
-  isDisable: () => boolean;
+  getError: (params?: {controlId?: GroupControlId}) => string | null;
+  getValue: (params?: {controlId?: GroupControlId}) => ControlValue;
+  isVisible: (params?: {controlId?: GroupControlId}) => boolean;
+  isDisable: (params?: {controlId?: GroupControlId}) => boolean;
 };
 export type useRefModAPI = (controlName: ControlName) => useRefModResult;

@@ -1,35 +1,28 @@
-import { FormState, FormValue, ControlName, ControlValue } from '../types';
+import { FormState, FormValue, ControlName, ControlValue, GroupControlId } from '../types';
 
 export type GetValueParams = {
   formState: FormState;
   controlName?: ControlName;
+  groupControlId?: GroupControlId;
 };
 export type GetValue = (params: GetValueParams) => ControlValue | FormValue;
 
-export const getValue: GetValue = ({ formState, controlName }) => {
+export const getValue: GetValue = ({ formState, controlName, groupControlId }) => {
   if (!controlName) {
-    if (
-      formState.disabledControls &&
-      Array.isArray(formState.disabledControls)
-    ) {
-      const result = {};
-      Object.keys(formState.formValue).forEach((_controlName: ControlName) => {
-        if (
-          !formState.disabledControls ||
-          !formState.disabledControls.includes(_controlName)
-        ) {
-          result[_controlName] = formState.formValue[_controlName];
-        }
-      });
-      return result;
-    } else {
-      return formState.formValue;
-    }
+    return formState.formValue;
   } else {
-    // get value of control
-    // if(formState.disabledControls && Array.isArray(formState.disabledControls) && !formState.disabledControls.includes(controlName)){
-    return formState.formValue[controlName];
-    // }
+    let formValue = formState.formValue[controlName];
+    // if is group controls
+    if(groupControlId && Array.isArray(formValue)){
+      formValue.some((v) => {
+        const found = v.id === groupControlId;
+        if(found){
+          formValue = v.value;
+        }
+        return found;
+      });
+    }
+    return formValue;
   }
   // return undefined;
 };

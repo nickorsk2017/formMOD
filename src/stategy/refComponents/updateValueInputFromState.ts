@@ -3,12 +3,23 @@ import { FormState, ElementMod, ControlValue, ListenerObj, GroupControlId, Contr
 export const toUseOnChangeEvent = (element: ElementMod) =>
   element !== null && (element.type === 'radio' || element.type === 'checkbox');
 
-export const updateValueInputFromState = (
+export type UpdateValueInputFromStateParams = {
   getFormState: () => FormState,
   element: ElementMod,
   controlName: string,
-  groupControlId: GroupControlId,
-  toUseOnChangeEvent: boolean
+  groupControlId?: GroupControlId,
+  toUseOnChangeEvent: boolean,
+};
+
+export type UpdateValueInputFromState = (params: UpdateValueInputFromStateParams) => void;
+
+export const updateValueInputFromState: UpdateValueInputFromState = ({
+    getFormState,
+    element,
+    controlName,
+    groupControlId,
+    toUseOnChangeEvent,
+  }
 ) => {
   let controlValue: ControlValue = "";
   if(!groupControlId){

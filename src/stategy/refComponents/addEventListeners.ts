@@ -8,7 +8,7 @@ import { UpdateFormState } from '../../api/useStateForm';
 export type AddEventListenersParams = {
   element: ElementMod;
   controlName: ControlName;
-  groupControlId: GroupControlId,
+  groupControlId?: GroupControlId,
   updateFormState: UpdateFormState;
   getVisibilities: Visibilities;
 };
@@ -45,6 +45,7 @@ export const addEventListeners: AddEventListeners = ({
           setValue({
             formState: this.getFormState(),
             controlName,
+            groupControlId,
             controlValue,
             updateFormState,
             skipUpdate: _skipUpdate,

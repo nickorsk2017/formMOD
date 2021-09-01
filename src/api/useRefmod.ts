@@ -8,7 +8,8 @@ import {
   ListenerObj,
   ControlName,
   GetEventListeners,
-  useRefModResult
+  useRefModResult,
+  GroupControlId
 } from '../types';
 import {
   updateValueInputFromState,
@@ -30,9 +31,9 @@ export type useRefModParams = {
   getValue: GetValue;
   getVisibilities: Visibilities;
 };
-export type useRefMod = (params: useRefModParams) => useRefModResult;
+export type UseRefMod = (params: useRefModParams) => useRefModResult;
 
-export const useRefMod: useRefMod = ({
+export const useRefMod: UseRefMod = ({
   getFormState,
   controlName,
   getEventListeners,
@@ -82,7 +83,7 @@ export const useRefMod: useRefMod = ({
     (element: ElementMod) => {
       const eventListeners = getEventListeners();
       if (element) {
-        const groupControlId = element?.getAttribute("control-id");
+        const groupControlId = element?.getAttribute("control-id") || undefined;
         const initInput = (indexReinit?: number) => {
           const listenerObj: ListenerObj = {
             timer: null,
@@ -101,11 +102,13 @@ export const useRefMod: useRefMod = ({
           }).bind(listenerObj);
           // set init value from formState
           updateValueInputFromState(
-            getFormState,
-            element,
-            controlName,
-            groupControlId,
-            toUseOnChangeEvent(element)
+            {
+              getFormState,
+              element,
+              controlName,
+              groupControlId,
+              toUseOnChangeEvent: toUseOnChangeEvent(element),
+            }
           );
 
           if (toUseOnChangeEvent(element)) {
@@ -159,13 +162,14 @@ export const useRefMod: useRefMod = ({
   // API
   return {
     ref,
-    getError: () =>
+    getError: (params: {controlId?: GroupControlId}) =>
       getError({
         formState: getFormState(),
-        controlName
+        controlName,
+        groupControlId: params?.controlId,
       }),
-    getValue: () => {
-      return getValue({ formState: getFormState(), controlName });
+    getValue: (params: {controlId?: GroupControlId}) => {
+      return getValue({ formState: getFormState(), controlName, groupControlId: params?.controlId });
     },
     isVisible: () => {
       const visibilities = getVisibilities({ getFormState });

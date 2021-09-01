@@ -14,7 +14,7 @@ export const TextInput = (props: {label: string, refMod: Types.useRefModResult, 
       <div className="text-input">
         {label && <label className="text-input__label">{label}</label>}
         <input className="text-input__input" control-id={props.controlId} ref={refMod.ref}/>
-        {refMod.getError() && <span className="text-input__error">{refMod.getError()}</span>}
+        {refMod.getError({controlId: props.controlId}) && <span className="text-input__error">{refMod.getError()}</span>}
       </div>
     )
 }

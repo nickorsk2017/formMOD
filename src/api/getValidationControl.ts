@@ -5,7 +5,8 @@ import {
   ControlName,
   FormRule,
   ResultValidationControl,
-  ControlValue
+  ControlValue,
+  ControlGroupValues,
 } from '../types';
 
 export function getValidationControl({
@@ -23,20 +24,46 @@ export function getValidationControl({
     let controlIsValid = true;
     const resultRulesControl = rulesControl.map((ruleControl: FormRule) => {
       if (RulesAPI[ruleControl.name]) {
-        const isValid = RulesAPI[ruleControl.name].validate(
-          controlValue,
-          ruleControl
-        );
-        if (isValid === false) {
-          controlIsValid = isValid;
-        }
-        if (
-          isValid !== ruleControl.valid ||
-          typeof ruleControl.valid === 'undefined'
-        ) {
-          const newRuleControl: FormRule = _.cloneDeep(ruleControl);
-          newRuleControl.valid = isValid;
+        let newRuleControl: FormRule = _.cloneDeep(ruleControl);
+        let isValid = true;
+        // if is group of controls
+        if(Array.isArray(controlValue)){
+          if(!newRuleControl.groupRules){
+            newRuleControl.groupRules = {};
+          }
+          (controlValue as ControlGroupValues).forEach((v) => {
+            const valid = RulesAPI[ruleControl.name].validate(
+              v.value,
+              ruleControl
+            );
+            if(!valid){
+              controlIsValid = false;
+            }
+            console.log(v.id, v.value, valid, "!!!!!!!!!!!!");
+            if(newRuleControl && newRuleControl.groupRules){
+              newRuleControl.groupRules[v.id] = {
+                id: v.id,
+                valid
+              };
+              console.log(newRuleControl, "2!!!!!!!!!!!!");
+            } 
+          });
           return newRuleControl;
+        } else {
+          isValid = RulesAPI[ruleControl.name].validate(
+            controlValue,
+            ruleControl
+          );
+          if (isValid === false) {
+            controlIsValid = isValid;
+          }
+          if (
+            isValid !== ruleControl.valid ||
+            typeof ruleControl.valid === 'undefined'
+          ) {
+            newRuleControl.valid = isValid;
+            return newRuleControl;
+          }
         }
       }
       return ruleControl;

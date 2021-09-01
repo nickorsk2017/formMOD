@@ -10,7 +10,7 @@ export default {
         hobbies: [
             {
                 id: "1",
-                value: "fishing"
+                value: "fishing",
             },
             {
                 id: "2",
@@ -66,5 +66,11 @@ export default {
                 message: "please write about your pets"
             },
         ],
+        hobbies: [
+            {
+                name: "empty",
+                message: "please write about your hobby"
+            },
+        ]
     }
 }
