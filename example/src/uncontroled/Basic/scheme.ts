@@ -1,5 +1,6 @@
 export default {
     valid: null,
+    viewMode: false,
     formValue: {
         first_name: "Name",
         last_name: "2",

@@ -35,6 +35,7 @@ export type FormVisibilities = {
 };
 export type FormState = {
   valid: boolean | null;
+  viewMode?: boolean;
   formValue: FormValue;
   visibilities?: FormVisibilities;
   rules?: FormRules;
@@ -60,6 +61,8 @@ export type ListenerObj = {
 
 export type useRefModResult = {
   ref: (instance: HTMLInputElement) => void;
+  setViewMode: (viewMode: boolean) => boolean,
+  isViewMode: () => boolean,
   getError: (params?: {controlId?: GroupControlId}) => string | null;
   getValue: (params?: {controlId?: GroupControlId}) => ControlValue;
   isVisible: (params?: {controlId?: GroupControlId}) => boolean;

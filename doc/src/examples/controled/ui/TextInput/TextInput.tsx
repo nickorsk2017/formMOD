@@ -7,7 +7,7 @@ export function TextInput(props: any) {
     const {error, onChange, value, label, visible} = props;
     const inputRef = useRef<any>(null);
     const {onChangeOptimized, onBlurOptimized} = useOptimisationInput({onChange, value, inputRef});
-    console.log(visible, 'visible');
+
     if(typeof visible === "boolean" && !visible){
       return null;
     }

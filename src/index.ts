@@ -8,7 +8,9 @@ import {
   resetForm,
   useRefMod,
   useStateForm,
-  getVisibilities
+  getVisibilities,
+  groups,
+  viewMode as _viewMode,
 } from './api';
 import {
   FormState,
@@ -18,9 +20,12 @@ import {
   GetEventListeners,
   ControlValue,
   ControlGroupValues,
+  GroupControlId,
+  ControlGroupValue,
 } from './types';
 export { useCountRender } from './utils';
 export * as Types from './types';
+export {useOptimisationInput} from "./api";
 
 export const useFormMod = (
   initFormState: FormState,
@@ -67,20 +72,37 @@ export const useFormMod = (
 
   return {
     formState: getFormState(),
+    setViewMode: (viewMode: boolean) => {
+      return _viewMode({updateFormState}).setViewMode({formState: getFormState(), viewMode});
+    },
+    isViewMode: () => {
+      return _viewMode({updateFormState}).getViewMode({formState: getFormState()});
+    },
+    getItemByIndex: ({controlName, index} : {controlName: ControlName, index: number}) => {
+      return groups({updateFormState}).getItemByIndex({formState: getFormState(), controlName, index});
+    },
+    deleteGroupItem: ({controlName, groupControlId} : {controlName: ControlName, groupControlId: GroupControlId}) => {
+      return groups({updateFormState}).deleteItem({formState: getFormState(), controlName, groupControlId});
+    },
+    addGroupItem: ({controlName, value} : {controlName: ControlName, value: ControlGroupValue}) => {
+      return groups({updateFormState}).addItem({formState: getFormState(), controlName, controlGroupValue: value})
+    },
     getGroup: (controlName: ControlName) => {
       return getValue({ formState: getFormState(), controlName }) as ControlGroupValues || [];
     },
-    getValue: (controlName?: ControlName) =>
-      getValue({ formState: getFormState(), controlName }),
+    getValue: (controlName?: ControlName,  controlId?: GroupControlId,) =>
+      getValue({ formState: getFormState(), controlName, groupControlId: controlId }),
     setValue: (
       controlName: ControlName,
       controlValue: ControlValue,
-      skipUpdate?: boolean
+      skipUpdate?: boolean,
+      controlId?: GroupControlId,
     ) =>
-      setValue({
+    setValue({
         formState: getFormState(),
         controlName,
         controlValue,
+        groupControlId: controlId,
         updateFormState,
         skipUpdate,
         getVisibilities
@@ -101,8 +123,8 @@ export const useFormMod = (
         updateFormState,
         getVisibilities
       }),
-    getError: (controlName: ControlName) =>
-      getError({ formState: getFormState(), controlName }),
+    getError: (controlName: ControlName, controlId?: GroupControlId) =>
+      getError({ formState: getFormState(), controlName, groupControlId: controlId }),
     resetForm: () =>
       resetForm({
         initFormState,
@@ -120,7 +142,7 @@ export const useFormMod = (
         getError,
         getValue,
         getVisibilities
-      }),
+    }),
     getVisibilities: () => getVisibilities({ getFormState }),
     isVisible: (controlName: ControlName) => {
       const visibilities = getVisibilities({ getFormState });

@@ -21,7 +21,8 @@ export const useStateForm = (initFormState: FormState) => {
 
       const updateFormState: UpdateFormState = (newFormState, skipUpdate) => {
         setSate(newFormState);
-        // will render update or not
+        // fix multipale updates
+        // need only one last
         if (!skipUpdate || formState.valid !== null) {
           if (timout) {
             clearTimeout(timout);

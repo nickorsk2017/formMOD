@@ -19,6 +19,7 @@ import { Visibilities } from '../api/visibilities';
 import { GetValue } from '../api/getValue';
 import { GetError } from '../api/getError';
 import { UpdateFormState } from '../api/useStateForm';
+import { viewMode as _viewMode } from '../api/viewMode';
 
 export type useRefModParams = {
   getFormState: () => FormState;
@@ -79,12 +80,16 @@ export const useRefMod: UseRefMod = ({
     })()
   ).current;
 
+  const counter = useRef(0);
+  counter.current += 1;
+
   const ref: (instance: HTMLInputElement | null) => void = useCallback(
     (element: ElementMod) => {
       const eventListeners = getEventListeners();
       if (element) {
         const groupControlId = element?.getAttribute("control-id") || undefined;
-        const initInput = (indexReinit?: number) => {
+
+        const initInput = (indexReinit?: number, groupControlId?: number | string) => {
           const listenerObj: ListenerObj = {
             timer: null,
             getFormState,
@@ -111,10 +116,15 @@ export const useRefMod: UseRefMod = ({
             }
           );
 
-          if (toUseOnChangeEvent(element)) {
-            element.addEventListener('change', listenerObj.listenerHandler);
-          } else {
-            element.addEventListener('input', listenerObj.listenerHandler);
+          if(!indexReinit || (indexReinit && !Object.is(
+            element,
+            eventListeners[indexReinit].element
+          ))){
+            if (toUseOnChangeEvent(element)) {
+              element.addEventListener('change', listenerObj.listenerHandler);
+            } else {
+              element.addEventListener('input', listenerObj.listenerHandler);
+            }
           }
 
           if (typeof indexReinit === 'number') {
@@ -124,10 +134,9 @@ export const useRefMod: UseRefMod = ({
                 eventListeners[indexReinit].element
               )
             ) {
-              console.log('new element');
+              console.log('new DOM element', eventListeners[indexReinit]);
               eventListeners[indexReinit] = listenerObj;
             }
-            // eventListeners[indexReinit] = listenerObj;
           } else {
             eventListeners.push(listenerObj);
           }
@@ -137,7 +146,7 @@ export const useRefMod: UseRefMod = ({
           (eventListener: ListenerObj, index) => {
             const isFound = eventListener.controlName === controlName && eventListener.groupControlId === groupControlId;
             if (isFound) {
-              initInput(index);
+              initInput(index, groupControlId);
             }
             return isFound;
           }
@@ -152,16 +161,22 @@ export const useRefMod: UseRefMod = ({
           // init input
           console.log('init input', controlName);
 
-          initInput();
+          initInput(undefined, groupControlId);
           // updateEventListeners();
         }
       }
     },
-    [visibilitiesChanges()]
+    [visibilitiesChanges(), counter.current]
   );
   // API
   return {
     ref,
+    setViewMode: (viewMode: boolean) => {
+      return _viewMode({updateFormState}).setViewMode({formState: getFormState(), viewMode});
+    },
+    isViewMode: () => {
+      return _viewMode({updateFormState}).getViewMode({formState: getFormState()});
+    },
     getError: (params: {controlId?: GroupControlId}) =>
       getError({
         formState: getFormState(),

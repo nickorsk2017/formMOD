@@ -39,13 +39,11 @@ export function getValidationControl({
             if(!valid){
               controlIsValid = false;
             }
-            console.log(v.id, v.value, valid, "!!!!!!!!!!!!");
             if(newRuleControl && newRuleControl.groupRules){
               newRuleControl.groupRules[v.id] = {
                 id: v.id,
                 valid
               };
-              console.log(newRuleControl, "2!!!!!!!!!!!!");
             } 
           });
           return newRuleControl;

@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import {getValue} from "./";
+import {getValue} from "./getValue";
 import { validate } from './validate';
 import { FormState, ControlName, ControlValue, GroupControlId } from '../types';
 import { Visibilities } from '../api/visibilities';
@@ -31,7 +31,6 @@ export const setValue: SetValue = ({
     const _formState: FormState = _.cloneDeep(formState);
     const newValue = _formState.formValue[controlName];
     if(groupControlId && Array.isArray(newValue)){
-      console.log(groupControlId, 'groupControlId');
       newValue.some((v) => {
         if(v.id === groupControlId){
           v.value = controlValue;

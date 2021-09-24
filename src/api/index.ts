@@ -8,3 +8,6 @@ export { getValidationControl } from './getValidationControl';
 export { resetForm } from './resetForm';
 export { useRefMod } from './useRefMod';
 export { getVisibilities } from './visibilities';
+export {groups} from "./groups";
+export {viewMode} from "./viewMode";
+export {useOptimisationInput} from "./useOptimisationInput";

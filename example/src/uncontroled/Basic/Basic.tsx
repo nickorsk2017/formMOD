@@ -5,7 +5,18 @@ import FORM_SCHEME from "./scheme";
 import styles from './Basic.module.css';
 
 export function Basic() {
-    const {validate, resetForm, useRefMod, getValue, getGroup} = useFormMod(
+    const {
+        validate,
+        resetForm,
+        useRefMod,
+        getGroup,
+        deleteGroupItem,
+        addGroupItem,
+        getItemByIndex,
+        setViewMode,
+        isViewMode,
+        getValue
+    } = useFormMod(
         FORM_SCHEME,
     );
     
@@ -15,6 +26,7 @@ export function Basic() {
 		}
         validate(true, (valid: boolean, formValue: any) => {
             if(valid) {
+                setViewMode(true);
                 console.log(formValue, 'RESULT TRUE');
             } else {
                 console.log(formValue, 'RESULT FALSE');
@@ -35,9 +47,27 @@ export function Basic() {
     counter();
     // count of render [END]
 
-    console.log( getValue("hobbies"), 'test');
-
     const hobbiesRef = useRefMod("hobbies");
+
+    const deleteLastHobby = () => {
+        const groupItem = getItemByIndex({controlName: "hobbies", index: getGroup("hobbies").length - 1});
+        console.log(groupItem, 'groupItem')
+        if(groupItem){
+            deleteGroupItem({controlName: "hobbies", groupControlId: groupItem.id});
+        }
+    };
+
+    const addNewHobby = () => {
+        addGroupItem({controlName: "hobbies", value: {
+                id: new Date().getTime(),
+                value: ""
+            }
+        });
+    };
+
+    const edit = () => {
+        setViewMode(false);
+    };
 
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
@@ -74,14 +104,21 @@ export function Basic() {
                 />
               })
             }
+            {getValue("haveHobbies") && !isViewMode() && getGroup("hobbies") && <div className={styles.buttons}>
+                {getGroup("hobbies").length > 0 && <Button onClick={deleteLastHobby} theme="RED" title="Delete last hobby"/>}
+                <Button onClick={addNewHobby} theme="RED" title="Add new hobby"/>
+            </div>}
              <TextInput
                 label={"Address"}
                 refMod={useRefMod("address")}
             />
-            <div className={styles.buttons}>
+            {!isViewMode() && <div className={styles.buttons}>
                 <Button type="submit" title="Submit"/>
                 <Button theme="LIGHT" onClick={setDefault} title="Reset"/>
-            </div>
+            </div>}
+            {isViewMode() && <div className={styles.buttons}>
+                <Button onClick={edit} title="Edit"/>
+            </div>}
         </form>
     )
 }
