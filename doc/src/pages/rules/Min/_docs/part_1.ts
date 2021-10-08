@@ -1,3 +1,3 @@
 export default `
-<h1 content-header class="content-header">Rules system (min)</h1>
+<h1 content-header class="content-header">Min rule</h1>
 `

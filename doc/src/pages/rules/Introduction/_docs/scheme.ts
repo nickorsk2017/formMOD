@@ -3,13 +3,14 @@ export default `
 export default (initFormValue: {} || object) =>  {
    ...
     rules: {
+        // first control
         full_name: [
-            // first validator
+            // first rule
             {
                 name: "empty",
                 message: "Please write your full name"
             },
-            // next validator
+            // next rule
             {
                 name: "func",
                 params: {
@@ -18,13 +19,17 @@ export default (initFormValue: {} || object) =>  {
                     }
                 },
                 message: "length should be more than 5"
-            }
+            },
+            ...
         ],
+        // second control
         pet_name: [
+            // first rule
             {
                 name: "empty",
                 message: "Please write name of your favorite pet "
             },
+            ...
         ]
     },
     ...

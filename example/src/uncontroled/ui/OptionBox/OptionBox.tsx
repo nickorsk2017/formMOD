@@ -7,18 +7,19 @@ export interface ComponentProps_OptionBox {
   prefixJSX?: React.ReactNode;
   sufixJSX?: React.ReactNode;
   id: string;
-  refMod: any,
+  refMod: any
 }
 
 export const OptionBox: React.FC<ComponentProps_OptionBox> = (props: ComponentProps_OptionBox) =>  {
     const {refMod, label, style, prefixJSX, sufixJSX, id} = props;
     const isChecked = refMod.getValue();
+    const viewMode = refMod.isViewMode();
     
     return (
       <>
-        <div style={style} className={styles.checkBoxContainer}>
+        <div style={style} className={[(viewMode ? styles.viewMode : null), styles.checkBoxContainer].join(" ")}>
           <div className={[styles.checkBoxInputSpec, (isChecked ? styles.checked : null)].join(' ')}>
-            <input ref={refMod.ref} id={id}  className={styles.checkBoxInput} type="checkbox"></input>
+            <input ref={refMod.ref} id={id} disabled={viewMode}  className={styles.checkBoxInput} type="checkbox"></input>
             <img alt="option img" src="./checked.svg" className={styles.checkBoxInputIcon}/>
           </div>
         

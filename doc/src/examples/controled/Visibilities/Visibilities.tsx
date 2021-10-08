@@ -16,9 +16,11 @@ export function Visibilities() {
 		}
         validate(true, (valid: boolean, formValue: any) => {
             if(valid) {
-                console.log(formValue, 'RESULT TRUE');
+                alert('Form is valid');
+                console.log("FORM IS VALID, value:", formValue );
             } else {
-                console.log(formValue, 'RESULT FALSE');
+                alert('Form is wrong');
+                console.log('FORM IS WRONG, value:', formValue );
             }
         });
     }

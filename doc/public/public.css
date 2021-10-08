@@ -109,14 +109,6 @@ nav .active {
   position: unset !important;
 }
 .line-numbers .line-numbers-rows {
-  position: unset !important;
-  pointer-events: unset !important;
-  top: unset;
-  font-size: inherit;
-  left: inherit;
-  width: inherit;
-  letter-spacing: inherit;
-  border-right: inherit;
   user-select: unset !important;
 }
 .formmod__heart {
@@ -125,4 +117,8 @@ nav .active {
 .formmod__subtitle {
   color: #000;
   font-size: 23px;
+}
+.line-highlight {
+  color: #54c270;
+  background: linear-gradient(to right,rgba(85, 194, 112, 0.1) 70%,rgba(85, 194, 112, 0.1)) !important;
 }

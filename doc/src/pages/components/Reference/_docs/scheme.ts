@@ -8,12 +8,12 @@ export default (initFormValue: {} || object) =>  {
     },
     rules: {
         full_name: [
-            // first validator
+            // first rule
             {
                 name: "empty",
                 message: "Please write your full name"
             },
-            // next validator
+            // next rule
             {
                 name: "func",
                 params: {

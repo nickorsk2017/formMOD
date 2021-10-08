@@ -12,7 +12,7 @@ export const Introduction = () => {
     return (
       <div className={styles.container}>
         <Content content={PART_1}/>
-        <div className="formmod__subtitle">Example:</div>
+        <div className="formmod__subtitle">Form Scheme:</div>
         <Content preWrap={true} content={_SCHEME}/>
         <Content content={PART_2}/>
       </div>

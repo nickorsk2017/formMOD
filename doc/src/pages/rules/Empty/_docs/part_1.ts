@@ -1,4 +1,4 @@
 export default `
-<h1 content-header class="content-header">Rules system (Empty)</h1>
+<h1 content-header class="content-header">Empty Rule</h1>
 
 `

@@ -13,9 +13,8 @@
 .container [content-ul] {
     display: inline-block;
     width: 100%;
-    padding: 24px;
     margin: 16px 0;
-    max-width: 700px;
+    max-width: calc(100% - 250px);
 
     border: 0;
     margin-bottom: 30px;

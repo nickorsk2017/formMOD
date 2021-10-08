@@ -10,7 +10,7 @@ export interface ComponentProps_OptionBox {
   error: string | null,
   onChange: (value: boolean) => void,
   value: boolean,
-  viewMode: boolean,
+  viewMode?: boolean,
 }
 
 export const OptionBox: React.FC<ComponentProps_OptionBox> = (props: ComponentProps_OptionBox) =>  {

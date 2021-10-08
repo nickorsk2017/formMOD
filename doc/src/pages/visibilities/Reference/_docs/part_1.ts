@@ -1,4 +1,4 @@
 export default `
-<h1 content-header class="content-header">Visibility for uncontrolled components</h1>
+<h1 content-header class="content-header">Optional uncontrolled components</h1>
 
 `
