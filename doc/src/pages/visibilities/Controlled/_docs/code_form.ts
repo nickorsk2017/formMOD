@@ -42,7 +42,7 @@ export function Visibilities() {
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.count}>Count render: {getCountRender()}</div>
                 <TextInput
-                    label={"Full name"}
+                    label={"Your full name"}
                     value={getValue("full_name")}
                     error={getError("full_name")}
                     onChange={(value: string) => setValue("full_name", value)}

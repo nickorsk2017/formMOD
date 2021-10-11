@@ -9,7 +9,7 @@ export default (() => {
       const inputRef = useRef<any>(null);
       const {onChangeOptimized, onBlurOptimized} = useOptimisationInput({onChange, value, inputRef});
 
-      if(typeof visible === "boolean" && !visible){
+      if(visible === false){
         return null;
       }
 

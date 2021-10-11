@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -21,6 +22,7 @@ import {
 } from "./pages";
 
 const App = () => {
+
   return (
     <Router>
       <RouterApp/>

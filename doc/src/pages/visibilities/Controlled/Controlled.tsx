@@ -17,10 +17,6 @@ export const Controlled = () => {
     const _INPUT_CODE = getCodeSnippet(INPUT_CODE, 'javascript');
     const _SCHEME = getCodeSnippet(SCHEME, 'json5');
     const _FORM_CODE = getCodeSnippet(FORM_CODE, 'javascript');
-
-    setTimeout(() => {
-        (window as any).Prism.highlightAll();
-    }, 0);
   
     return (
         <div className={styles.container}>

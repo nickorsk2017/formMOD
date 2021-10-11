@@ -1,6 +1,7 @@
-import React, {memo, useState} from 'react';
+import React, {memo, useState, useEffect} from 'react';
 import {
-    NavLink
+    NavLink,
+    useHistory
 } from "react-router-dom";
 import styles from './App.module.css';
 
@@ -14,6 +15,28 @@ export const RouterApp = memo(() => {
     const toggleMenuItem = (itemID: string) => {
         !opendItems.includes(itemID) ? setOpendItems([...opendItems, itemID]) : setOpendItems([...opendItems].filter(opendItem => opendItem !== itemID));
     };
+    const history = useHistory();
+    const usePrism = () =>  setTimeout(() => {
+      (window as any).Prism.highlightAll();
+    }, 0);
+    usePrism();
+
+    useEffect(() => {
+      const itemsStr = localStorage.getItem("opendItems");
+      if(itemsStr){
+        setOpendItems(JSON.parse(itemsStr));
+      }
+    }, []);
+    useEffect(() => {
+     // setActiveRootMenu(history.location);
+     localStorage.setItem("opendItems", JSON.stringify(opendItems));
+    }, [opendItems]);
+
+    useEffect(() => {
+      return history.listen(() => {
+        usePrism();
+      });
+    }, [history]);
     
     return (
         <nav id="app-nav">
