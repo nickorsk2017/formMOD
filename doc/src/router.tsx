@@ -52,7 +52,7 @@ export const RouterApp = memo(() => {
             {checkOpendItems("basicSection") && 
             <>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/uncontrolled">Reference</NavLink>
+                <NavLink activeClassName="active" to="/uncontrolled">Uncontrolled</NavLink>
               </li>
                 <li className={styles.navItem}>
                 <NavLink to="/controlled">Controlled</NavLink>
@@ -97,7 +97,7 @@ export const RouterApp = memo(() => {
             {checkOpendItems("visibilities") && 
             <>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/uncontrolled-visibilities">Reference</NavLink>
+                <NavLink activeClassName="active" to="/uncontrolled-visibilities">Uncontrolled</NavLink>
               </li>
                 <li className={styles.navItem}>
                 <NavLink to="/controlled-visibilities">Controlled</NavLink>
@@ -107,15 +107,15 @@ export const RouterApp = memo(() => {
         </div>
 
         <div className={styles.section}>
-          <div onClick={() => toggleMenuItem("dynamic")} className={[checkOpendItems("dynamic") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Dynamic forms<i className={[checkOpendItems("dynamic") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
+          <div onClick={() => toggleMenuItem("dynamic")} className={[checkOpendItems("dynamic") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Group controls<i className={[checkOpendItems("dynamic") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
           <ul className={[checkOpendItems("dynamic") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
             {checkOpendItems("dynamic") && 
             <>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/uncontrolled-visibilities">Reference</NavLink>
+                <NavLink activeClassName="active" to="/uncontrolled-dynamic">Uncontrolled</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink to="/controlled-visibilities">Controlled</NavLink>
+                <NavLink to="/controlled-dynamic">Controlled</NavLink>
               </li>
             </>}
           </ul>

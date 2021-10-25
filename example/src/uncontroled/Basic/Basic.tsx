@@ -106,7 +106,7 @@ export function Basic() {
             }
             {getValue("haveHobbies") && !isViewMode() && getGroup("hobbies") && <div className={styles.buttons}>
                 {getGroup("hobbies").length > 0 && <Button onClick={deleteLastHobby} theme="RED" title="Delete last hobby"/>}
-                <Button onClick={addNewHobby} theme="RED" title="Add new hobby"/>
+                <Button onClick={addNewHobby} theme="LIGHT" title="Add new hobby"/>
             </div>}
              <TextInput
                 label={"Address"}

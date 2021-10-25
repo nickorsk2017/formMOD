@@ -5,7 +5,7 @@ export type ButtonParams = {
   onClick?: (event: React.SyntheticEvent) => void,
   title: string, 
   type?: "button" | "submit" | "reset" | undefined,
-  theme?: "LIGHT" | undefined
+  theme?: "LIGHT" | "RED" | undefined
 };
 
 export const Button = (props: ButtonParams) => {
@@ -13,6 +13,8 @@ export const Button = (props: ButtonParams) => {
 
     const getTheme = () => {
       switch(theme){
+        case("RED"):
+          return styles.containerRed
         case("LIGHT"):
           return styles.containerLight
         default:

@@ -9,3 +9,4 @@ export {Min as MinRule} from "./rules/Min/Min";
 export {Custom as CustomRule} from "./rules/Custom/Custom";
 export {Reference as ReferenceVisibilities} from "./visibilities/Reference/Reference";
 export {Controlled as ControlledVisibilities} from "./visibilities/Controlled/Controlled";
+export {Controlled as ControlledDynamic} from "./dynamic/Controlled/Controlled";

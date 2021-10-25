@@ -1,3 +1,4 @@
+.containerRed,
 .containerLight,
 .container {
     display: inline-flex;
@@ -13,6 +14,7 @@
     cursor: pointer;
     font-size: 16px;
 }
+.containerRed:focus,
 .containerLight:focus,
 .container:focus {
     outline: none;
@@ -23,8 +25,17 @@
     background-color: transparent;
     color: #54c270;
     border: 1px solid transparent;
+    padding: 0;
 }
 
+.containerRed {
+    background-color: transparent;
+    color: #ce4f28;
+    border: 1px solid transparent;
+    padding: 0;
+}
+
+.containerRed:focus,
 .containerLight:focus {
     border: 1px solid transparent;
 }

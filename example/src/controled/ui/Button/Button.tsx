@@ -13,6 +13,8 @@ export const Button = (props: ButtonParams) => {
 
     const getTheme = () => {
       switch(theme){
+        case("RED"):
+          return styles.containerRed
         case("LIGHT"):
           return styles.containerLight
         default:

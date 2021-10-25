@@ -18,7 +18,8 @@ import {
   EmailRule,
   MaxRule,
   MinRule,
-  CustomRule
+  CustomRule,
+  ControlledDynamic,
 } from "./pages";
 
 const App = () => {
@@ -67,6 +68,14 @@ const App = () => {
 
           <Route path='/controlled-visibilities' strict>
             <ControlledVisibilities/>
+          </Route>
+
+          <Route path='/controlled-dynamic' strict>
+            <ControlledDynamic/>
+          </Route>
+
+          <Route path='/uncontrolled-dynamic' strict>
+            <ControlledDynamic/>
           </Route>
 
           <Route component={Page404} />
