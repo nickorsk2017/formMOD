@@ -27,7 +27,7 @@ export const Controlled = () => {
           <Content content={PART_2}/>
           <br/>
           <div className="formmod__subtitle">Form component:</div>
-          <Content lines="14-17,45-50,52-58,68-78, 80-81" preWrap={true} content={_FORM_CODE}/>
+          <Content lines="9-17,45-50,52-58,68-78, 80-81" preWrap={true} content={_FORM_CODE}/>
           <br/>
           <Content content={PART_3}/>
           <br/>

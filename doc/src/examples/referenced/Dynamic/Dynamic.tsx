@@ -6,28 +6,18 @@ import styles from './Dynamic.module.css';
 
 export function Dynamic() {
     const {
-        setValue,
-        getValue,
-        getError,
         validate,
         resetForm,
+        useRefMod,
         getGroup,
-        getItemByIndex,
         deleteGroupItem,
         addGroupItem,
+        getItemByIndex,
     } = useFormMod(
-        FORM_SCHEME
+        FORM_SCHEME,
     );
-
-
-    const setDefault = (event: any) => {
-        if(event && event.preventDefault) {
-			event.preventDefault();
-		}
-        resetForm();
-    };
     
-    const handleSubmit = function(event: any){
+    const handleSubmit = function(event: React.SyntheticEvent){
         if(event && event.preventDefault) {
 			event.preventDefault();
 		}
@@ -41,6 +31,20 @@ export function Dynamic() {
             }
         });
     }
+
+    const setDefault = (event: React.SyntheticEvent) => {
+        if(event && event.preventDefault) {
+			event.preventDefault();
+		}
+        resetForm();
+    };
+
+    // count of render
+    const {getCountRender, counter} = useCountRender();
+    counter();
+    // count of render [END]
+
+    const hobbiesRef = useRefMod("hobbies");
 
     const deleteLastHobby = () => {
         const groupItem = getItemByIndex({controlName: "hobbies", index: getGroup("hobbies").length - 1});
@@ -57,34 +61,27 @@ export function Dynamic() {
         });
     };
 
-    // count of render
-    const {getCountRender, counter} = useCountRender();
-    counter();
-    // count of render [END]
-        
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.count}>Count render: {getCountRender()}</div>
             {
-            getGroup("hobbies").map((control: Types.ControlGroupValue, index: number) => {
+              getGroup("hobbies").map((control: Types.ControlGroupValue, index: number) => {
                 return <TextInput
                     key={control.id}
+                    controlId={control.id}
                     label={`Hobby ${index + 1}`}
-                    value={getValue("hobbies", control.id)}
-                    error={getError("hobbies", control.id)}
-                    onChange={(value: string) => setValue("hobbies", value, false, control.id)}
+                    refMod={hobbiesRef}
                 />
-            })
+              })
             }
             <div className={styles.buttons}>
                 {getGroup("hobbies").length > 0 && <Button onClick={deleteLastHobby} theme="RED" title="Delete last hobby"/>}
                 <Button onClick={addNewHobby} theme="LIGHT" title="Add new hobby"/>
             </div>
-
             <div className={styles.buttons}>
                 <Button type="submit" title="Submit"/>
                 <Button theme="LIGHT" onClick={setDefault} title="Reset"/>
             </div>
-    </form>
+        </form>
     )
 }

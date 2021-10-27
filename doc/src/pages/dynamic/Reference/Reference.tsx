@@ -3,14 +3,13 @@ import {getCodeSnippet} from "../../../utils";
 import {Content} from "../../../ui";
 import {
     PART_1,
-    PART_2,
     PART_3,
     PART_4,
     FORM_CODE,
     SCHEME,
     INPUT_CODE,
 } from "./_docs";
-import {VisibilitiesReferencedForm} from "../../../examples/";
+import {DynamicUncontroledForm} from "../../../examples/";
 import styles from './Reference.module.css';
 
 export const Reference = () => {
@@ -22,19 +21,17 @@ export const Reference = () => {
         <div className={styles.container}>
           <Content content={PART_1}/>
           <div className="formmod__subtitle">Live example:</div><br/>
-          <VisibilitiesReferencedForm/><br/>
+          <DynamicUncontroledForm/><br/>
           <div className="formmod__subtitle">Form scheme:</div>
-          <Content lines="28-34" language="json5" preWrap={true} content={_SCHEME}/>
-          <br/>
-          <Content content={PART_2}/>
+          <Content language="json5" preWrap={true} content={_SCHEME}/>
           <br/>
           <div className="formmod__subtitle">Form component:</div>
-          <Content lines="44,48,53" preWrap={true} content={_FORM_CODE}/>
+          <Content lines="9-15,17,49-54,56-62,68-75, 78-79, 47" preWrap={true} content={_FORM_CODE}/>
           <br/>
           <Content content={PART_3}/>
           <br/>
           <div className="formmod__subtitle">Control component:</div>
-          <Content lines="7-11" preWrap={true} content={_INPUT_CODE}/>
+          <Content lines="11,12" preWrap={true} content={_INPUT_CODE}/>
           <br/>
           <Content content={PART_4}/>
         </div>

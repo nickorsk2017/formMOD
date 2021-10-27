@@ -70,7 +70,7 @@ export default (() => {
                 getGroup("hobbies").map((control: Types.ControlGroupValue, index: number) => {
                     return <TextInput
                         key={control.id}
-                        label={\'Hobby \${index}\'}
+                        label={\'Hobby \${index + 1}\'}
                         value={getValue("hobbies", control.id)}
                         error={getError("hobbies", control.id)}
                         onChange={(value: string) => setValue("hobbies", value, false, control.id)}

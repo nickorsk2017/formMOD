@@ -20,6 +20,7 @@ import {
   MinRule,
   CustomRule,
   ControlledDynamic,
+  UncontrolledDynamic
 } from "./pages";
 
 const App = () => {
@@ -75,7 +76,7 @@ const App = () => {
           </Route>
 
           <Route path='/uncontrolled-dynamic' strict>
-            <ControlledDynamic/>
+            <UncontrolledDynamic/>
           </Route>
 
           <Route component={Page404} />

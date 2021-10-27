@@ -1,4 +1,4 @@
-export default `export default {
+export default {
     valid: null,
     formValue: {
         hobbies: [
@@ -21,4 +21,3 @@ export default `export default {
         ]
     }
 }
-`;
