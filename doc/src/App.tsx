@@ -20,7 +20,10 @@ import {
   MinRule,
   CustomRule,
   ControlledDynamic,
-  UncontrolledDynamic
+  UncontrolledDynamic,
+  IntroViewMode,
+  UncontrolledViewMode,
+  ControlledViewMode
 } from "./pages";
 
 const App = () => {
@@ -77,6 +80,18 @@ const App = () => {
 
           <Route path='/uncontrolled-dynamic' strict>
             <UncontrolledDynamic/>
+          </Route>
+
+          <Route path='/introduction-viewmode' strict>
+            <IntroViewMode/>
+          </Route>
+
+          <Route path='/uncontrolled-viewmode' strict>
+            <UncontrolledViewMode/>
+          </Route>
+
+          <Route path='/controlled-viewmode' strict>
+            <ControlledViewMode/>
           </Route>
 
           <Route component={Page404} />

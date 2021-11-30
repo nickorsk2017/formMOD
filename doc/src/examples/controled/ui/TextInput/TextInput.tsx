@@ -4,13 +4,24 @@ import {useOptimisationInput} from "./useOptimisationInput";
 import styles from './TextInput.module.css';
 
 export function TextInput(props: any) {
-    const {error, onChange, value, label, visible} = props;
+    const {error, onChange, value, label, visible, viewMode} = props;
     const inputRef = useRef<any>(null);
     const {onChangeOptimized, onBlurOptimized} = useOptimisationInput({onChange, value, inputRef});
 
     if(typeof visible === "boolean" && !visible){
       return null;
     }
+
+    if(viewMode){
+      return (
+      <div className={styles.textInput}>
+        {label && <label className={styles.label}>{label}</label>}
+        <div className={styles.inputDetail}>{value}</div>
+        {error && <span className={styles.error}>{error}</span>}
+      </div>
+      )
+    }
+
     return (
       <div className={styles.textInput}>
         {label && <label className={styles.label}>{label}</label>}

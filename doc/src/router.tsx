@@ -121,6 +121,24 @@ export const RouterApp = memo(() => {
           </ul>
         </div>
 
+        <div className={styles.section}>
+          <div onClick={() => toggleMenuItem("viewmode")} className={[checkOpendItems("viewmode") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>View mode<i className={[checkOpendItems("viewmode") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
+          <ul className={[checkOpendItems("viewmode") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
+            {checkOpendItems("viewmode") && 
+            <>
+              <li className={styles.navItem}>
+                <NavLink activeClassName="active" to="/introduction-viewmode">Introduction</NavLink>
+              </li>
+              <li className={styles.navItem}>
+                <NavLink activeClassName="active" to="/uncontrolled-viewmode">Uncontrolled</NavLink>
+              </li>
+              <li className={styles.navItem}>
+                <NavLink to="/controlled-viewmode">Controlled</NavLink>
+              </li>
+            </>}
+          </ul>
+        </div>
+
         
       </nav>
     )

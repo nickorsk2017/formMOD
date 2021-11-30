@@ -11,3 +11,6 @@ export {Reference as ReferenceVisibilities} from "./visibilities/Reference/Refer
 export {Controlled as ControlledVisibilities} from "./visibilities/Controlled/Controlled";
 export {Controlled as ControlledDynamic} from "./dynamic/Controlled/Controlled";
 export {Reference as UncontrolledDynamic} from "./dynamic/Reference/Reference";
+export {Introduction as IntroViewMode} from "./viewmode/intro/Introduction";
+export {Controlled as ControlledViewMode} from "./viewmode/controlled/Controlled";
+export {Reference as UncontrolledViewMode} from "./viewmode/uncontrolled/Reference";

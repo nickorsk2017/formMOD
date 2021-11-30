@@ -24,6 +24,21 @@
     color: #244D51;
     box-sizing: border-box;
 }
+.inputDetail {
+    width: 100%;
+    max-width: 300px;
+    height: 36px;
+    line-height: 36px;
+    background: #FFFFFF;
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    border-radius: 4px;
+    padding-left: 0px;
+    font-family: Open Sans;
+    font-size: 14px;
+    color: #244D51;
+    box-sizing: border-box;
+}
 .error {
     font-family: Arial;
     font-size: 12px;
