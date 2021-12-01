@@ -1,6 +1,7 @@
 export default `
- 1. Get methods (<b>line 9-17</b>).<br/>
- 2. Handlers for adding and deleting items (<b>line 45-50,52-58</b>).<br/>
- 3. Render items JSX (<b>line 68-78</b>).<br/>
- 4. Connect handlers (<b>line 80-81</b>).<br/>
+1. Get methods for setting view mode (<b>line 14-15</b>).<br/>
+2. Connect form scheme (<b>line 17</b>).<br/>
+3. Toggle view mode(<b>line 27, 35</b>).<br/>
+4. Push the view mode option to controll (<b>line 58, 65</b>).<br/>
+5. Use the right buttons(<b>line 67, 71</b>).<br/>
 `

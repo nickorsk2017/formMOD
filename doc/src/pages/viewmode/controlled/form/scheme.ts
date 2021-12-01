@@ -1,4 +1,4 @@
-export default `export default {
+export default {
     valid: null,
     formValue: {
         first_name: "",
@@ -9,7 +9,7 @@ export default `export default {
             {
                 name: "empty",
                 message: "first name is required"
-            },
+            }
         ],
         last_name: [
             {
@@ -19,4 +19,3 @@ export default `export default {
         ]
     }
 }
-`;

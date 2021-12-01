@@ -1,32 +1,22 @@
 export default (() => {
     const code = `import React from 'react'
-    import {useFormMod, useCountRender, Types} from "formmod";
-    import {TextInput, Button} from "../ui";
+    import {useFormMod, useCountRender} from "formmod";
+    import {TextInput, Button} from "../../../../examples/controled/ui";
     import FORM_SCHEME from "./scheme";
-    import styles from './Dynamic.module.css';
+    import styles from './Form.module.css';
     
-    export function Dynamic() {
+    export function Form() {
         const {
             setValue,
             getValue,
             getError,
             validate,
             resetForm,
-            getGroup,
-            getItemByIndex,
-            deleteGroupItem,
-            addGroupItem,
+            isViewMode,
+            setViewMode
         } = useFormMod(
             FORM_SCHEME
         );
-    
-    
-        const setDefault = (event: any) => {
-            if(event && event.preventDefault) {
-                event.preventDefault();
-            }
-            resetForm();
-        };
         
         const handleSubmit = function(event: any){
             if(event && event.preventDefault) {
@@ -34,28 +24,23 @@ export default (() => {
             }
             validate(true, (valid: boolean, formValue: any) => {
                 if(valid) {
-                    alert('Form is valid');
                     console.log("FORM IS VALID, value:", formValue );
+                    setViewMode(true);
                 } else {
-                    alert('Form is wrong');
                     console.log('FORM IS WRONG, value:', formValue );
                 }
             });
         }
     
-        const deleteLastHobby = () => {
-            const groupItem = getItemByIndex({controlName: "hobbies", index: getGroup("hobbies").length - 1});
-            if(groupItem){
-                deleteGroupItem({controlName: "hobbies", groupControlId: groupItem.id});
-            }
+        const edit = () => {
+            setViewMode(false);
         };
     
-        const addNewHobby = () => {
-            addGroupItem({controlName: "hobbies", value: {
-                    id: new Date().getTime(),
-                    value: ""
-                }
-            });
+        const setDefault = (event: any) => {
+            if(event && event.preventDefault) {
+                event.preventDefault();
+            }
+            resetForm();
         };
     
         // count of render
@@ -66,27 +51,28 @@ export default (() => {
         return (
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.count}>Count render: {getCountRender()}</div>
-                {
-                getGroup("hobbies").map((control: Types.ControlGroupValue, index: number) => {
-                    return <TextInput
-                        key={control.id}
-                        label={\'Hobby \${index + 1}\'}
-                        value={getValue("hobbies", control.id)}
-                        error={getError("hobbies", control.id)}
-                        onChange={(value: string) => setValue("hobbies", value, false, control.id)}
-                    />
-                })
-                }
-                <div className={styles.buttons}>
-                    <Button onClick={deleteLastHobby} theme="RED" title="Delete last hobby"/>
-                    <Button onClick={addNewHobby} theme="LIGHT" title="Add new hobby"/>
-                </div>
-    
-                <div className={styles.buttons}>
+                <TextInput
+                    label={"First name"}
+                    value={getValue("first_name")}
+                    error={getError("first_name")}
+                    onChange={(value: string) => setValue("first_name", value)}
+                    viewMode={isViewMode()}
+                />
+                 <TextInput
+                    label={"Last name"}
+                    value={getValue("last_name")}
+                    error={getError("last_name")}
+                    onChange={(value: string) => setValue("last_name", value)}
+                    viewMode={isViewMode()}
+                />
+                {!isViewMode() && <div className={styles.buttons}>
                     <Button type="submit" title="Submit"/>
                     <Button theme="LIGHT" onClick={setDefault} title="Reset"/>
-                </div>
-        </form>
+                </div>}
+                {isViewMode() && <div className={styles.buttons}>
+                    <Button onClick={edit} title="Edit"/>
+                </div>}
+            </form>
         )
     }`;
 
