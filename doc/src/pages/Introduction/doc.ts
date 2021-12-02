@@ -5,7 +5,7 @@ The formMOD is powerful library for React forms.</br>
 
 You can make a great apps faster and easy. </br></br>
 
-<div>The advantages: </br></div>
+<div>Advantages: </br></div>
 
 <ul content-ul>
     <li>
@@ -22,7 +22,7 @@ You can make a great apps faster and easy. </br></br>
     </li>
 </ul>
 
-<div>The functionality: </br></div>
+<div>Functionality: </br></div>
 
 <ul content-ul>
     <li>

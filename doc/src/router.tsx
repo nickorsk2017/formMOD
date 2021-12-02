@@ -45,6 +45,14 @@ export const RouterApp = memo(() => {
         <div className={styles.selfItem}>
           <NavLink exact={true} activeClassName="active" to="/">Introduction</NavLink>
         </div>
+
+        <div className={styles.selfItem}>
+          <NavLink exact={true} activeClassName="active" to="/forms">Forms</NavLink>
+        </div>
+
+        <div className={styles.selfItem}>
+          <NavLink exact={true} activeClassName="active" to="/scheme">Form scheme</NavLink>
+        </div>
         
         <div className={styles.section}>
           <div onClick={() => toggleMenuItem("basicSection")} className={[checkOpendItems("basicSection") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Controls <i className={[checkOpendItems("basicSection") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
@@ -137,6 +145,10 @@ export const RouterApp = memo(() => {
               </li>
             </>}
           </ul>
+        </div>
+
+        <div className={styles.selfItem}>
+          <NavLink exact={true} activeClassName="active" to="/license">License</NavLink>
         </div>
 
         

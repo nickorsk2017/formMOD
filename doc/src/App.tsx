@@ -23,7 +23,8 @@ import {
   UncontrolledDynamic,
   IntroViewMode,
   UncontrolledViewMode,
-  ControlledViewMode
+  ControlledViewMode,
+  License,
 } from "./pages";
 
 const App = () => {
@@ -92,6 +93,10 @@ const App = () => {
 
           <Route path='/controlled-viewmode' strict>
             <ControlledViewMode/>
+          </Route>
+
+          <Route path='/license' strict>
+            <License/>
           </Route>
 
           <Route component={Page404} />
