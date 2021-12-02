@@ -25,6 +25,8 @@ import {
   UncontrolledViewMode,
   ControlledViewMode,
   License,
+  Forms,
+  Scheme
 } from "./pages";
 
 const App = () => {
@@ -97,6 +99,14 @@ const App = () => {
 
           <Route path='/license' strict>
             <License/>
+          </Route>
+
+          <Route path='/forms' strict>
+            <Forms/>
+          </Route>
+
+          <Route path='/scheme' strict>
+            <Scheme/>
           </Route>
 
           <Route component={Page404} />
