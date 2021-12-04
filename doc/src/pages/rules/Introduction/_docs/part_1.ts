@@ -1,5 +1,5 @@
 export default `
-<h1 content-header class="content-header">Validating form</h1>
+<h1 content-header class="content-header">Validation form</h1>
 
 The formMod system using very easy system for validation your forms.<br/>
 

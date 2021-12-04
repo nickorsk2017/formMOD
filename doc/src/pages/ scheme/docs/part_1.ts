@@ -5,5 +5,5 @@ This have only one state inside a intity of library.<br><br>
 
 You can change a state of form by API of formMod.<br><br>
 
-See example bellow.
+See the example bellow.<br><br>
 `
