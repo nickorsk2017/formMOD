@@ -148,6 +148,14 @@ export const RouterApp = memo(() => {
         </div>
 
         <div className={styles.selfItem}>
+          <NavLink exact={true} activeClassName="active" to="/edit-mode">Edit mode</NavLink>
+        </div>
+
+        <div className={styles.selfItem}>
+          <NavLink exact={true} activeClassName="active" to="/api">API</NavLink>
+        </div>
+
+        <div className={styles.selfItem}>
           <NavLink exact={true} activeClassName="active" to="/license">License</NavLink>
         </div>
 

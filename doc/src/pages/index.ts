@@ -17,3 +17,4 @@ export {Reference as UncontrolledViewMode} from "./viewmode/uncontrolled/Referen
 export {License} from "./license/License";
 export {Forms} from "./forms/Forms";
 export {Scheme} from "./ scheme/Scheme";
+export {API} from "./api/API";

@@ -26,7 +26,8 @@ import {
   ControlledViewMode,
   License,
   Forms,
-  Scheme
+  Scheme,
+  API,
 } from "./pages";
 
 const App = () => {
@@ -107,6 +108,10 @@ const App = () => {
 
           <Route path='/scheme' strict>
             <Scheme/>
+          </Route>
+
+          <Route path='/api' strict>
+            <API/>
           </Route>
 
           <Route component={Page404} />
