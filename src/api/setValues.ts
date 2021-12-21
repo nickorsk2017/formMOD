@@ -11,6 +11,7 @@ export type SetValuesParams = {
   getVisibilities: Visibilities;
   editMode?: boolean;
   getFormState: () => FormState;
+  isOnInitEdit: boolean;
 };
 export type SetValues = (params: SetValuesParams) => FormState | false;
 
@@ -20,20 +21,27 @@ export const setValues: SetValues = ({
   updateFormState,
   getVisibilities,
   editMode,
-  getFormState
+  getFormState,
+  isOnInitEdit
 }) => {
   const _formState: FormState = _.cloneDeep(formState);
   Object.keys(controlsValues).forEach((controlName: ControlName) => {
     _formState[controlName] = controlsValues[controlName];
   });
+
+  //cancell update state each render for edit mode
+  // this state must update only first render
+  if(editMode && isOnInitEdit){
+    return formState
+  }
+
   if (_formState.valid === null && !editMode) {
     if (!_.isEqual(_formState, formState)) {
       updateFormState(_formState);
     }
     return _formState;
   } else {
-    if((editMode && !_.isEqual(_formState, formState)) || !editMode){
-      console.log("setValues", _formState, formState);
+    if(!_.isEqual(_formState, formState)){
       return validate({
         formState: _formState,
         updateValidation: true,
@@ -41,7 +49,7 @@ export const setValues: SetValues = ({
         updateFormState,
         getVisibilities,
         getFormState,
-        editMode,
+        editMode
       });
     } else {
       return formState

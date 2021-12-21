@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react'
+import React from 'react'
 import {useFormMod, useCountRender, Types} from "formmod";
 import {TextInput, OptionBox, Button} from "../ui";
 import FORM_SCHEME from "./scheme";
@@ -16,13 +16,13 @@ export function Form(formValue: any) {
         setViewMode,
         isViewMode,
         getValue,
-       // setValues
+        setValues
     } = useFormMod(
         FORM_SCHEME,
     );
     // edit mode here
     if(formValue){
-      // setValues(formValue, true);
+      setValues(formValue, true);
     }
     
     const handleSubmit = (event: React.SyntheticEvent) => {

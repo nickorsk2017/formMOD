@@ -13,15 +13,29 @@ export const useStateForm = (initFormState: FormState) => {
   const result = useRef(
     (() => {
       let formState: FormState = initFormState;
+      let _initFormState = initFormState;
       let timout: ReturnType<typeof setTimeout> | null = null;
       const { forceUpdate } = useForceUpdate();
+      let onInitEdit = false; 
 
-      const setSate = (newFormState: FormState) => {
+      const updateInitState = (newFormState: FormState) => {
+        _initFormState = newFormState;
+      };
+      const getInitFormState = () => {
+        return _initFormState;
+      }
+      const setState = (newFormState: FormState) => {
         formState = newFormState;
+      };
+      const setOnInitFromEdit = (state: boolean) => {
+        onInitEdit = state;
+      };
+      const isOnInitEdit = () => {
+        return onInitEdit;
       };
 
       const updateFormState: UpdateFormState = (newFormState, skipUpdate, editMode) => {
-        setSate(newFormState);
+        setState(newFormState);
         // fix multipale updates
         // need only one last
         if ((!skipUpdate || formState.valid !== null) && !editMode) {
@@ -32,12 +46,18 @@ export const useStateForm = (initFormState: FormState) => {
             forceUpdate();
           }, 20);
         }
+        if(editMode && !isOnInitEdit()){
+          setOnInitFromEdit(true);
+          updateInitState(newFormState);
+        }
         return formState;
       };
 
       return {
         getFormState: () => formState,
-        updateFormState
+        getInitFormState,
+        updateFormState,
+        isOnInitEdit
       };
     })()
   ).current;

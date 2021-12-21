@@ -13,7 +13,7 @@ export type ValidateParams = {
   updateFormState: UpdateFormState;
   getVisibilities: Visibilities;
   getFormState?: () => FormState,
-  editMode?: boolean
+  editMode?: boolean,
 };
 export type Validate = (params: ValidateParams) => FormState;
 
@@ -67,7 +67,7 @@ export const validate: Validate = ({
       }
     });
 
-    if (!_.isEqual(formState.rules, cloneRules)) {
+    if (!_.isEqual(formState.rules, cloneRules) || fromSetValue) {
       let _formState: FormState;
       const oldFormValue = getFormState ? getFormState() : formState;
       if (fromSetValue) {
@@ -78,9 +78,12 @@ export const validate: Validate = ({
       _formState.valid = formIsValid;
       _formState.rules = cloneRules;
       if (updateValidation) {
-        if (!_.isEqual(_formState, oldFormValue)) {
-          console.log(editMode, 'test!!');
-          updateFormState(_formState, false, editMode);
+        if(editMode){
+          if (!_.isEqual(_formState, oldFormValue)) {
+            updateFormState(_formState, false, editMode);
+          }
+        } else {
+          updateFormState(_formState);
         }
       }
       if (typeof callback === 'function') {
