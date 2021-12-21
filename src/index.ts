@@ -28,11 +28,9 @@ export * as Types from './types';
 export {useOptimisationInput} from "./api";
 
 export const useFormMod = (
-  initFormState: FormState,
-  useControledForm: boolean | undefined = false
+  initFormState: FormState
 ) => {
   const { getFormState, updateFormState } = useStateForm(initFormState);
-  console.log(useControledForm, 'useControledForm!');
 
   const {
     deleteEventListener,
@@ -107,12 +105,14 @@ export const useFormMod = (
         skipUpdate,
         getVisibilities
       }),
-    setValues: (controlsValues: FormValue) =>
+    setValues: (controlsValues: FormValue, editMode?: boolean) =>
       setValues({
         formState: getFormState(),
         controlsValues,
         updateFormState,
-        getVisibilities
+        getVisibilities,
+        editMode,
+        getFormState
       }),
     validate: (updateValidation: boolean, callback: Function) =>
       validate({
@@ -121,7 +121,8 @@ export const useFormMod = (
         callback,
         fromSetValue: false,
         updateFormState,
-        getVisibilities
+        getVisibilities,
+        getFormState
       }),
     getError: (controlName: ControlName, controlId?: GroupControlId) =>
       getError({ formState: getFormState(), controlName, groupControlId: controlId }),

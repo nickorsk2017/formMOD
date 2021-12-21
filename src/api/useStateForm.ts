@@ -5,7 +5,8 @@ import { FormState } from '../types';
 
 export type UpdateFormState = (
   newFormState: FormState,
-  skipUpdate?: boolean
+  skipUpdate?: boolean,
+  editMode?: boolean
 ) => FormState;
 
 export const useStateForm = (initFormState: FormState) => {
@@ -19,11 +20,11 @@ export const useStateForm = (initFormState: FormState) => {
         formState = newFormState;
       };
 
-      const updateFormState: UpdateFormState = (newFormState, skipUpdate) => {
+      const updateFormState: UpdateFormState = (newFormState, skipUpdate, editMode) => {
         setSate(newFormState);
         // fix multipale updates
         // need only one last
-        if (!skipUpdate || formState.valid !== null) {
+        if ((!skipUpdate || formState.valid !== null) && !editMode) {
           if (timout) {
             clearTimeout(timout);
           }

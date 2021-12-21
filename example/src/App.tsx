@@ -6,7 +6,9 @@ import {
   Link
 } from "react-router-dom";
 import { Basic } from './controled/Basic/Basic';
-import { Basic as BasicUncontroled } from './uncontroled/Basic/Basic';
+import { Edit } from './controled/Edit/Edit';
+import { Basic as BasicUncontrolled } from './uncontroled/Basic/Basic';
+import { Edit as EditUncontrolled } from './uncontroled/Edit/Edit';
 import './index.css'
 
 const App = () => {
@@ -18,7 +20,13 @@ const App = () => {
             <Link to="/controlled">Controlled</Link>
           </li>
           <li>
-            <Link to="/uncontrolled">Reference</Link>
+            <Link to="/uncontrolled">Uncontrolled</Link>
+          </li>
+          <li>
+            <Link to="/edit-controlled">Edit Controlled</Link>
+          </li>
+          <li>
+            <Link to="/edit-uncontrolled">Edit Uncontrolled</Link>
           </li>
         </ul>
     </nav>
@@ -27,8 +35,14 @@ const App = () => {
         <Route path="/controlled">
           <Basic />
         </Route>
+        <Route path="/edit-controlled">
+          <Edit />
+        </Route>
         <Route path="/uncontrolled">
-          <BasicUncontroled />
+          <BasicUncontrolled />
+        </Route>
+        <Route path="/edit-uncontrolled">
+          <EditUncontrolled />
         </Route>
       </Switch>
     </div>

@@ -42,8 +42,8 @@ export const setValue: SetValue = ({
     } else {
       _formState.formValue[controlName] = controlValue;
     }
-
     if (_formState.valid === null) {
+      console.log(_formState, '_formState');
       updateFormState(_formState, skipUpdate);
       return _formState;
     } else {

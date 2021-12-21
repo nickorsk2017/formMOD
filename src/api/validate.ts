@@ -2,6 +2,7 @@ import * as _ from 'lodash';
 import { getValidationControl } from './getValidationControl';
 import { getValue } from './getValue';
 import { Visibilities } from '../api/visibilities';
+import { UpdateFormState } from '../api/useStateForm';
 import { FormState, ControlName, FormValue } from '../types';
 
 export type ValidateParams = {
@@ -9,8 +10,10 @@ export type ValidateParams = {
   updateValidation: boolean;
   callback?: Function;
   fromSetValue: boolean;
-  updateFormState: (updateFormState: FormState) => any;
+  updateFormState: UpdateFormState;
   getVisibilities: Visibilities;
+  getFormState?: () => FormState,
+  editMode?: boolean
 };
 export type Validate = (params: ValidateParams) => FormState;
 
@@ -20,7 +23,9 @@ export const validate: Validate = ({
   callback,
   fromSetValue,
   updateFormState,
-  getVisibilities
+  getVisibilities,
+  getFormState,
+  editMode,
 }) => {
   const cloneRules = {};
   let formIsValid = true;
@@ -43,7 +48,7 @@ export const validate: Validate = ({
     });
     return formValue;
   };
-
+  
   if (formState.rules) {
     Object.keys(formState.rules).forEach((controlName: ControlName) => {
       const resultValidationControl = getValidationControl({
@@ -61,9 +66,10 @@ export const validate: Validate = ({
         cloneRules[controlName] = resultValidationControl.rulesControl;
       }
     });
-   
-    if (!_.isEqual(formState.rules, cloneRules) || fromSetValue) {
+
+    if (!_.isEqual(formState.rules, cloneRules)) {
       let _formState: FormState;
+      const oldFormValue = getFormState ? getFormState() : formState;
       if (fromSetValue) {
         _formState = formState;
       } else {
@@ -71,9 +77,11 @@ export const validate: Validate = ({
       }
       _formState.valid = formIsValid;
       _formState.rules = cloneRules;
-      console.log(_formState.rules, '_formState.rules')
       if (updateValidation) {
-        updateFormState(_formState);
+        if (!_.isEqual(_formState, oldFormValue)) {
+          console.log(editMode, 'test!!');
+          updateFormState(_formState, false, editMode);
+        }
       }
       if (typeof callback === 'function') {
         callback(_formState.valid, getValueForm(_formState));
