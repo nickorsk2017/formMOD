@@ -8,7 +8,7 @@ import styles from './Visibilities.module.css';
 export function Visibilities() {
         const {setValue, getValue, getError, validate, resetForm, isVisible} = useFormMod(
             FORM_SCHEME,
-            false
+
         );
         
         const handleSubmit = function(event: any){

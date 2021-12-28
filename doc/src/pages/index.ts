@@ -18,3 +18,5 @@ export {License} from "./license/License";
 export {Forms} from "./forms/Forms";
 export {Scheme} from "./ scheme/Scheme";
 export {API} from "./api/API";
+export {Controlled as ControlledEditmode} from "./editmode/controlled/Controlled"
+export {Reference as UncontrolledEditmode} from "./editmode/uncontrolled/Reference"

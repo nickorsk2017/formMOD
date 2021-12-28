@@ -1,7 +1,5 @@
 export default `
- 1. Get methods for setting view mode (<b>line 12-13</b>).<br/>
- 2. Connect form scheme (<b>line 14</b>).<br/>
- 3. Toggle view mode(<b>line 23, 31</b>).<br/>
- 4. Create reference for controls(<b>line 51, 35</b>).<br/>
- 5. Use the right buttons(<b>line 57, 61</b>).<br/>
+This is parent component.<br/>
+1. Getting the right method for setting value to the edit mode. (<b>line 21</b>).<br/>
+2. Setting a value for the edit mode.(<b>line 26-29</b>).<br/>
 `

@@ -1,35 +1,43 @@
 export default (() => {
     const code = `import React from 'react'
-    import {useFormMod, useCountRender} from "formmod";
-    import {TextInput, Button} from "../../../../examples/referenced/ui";
+    import {useFormMod, useCountRender, Types} from "formmod";
+    import {TextInput, Button, OptionBox} from "../../../../examples/referenced/ui";
     import FORM_SCHEME from "./scheme";
-    import styles from './Form.module.css';
+    import styles from './Edit.module.css';
     
-    export function Form() {
+    export function Form(formValue: any) {
         const {
-            useRefMod,
             validate,
             resetForm,
+            useRefMod,
+            getGroup,
+            deleteGroupItem,
+            addGroupItem,
+            getItemByIndex,
+            setViewMode,
             isViewMode,
-            setViewMode
-        } = useFormMod(FORM_SCHEME);
+            getValue,
+            setValues
+        } = useFormMod(
+            FORM_SCHEME,
+        );
+        // edit mode here
+        if(formValue){
+          setValues(formValue, true);
+        }
         
-        const handleSubmit = function(event: any){
+        const handleSubmit = (event: React.SyntheticEvent) => {
             if(event && event.preventDefault) {
                 event.preventDefault();
             }
             validate(true, (valid: boolean, formValue: any) => {
                 if(valid) {
-                    console.log("FORM IS VALID, value:", formValue );
                     setViewMode(true);
+                    console.log(formValue, 'RESULT TRUE');
                 } else {
-                    console.log('FORM IS WRONG, value:', formValue );
+                    console.log(formValue, 'RESULT FALSE');
                 }
             });
-        }
-    
-        const edit = () => {
-            setViewMode(false);
         };
     
         const setDefault = (event: any) => {
@@ -43,7 +51,28 @@ export default (() => {
         const {getCountRender, counter} = useCountRender();
         counter();
         // count of render [END]
-            
+    
+        const hobbiesRef = useRefMod("hobbies");
+    
+        const deleteLastHobby = () => {
+            const groupItem = getItemByIndex({controlName: "hobbies", index: getGroup("hobbies").length - 1});
+            if(groupItem){
+                deleteGroupItem({controlName: "hobbies", groupControlId: groupItem.id});
+            }
+        };
+    
+        const addNewHobby = () => {
+            addGroupItem({controlName: "hobbies", value: {
+                    id: new Date().getTime(),
+                    value: ""
+                }
+            });
+        };
+    
+        const edit = () => {
+            setViewMode(false);
+        };
+    
         return (
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.count}>Count render: {getCountRender()}</div>
@@ -55,6 +84,25 @@ export default (() => {
                     label={"Last name"}
                     refMod={useRefMod("last_name")}
                 />
+                <OptionBox
+                    label={"Do you have hobbies?"}
+                    refMod={useRefMod("haveHobbies")}
+                    id="haveHobbies"
+                />
+                {
+                  getGroup("hobbies").map((control: Types.ControlGroupValue, index: number) => {
+                    return <TextInput
+                        key={control.id}
+                        controlId={control.id}
+                        label={\`Hobby $\{index\}\`}
+                        refMod={hobbiesRef}
+                    />
+                  })
+                }
+                {getValue("haveHobbies") && !isViewMode() && getGroup("hobbies") && <div className={styles.buttons}>
+                    {getGroup("hobbies").length > 0 && <Button onClick={deleteLastHobby} theme="RED" title="Delete last hobby"/>}
+                    <Button onClick={addNewHobby} theme="LIGHT" title="Add new hobby"/>
+                </div>}
                 {!isViewMode() && <div className={styles.buttons}>
                     <Button type="submit" title="Submit"/>
                     <Button theme="LIGHT" onClick={setDefault} title="Reset"/>

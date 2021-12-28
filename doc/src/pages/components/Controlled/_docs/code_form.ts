@@ -10,8 +10,8 @@ export default (() => {
     export function Basic() {
         // STEP 2: use form system
         const {setValue, getValue, getError, validate, resetForm} = useFormMod(
-            FORM_SCHEME,
-            false
+            FORM_SCHEME
+            
         );
     
         const handleSubmit = function(event: any){

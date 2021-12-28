@@ -55,7 +55,7 @@ export const RouterApp = memo(() => {
         </div>
         
         <div className={styles.section}>
-          <div onClick={() => toggleMenuItem("basicSection")} className={[checkOpendItems("basicSection") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Controls <i className={[checkOpendItems("basicSection") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
+          <div onClick={() => toggleMenuItem("basicSection")} className={[checkOpendItems("basicSection") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Types of controls <i className={[checkOpendItems("basicSection") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
           <ul className={[checkOpendItems("basicSection") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
             {checkOpendItems("basicSection") && 
             <>
@@ -147,8 +147,19 @@ export const RouterApp = memo(() => {
           </ul>
         </div>
 
-        <div className={styles.selfItem}>
-          <NavLink exact={true} activeClassName="active" to="/edit-mode">Edit mode</NavLink>
+        <div className={styles.section}>
+          <div onClick={() => toggleMenuItem("editmode")} className={[checkOpendItems("editmode") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Edit mode<i className={[checkOpendItems("editmode") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
+          <ul className={[checkOpendItems("editmode") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
+            {checkOpendItems("editmode") && 
+            <>
+              <li className={styles.navItem}>
+                <NavLink activeClassName="active" to="/uncontrolled-editmode">Uncontrolled</NavLink>
+              </li>
+              <li className={styles.navItem}>
+                <NavLink to="/controlled-editmode">Controlled</NavLink>
+              </li>
+            </>}
+          </ul>
         </div>
 
         <div className={styles.selfItem}>

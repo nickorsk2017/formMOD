@@ -2,26 +2,13 @@ export default {
     valid: null,
     viewMode: false,
     formValue: {
-        first_name: "Name",
-        last_name: "2",
+        first_name: "",
+        last_name: "",
         address: "",
         havePets: false,
         haveHobbies: false,
         petName: "",
-        hobbies: [
-            {
-                id: "1",
-                value: "fishing",
-            },
-            {
-                id: "2",
-                value: "football"
-            },
-            {
-                id: "3",
-                value: "fishing",
-            },
-        ]
+        hobbies: []
     },
     visibilities: {
         petName: ({formValue} : any) => {

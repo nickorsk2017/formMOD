@@ -28,6 +28,9 @@ import {
   Forms,
   Scheme,
   API,
+  UncontrolledEditmode,
+  ControlledEditmode,
+
 } from "./pages";
 
 const App = () => {
@@ -97,6 +100,19 @@ const App = () => {
           <Route path='/controlled-viewmode' strict>
             <ControlledViewMode/>
           </Route>
+
+          <Route path='/introduction-editmode' strict>
+           
+          </Route>
+
+          <Route path='/uncontrolled-editmode' strict>
+            <UncontrolledEditmode/>
+          </Route>
+
+          <Route path='/controlled-editmode' strict>
+            <ControlledEditmode/>
+          </Route>
+
 
           <Route path='/license' strict>
             <License/>

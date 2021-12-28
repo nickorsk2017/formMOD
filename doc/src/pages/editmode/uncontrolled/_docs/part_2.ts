@@ -1,5 +1,4 @@
 export default `
- In line <b>28-34</b> you see visibility hook for the petName control.<br/>
- This control will hide if property <b>isVisible</b> be false.<br/>
- This behavior will be repeat while the control with ID <b>havePets</b> returning "false" value to form. 
+1. Making value for the edit mode (<b>line 6-20</b>). You can get it form request inside this parent component.<br/>
+2. Pushing value to the form(<b>line 22</b>).<br/>
 `

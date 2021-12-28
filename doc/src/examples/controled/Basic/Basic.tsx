@@ -6,8 +6,7 @@ import styles from './Basic.module.css';
 
 export function Basic() {
     const {setValue, getValue, getError, validate, resetForm} = useFormMod(
-        FORM_SCHEME,
-        false
+        FORM_SCHEME
     );
     
     const handleSubmit = function(event: any){
