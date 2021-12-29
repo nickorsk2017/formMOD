@@ -7,14 +7,14 @@ export default `
         <b>2. viewMode</b> - a view mode for detail page.
     </li>
     <li>
-        <b>3. formValue</b> - section for a values of controls form.
+        <b>3. formValue</b> - section for a values of inputs form.
     </li>
     <li>
-        <b>4. visibilities</b> - section for an optional controls.
+        <b>4. visibilities</b> - section for an optional inputs.
     </li>
     <li>
         <b>5. rules</b> - section for a rules of validators.</br>
-        This a validators works from top to bottom. The rule return a first error from list of validator to control.
+        This a validators works from top to bottom. The rule return a first error from list of validator to input.
     </li>
 </ul>
 `

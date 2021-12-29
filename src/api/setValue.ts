@@ -1,15 +1,15 @@
 import * as _ from 'lodash';
-import {getValue} from "./getValue";
+import { getValue } from './getValue';
 import { validate } from './validate';
-import { FormState, ControlName, ControlValue, GroupControlId } from '../types';
+import { FormState, InputName, InputValue, GroupInputId } from '../types';
 import { Visibilities } from '../api/visibilities';
 import { UpdateFormState } from './useStateForm';
 
 export type SetValueParams = {
   formState: FormState;
-  controlName: ControlName;
-  groupControlId?: GroupControlId,
-  controlValue: ControlValue;
+  inputName: InputName;
+  groupInputId?: GroupInputId;
+  inputValue: InputValue;
   updateFormState: UpdateFormState;
   skipUpdate: boolean | undefined;
   getVisibilities: Visibilities;
@@ -19,28 +19,28 @@ export type SetValue = (params: SetValueParams) => FormState | false;
 
 export const setValue: SetValue = ({
   formState,
-  controlName,
-  groupControlId,
-  controlValue,
+  inputName,
+  groupInputId,
+  inputValue,
   updateFormState,
   skipUpdate,
   getVisibilities
 }) => {
-  const valueFromForm = getValue({formState, controlName, groupControlId});
-  if (!_.isEqual(controlValue, valueFromForm)) {
+  const valueFromForm = getValue({ formState, inputName, groupInputId });
+  if (!_.isEqual(inputValue, valueFromForm)) {
     const _formState: FormState = _.cloneDeep(formState);
-    const newValue = _formState.formValue[controlName];
-    if(groupControlId && Array.isArray(newValue)){
+    const newValue = _formState.formValue[inputName];
+    if (groupInputId && Array.isArray(newValue)) {
       newValue.some((v) => {
-        if(v.id === groupControlId){
-          v.value = controlValue;
-          //_formState.formValue[controlName] = newValue;
+        if (v.id === groupInputId) {
+          v.value = inputValue;
+          //_formState.formValue[inputName] = newValue;
           return true;
         }
         return false;
       });
     } else {
-      _formState.formValue[controlName] = controlValue;
+      _formState.formValue[inputName] = inputValue;
     }
     if (_formState.valid === null) {
       updateFormState(_formState, skipUpdate);

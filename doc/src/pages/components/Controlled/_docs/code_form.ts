@@ -40,7 +40,7 @@ export default (() => {
         counter();
         // count of render [END]
         
-        // STEP 3: connect controls to components.
+        // STEP 3: connect inputs to components.
         return (
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.count}>Count render: {getCountRender()}</div>

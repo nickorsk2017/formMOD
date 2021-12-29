@@ -1,5 +1,5 @@
 import * as _ from 'lodash';
-import { FormState, ControlName } from '../types';
+import { FormState, InputName } from '../types';
 
 export type VisibilitiesParams = {
   getFormState: () => FormState;
@@ -13,33 +13,31 @@ export type GetVisibilitiesResult = () => {
   [key: string]: VisibilityResult;
 };
 
-export type GetVisibilityControl = (
-  controlName: ControlName
-) => VisibilityResult;
+export type GetVisibilityInput = (inputName: InputName) => VisibilityResult;
 
 export type Visibilities = (
   params: VisibilitiesParams
 ) => {
-  getVisibilityControl: GetVisibilityControl;
+  getVisibilityInput: GetVisibilityInput;
   getVisibilitiesResult: GetVisibilitiesResult;
 };
 
 export const getVisibilities: Visibilities = ({ getFormState }) => {
-  const getVisibilityControl: GetVisibilityControl = (controlName) => {
+  const getVisibilityInput: GetVisibilityInput = (inputName) => {
     const visibilities = getFormState().visibilities;
     if (
       visibilities &&
-      visibilities[controlName] &&
-      typeof visibilities[controlName] === 'function'
+      visibilities[inputName] &&
+      typeof visibilities[inputName] === 'function'
     ) {
       const formValue = getFormState().formValue;
-      const result = visibilities[controlName]({ formValue });
-      
+      const result = visibilities[inputName]({ formValue });
+
       if (
         typeof result === 'object' &&
-        (typeof result?.disable === "boolean" || typeof result?.isVisible === "boolean")
+        (typeof result?.disable === 'boolean' ||
+          typeof result?.isVisible === 'boolean')
       ) {
-        
         return {
           disable: result?.disable || false,
           isVisible:
@@ -56,13 +54,13 @@ export const getVisibilities: Visibilities = ({ getFormState }) => {
     const visibilities = getFormState().visibilities || {};
     const result = {};
     for (const key in visibilities) {
-      result[key] = getVisibilityControl(key);
+      result[key] = getVisibilityInput(key);
     }
     return result;
   };
 
   return {
-    getVisibilityControl,
+    getVisibilityInput,
     getVisibilitiesResult
   };
 };

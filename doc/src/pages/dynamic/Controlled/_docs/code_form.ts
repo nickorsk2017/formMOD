@@ -44,14 +44,14 @@ export default (() => {
         }
     
         const deleteLastHobby = () => {
-            const groupItem = getItemByIndex({controlName: "hobbies", index: getGroup("hobbies").length - 1});
+            const groupItem = getItemByIndex({inputName: "hobbies", index: getGroup("hobbies").length - 1});
             if(groupItem){
-                deleteGroupItem({controlName: "hobbies", groupControlId: groupItem.id});
+                deleteGroupItem({inputName: "hobbies", groupControlId: groupItem.id});
             }
         };
     
         const addNewHobby = () => {
-            addGroupItem({controlName: "hobbies", value: {
+            addGroupItem({inputName: "hobbies", value: {
                     id: new Date().getTime(),
                     value: ""
                 }
@@ -67,13 +67,13 @@ export default (() => {
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.count}>Count render: {getCountRender()}</div>
                 {
-                getGroup("hobbies").map((control: Types.ControlGroupValue, index: number) => {
+                getGroup("hobbies").map((input: Types.ControlGroupValue, index: number) => {
                     return <TextInput
-                        key={control.id}
+                        key={input.id}
                         label={\'Hobby \${index + 1}\'}
-                        value={getValue("hobbies", control.id)}
-                        error={getError("hobbies", control.id)}
-                        onChange={(value: string) => setValue("hobbies", value, false, control.id)}
+                        value={getValue("hobbies", input.id)}
+                        error={getError("hobbies", input.id)}
+                        onChange={(value: string) => setValue("hobbies", value, false, input.id)}
                     />
                 })
                 }

@@ -28,12 +28,12 @@ export const Controlled = () => {
           <br/>
           <Content content={PART_2}/>
           <br/>
-          <div className="formmod__subtitle">Form component:</div>
+          <div className="formmod__subtitle">Form input:</div>
           <Content lines="60" preWrap={true} content={_FORM_CODE}/>
           <br/>
           <Content content={PART_3}/>
           <br/>
-          <div className="formmod__subtitle">Control component:</div>
+          <div className="formmod__subtitle">Control input:</div>
           <Content lines="11-13" preWrap={true} content={_INPUT_CODE}/>
           <br/>
           <Content content={PART_4}/>

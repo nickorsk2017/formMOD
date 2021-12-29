@@ -1,19 +1,19 @@
 import * as _ from 'lodash';
-import { getValidationControl } from './getValidationControl';
+import { getValidationInput } from './getValidationInput';
 import { getValue } from './getValue';
 import { Visibilities } from '../api/visibilities';
 import { UpdateFormState } from '../api/useStateForm';
-import { FormState, ControlName, FormValue } from '../types';
+import { FormState, InputName, FormValue } from '../types';
 
 export type ValidateParams = {
   formState: FormState;
   updateValidation: boolean;
-  callback?: Function;
+  callback?: (valid: boolean | null, formValue: FormValue) => any;
   fromSetValue: boolean;
   updateFormState: UpdateFormState;
   getVisibilities: Visibilities;
-  getFormState?: () => FormState,
-  editMode?: boolean,
+  getFormState?: () => FormState;
+  editMode?: boolean;
 };
 export type Validate = (params: ValidateParams) => FormState;
 
@@ -25,45 +25,42 @@ export const validate: Validate = ({
   updateFormState,
   getVisibilities,
   getFormState,
-  editMode,
+  editMode
 }) => {
   const cloneRules = {};
   let formIsValid = true;
   const visibilities = getVisibilities({ getFormState: () => formState });
 
   const getNotVisibleInputs = () => {
-    return Object.keys(formState.formValue).filter(
-      (controlName: ControlName) => {
-        const isVisible = visibilities.getVisibilityControl(controlName).isVisible;
-        return !isVisible;
-      }
-    );
+    return Object.keys(formState.formValue).filter((inputName: InputName) => {
+      const isVisible = visibilities.getVisibilityInput(inputName).isVisible;
+      return !isVisible;
+    });
   };
 
   const getValueForm = (formState: FormState): FormValue => {
     const formValue = _.cloneDeep(formState.formValue);
     const notVisibleInputs = getNotVisibleInputs();
-    notVisibleInputs.forEach((controlName: ControlName) => {
-      delete formValue[controlName];
+    notVisibleInputs.forEach((inputName: InputName) => {
+      delete formValue[inputName];
     });
     return formValue;
   };
-  
+
   if (formState.rules) {
-    Object.keys(formState.rules).forEach((controlName: ControlName) => {
-      const resultValidationControl = getValidationControl({
+    Object.keys(formState.rules).forEach((inputName: InputName) => {
+      const resultValidationInput = getValidationInput({
         formState,
-        controlName,
-        controlValue: getValue({ formState, controlName })
+        inputName,
+        inputValue: getValue({ formState, inputName })
       });
-      if (resultValidationControl) {
+      if (resultValidationInput) {
         // the input is ignored if input not visible
-        const isVisible = visibilities.getVisibilityControl(controlName)
-          .isVisible;
-        if (!resultValidationControl.validationStatus && isVisible) {
+        const isVisible = visibilities.getVisibilityInput(inputName).isVisible;
+        if (!resultValidationInput.validationStatus && isVisible) {
           formIsValid = false;
         }
-        cloneRules[controlName] = resultValidationControl.rulesControl;
+        cloneRules[inputName] = resultValidationInput.rulesInput;
       }
     });
 
@@ -78,7 +75,7 @@ export const validate: Validate = ({
       _formState.valid = formIsValid;
       _formState.rules = cloneRules;
       if (updateValidation) {
-        if(editMode){
+        if (editMode) {
           if (!_.isEqual(_formState, oldFormValue)) {
             updateFormState(_formState, false, editMode);
           }

@@ -3,7 +3,7 @@ export default `
 export default (initFormValue: {} || object) =>  {
    ...
     rules: {
-        // first control
+        // first input
         full_name: [
             // first rule
             {
@@ -22,7 +22,7 @@ export default (initFormValue: {} || object) =>  {
             },
             ...
         ],
-        // second control
+        // second input
         pet_name: [
             // first rule
             {

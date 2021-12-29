@@ -5,10 +5,10 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { Basic } from './controled/Basic/Basic';
-import { Edit } from './controled/Edit/Edit';
-import { Basic as BasicUncontrolled } from './uncontroled/Basic/Basic';
-import { Edit as EditUncontrolled } from './uncontroled/Edit/Edit';
+import { Basic } from './controlled/Basic/Basic';
+import { Edit } from './controlled/Edit/Edit';
+import { Basic as BasicUncontrolled } from './uncontrolled/Basic/Basic';
+import { Edit as EditUncontrolled } from './uncontrolled/Edit/Edit';
 import './index.css'
 
 const App = () => {

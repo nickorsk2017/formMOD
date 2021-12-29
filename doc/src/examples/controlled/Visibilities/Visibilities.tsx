@@ -1,5 +1,5 @@
 import React from 'react'
-import {useFormMod, useCountRender} from "formmod";
+import {useFormMod, useCountRender, Types} from "formmod";
 import {TextInput, Button, OptionBox} from "../ui";
 import FORM_SCHEME from "./scheme";
 import styles from './Visibilities.module.css';
@@ -13,7 +13,7 @@ export function Visibilities() {
         if(event && event.preventDefault) {
 			event.preventDefault();
 		}
-        validate(true, (valid: boolean, formValue: any) => {
+        validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
             if(valid) {
                 alert('Form is valid');
                 console.log("FORM IS VALID, value:", formValue );

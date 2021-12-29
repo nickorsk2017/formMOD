@@ -1,22 +1,28 @@
-import { FormState, FormValue, ControlName, ControlValue, GroupControlId } from '../types';
+import {
+  FormState,
+  FormValue,
+  InputName,
+  InputValue,
+  GroupInputId
+} from '../types';
 
 export type GetValueParams = {
   formState: FormState;
-  controlName?: ControlName;
-  groupControlId?: GroupControlId;
+  inputName?: InputName;
+  groupInputId?: GroupInputId;
 };
-export type GetValue = (params: GetValueParams) => ControlValue | FormValue;
+export type GetValue = (params: GetValueParams) => InputValue | FormValue;
 
-export const getValue: GetValue = ({ formState, controlName, groupControlId }) => {
-  if (!controlName) {
+export const getValue: GetValue = ({ formState, inputName, groupInputId }) => {
+  if (!inputName) {
     return formState.formValue;
   } else {
-    let formValue = formState.formValue[controlName];
-    // if is group controls
-    if(groupControlId && Array.isArray(formValue)){
+    let formValue = formState.formValue[inputName];
+    // if is group input
+    if (groupInputId && Array.isArray(formValue)) {
       formValue.some((v) => {
-        const found = v.id === groupControlId;
-        if(found){
+        const found = v.id === groupInputId;
+        if (found) {
           formValue = v.value;
         }
         return found;

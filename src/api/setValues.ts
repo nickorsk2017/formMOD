@@ -2,11 +2,11 @@ import * as _ from 'lodash';
 import { validate } from './validate';
 import { Visibilities } from '../api/visibilities';
 import { UpdateFormState } from '../api/useStateForm';
-import { FormState, FormValue, ControlName } from '../types';
+import { FormState, FormValue, InputName } from '../types';
 
 export type SetValuesParams = {
   formState: FormState;
-  controlsValues: FormValue;
+  inputsValues: FormValue;
   updateFormState: UpdateFormState;
   getVisibilities: Visibilities;
   editMode?: boolean;
@@ -17,7 +17,7 @@ export type SetValues = (params: SetValuesParams) => FormState | false;
 
 export const setValues: SetValues = ({
   formState,
-  controlsValues,
+  inputsValues,
   updateFormState,
   getVisibilities,
   editMode,
@@ -25,14 +25,14 @@ export const setValues: SetValues = ({
   isOnInitEdit
 }) => {
   const _formState: FormState = _.cloneDeep(formState);
-  Object.keys(controlsValues).forEach((controlName: ControlName) => {
-    _formState[controlName] = controlsValues[controlName];
+  Object.keys(inputsValues).forEach((inputName: InputName) => {
+    _formState[inputName] = inputsValues[inputName];
   });
 
   //cancell update state each render for edit mode
   // this state must update only first render
-  if(editMode && isOnInitEdit){
-    return formState
+  if (editMode && isOnInitEdit) {
+    return formState;
   }
 
   if (_formState.valid === null && !editMode) {
@@ -41,7 +41,7 @@ export const setValues: SetValues = ({
     }
     return _formState;
   } else {
-    if(!_.isEqual(_formState, formState)){
+    if (!_.isEqual(_formState, formState)) {
       return validate({
         formState: _formState,
         updateValidation: true,
@@ -52,7 +52,7 @@ export const setValues: SetValues = ({
         editMode
       });
     } else {
-      return formState
+      return formState;
     }
   }
   // return false;

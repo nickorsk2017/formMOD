@@ -1,7 +1,7 @@
 export default (() => {
     const code = `import React from 'react'
     import {useFormMod, useCountRender} from "formmod";
-    import {TextInput, Button} from "../../../../examples/controled/ui";
+    import {TextInput, Button} from "../../../../examples/controlled/ui";
     import FORM_SCHEME from "./scheme";
     import styles from './Form.module.css';
     

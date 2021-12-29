@@ -1,53 +1,55 @@
 import { setValue } from '../../api/setValue';
 import * as _ from 'lodash';
-import { ControlName, ElementMod, GroupControlId } from '../../types';
+import { InputName, ElementMod, GroupInputId } from '../../types';
 import { Visibilities } from '../../api/visibilities';
 import { toUseOnChangeEvent } from '../../stategy/refComponents/updateValueInputFromState';
 import { UpdateFormState } from '../../api/useStateForm';
 
 export type AddEventListenersParams = {
   element: ElementMod;
-  controlName: ControlName;
-  groupControlId?: GroupControlId,
+  inputName: InputName;
+  groupInputId?: GroupInputId;
   updateFormState: UpdateFormState;
   getVisibilities: Visibilities;
 };
-export type AddEventListeners = (params: AddEventListenersParams) => Function;
+export type AddEventListeners = (
+  params: AddEventListenersParams
+) => (params?: any) => any;
 
 export const addEventListeners: AddEventListeners = ({
   element,
-  controlName,
-  groupControlId,
+  inputName,
+  groupInputId,
   updateFormState,
   getVisibilities
 }) => {
   if (element instanceof HTMLElement) {
     const listenerHandler = function (event: any) {
-      let controlValue = event.target.value;
+      let inputValue = event.target.value;
       let _skipUpdate = true;
       let timeout = 300;
-      const v = this.getFormState().formValue[controlName];
-      const valueFromFormState = !groupControlId ? v : v.value;
+      const v = this.getFormState().formValue[inputName];
+      const valueFromFormState = !groupInputId ? v : v.value;
       // toggle value for checkbox, option
       if (toUseOnChangeEvent(event.target)) {
         if (typeof valueFromFormState !== 'string') {
-          controlValue = !valueFromFormState;
+          inputValue = !valueFromFormState;
         }
         _skipUpdate = false;
         timeout = 0;
       }
       if (
         this.getFormState().formValue &&
-        !_.isEqual(valueFromFormState, controlValue)
+        !_.isEqual(valueFromFormState, inputValue)
       ) {
         clearTimeout(this.timer);
         this.timer = setTimeout(() => {
-          console.log("change");
+          console.log('change');
           setValue({
             formState: this.getFormState(),
-            controlName,
-            groupControlId,
-            controlValue,
+            inputName,
+            groupInputId,
+            inputValue,
             updateFormState,
             skipUpdate: _skipUpdate,
             getVisibilities

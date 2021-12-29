@@ -6,10 +6,10 @@ import {
   FormState,
   ElementMod,
   ListenerObj,
-  ControlName,
+  InputName,
   GetEventListeners,
   useRefModResult,
-  GroupControlId
+  GroupInputId
 } from '../types';
 import {
   updateValueInputFromState,
@@ -23,11 +23,11 @@ import { viewMode as _viewMode } from '../api/viewMode';
 
 export type useRefModParams = {
   getFormState: () => FormState;
-  controlName: ControlName;
+  inputName: InputName;
   getEventListeners: GetEventListeners;
   updateFormState: UpdateFormState;
   // updateEventListeners: (_eventListeners: Array<ListenerObj>) => void,
-  deleteEventListener: (controlName: ControlName) => void;
+  deleteEventListener: (inputName: InputName) => void;
   getError: GetError;
   getValue: GetValue;
   getVisibilities: Visibilities;
@@ -36,7 +36,7 @@ export type UseRefMod = (params: useRefModParams) => useRefModResult;
 
 export const useRefMod: UseRefMod = ({
   getFormState,
-  controlName,
+  inputName,
   getEventListeners,
   updateFormState,
   deleteEventListener,
@@ -49,8 +49,8 @@ export const useRefMod: UseRefMod = ({
     console.log('mount element!!');
     return () => {
       console.log('unmount element!!');
-      removeEventListeners({ controlName, eventListeners });
-      deleteEventListener(controlName);
+      removeEventListeners({ inputName, eventListeners });
+      deleteEventListener(inputName);
     };
   }, []);
 
@@ -87,39 +87,41 @@ export const useRefMod: UseRefMod = ({
     (element: ElementMod) => {
       const eventListeners = getEventListeners();
       if (element) {
-        const groupControlId = element?.getAttribute("control-id") || undefined;
+        const groupInputId = element?.getAttribute('input-id') || undefined;
 
-        const initInput = (indexReinit?: number, groupControlId?: number | string) => {
+        const initInput = (
+          indexReinit?: number,
+          groupInputId?: number | string
+        ) => {
           const listenerObj: ListenerObj = {
             timer: null,
             getFormState,
-            controlName,
-            groupControlId,
+            inputName,
+            groupInputId,
             element,
             listenerHandler: () => {}
           };
           listenerObj.listenerHandler = addEventListeners({
             element,
-            controlName,
-            groupControlId,
+            inputName,
+            groupInputId,
             updateFormState,
             getVisibilities
           }).bind(listenerObj);
           // set init value from formState
-          updateValueInputFromState(
-            {
-              getFormState,
-              element,
-              controlName,
-              groupControlId,
-              toUseOnChangeEvent: toUseOnChangeEvent(element),
-            }
-          );
-
-          if(!indexReinit || (indexReinit && !Object.is(
+          updateValueInputFromState({
+            getFormState,
             element,
-            eventListeners[indexReinit].element
-          ))){
+            inputName,
+            groupInputId,
+            toUseOnChangeEvent: toUseOnChangeEvent(element)
+          });
+
+          if (
+            !indexReinit ||
+            (indexReinit &&
+              !Object.is(element, eventListeners[indexReinit].element))
+          ) {
             if (toUseOnChangeEvent(element)) {
               element.addEventListener('change', listenerObj.listenerHandler);
             } else {
@@ -144,9 +146,11 @@ export const useRefMod: UseRefMod = ({
 
         const listener = eventListeners.find(
           (eventListener: ListenerObj, index) => {
-            const isFound = eventListener.controlName === controlName && eventListener.groupControlId === groupControlId;
+            const isFound =
+              eventListener.inputName === inputName &&
+              eventListener.groupInputId === groupInputId;
             if (isFound) {
-              initInput(index, groupControlId);
+              initInput(index, groupInputId);
             }
             return isFound;
           }
@@ -154,14 +158,14 @@ export const useRefMod: UseRefMod = ({
 
         if (listener) {
           // reinit input
-          console.log('reinit input', listener.controlName);
+          console.log('reinit input', listener.inputName);
 
           // listener.getFormState = getFormState;
         } else {
           // init input
-          console.log('init input', controlName);
+          console.log('init input', inputName);
 
-          initInput(undefined, groupControlId);
+          initInput(undefined, groupInputId);
           // updateEventListeners();
         }
       }
@@ -172,27 +176,36 @@ export const useRefMod: UseRefMod = ({
   return {
     ref,
     setViewMode: (viewMode: boolean) => {
-      return _viewMode({updateFormState}).setViewMode({formState: getFormState(), viewMode});
+      return _viewMode({ updateFormState }).setViewMode({
+        formState: getFormState(),
+        viewMode
+      });
     },
     isViewMode: () => {
-      return _viewMode({updateFormState}).getViewMode({formState: getFormState()});
+      return _viewMode({ updateFormState }).getViewMode({
+        formState: getFormState()
+      });
     },
-    getError: (params: {controlId?: GroupControlId}) =>
+    getError: (params: { inputId?: GroupInputId }) =>
       getError({
         formState: getFormState(),
-        controlName,
-        groupControlId: params?.controlId,
+        inputName,
+        groupInputId: params?.inputId
       }),
-    getValue: (params: {controlId?: GroupControlId}) => {
-      return getValue({ formState: getFormState(), controlName, groupControlId: params?.controlId });
+    getValue: (params: { inputId?: GroupInputId }) => {
+      return getValue({
+        formState: getFormState(),
+        inputName,
+        groupInputId: params?.inputId
+      });
     },
     isVisible: () => {
       const visibilities = getVisibilities({ getFormState });
-      return visibilities.getVisibilityControl(controlName).isVisible;
+      return visibilities.getVisibilityInput(inputName).isVisible;
     },
     isDisable: () => {
       const visibilities = getVisibilities({ getFormState });
-      return visibilities.getVisibilityControl(controlName).disable;
+      return visibilities.getVisibilityInput(inputName).disable;
     }
   };
 };

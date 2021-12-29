@@ -55,14 +55,14 @@ export default (() => {
         const hobbiesRef = useRefMod("hobbies");
     
         const deleteLastHobby = () => {
-            const groupItem = getItemByIndex({controlName: "hobbies", index: getGroup("hobbies").length - 1});
+            const groupItem = getItemByIndex({inputName: "hobbies", index: getGroup("hobbies").length - 1});
             if(groupItem){
-                deleteGroupItem({controlName: "hobbies", groupControlId: groupItem.id});
+                deleteGroupItem({inputName: "hobbies", groupControlId: groupItem.id});
             }
         };
     
         const addNewHobby = () => {
-            addGroupItem({controlName: "hobbies", value: {
+            addGroupItem({inputName: "hobbies", value: {
                     id: new Date().getTime(),
                     value: ""
                 }
@@ -90,10 +90,10 @@ export default (() => {
                     id="haveHobbies"
                 />
                 {
-                  getGroup("hobbies").map((control: Types.ControlGroupValue, index: number) => {
+                  getGroup("hobbies").map((input: Types.ControlGroupValue, index: number) => {
                     return <TextInput
-                        key={control.id}
-                        controlId={control.id}
+                        key={input.id}
+                        inputId={input.id}
                         label={\`Hobby $\{index\}\`}
                         refMod={hobbiesRef}
                     />

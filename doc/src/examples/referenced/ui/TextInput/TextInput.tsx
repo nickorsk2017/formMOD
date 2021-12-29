@@ -2,7 +2,7 @@ import React from 'react';
 import {Types} from "formmod";
 import styles from './TextInput.module.css';
 
-export const TextInput = (props: {label: string, refMod: Types.useRefModResult, controlId?: number | string}) => {
+export const TextInput = (props: {label: string, refMod: Types.useRefModResult, inputId?: number | string}) => {
     const {refMod, label} = props;
     const isVisible = refMod.isVisible();
 
@@ -14,8 +14,8 @@ export const TextInput = (props: {label: string, refMod: Types.useRefModResult, 
       return (
       <div className={styles.textInput}>
         {label && <label className={styles.label}>{label}</label>}
-        {refMod.getValue({controlId: props.controlId})}
-        {refMod.getError({controlId: props.controlId}) && <span className={styles.error}>{refMod.getError()}</span>}
+        {refMod.getValue({inputId: props.inputId})}
+        {refMod.getError({inputId: props.inputId}) && <span className={styles.error}>{refMod.getError()}</span>}
       </div>
       )
     }
@@ -23,8 +23,8 @@ export const TextInput = (props: {label: string, refMod: Types.useRefModResult, 
     return (
       <div className={styles.textInput}>
         {label && <label className={styles.label}>{label}</label>}
-        <input className={styles.input} control-id={props.controlId} ref={refMod.ref}/>
-        {refMod.getError({controlId: props.controlId}) && <span className={styles.error}>{refMod.getError()}</span>}
+        <input className={styles.input} input-id={props.inputId} ref={refMod.ref}/>
+        {refMod.getError({inputId: props.inputId}) && <span className={styles.error}>{refMod.getError()}</span>}
       </div>
     )
 }

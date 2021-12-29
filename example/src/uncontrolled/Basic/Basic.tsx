@@ -2,9 +2,9 @@ import React from 'react'
 import {useFormMod, useCountRender, Types} from "formmod";
 import {TextInput, OptionBox, Button} from "../ui";
 import FORM_SCHEME from "./scheme";
-import styles from './Edit.module.css';
+import styles from './Basic.module.css';
 
-export function Form(formValue: any) {
+export function Basic() {
     const {
         validate,
         resetForm,
@@ -15,21 +15,16 @@ export function Form(formValue: any) {
         getItemByIndex,
         setViewMode,
         isViewMode,
-        getValue,
-        setValues
+        getValue
     } = useFormMod(
         FORM_SCHEME,
     );
-    // edit mode here
-    if(formValue){
-      setValues(formValue, true);
-    }
     
     const handleSubmit = (event: React.SyntheticEvent) => {
         if(event && event.preventDefault) {
 			event.preventDefault();
 		}
-        validate(true, (valid: boolean, formValue: any) => {
+        validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
             if(valid) {
                 setViewMode(true);
                 console.log(formValue, 'RESULT TRUE');
@@ -55,15 +50,15 @@ export function Form(formValue: any) {
     const hobbiesRef = useRefMod("hobbies");
 
     const deleteLastHobby = () => {
-        const groupItem = getItemByIndex({controlName: "hobbies", index: getGroup("hobbies").length - 1});
+        const groupItem = getItemByIndex({inputName: "hobbies", index: getGroup("hobbies").length - 1});
         console.log(groupItem, 'groupItem')
         if(groupItem){
-            deleteGroupItem({controlName: "hobbies", groupControlId: groupItem.id});
+            deleteGroupItem({inputName: "hobbies", groupInputId: groupItem.id});
         }
     };
 
     const addNewHobby = () => {
-        addGroupItem({controlName: "hobbies", value: {
+        addGroupItem({inputName: "hobbies", value: {
                 id: new Date().getTime(),
                 value: ""
             }
@@ -100,10 +95,10 @@ export function Form(formValue: any) {
                 id="haveHobbies"
             />
             {
-              getGroup("hobbies").map((control: Types.ControlGroupValue, index: number) => {
+              getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {
                 return <TextInput
-                    key={control.id}
-                    controlId={control.id}
+                    key={input.id}
+                    inputId={input.id}
                     label={`Hobby ${index}`}
                     refMod={hobbiesRef}
                 />

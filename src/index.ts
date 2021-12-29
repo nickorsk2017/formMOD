@@ -10,27 +10,30 @@ import {
   useStateForm,
   getVisibilities,
   groups,
-  viewMode as _viewMode,
+  viewMode as _viewMode
 } from './api';
 import {
   FormState,
   FormValue,
-  ControlName,
+  InputName,
   ListenerObj,
   GetEventListeners,
-  ControlValue,
-  ControlGroupValues,
-  GroupControlId,
-  ControlGroupValue,
+  InputValue,
+  InputGroupValues,
+  GroupInputId,
+  InputGroupValue
 } from './types';
 export { useCountRender } from './utils';
 export * as Types from './types';
-export {useOptimisationInput} from "./api";
+export { useOptimisationInput } from './api';
 
-export const useFormMod = (
-  initFormState: FormState
-) => {
-  const { getFormState, updateFormState, isOnInitEdit, getInitFormState } = useStateForm(initFormState);
+export const useFormMod = (initFormState: FormState) => {
+  const {
+    getFormState,
+    updateFormState,
+    isOnInitEdit,
+    getInitFormState
+  } = useStateForm(initFormState);
 
   const {
     deleteEventListener,
@@ -42,9 +45,9 @@ export const useFormMod = (
     const updateEventListeners = (_eventListeners: Array<ListenerObj>) => {
       eventListeners = _eventListeners;
     };
-    const deleteEventListener = (controlName: ControlName) => {
+    const deleteEventListener = (inputName: InputName) => {
       eventListeners = eventListeners.filter((eventListener: any) => {
-        return eventListener.controlName !== controlName;
+        return eventListener.inputName !== inputName;
       });
     };
     const deleteAllEventListeners = () => {
@@ -71,51 +74,98 @@ export const useFormMod = (
   return {
     formState: getFormState(),
     setViewMode: (viewMode: boolean) => {
-      return _viewMode({updateFormState}).setViewMode({formState: getFormState(), viewMode});
+      return _viewMode({ updateFormState }).setViewMode({
+        formState: getFormState(),
+        viewMode
+      });
     },
     isViewMode: () => {
-      return _viewMode({updateFormState}).getViewMode({formState: getFormState()});
+      return _viewMode({ updateFormState }).getViewMode({
+        formState: getFormState()
+      });
     },
-    getItemByIndex: ({controlName, index} : {controlName: ControlName, index: number}) => {
-      return groups({updateFormState}).getItemByIndex({formState: getFormState(), controlName, index});
-    },
-    deleteGroupItem: ({controlName, groupControlId} : {controlName: ControlName, groupControlId: GroupControlId}) => {
-      return groups({updateFormState}).deleteItem({formState: getFormState(), controlName, groupControlId});
-    },
-    addGroupItem: ({controlName, value} : {controlName: ControlName, value: ControlGroupValue}) => {
-      return groups({updateFormState}).addItem({formState: getFormState(), controlName, controlGroupValue: value})
-    },
-    getGroup: (controlName: ControlName) => {
-      return getValue({ formState: getFormState(), controlName }) as ControlGroupValues || [];
-    },
-    getValue: (controlName?: ControlName,  controlId?: GroupControlId,) =>
-      getValue({ formState: getFormState(), controlName, groupControlId: controlId }),
-    setValue: (
-      controlName: ControlName,
-      controlValue: ControlValue,
-      skipUpdate?: boolean,
-      controlId?: GroupControlId,
-    ) =>
-    setValue({
+    getItemByIndex: ({
+      inputName,
+      index
+    }: {
+      inputName: InputName;
+      index: number;
+    }) => {
+      return groups({ updateFormState }).getItemByIndex({
         formState: getFormState(),
-        controlName,
-        controlValue,
-        groupControlId: controlId,
+        inputName,
+        index
+      });
+    },
+    deleteGroupItem: ({
+      inputName,
+      groupInputId
+    }: {
+      inputName: InputName;
+      groupInputId: GroupInputId;
+    }) => {
+      return groups({ updateFormState }).deleteItem({
+        formState: getFormState(),
+        inputName,
+        groupInputId
+      });
+    },
+    addGroupItem: ({
+      inputName,
+      value
+    }: {
+      inputName: InputName;
+      value: InputGroupValue;
+    }) => {
+      return groups({ updateFormState }).addItem({
+        formState: getFormState(),
+        inputName,
+        inputGroupValue: value
+      });
+    },
+    getGroup: (inputName: InputName) => {
+      return (
+        (getValue({
+          formState: getFormState(),
+          inputName
+        }) as InputGroupValues) || []
+      );
+    },
+    getValue: (inputName?: InputName, inputId?: GroupInputId) =>
+      getValue({
+        formState: getFormState(),
+        inputName,
+        groupInputId: inputId
+      }),
+    setValue: (
+      inputName: InputName,
+      inputValue: InputValue,
+      skipUpdate?: boolean,
+      inputId?: GroupInputId
+    ) =>
+      setValue({
+        formState: getFormState(),
+        inputName,
+        inputValue,
+        groupInputId: inputId,
         updateFormState,
         skipUpdate,
-        getVisibilities,
+        getVisibilities
       }),
-    setValues: (controlsValues: FormValue, editMode?: boolean) =>
+    setValues: (inputsValues: FormValue, editMode?: boolean) =>
       setValues({
         formState: getFormState(),
-        controlsValues,
+        inputsValues,
         updateFormState,
         getVisibilities,
         editMode,
         getFormState,
         isOnInitEdit: isOnInitEdit()
       }),
-    validate: (updateValidation: boolean, callback: Function) =>
+    validate: (
+      updateValidation: boolean,
+      callback: (valide: boolean | null, formValue: FormValue) => any
+    ) =>
       validate({
         formState: getFormState(),
         updateValidation,
@@ -125,8 +175,12 @@ export const useFormMod = (
         getVisibilities,
         getFormState
       }),
-    getError: (controlName: ControlName, controlId?: GroupControlId) =>
-      getError({ formState: getFormState(), controlName, groupControlId: controlId }),
+    getError: (inputName: InputName, inputId?: GroupInputId) =>
+      getError({
+        formState: getFormState(),
+        inputName,
+        groupInputId: inputId
+      }),
     resetForm: () =>
       resetForm({
         initFormState: getInitFormState(),
@@ -134,21 +188,21 @@ export const useFormMod = (
         updateFormState,
         getEventListeners
       }),
-    useRefMod: (controlName: ControlName) =>
+    useRefMod: (inputName: InputName) =>
       useRefMod({
         getFormState,
-        controlName,
+        inputName,
         getEventListeners,
         updateFormState,
         deleteEventListener,
         getError,
         getValue,
         getVisibilities
-    }),
+      }),
     getVisibilities: () => getVisibilities({ getFormState }),
-    isVisible: (controlName: ControlName) => {
+    isVisible: (inputName: InputName) => {
       const visibilities = getVisibilities({ getFormState });
-      return visibilities.getVisibilityControl(controlName).isVisible;
-    },
+      return visibilities.getVisibilityInput(inputName).isVisible;
+    }
   };
 };

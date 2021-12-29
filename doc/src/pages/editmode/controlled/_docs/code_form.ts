@@ -1,7 +1,7 @@
 export default (() => {
     const code = `import React from 'react'
     import {useFormMod, useCountRender, Types} from "formmod";
-    import {TextInput, Button, OptionBox} from "../../../../examples/controled/ui";
+    import {TextInput, Button, OptionBox} from "../../../../examples/controlled/ui";
     import FORM_SCHEME from "./scheme";
     import styles from './Edit.module.css';
     
@@ -51,14 +51,14 @@ export default (() => {
         };
     
         const deleteLastHobby = () => {
-            const groupItem = getItemByIndex({controlName: "hobbies", index: getGroup("hobbies").length - 1});
+            const groupItem = getItemByIndex({inputName: "hobbies", index: getGroup("hobbies").length - 1});
             if(groupItem){
-                deleteGroupItem({controlName: "hobbies", groupControlId: groupItem.id});
+                deleteGroupItem({inputName: "hobbies", groupControlId: groupItem.id});
             }
         };
     
         const addNewHobby = () => {
-            addGroupItem({controlName: "hobbies", value: {
+            addGroupItem({inputName: "hobbies", value: {
                     id: new Date().getTime(),
                     value: ""
                 }
@@ -100,15 +100,15 @@ export default (() => {
                     id="haveHobbies"
                 />
                 {
-                getGroup("hobbies").map((control: Types.ControlGroupValue, index: number) => {
+                getGroup("hobbies").map((input: Types.ControlGroupValue, index: number) => {
                     return <TextInput
-                        key={control.id}
+                        key={input.id}
                         label={\`Hobby $\{index\}\`}
-                        value={getValue("hobbies", control.id)}
-                        error={getError("hobbies", control.id)}
+                        value={getValue("hobbies", input.id)}
+                        error={getError("hobbies", input.id)}
                         visible={isVisible("hobbies")}
                         viewMode={isViewMode()}
-                        onChange={(value: string) => setValue("hobbies", value, false, control.id)}
+                        onChange={(value: string) => setValue("hobbies", value, false, input.id)}
                     />
                 })
                 }

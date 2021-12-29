@@ -1,5 +1,10 @@
 import * as _ from 'lodash';
-import { FormState, GetEventListeners, ControlGroupValue, ControlGroupValues } from '../types';
+import {
+  FormState,
+  GetEventListeners,
+  InputGroupValue,
+  InputGroupValues
+} from '../types';
 
 export function resetForm({
   initFormState,
@@ -16,20 +21,26 @@ export function resetForm({
     const listeners = getEventListeners();
     listeners.forEach((listener) => {
       if (listener.element) {
-        // if control group
-        if(listener.groupControlId && Array.isArray(initFormState.formValue[listener.controlName])){
-          const controlGroup: ControlGroupValues = (initFormState.formValue[listener.controlName] as ControlGroupValues) || [];
-          controlGroup.some((control: ControlGroupValue) => {
-            if(control.id === listener.groupControlId){
-              if(typeof control.value !== "object" && listener.element){
-                listener.element.value = control.value.toString() || "";
+        // if group input
+        if (
+          listener.groupInputId &&
+          Array.isArray(initFormState.formValue[listener.inputName])
+        ) {
+          const inputGroup: InputGroupValues =
+            (initFormState.formValue[listener.inputName] as InputGroupValues) ||
+            [];
+          inputGroup.some((input: InputGroupValue) => {
+            if (input.id === listener.groupInputId) {
+              if (typeof input.value !== 'object' && listener.element) {
+                listener.element.value = input.value.toString() || '';
               }
               return true;
             }
             return false;
           });
         } else {
-          listener.element.value = initFormState.formValue[listener.controlName]?.toString() || '';
+          listener.element.value =
+            initFormState.formValue[listener.inputName]?.toString() || '';
         }
       }
     });

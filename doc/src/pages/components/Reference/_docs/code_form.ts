@@ -15,7 +15,7 @@ export default (() => {
 
         // Some code ...
 
-        // STEP 3: connect controls to components.
+        // STEP 3: connect inputs to components.
         return (
             <form onSubmit={handleSubmit} className={styles.form}>
                 ...

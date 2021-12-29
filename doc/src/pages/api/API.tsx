@@ -22,36 +22,36 @@ const CONTENT = [
     type: "Inside form"
   },
   {
-    method: "<b>getItemByIndex</b>: ({ controlName: string, index: number }) => ControlGroupValue | undefined",
+    method: "<b>getItemByIndex</b>: ({ inputName: string, index: number }) => InputGroupValue | undefined",
     desc: "Return item of group by index",
     type: "Inside form"
   },
   {
-    method: "<b>deleteGroupItem</b>: ({ controlName: string, groupControlId: GroupControlId}) => boolean",
+    method: "<b>deleteGroupItem</b>: ({ inputName: string, groupInputId: GroupInputId}) => boolean",
     desc: "Delete item of group",
     type: "Inside form"
   },
   {
     method: `<b>addGroupItem</b>: ({
-      controlName: string,
-      value: ControlGroupValue
-    }) => false | ControlGroupValues`,
+      inputName: string,
+      value: InputGroupValue
+    }) => false | InputGroupValues`,
     desc: "Add item to group",
     type: "Inside form"
   },
   {
-    method: "<b>getGroup</b>: (controlName: string) => ControlGroupValues",
+    method: "<b>getGroup</b>: (inputName: string) => InputGroupValues",
     desc: "Get a group",
     type: "Inside form"
   },
   {
-    method: "<b>setValue</b>: (controlName: ControlName, controlValue: ControlValue, skipUpdate?: boolean | undefined, controlId?: GroupControlId | undefined) => false | FormState",
-    desc: "Set value of control or item of group control. <br/> - If property <b>skipUpdate</b> is true, the rendering will be canceled. <br/> - If using property <b>controlId</b> will set value for a item of group control.<br/> Return a form state or false.",
+    method: "<b>setValue</b>: (inputName: InputName, inputValue: InputValue, skipUpdate?: boolean | undefined, inputId?: GroupInputId | undefined) => false | FormState",
+    desc: "Set value of input or item of group inputs. <br/> - If property <b>skipUpdate</b> is true, the rendering will be canceled. <br/> - If using property <b>inputId</b> will set value for a item of group input.<br/> Return a form state or false.",
     type: "Inside form"
   },
   {
-    method: "<b>setValues</b>: (controlsValues: FormValue) => false | FormState",
-    desc: "Set value for a multiple controls.",
+    method: "<b>setValues</b>: (inputsValues: FormValue) => false | FormState",
+    desc: "Set value for a multiple inputs.",
     type: "Inside form"
   },
   {
@@ -60,8 +60,8 @@ const CONTENT = [
     type: "Inside form"
   },
   {
-    method: "<b>getError</b>: (controlName: ControlName, controlId?: GroupControlId | undefined) => string | null",
-    desc: "Get error of control or item of group. Return a message of error or null if value is valid.",
+    method: "<b>getError</b>: (inputName: InputName, inputId?: GroupInputId | undefined) => string | null",
+    desc: "Get error of input or item of group. Return a message of error or null if value is valid.",
     type: "Inside form"
   },
   {
@@ -70,13 +70,13 @@ const CONTENT = [
     type: "Inside form"
   },
   {
-    method: "<b>useRefMod</b>: (controlName: ControlName) => useRefModResult",
-    desc: "Create reference of control.<br/> Using only for making uncontrolled controls.<br/> Return a link to API of control.",
+    method: "<b>useRefMod</b>: (inputName: InputName) => useRefModResult",
+    desc: "Create reference of input.<br/> Using only for making uncontrolled inputs.<br/> Return a link to API of input.",
     type: "Inside form"
   },
   {
-    method: "<b>isVisible</b>: (controlName: ControlName) => boolean",
-    desc: "Check if a control is visible. Using for a optional controls.",
+    method: "<b>isVisible</b>: (inputName: InputName) => boolean",
+    desc: "Check if a input is visible. Using for a optional inputs.",
     type: "Inside form"
   },
 ];
@@ -85,39 +85,39 @@ const CONTENT = [
 const CONTENT_UNCONTROLLED = [
   {
     method: "<b>useRefModResult</b>",
-    desc: "The link of uncontrolled control with API.",
+    desc: "The link of uncontrolled input with API.",
     type: "Property. Inside form"
   },
   {
     method: "<b>useRefModResult.ref</b>",
     desc: "Reference for JSX intput element.",
-    type: "Inside uncontrolled control (UI component)."
+    type: "Inside uncontrolled input (UI component)."
   },
   {
     method: "<b>useRefModResult.isViewMode</b>: () => boolean",
     desc: "Check if a form in view mode. Render a JSX for detail page.",
-    type: "Inside uncontrolled control (UI component)."
+    type: "Inside uncontrolled input (UI component)."
   },
   {
     method: `<b>useRefModResult.getError</b>: (params?: {
-      controlId?: GroupControlId | undefined;
+      inputId?: GroupInputId | undefined;
   } | undefined) => string | null`,
-    desc: "Get error of control or item of group control.",
-    type: "Inside uncontrolled control (UI component)."
+    desc: "Get error of input or item of group input.",
+    type: "Inside uncontrolled input (UI component)."
   },
   {
     method: `<b>useRefModResult.getValue</b>: (params?: {
-      controlId?: GroupControlId | undefined;
-  } | undefined) => ControlValue`,
-    desc: "Get value of control or item of group control.",
-    type: "Inside uncontrolled control (UI component)."
+      inputId?: GroupInputId | undefined;
+  } | undefined) => InputValue`,
+    desc: "Get value of input or item of group input.",
+    type: "Inside uncontrolled input (UI component)."
   },
   {
     method: `<b>useRefModResult.isVisible</b>: (params?: {
-      controlId?: GroupControlId | undefined;
+      inputId?: GroupInputId | undefined;
   } | undefined) => boolean`,
-    desc: "Check if optional control or item of group is visible. Using for optional controls.",
-    type: "Inside uncontrolled control (UI component)."
+    desc: "Check if optional input or item of group is visible. Using for optional inputs.",
+    type: "Inside uncontrolled input (UI component)."
   },
 ]
 
@@ -133,7 +133,7 @@ export const API = () => {
       });
     };
 
-    const renderUncontroled = () => {
+    const renderUncontrolled = () => {
       return CONTENT_UNCONTROLLED.map((content, index) => {
         return (<tr key={index}>
           <td dangerouslySetInnerHTML={{__html: content.method}}></td>
@@ -151,15 +151,15 @@ export const API = () => {
             <tr>
               <td>Method</td>
               <td>Description</td>
-              <td>Type control</td>
+              <td>Type input</td>
             </tr>
           </thead>
           <tbody>
             {render()}
             <tr className={styles.tdHead}>
-              <td colSpan={3}>API of uncontrolled control</td>
+              <td colSpan={3}>API of uncontrolled input</td>
             </tr>
-            {renderUncontroled()}
+            {renderUncontrolled()}
           </tbody>
         </table>
         <Content content={PART_2}/>

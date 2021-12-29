@@ -31,7 +31,7 @@ export function Dynamic() {
         if(event && event.preventDefault) {
 			event.preventDefault();
 		}
-        validate(true, (valid: boolean, formValue: any) => {
+        validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
             if(valid) {
                 alert('Form is valid');
                 console.log("FORM IS VALID, value:", formValue );
@@ -43,14 +43,14 @@ export function Dynamic() {
     }
 
     const deleteLastHobby = () => {
-        const groupItem = getItemByIndex({controlName: "hobbies", index: getGroup("hobbies").length - 1});
+        const groupItem = getItemByIndex({inputName: "hobbies", index: getGroup("hobbies").length - 1});
         if(groupItem){
-            deleteGroupItem({controlName: "hobbies", groupControlId: groupItem.id});
+            deleteGroupItem({inputName: "hobbies", groupInputId: groupItem.id});
         }
     };
 
     const addNewHobby = () => {
-        addGroupItem({controlName: "hobbies", value: {
+        addGroupItem({inputName: "hobbies", value: {
                 id: new Date().getTime(),
                 value: ""
             }
@@ -66,13 +66,13 @@ export function Dynamic() {
         <form onSubmit={handleSubmit} className={styles.form}>
             <div className={styles.count}>Count render: {getCountRender()}</div>
             {
-            getGroup("hobbies").map((control: Types.ControlGroupValue, index: number) => {
+            getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {
                 return <TextInput
-                    key={control.id}
+                    key={input.id}
                     label={`Hobby ${index + 1}`}
-                    value={getValue("hobbies", control.id)}
-                    error={getError("hobbies", control.id)}
-                    onChange={(value: string) => setValue("hobbies", value, false, control.id)}
+                    value={getValue("hobbies", input.id)}
+                    error={getError("hobbies", input.id)}
+                    onChange={(value: string) => setValue("hobbies", value, false, input.id)}
                 />
             })
             }

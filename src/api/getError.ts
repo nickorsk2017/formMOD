@@ -1,28 +1,38 @@
 import * as _ from 'lodash';
-import { FormState, FormRule, MessageError, ControlName, GroupControlId } from '../types';
+import {
+  FormState,
+  FormRule,
+  MessageError,
+  InputName,
+  GroupInputId
+} from '../types';
 
 export type GetErrorParams = {
   formState: FormState;
-  controlName: ControlName;
-  groupControlId?: GroupControlId;
+  inputName: InputName;
+  groupInputId?: GroupInputId;
 };
 
 export type GetError = (params: GetErrorParams) => MessageError | null;
 
-export const getError: GetError = ({ formState, controlName, groupControlId }) => {
+export const getError: GetError = ({ formState, inputName, groupInputId }) => {
   const rules = formState.rules;
-  if (formState.valid !== null && rules && rules[controlName]) {
-    const rulesControl = rules[controlName];
+  if (formState.valid !== null && rules && rules[inputName]) {
+    const rulesInput = rules[inputName];
     let errorRule = null;
-    if(groupControlId){
-      errorRule = rulesControl.find((rule: FormRule) => {
-        if(rule.groupRules && rule.groupRules[groupControlId] && !rule.groupRules[groupControlId].valid){
+    if (groupInputId) {
+      errorRule = rulesInput.find((rule: FormRule) => {
+        if (
+          rule.groupRules &&
+          rule.groupRules[groupInputId] &&
+          !rule.groupRules[groupInputId].valid
+        ) {
           return true;
         }
         return false;
       });
     } else {
-      errorRule = rulesControl.find((rule: FormRule) => {
+      errorRule = rulesInput.find((rule: FormRule) => {
         return !rule.valid;
       });
     }

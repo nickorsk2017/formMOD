@@ -2,10 +2,10 @@ export default `export default {
     valid: null,
     viewMode: false,
     formValue: {
-        controlBolean: false,
-        controlWithEmptyInitValue: "",
-        controlWithInitValue: "init string value",
-        controlWithArrayValues: [
+        inputBolean: false,
+        inputWithEmptyInitValue: "",
+        inputWithInitValue: "init string value",
+        inputWithArrayValues: [
             {
                 id: "1",
                 value: "1",
@@ -15,37 +15,37 @@ export default `export default {
                 value: "2"
             }
         ],
-        controlWithObjectValue: {
+        inputWithObjectValue: {
             title: "My object"
         },
-        controlNumber: 10
+        inputNumber: 10
     },
     visibilities: {
-        controlWithEmptyInitValue: ({formValue} : any) => {
+        inputWithEmptyInitValue: ({formValue} : any) => {
             return {
-                isVisible: formValue.controlBolean,
+                isVisible: formValue.inputBolean,
             }
         },
-        controlWithInitValue: ({formValue} : any) => {
+        inputWithInitValue: ({formValue} : any) => {
             return {
-                isVisible: formValue.controlWithArrayValues.length > 0,
+                isVisible: formValue.inputWithArrayValues.length > 0,
             }
         },
     },
     rules: {
-        controlWithEmptyInitValue: [
+        inputWithEmptyInitValue: [
             {
                 name: "empty",
                 message: "is required"
             }
         ],
-        controlWithInitValue: [
+        inputWithInitValue: [
             {
                 name: "empty",
                 message: "is required"
             }
         ],
-        controlNumber: [
+        inputNumber: [
             {
                 name: "empty",
                 message: "is required"
@@ -58,7 +58,7 @@ export default `export default {
                 message: "should be more than 10"
             }
         ],
-        controlWithObjectValue: controlWithArrayValues: [
+        inputWithObjectValue: inputWithArrayValues: [
             {
                 name: "func",
                 params: {
@@ -70,7 +70,7 @@ export default `export default {
                 message: "should be more than 10"
             }
         ],
-        controlWithArrayValues: [
+        inputWithArrayValues: [
             {
                 name: "func",
                 params: {

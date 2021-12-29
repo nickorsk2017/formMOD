@@ -1,30 +1,35 @@
-export type ControlGroupValue = {
-  id: string | number,
-  value: ControlValue,
-  params?: any,
+export type InputGroupValue = {
+  id: string | number;
+  value: InputValue;
+  params?: any;
 };
-export type ControlGroupValues = Array<ControlGroupValue>
-export type ControlValue = number | string | object | boolean | ControlGroupValues | null;
-export type ControlName = string;
+export type InputGroupValues = Array<InputGroupValue>;
+export type InputValue =
+  | number
+  | string
+  | Record<string, unknown>
+  | boolean
+  | InputGroupValues
+  | null;
+export type InputName = string;
 export type MessageError = string;
-export type ControlValidationResult = {};
 export type FormValue = {
-  [key: string]: ControlValue;
+  [key: string]: InputValue;
 };
 export type FormRule = {
   name: string;
   valid?: boolean;
   groupRules?: {
     [key: string]: {
-      id: string | number,
-      valid?: boolean
-    }
-  },
+      id: string | number;
+      valid?: boolean;
+    };
+  };
   message: string;
-  params?: { func?: Function; max?: number; min?: number };
+  params?: { func?: (params?: any) => any; max?: number; min?: number };
 };
-export type ResultValidationControl = {
-  rulesControl: Array<FormRule>;
+export type ResultValidationInput = {
+  rulesInput: Array<FormRule>;
   validationStatus: boolean;
 };
 export type FormRules = {
@@ -39,7 +44,7 @@ export type FormState = {
   formValue: FormValue;
   visibilities?: FormVisibilities;
   rules?: FormRules;
-  disabledControls?: Array<string>;
+  disabledInputs?: Array<string>;
 };
 export type ElementMod =
   | HTMLInputElement
@@ -48,24 +53,24 @@ export type ElementMod =
   | null;
 
 export type GetEventListeners = () => Array<ListenerObj>;
-export type GroupControlId = string | number | null;
+export type GroupInputId = string | number | null;
 
 export type ListenerObj = {
   timer: ReturnType<typeof setTimeout> | null;
   getFormState: () => FormState;
-  controlName: string;
+  inputName: string;
   element: ElementMod;
-  groupControlId?: GroupControlId; 
+  groupInputId?: GroupInputId;
   listenerHandler: () => void | EventListenerObject;
 };
 
 export type useRefModResult = {
   ref: (instance: HTMLInputElement) => void;
-  setViewMode: (viewMode: boolean) => boolean,
-  isViewMode: () => boolean,
-  getError: (params?: {controlId?: GroupControlId}) => string | null;
-  getValue: (params?: {controlId?: GroupControlId}) => ControlValue;
-  isVisible: (params?: {controlId?: GroupControlId}) => boolean;
-  isDisable: (params?: {controlId?: GroupControlId}) => boolean;
+  setViewMode: (viewMode: boolean) => boolean;
+  isViewMode: () => boolean;
+  getError: (params?: { inputId?: GroupInputId }) => string | null;
+  getValue: (params?: { inputId?: GroupInputId }) => InputValue;
+  isVisible: (params?: { inputId?: GroupInputId }) => boolean;
+  isDisable: (params?: { inputId?: GroupInputId }) => boolean;
 };
-export type useRefModAPI = (controlName: ControlName) => useRefModResult;
+export type useRefModAPI = (inputName: InputName) => useRefModResult;

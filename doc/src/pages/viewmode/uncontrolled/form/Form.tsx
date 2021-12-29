@@ -1,5 +1,5 @@
 import React from 'react'
-import {useFormMod, useCountRender} from "formmod";
+import {useFormMod, useCountRender, Types} from "formmod";
 import {TextInput, Button} from "../../../../examples/referenced/ui";
 import FORM_SCHEME from "./scheme";
 import styles from './Form.module.css';
@@ -17,7 +17,7 @@ export function Form() {
         if(event && event.preventDefault) {
 			event.preventDefault();
 		}
-        validate(true, (valid: boolean, formValue: any) => {
+        validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
             if(valid) {
                 console.log("FORM IS VALID, value:", formValue );
                 setViewMode(true);

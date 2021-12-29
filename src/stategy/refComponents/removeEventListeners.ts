@@ -1,16 +1,16 @@
 // import {setValue} from "../api";
 import * as _ from 'lodash';
-import { ControlName } from '../../types';
+import { InputName } from '../../types';
 
 export function removeEventListeners({
-  controlName,
+  inputName,
   eventListeners
 }: {
-  controlName: ControlName;
+  inputName: InputName;
   eventListeners: Array<any>;
 }) {
   return eventListeners.filter((eventListener) => {
-    if (eventListener.controlName === controlName) {
+    if (eventListener.inputName === inputName) {
       if (
         eventListener.element instanceof HTMLElement &&
         eventListener.element.removeEventListener

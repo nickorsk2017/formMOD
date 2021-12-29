@@ -26,16 +26,16 @@ You can make a great apps faster and easy. </br></br>
 
 <ul content-ul>
     <li>
-        <b>1. The reference (uncontrolled) controls API </b> - make your <b>UIkit</b> easy with best performace.
+        <b>1. The reference (uncontrolled) inputs API </b> - make your <b>UIkit</b> easy with best performace.
     </li>
     <li>
-        <b>2. The controlled controls API</b> - better for UIkit libraries(e.g. material UI, bootstrap) or use it for classic UI components.</br>
+        <b>2. The controlled inputs API</b> - better for UIkit libraries(e.g. material UI, bootstrap) or use it for classic UI components.</br>
     </li>
     <li>
         <b>3. The rules for validation</b> - email, empty, max, min, custom validator from box</br>
     </li>
     <li>
-        <b>4. The visibilities </b> - for optional / disabled controls.
+        <b>4. The visibilities </b> - for optional / disabled inputs.
     </li>
 </ul>
 `

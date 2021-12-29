@@ -1,10 +1,10 @@
 import React from 'react'
 import {useFormMod, useCountRender, Types} from "formmod";
-import {TextInput, Button, OptionBox} from "../ui";
+import {TextInput, Button, OptionBox} from "../../../../examples/controlled/ui";
 import FORM_SCHEME from "./scheme";
-import styles from './Basic.module.css';
+import styles from './Controlled.module.css';
 
-export function Basic() {
+export function Controlled() {
     const {
         setValue,
         getValue,
@@ -26,7 +26,7 @@ export function Basic() {
         if(event && event.preventDefault) {
 			event.preventDefault();
 		}
-        validate(true, (valid: boolean, formValue: any) => {
+        validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
             if(valid) {
                 console.log(formValue, 'RESULT TRUE');
                 setViewMode(true);
@@ -44,14 +44,14 @@ export function Basic() {
     };
 
     const deleteLastHobby = () => {
-        const groupItem = getItemByIndex({controlName: "hobbies", index: getGroup("hobbies").length - 1});
+        const groupItem = getItemByIndex({inputName: "hobbies", index: getGroup("hobbies").length - 1});
         if(groupItem){
-            deleteGroupItem({controlName: "hobbies", groupControlId: groupItem.id});
+            deleteGroupItem({inputName: "hobbies", groupInputId: groupItem.id});
         }
     };
 
     const addNewHobby = () => {
-        addGroupItem({controlName: "hobbies", value: {
+        addGroupItem({inputName: "hobbies", value: {
                 id: new Date().getTime(),
                 value: ""
             }
@@ -109,15 +109,15 @@ export function Basic() {
                 id="haveHobbies"
             />
             {
-            getGroup("hobbies").map((control: Types.ControlGroupValue, index: number) => {
+            getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {
                 return <TextInput
-                    key={control.id}
+                    key={input.id}
                     label={`Hobby ${index}`}
-                    value={getValue("hobbies", control.id)}
-                    error={getError("hobbies", control.id)}
+                    value={getValue("hobbies", input.id)}
+                    error={getError("hobbies", input.id)}
                     visible={isVisible("hobbies")}
                     viewMode={isViewMode()}
-                    onChange={(value: string) => setValue("hobbies", value, false, control.id)}
+                    onChange={(value: string) => setValue("hobbies", value, false, input.id)}
                 />
             })
             }

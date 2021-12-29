@@ -1,49 +1,59 @@
-import { FormState, ElementMod, ControlValue, ListenerObj, GroupControlId, ControlGroupValue, ControlGroupValues } from '../../types';
+import {
+  FormState,
+  ElementMod,
+  InputValue,
+  ListenerObj,
+  GroupInputId,
+  InputGroupValue,
+  InputGroupValues
+} from '../../types';
 
 export const toUseOnChangeEvent = (element: ElementMod) =>
   element !== null && (element.type === 'radio' || element.type === 'checkbox');
 
 export type UpdateValueInputFromStateParams = {
-  getFormState: () => FormState,
-  element: ElementMod,
-  controlName: string,
-  groupControlId?: GroupControlId,
-  toUseOnChangeEvent: boolean,
+  getFormState: () => FormState;
+  element: ElementMod;
+  inputName: string;
+  groupInputId?: GroupInputId;
+  toUseOnChangeEvent: boolean;
 };
 
-export type UpdateValueInputFromState = (params: UpdateValueInputFromStateParams) => void;
+export type UpdateValueInputFromState = (
+  params: UpdateValueInputFromStateParams
+) => void;
 
 export const updateValueInputFromState: UpdateValueInputFromState = ({
-    getFormState,
-    element,
-    controlName,
-    groupControlId,
-    toUseOnChangeEvent,
-  }
-) => {
-  let controlValue: ControlValue = "";
-  if(!groupControlId){
-    controlValue = getFormState().formValue[controlName]?.toString() || "";
+  getFormState,
+  element,
+  inputName,
+  groupInputId,
+  toUseOnChangeEvent
+}) => {
+  let inputValue: InputValue = '';
+  if (!groupInputId) {
+    inputValue = getFormState().formValue[inputName]?.toString() || '';
   } else {
-    const controlGroup = getFormState().formValue[controlName] as ControlGroupValues || [];
-    if(Array.isArray(controlGroup)){
-      controlGroup.some((controlGroupValue: ControlGroupValue) => {
-        if(controlGroupValue.id === groupControlId){
-          controlValue = controlGroupValue.value;
+    const inputGroup =
+      (getFormState().formValue[inputName] as InputGroupValues) || [];
+    if (Array.isArray(inputGroup)) {
+      inputGroup.some((inputGroupValue: InputGroupValue) => {
+        if (inputGroupValue.id === groupInputId) {
+          inputValue = inputGroupValue.value;
           return true;
         }
-        return false
+        return false;
       });
     }
   }
   if (element) {
-    if (toUseOnChangeEvent && (controlValue === '' || controlValue === null)) {
+    if (toUseOnChangeEvent && (inputValue === '' || inputValue === null)) {
       if (element instanceof HTMLInputElement) {
-        element.checked = !(controlValue === '' || controlValue === null);
+        element.checked = !(inputValue === '' || inputValue === null);
       }
     } else {
-      if (element.value !== controlValue) {
-        element.value = controlValue;
+      if (element.value !== inputValue) {
+        element.value = inputValue;
       }
     }
   }
@@ -54,13 +64,13 @@ export const updateValueInputsFromState = (
   eventListeners: Array<ListenerObj>
 ) => {
   for (const evenListener of eventListeners) {
-    const valueControlFromForm =
-      formState.formValue[evenListener.controlName] || '';
+    const valueInputFromForm =
+      formState.formValue[evenListener.inputName] || '';
     if (
       evenListener.element !== null &&
-      evenListener.element.value !== valueControlFromForm
+      evenListener.element.value !== valueInputFromForm
     ) {
-      evenListener.element.value = valueControlFromForm.toString();
+      evenListener.element.value = valueInputFromForm.toString();
     }
   }
 };

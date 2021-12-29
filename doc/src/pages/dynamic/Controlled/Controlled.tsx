@@ -9,7 +9,7 @@ import {
     SCHEME,
     FORM_CODE,
 } from "./_docs";
-import {DynamicControledForm} from "../../../examples/";
+import {DynamicControlledForm} from "../../../examples/";
 import styles from './Controlled.module.css';
 
 export const Controlled = () => {
@@ -20,7 +20,7 @@ export const Controlled = () => {
         <div className={styles.container}>
           <Content content={PART_1}/>
           <div className="formmod__subtitle">Live example:</div><br/>
-          <DynamicControledForm/><br/>
+          <DynamicControlledForm/><br/>
           <div className="formmod__subtitle">Form scheme:</div>
           <Content language="json5" preWrap={true} content={_SCHEME}/>
           <br/>
