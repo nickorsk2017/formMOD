@@ -64,7 +64,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'public', 'index.html'),
             PUBLIC_URL: "public",
-            BASE_HREF: ".",
+            BASE_HREF: "/",
         }),
         new webpack.HotModuleReplacementPlugin(),
         new EventHooksPlugin({
