@@ -45,7 +45,7 @@ export function Basic() {
                 refMod={useRefMod("full_name")}
             />
             {<TextInput
-                label={"Favorite pet"}
+                label={"Favorite pet name"}
                 refMod={useRefMod("petName")}
             />}
             <div className={styles.buttons}>

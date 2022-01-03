@@ -53,7 +53,7 @@ export function Visibilities() {
                 id="havePets"
             />
               <TextInput
-                label={"Favorite pet"}
+                label={"Favorite pet name"}
                 value={getValue("petName")}
                 error={getError("petName")}
                 visible={isVisible("petName")}

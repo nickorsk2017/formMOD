@@ -49,7 +49,7 @@ export function Visibilities() {
                 id="havePets"
             />
             {<TextInput
-                label={"Favorite pet"}
+                label={"Favorite pet name"}
                 refMod={useRefMod("petName")}
             />}
             <div className={styles.buttons}>
