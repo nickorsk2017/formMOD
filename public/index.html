@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+
+    <link rel="manifest" href="<%= htmlWebpackPlugin.options.PUBLIC_URL %>/manifest.json" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="<%= htmlWebpackPlugin.options.PUBLIC_URL %>/public.css" rel="stylesheet">
+
+    <link href="<%= htmlWebpackPlugin.options.PUBLIC_URL %>/fontawesome/css/all.min.css" rel="stylesheet">
+    <link href="<%= htmlWebpackPlugin.options.PUBLIC_URL %>/fontawesome/css/solid.min.css" rel="stylesheet">
+    <link href="<%= htmlWebpackPlugin.options.PUBLIC_URL %>/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+    <link href="<%= htmlWebpackPlugin.options.PUBLIC_URL %>/lib/prism.css" rel="stylesheet"></javascript>
+    <link rel="shortcut icon" type="image/x-icon" href="<%= htmlWebpackPlugin.options.PUBLIC_URL %>/favicon.ico" />
+    <title>formMOD</title>
+    <base href="<%= htmlWebpackPlugin.options.BASE_HREF %>">
+
+  </head>
+  <body class="line-numbers line-numbers-rows">
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+
+    <div id="root"></div>
+
+    <!--
+      This HTML file is a template.
+      If you open it directly in the browser, you will see an empty page.
+
+      You can add webfonts, meta tags, or analytics to this file.
+      The build step will place the bundled scripts into the <body> tag.
+
+      To begin the development, run `npm start` or `yarn start`.
+      To create a production bundle, use `npm run build` or `yarn build`.
+    -->
+    <script>
+      window.Prism = window.Prism || {};
+      window.Prism.manual = true;
+    </script>
+    <script data-manual src="<%= htmlWebpackPlugin.options.PUBLIC_URL %>/lib/prism.js"></script>
+  </body>
+</html>

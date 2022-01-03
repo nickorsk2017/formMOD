@@ -1,6 +1,0 @@
-build/
-dist/
-doc/public/lib
-node_modules/
-.snapshots/
-*.min.js
