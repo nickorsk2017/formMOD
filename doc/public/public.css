@@ -123,3 +123,6 @@ nav .active {
   color: #54c270;
   background: linear-gradient(to right,rgba(85, 194, 112, 0.1) 70%,rgba(85, 194, 112, 0.1)) !important;
 }
+.line-highlight {
+  margin-top: 0.7em !important;
+}

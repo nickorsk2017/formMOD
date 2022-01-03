@@ -27,13 +27,13 @@ export const Controlled = () => {
         <BasicControledForm/>
         <br/>
         <div className="formmod__subtitle">Form component:</div>
-        <Content preWrap={true} content={_FORM_CODE}/>
+        <Content lines='8-10, 42-53' preWrap={true} content={_FORM_CODE}/>
         <Content content={PART_2}/>
         <div className="formmod__subtitle">Form scheme:</div>
         <Content preWrap={true} content={_SCHEME}/>
         <Content content={PART_3}/>
-        <div className="formmod__subtitle">Control component:</div>
-        <Content preWrap={true} content={_INPUT_CODE}/>
+        <div className="formmod__subtitle">Input component:</div>
+        <Content lines='5, 12-13' preWrap={true} content={_INPUT_CODE}/>
         <Content content={PART_4}/><br/>
       </div>
   )

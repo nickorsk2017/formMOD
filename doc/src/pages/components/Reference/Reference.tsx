@@ -26,13 +26,13 @@ export const Reference = () => {
         <div className="formmod__subtitle">Live example:</div><br/>
         <BasicReferencedForm/><br/>
         <div className="formmod__subtitle">Form component:</div>
-        <Content preWrap={true} content={_FORM_CODE}/>
+        <Content lines='8-10,44,48' preWrap={true} content={_FORM_CODE}/>
         <Content content={PART_2}/><br/>
         <div className="formmod__subtitle">Form scheme:</div>
         <Content preWrap={true} content={_SCHEME}/>
         <Content content={PART_3}/><br/>
-        <div className="formmod__subtitle">Control component:</div>
-        <Content preWrap={true} content={_INPUT_CODE}/>
+        <div className="formmod__subtitle">Input component:</div>
+        <Content lines='11, 16, 18' preWrap={true} content={_INPUT_CODE}/>
         <Content content={PART_4}/><br/>
       </div>
     )

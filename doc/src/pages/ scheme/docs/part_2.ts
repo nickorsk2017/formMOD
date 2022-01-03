@@ -13,8 +13,8 @@ export default `
         <b>4. visibilities</b> - section for an optional inputs.
     </li>
     <li>
-        <b>5. rules</b> - section for a rules of validators.</br>
-        This a validators works from top to bottom. The rule return a first error from list of validator to input.
+        <b>5. rules</b> - section for a rules of inputs.</br>
+        This rules works from top to bottom. The rule return a first error from list of rules to input.
     </li>
 </ul>
 `

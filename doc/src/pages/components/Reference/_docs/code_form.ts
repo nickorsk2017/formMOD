@@ -1,36 +1,60 @@
 export default (() => {
-    const code = `
-    //The code of form
-    import React from 'react'
-    import {useFormMod} from "formmod";
-    // STEP 1: import form scheme
-    import FORM_SCHEME from "./scheme";
-    // Some code ...
+const code = `import React from 'react'
+import {useFormMod, useCountRender, Types} from "formmod";
+import {TextInput, Button} from "../ui";
+import FORM_SCHEME from "./scheme";
+import styles from './Basic.module.css';
     
-    export function MyForm(props: any) {
-        // STEP 2: use form system
-        const {validate, resetForm, useRefMod} = useFormMod(
-            FORM_SCHEME(props.value || {})
-        );
-
-        // Some code ...
-
-        // STEP 3: connect inputs to components.
-        return (
-            <form onSubmit={handleSubmit} className={styles.form}>
-                ...
-                <TextInput
-                    label={"Your full name"}
-                    refMod={useRefMod("full_name")}
-                />
-                {<TextInput
-                    label={"Favorite pet"}
-                    refMod={useRefMod("pet_name")}
-                />}
-                ...
-            </form>
-        )
-    }`;
+export function Basic() {
+    const {validate, resetForm, useRefMod} = useFormMod(
+        FORM_SCHEME
+    );
+        
+    const handleSubmit = (event: React.SyntheticEvent) => {
+        if(event && event.preventDefault) {
+            event.preventDefault();
+        }
+        validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
+            if(valid) {
+                alert('Form is valid');
+                console.log("FORM IS VALID, value:", formValue );
+            } else {
+                alert('Form is wrong');
+                console.log('FORM IS WRONG, value:', formValue );
+            }
+        });
+    };
+    
+    const setDefault = (event: any) => {
+        if(event && event.preventDefault) {
+            event.preventDefault();
+        }
+        resetForm();
+    };
+    
+    // count of render
+    const {getCountRender, counter} = useCountRender();
+    counter();
+    // count of render [END]
+        
+    return (
+        <form onSubmit={handleSubmit} className={styles.form}>
+            <div className={styles.count}>Count render: {getCountRender()}</div>
+            <TextInput
+                label={"Your full name"}
+                refMod={useRefMod("full_name")}
+            />
+            {<TextInput
+                label={"Favorite pet"}
+                refMod={useRefMod("petName")}
+            />}
+            <div className={styles.buttons}>
+                <Button type="submit" title="Submit"/>
+                <Button theme="LIGHT" onClick={setDefault} title="Reset"/>
+            </div>
+        </form>
+    )
+}`;
 
     return code;
 })()

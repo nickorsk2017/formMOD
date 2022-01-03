@@ -33,7 +33,7 @@ export const Controlled = () => {
           <br/>
           <Content content={PART_3}/>
           <br/>
-          <div className="formmod__subtitle">Control component:</div>
+          <div className="formmod__subtitle">Input component:</div>
           <Content lines="15-23" preWrap={true} content={_INPUT_CODE}/>
           <br/>
           <Content content={PART_4}/>
