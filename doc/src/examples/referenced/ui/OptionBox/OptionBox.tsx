@@ -13,13 +13,14 @@ export interface ComponentProps_OptionBox {
 export const OptionBox: React.FC<ComponentProps_OptionBox> = (props: ComponentProps_OptionBox) =>  {
     const {refMod, label, style, prefixJSX, sufixJSX, id} = props;
     const isChecked = refMod.getValue();
+    const PREFIX = process.env.prefixMOD || "/";
     
     return (
       <>
         <div style={style} className={styles.checkBoxContainer}>
           <div className={[styles.checkBoxInputSpec, (isChecked ? styles.checked : null)].join(' ')}>
             <input ref={refMod.ref} id={id}  className={styles.checkBoxInput} type="checkbox"></input>
-            <img alt="option img" src="./public/checked.svg" className={styles.checkBoxInputIcon}/>
+            <img alt="option img" src={`${PREFIX}public/checked.svg`} className={styles.checkBoxInputIcon}/>
           </div>
         
           <label htmlFor={id} className={styles.checkBoxLabel}>

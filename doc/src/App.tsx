@@ -33,6 +33,8 @@ import {
 
 } from "./pages";
 
+const PREFIX = process.env.prefixMOD || "/";
+
 const App = () => {
 
   return (
@@ -42,91 +44,91 @@ const App = () => {
         <a className="super-github" href="https://github.com/nickorsk2017/formMOD"><i className="fab fa-github"></i></a>
         <HelpUs/>
         <Switch>
-          <Route exact strict path="/"><Introduction/></Route>
-          <Route path="/controlled">
+          <Route exact strict path={PREFIX}><Introduction/></Route>
+          <Route path={`${PREFIX}controlled/`}>
             <Controlled/>
           </Route>
-          <Route path="/uncontrolled">
+          <Route path={`${PREFIX}uncontrolled/`}>
             <Reference />
           </Route>
   
-          <Route exact strict path='/rules'>
+          <Route exact strict path={`${PREFIX}rules/`}>
             <IntroductionRules/>
           </Route>
-          <Route path='/rules/empty' strict>
+          <Route path={`${PREFIX}rules/empty/`} strict>
             <EmptyRule/>
           </Route>
-          <Route path='/rules/email' strict>
+          <Route path={`${PREFIX}rules/email/`} strict>
             <EmailRule/>
           </Route>
 
-          <Route path='/rules/max' strict>
+          <Route path={`${PREFIX}rules/max/`} strict>
             <MaxRule/>
           </Route>
 
-          <Route path='/rules/min' strict>
+          <Route path={`${PREFIX}rules/min/`} strict>
             <MinRule/>
           </Route>
 
-          <Route path='/rules/custom' strict>
+          <Route path={`${PREFIX}rules/custom/`} strict>
             <CustomRule/>
           </Route>
 
 
-          <Route path='/uncontrolled-visibilities' strict>
+          <Route path={`${PREFIX}uncontrolled-visibilities/`} strict>
             <ReferenceVisibilities/>
           </Route>
 
-          <Route path='/controlled-visibilities' strict>
+          <Route path={`${PREFIX}controlled-visibilities/`} strict>
             <ControlledVisibilities/>
           </Route>
 
-          <Route path='/controlled-dynamic' strict>
+          <Route path={`${PREFIX}controlled-dynamic/`} strict>
             <ControlledDynamic/>
           </Route>
 
-          <Route path='/uncontrolled-dynamic' strict>
+          <Route path={`${PREFIX}uncontrolled-dynamic/`} strict>
             <UncontrolledDynamic/>
           </Route>
 
-          <Route path='/introduction-viewmode' strict>
+          <Route path={`${PREFIX}introduction-viewmode/`} strict>
             <IntroViewMode/>
           </Route>
 
-          <Route path='/uncontrolled-viewmode' strict>
+          <Route path={`${PREFIX}uncontrolled-viewmode/`} strict>
             <UncontrolledViewMode/>
           </Route>
 
-          <Route path='/controlled-viewmode' strict>
+          <Route path={`${PREFIX}controlled-viewmode/`} strict>
             <ControlledViewMode/>
           </Route>
 
-          <Route path='/introduction-editmode' strict>
+          <Route path={`${PREFIX}introduction-editmode/`} strict>
            
           </Route>
 
-          <Route path='/uncontrolled-editmode' strict>
+          <Route path={`${PREFIX}uncontrolled-editmode/`} strict>
             <UncontrolledEditmode/>
           </Route>
 
-          <Route path='/controlled-editmode' strict>
+          <Route path={`${PREFIX}controlled-editmode/`} strict>
             <ControlledEditmode/>
           </Route>
 
 
-          <Route path='/license' strict>
+          <Route path={`${PREFIX}license/`} strict>
             <License/>
           </Route>
 
-          <Route path='/forms' strict>
+          <Route path={`${PREFIX}forms/`} strict>
             <Forms/>
           </Route>
 
-          <Route path='/scheme' strict>
+          <Route path={`${PREFIX}scheme/`} strict>
             <Scheme/>
           </Route>
 
-          <Route path='/api' strict>
+          <Route path={`${PREFIX}api/`} strict>
             <API/>
           </Route>
 

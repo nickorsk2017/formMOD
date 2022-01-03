@@ -50,10 +50,11 @@ module.exports = {
     },
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/'
     },
     devServer: {
-        contentBase: path.join(__dirname, "./"),
+        contentBase: path.join(__dirname, "/"),
         historyApiFallback: true,
         port: 3000,
         open: true,
@@ -61,11 +62,12 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('development')
+            'process.env.NODE_ENV': JSON.stringify('development'),
+            'process.env.prefixMOD': JSON.stringify('/')
         }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'public', 'index.html'),
-            PUBLIC_URL: "public",
+            PUBLIC_URL: "/public",
             BASE_URL: "/",
         }),
         new webpack.HotModuleReplacementPlugin(),

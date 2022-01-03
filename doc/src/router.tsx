@@ -6,6 +6,7 @@ import {
 import styles from './App.module.css';
 
 export const RouterApp = memo(() => {
+    const PREFIX = process.env.prefixMOD || "/";
     const [opendItems, setOpendItems] = useState<string[]>([]);
 
     const checkOpendItems = (itemID: string) => {
@@ -37,21 +38,21 @@ export const RouterApp = memo(() => {
         usePrism();
       });
     }, [history]);
-    
+
     return (
         <nav id="app-nav">
-        <img className={styles.logo} alt="img" src="./public/formModLogo.svg"/>
+        <NavLink activeClassName="active" to={PREFIX}><img className={styles.logo} alt="img" src={`${PREFIX}public/formModLogo.svg`}/></NavLink>
 
         <div className={styles.selfItem}>
-          <NavLink exact={true} activeClassName="active" to="/">Introduction</NavLink>
+          <NavLink activeClassName="active" to={PREFIX}>Introduction</NavLink>
         </div>
 
         <div className={styles.selfItem}>
-          <NavLink exact={true} activeClassName="active" to="/forms">Forms</NavLink>
+          <NavLink exact={true} activeClassName="active" to={`${PREFIX}forms/`}>Forms</NavLink>
         </div>
 
         <div className={styles.selfItem}>
-          <NavLink exact={true} activeClassName="active" to="/scheme">Form scheme</NavLink>
+          <NavLink exact={true} activeClassName="active" to={`${PREFIX}scheme/`}>Form scheme</NavLink>
         </div>
         
         <div className={styles.section}>
@@ -60,10 +61,10 @@ export const RouterApp = memo(() => {
             {checkOpendItems("basicSection") && 
             <>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/uncontrolled">Uncontrolled</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}uncontrolled/`}>Uncontrolled</NavLink>
               </li>
                 <li className={styles.navItem}>
-                <NavLink to="/controlled">Controlled</NavLink>
+                <NavLink to={`${PREFIX}controlled/`}>Controlled</NavLink>
               </li>
             </>}
           </ul>
@@ -78,22 +79,22 @@ export const RouterApp = memo(() => {
             {checkOpendItems("rules") && 
             <>
               <li className={styles.navItem}>
-                <NavLink exact={true} activeClassName="active" to="/rules">Introduction</NavLink>
+                <NavLink exact={true} activeClassName="active" to={`${PREFIX}rules/`}>Introduction</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/rules/empty">empty</NavLink>
+                <NavLink  activeClassName="active" to={`${PREFIX}rules/empty/`}>empty</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/rules/email">email</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}rules/email/`}>email</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/rules/custom">custom</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}rules/custom/`}>custom</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/rules/max">max</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}rules/max/`}>max</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/rules/min">min</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}rules/min/`}>min</NavLink>
               </li>
             </>}
           </ul>
@@ -105,10 +106,10 @@ export const RouterApp = memo(() => {
             {checkOpendItems("visibilities") && 
             <>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/uncontrolled-visibilities">Uncontrolled</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}uncontrolled-visibilities/`}>Uncontrolled</NavLink>
               </li>
                 <li className={styles.navItem}>
-                <NavLink to="/controlled-visibilities">Controlled</NavLink>
+                <NavLink to={`${PREFIX}controlled-visibilities/`}>Controlled</NavLink>
               </li>
             </>}
           </ul>
@@ -120,10 +121,10 @@ export const RouterApp = memo(() => {
             {checkOpendItems("dynamic") && 
             <>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/uncontrolled-dynamic">Uncontrolled</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}uncontrolled-dynamic/`}>Uncontrolled</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink to="/controlled-dynamic">Controlled</NavLink>
+                <NavLink to={`${PREFIX}controlled-dynamic/`}>Controlled</NavLink>
               </li>
             </>}
           </ul>
@@ -135,13 +136,13 @@ export const RouterApp = memo(() => {
             {checkOpendItems("viewmode") && 
             <>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/introduction-viewmode">Introduction</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}introduction-viewmode/`}>Introduction</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/uncontrolled-viewmode">Uncontrolled</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}uncontrolled-viewmode/`}>Uncontrolled</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink to="/controlled-viewmode">Controlled</NavLink>
+                <NavLink to={`${PREFIX}controlled-viewmode/`}>Controlled</NavLink>
               </li>
             </>}
           </ul>
@@ -153,21 +154,21 @@ export const RouterApp = memo(() => {
             {checkOpendItems("editmode") && 
             <>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to="/uncontrolled-editmode">Uncontrolled</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}uncontrolled-editmode/`}>Uncontrolled</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink to="/controlled-editmode">Controlled</NavLink>
+                <NavLink to={`${PREFIX}controlled-editmode/`}>Controlled</NavLink>
               </li>
             </>}
           </ul>
         </div>
 
         <div className={styles.selfItem}>
-          <NavLink exact={true} activeClassName="active" to="/api">API</NavLink>
+          <NavLink exact={true} activeClassName="active" to={`${PREFIX}api/`}>API</NavLink>
         </div>
 
         <div className={styles.selfItem}>
-          <NavLink exact={true} activeClassName="active" to="/license">License</NavLink>
+          <NavLink exact={true} activeClassName="active" to={`${PREFIX}license/`}>License</NavLink>
         </div>
 
         

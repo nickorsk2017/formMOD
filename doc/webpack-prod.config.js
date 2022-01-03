@@ -59,12 +59,13 @@ module.exports = {
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production')
+            'process.env.NODE_ENV': JSON.stringify('production'),
+            'process.env.prefixMOD': '/formMOD/'
         }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'public', 'index.html'),
             PUBLIC_URL: "public",
-            BASE_HREF: "/",
+            BASE_HREF: ".",
         }),
         new webpack.HotModuleReplacementPlugin(),
         new EventHooksPlugin({
