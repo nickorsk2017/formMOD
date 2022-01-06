@@ -15,6 +15,21 @@ body {
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
 }
+/* Works on Firefox */
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: #54c270 !important;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #54c270;
+  border-radius: 20px;
+}
 * {
   box-sizing: border-box;
   font-family: Open sans;
