@@ -2,7 +2,6 @@
 
 The formMOD is powerfull library for making a React forms.
 
-
 ## Advantages:
 
     1. Best performance - the rendering and touching your application only when need.
@@ -13,18 +12,20 @@ The formMOD is powerfull library for making a React forms.
     
     4. Make a forms faster with JSON scheme. Minimum work.
 
+## Full documentation
 
-> Made with create-react-library
-
-[![NPM](https://img.shields.io/npm/v/formmod.svg)](https://www.npmjs.com/package/formmod) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-bright#54c270.svg)](https://standardjs.com)
+https://nickorsk2017.github.io/formMOD/
 
 ## Install
-
 
 Intallation with npm:
 ```bash
 npm install --save formmod
 ```
+
+> Made with create-react-library
+
+[![NPM](https://img.shields.io/npm/v/formmod.svg)](https://www.npmjs.com/package/formmod) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-bright#54c270.svg)](https://standardjs.com)
 
 ## License
 

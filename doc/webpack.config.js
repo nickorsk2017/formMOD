@@ -49,7 +49,7 @@ module.exports = {
         ],
     },
     output: {
-        filename: '[name].js',
+        filename: '[name]-[contenthash].js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/'
     },
@@ -63,7 +63,8 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development'),
-            'process.env.prefixMOD': JSON.stringify('/')
+            'process.env.prefixMOD': JSON.stringify('/'),
+            'process.env.prefixPublic': JSON.stringify('/public/'),
         }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'public', 'index.html'),

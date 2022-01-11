@@ -54,13 +54,14 @@ module.exports = {
     },
     output: {
         publicPath: ".",
-        filename: '[name].js',
+        filename: '[name]-[contenthash].js',
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production'),
-            'process.env.prefixMOD': '/formMOD/'
+            'process.env.prefixMOD': JSON.stringify('/'),
+            'process.env.prefixPublic': JSON.stringify('/formMOD/public/'),
         }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'public', 'index.html'),

@@ -7,6 +7,7 @@ import styles from './App.module.css';
 
 export const RouterApp = memo(() => {
     const PREFIX = process.env.prefixMOD || "/";
+    const PREFIX_PUBLIC = process.env.prefixPublic || "/";
     const [opendItems, setOpendItems] = useState<string[]>([]);
 
     const checkOpendItems = (itemID: string) => {
@@ -41,10 +42,10 @@ export const RouterApp = memo(() => {
 
     return (
         <nav id="app-nav">
-        <NavLink activeClassName="active" to={PREFIX}><img className={styles.logo} alt="img" src={`${PREFIX}public/formModLogo.svg`}/></NavLink>
+        <NavLink activeClassName="active" to={PREFIX}><img className={styles.logo} alt="img" src={`${PREFIX_PUBLIC}formModLogo.svg`}/></NavLink>
 
         <div className={styles.selfItem}>
-          <NavLink activeClassName="active" to={PREFIX}>Introduction</NavLink>
+          <NavLink exact={true} activeClassName="active" to={PREFIX}>Introduction</NavLink>
         </div>
 
         <div className={styles.selfItem}>
