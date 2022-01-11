@@ -139,3 +139,9 @@ nav .active {
   background: linear-gradient(to right,rgba(85, 194, 112, 0.1) 70%,rgba(85, 194, 112, 0.1)) !important;
   margin-top: 10px !important;
 }
+.super-github-icon *{
+  margin-left: 10px !important;
+  color: #000 !important;
+  position: relative;
+  bottom: 2px;
+}
