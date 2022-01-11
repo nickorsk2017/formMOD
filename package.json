@@ -1,6 +1,6 @@
 {
   "name": "formmod",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "Powerful form system for React with hooks",
   "author": "Stepanov Nickolay",
   "license": "MIT",
@@ -17,7 +17,7 @@
   "engines": {
     "node": ">=10"
   },
-  "homepage": "https://github.com/nickorsk2017/formMOD#readme",
+  "homepage": "https://nickorsk2017.github.io/formMOD/",
   "keywords": [
     "form",
     "react",
