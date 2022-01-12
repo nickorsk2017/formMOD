@@ -86,7 +86,7 @@ nav .active {
   padding-bottom: 50px;
 }
 .super-github {
-  display: inline-block;
+  display: inline-flex;
   position: absolute;
   right: 30px;
   top: 5px;
@@ -96,6 +96,8 @@ nav .active {
   border: none;
   text-transform: none;
   background: transparent;
+  align-items: center;
+  justify-content: center;
 }
 
 /* fixes code hightligh*/
@@ -144,4 +146,23 @@ nav .active {
   color: #000 !important;
   position: relative;
   bottom: 2px;
+}
+.super-github-star {
+  height: 28px;
+  color: #24292f;
+  background-color: #ebf0f4;
+  border: 1px solid #1b1f2426;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration: none;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 5px 10px;
+  position: relative;
+  bottom: 1px;
+}
+.super-github-star svg {
+  margin-right: 5px;
 }
