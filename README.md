@@ -16,12 +16,21 @@ The formMOD is powerfull library for making a React forms.
 
 https://nickorsk2017.github.io/formMOD/
 
-## Install
+## Installation
 
 Intallation with npm:
 ```bash
-npm install --save formmod
+npm i formmod
 ```
+
+Intallation with npm:
+```bash
+yarn add formmod
+```
+## Dependencies
+    "lodash": "^4.5.0",<br/>
+    "react": "^17.0.1",<br/>
+    "react-dom": "^17.0.1"<br/>
 
 > Made with create-react-library
 

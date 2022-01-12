@@ -49,6 +49,10 @@ export const RouterApp = memo(() => {
         </div>
 
         <div className={styles.selfItem}>
+          <NavLink exact={true} activeClassName="active" to={`${PREFIX}installation/`}>Installation</NavLink>
+        </div>
+
+        <div className={styles.selfItem}>
           <NavLink exact={true} activeClassName="active" to={`${PREFIX}forms/`}>Forms</NavLink>
         </div>
 

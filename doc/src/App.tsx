@@ -9,6 +9,7 @@ import {HelpUs, Page404} from "./ui";
 import {RouterApp} from "./router";
 import {
   Introduction,
+  Installation,
   Controlled,
   Reference,
   IntroductionRules,
@@ -30,7 +31,6 @@ import {
   API,
   UncontrolledEditmode,
   ControlledEditmode,
-
 } from "./pages";
 
 const PREFIX = process.env.prefixMOD || "/";
@@ -48,6 +48,7 @@ const App = () => {
         <HelpUs/>
         <Switch>
           <Route exact strict path={PREFIX}><Introduction/></Route>
+          <Route exact strict path={`${PREFIX}installation/`}><Installation/></Route>
           <Route path={`${PREFIX}controlled/`}>
             <Controlled/>
           </Route>

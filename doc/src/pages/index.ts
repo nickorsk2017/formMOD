@@ -1,4 +1,5 @@
 export {Introduction} from "./Introduction/Introduction";
+export {Installation} from "./Installation/Installation";
 export {Reference} from "./components/Reference/Reference";
 export {Controlled} from "./components/Controlled/Controlled";
 export {Introduction as IntroductionRules} from "./rules/Introduction/Introduction";
