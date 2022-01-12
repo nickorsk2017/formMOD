@@ -1,4 +1,3 @@
-# formMOD
 <img src="https://nickorsk2017.github.io/formMOD/public/formModLogo.svg">
 
 The formMOD is powerfull library for making a React forms.
