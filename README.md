@@ -28,9 +28,10 @@ Intallation with npm:
 yarn add formmod
 ```
 ## Dependencies
-    "lodash": "^4.5.0",<br/>
-    "react": "^17.0.1",<br/>
-    "react-dom": "^17.0.1"<br/>
+    "lodash.isequal": "^4.5.0"
+    "lodash.clonedeep": "^4.5.0"
+    "react": "^17.0.1"
+    "react-dom": "^17.0.1"
 
 > Made with create-react-library
 
