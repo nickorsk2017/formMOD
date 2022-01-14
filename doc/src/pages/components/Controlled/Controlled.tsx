@@ -16,9 +16,9 @@ import styles from './Controlled.module.css';
 export type ControlledParams = {};
 
 export const Controlled = () => {
-  const _INPUT_CODE = getCodeSnippet(INPUT_CODE, 'javascript');
-  const _FORM_CODE = getCodeSnippet(FORM_CODE, 'javascript');
-  const _SCHEME = getCodeSnippet(SCHEME, 'javascript');
+  const _INPUT_CODE = getCodeSnippet(INPUT_CODE);
+  const _FORM_CODE = getCodeSnippet(FORM_CODE);
+  const _SCHEME = getCodeSnippet(SCHEME);
 
   return (
       <div className={styles.container}>
@@ -27,13 +27,13 @@ export const Controlled = () => {
         <BasicControledForm/>
         <br/>
         <div className="formmod__subtitle">Form component:</div>
-        <Content lines='8-10, 42-53' preWrap={true} content={_FORM_CODE}/>
+        <Content countLines={_FORM_CODE.countLines} lines='8-10, 42-53' preWrap={true} content={_FORM_CODE.result}/>
         <Content content={PART_2}/>
         <div className="formmod__subtitle">Form scheme:</div>
-        <Content preWrap={true} content={_SCHEME}/>
+        <Content countLines={_SCHEME.countLines} preWrap={true} content={_SCHEME.result}/>
         <Content content={PART_3}/>
         <div className="formmod__subtitle">Input component:</div>
-        <Content lines='5, 12-13' preWrap={true} content={_INPUT_CODE}/>
+        <Content countLines={_INPUT_CODE.countLines} lines='5, 12-13' preWrap={true} content={_INPUT_CODE.result}/>
         <Content content={PART_4}/><br/>
       </div>
   )

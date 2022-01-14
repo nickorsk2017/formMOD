@@ -7,13 +7,13 @@ import styles from './Introduction.module.css';
 export type IntroductionParams = {};
 
 export const Introduction = () => {
-    const _SCHEME = getCodeSnippet(SCHEME, 'javascript');
+    const _SCHEME = getCodeSnippet(SCHEME);
 
     return (
       <div className={styles.container}>
         <Content content={PART_1}/>
         <div className="formmod__subtitle">Form Scheme:</div>
-        <Content preWrap={true} content={_SCHEME}/>
+        <Content countLines={_SCHEME.countLines} preWrap={true} content={_SCHEME.result}/>
         <Content content={PART_2}/>
       </div>
     )

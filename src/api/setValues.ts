@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import { cloneDeep, isEqual } from '../utils';
 import { validate } from './validate';
 import { Visibilities } from '../api/visibilities';
 import { UpdateFormState } from '../api/useStateForm';
@@ -24,7 +24,7 @@ export const setValues: SetValues = ({
   getFormState,
   isOnInitEdit
 }) => {
-  const _formState: FormState = _.cloneDeep(formState);
+  const _formState: FormState = cloneDeep(formState) as FormState;
   Object.keys(inputsValues).forEach((inputName: InputName) => {
     _formState[inputName] = inputsValues[inputName];
   });
@@ -36,12 +36,12 @@ export const setValues: SetValues = ({
   }
 
   if (_formState.valid === null && !editMode) {
-    if (!_.isEqual(_formState, formState)) {
+    if (!isEqual(_formState, formState)) {
       updateFormState(_formState);
     }
     return _formState;
   } else {
-    if (!_.isEqual(_formState, formState)) {
+    if (!isEqual(_formState, formState)) {
       return validate({
         formState: _formState,
         updateValidation: true,

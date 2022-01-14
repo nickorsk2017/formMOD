@@ -1,5 +1,5 @@
 import { setValue } from '../../api/setValue';
-import * as _ from 'lodash';
+import { isEqual } from '../../utils';
 import { InputName, ElementMod, GroupInputId } from '../../types';
 import { Visibilities } from '../../api/visibilities';
 import { toUseOnChangeEvent } from '../../stategy/refComponents/updateValueInputFromState';
@@ -40,7 +40,7 @@ export const addEventListeners: AddEventListeners = ({
       }
       if (
         this.getFormState().formValue &&
-        !_.isEqual(valueFromFormState, inputValue)
+        !isEqual(valueFromFormState, inputValue)
       ) {
         clearTimeout(this.timer);
         this.timer = setTimeout(() => {

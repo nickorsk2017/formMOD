@@ -7,13 +7,13 @@ import styles from './Scheme.module.css';
 export type SchemeParams = {};
 
 export const Scheme = () => {
-    const _SCHEME = getCodeSnippet(SCHEME, 'json5');
+    const {result, countLines} = getCodeSnippet(SCHEME);
 
     return (
       <div className={styles.container}>
         <Content content={PART_1}/>
         <div className="formmod__subtitle">Example:</div>
-        <Content language="json5" preWrap={true} content={_SCHEME}/>
+        <Content countLines={countLines} language="json5" preWrap={true} content={result}/>
         <div className="formmod__subtitle">Sections:</div>
         <Content content={PART_2}/>
       </div>

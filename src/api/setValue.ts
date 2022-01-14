@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import { cloneDeep, isEqual } from '../utils';
 import { getValue } from './getValue';
 import { validate } from './validate';
 import { FormState, InputName, InputValue, GroupInputId } from '../types';
@@ -27,8 +27,8 @@ export const setValue: SetValue = ({
   getVisibilities
 }) => {
   const valueFromForm = getValue({ formState, inputName, groupInputId });
-  if (!_.isEqual(inputValue, valueFromForm)) {
-    const _formState: FormState = _.cloneDeep(formState);
+  if (!isEqual(inputValue, valueFromForm)) {
+    const _formState: FormState = cloneDeep(formState) as FormState;
     const newValue = _formState.formValue[inputName];
     if (groupInputId && Array.isArray(newValue)) {
       newValue.some((v) => {

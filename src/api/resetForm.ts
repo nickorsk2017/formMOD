@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import { isEqual } from '../utils';
 import {
   FormState,
   GetEventListeners,
@@ -17,7 +17,7 @@ export function resetForm({
   updateFormState: (updateFormState: FormState) => void;
   getEventListeners: GetEventListeners;
 }): FormState {
-  if (!_.isEqual(initFormState, formState)) {
+  if (!isEqual(initFormState, formState)) {
     const listeners = getEventListeners();
     listeners.forEach((listener) => {
       if (listener.element) {

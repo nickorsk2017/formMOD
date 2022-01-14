@@ -1,5 +1,3 @@
-// import {setValue} from "../api";
-import * as _ from 'lodash';
 import { InputName } from '../../types';
 
 export function removeEventListeners({

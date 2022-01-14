@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import { cloneDeep } from '../utils';
 import * as RulesAPI from '../rules';
 import {
   FormState,
@@ -24,7 +24,7 @@ export function getValidationInput({
     let inputIsValid = true;
     const resultrulesInput = rulesInput.map((ruleInput: FormRule) => {
       if (RulesAPI[ruleInput.name]) {
-        const newRuleInput: FormRule = _.cloneDeep(ruleInput);
+        const newRuleInput: FormRule = cloneDeep(ruleInput) as FormRule;
         let isValid = true;
         // if is group input
         if (Array.isArray(inputValue)) {

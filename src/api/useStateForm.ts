@@ -1,4 +1,3 @@
-import * as _ from 'lodash';
 import { useRef } from 'react';
 import { useForceUpdate } from '../utils';
 import { FormState } from '../types';

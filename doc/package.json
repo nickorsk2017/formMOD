@@ -17,7 +17,6 @@
     "@types/react-router-dom": "^5.1.7",
     "event-hooks-webpack-plugin": "^2.2.0",
     "formmod": "link:..",
-    "lodash": "link:../node_modules/lodash",
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
     "react-router-dom": "^5.2.0",

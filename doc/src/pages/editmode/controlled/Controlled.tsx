@@ -14,9 +14,9 @@ import {Edit} from "./form/Edit";
 import styles from './Controlled.module.css';
 
 export const Controlled = () => {
-    const _SCHEME = getCodeSnippet(SCHEME, 'json5');
-    const _FORM_CODE = getCodeSnippet(FORM_CODE, 'javascript');
-    const _PARENT = getCodeSnippet(PARENT, 'javascript');
+    const _SCHEME = getCodeSnippet(SCHEME);
+    const _FORM_CODE = getCodeSnippet(FORM_CODE);
+    const _PARENT = getCodeSnippet(PARENT);
   
     return (
         <div className={styles.container}>
@@ -24,15 +24,15 @@ export const Controlled = () => {
           <div className="formmod__subtitle">Live example:</div><br/>
           <Edit/><br/>
           <div className="formmod__subtitle">Parent component:</div>
-          <Content lines="6-20, 22" preWrap={true} content={_PARENT}/>
+          <Content countLines={_PARENT.countLines} lines="6-20, 22" preWrap={true} content={_PARENT.result}/>
           <br/>
           <Content content={PART_2}/>
           <br/>
           <div className="formmod__subtitle">Form scheme:</div>
-          <Content language="json5" preWrap={true} content={_SCHEME}/>
+          <Content countLines={_SCHEME.countLines} language="json5" preWrap={true} content={_SCHEME.result}/>
           <br/>
           <div className="formmod__subtitle">Form component:</div>
-          <Content lines="21, 26-29" preWrap={true} content={_FORM_CODE}/>
+          <Content countLines={_FORM_CODE.countLines} lines="21, 26-29" preWrap={true} content={_FORM_CODE.result}/>
           <br/>
           <Content content={PART_3}/>
           <br/>

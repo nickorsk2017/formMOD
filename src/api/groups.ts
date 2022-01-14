@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import { cloneDeep } from '../utils';
 import {
   FormState,
   InputName,
@@ -33,9 +33,7 @@ export type GetItemByIndex = (params: {
   index: number;
 }) => InputGroupValue | undefined;
 
-export type Groups = (
-  params: GroupsParams
-) => {
+export type Groups = (params: GroupsParams) => {
   addItem: AddItem;
   deleteItem: DeleteItem;
   getGroup: GetGroup;
@@ -78,7 +76,7 @@ export const groups: Groups = ({ updateFormState }) => {
   };
 
   const deleteItem: DeleteItem = ({ formState, inputName, groupInputId }) => {
-    const _formState: FormState = _.cloneDeep(formState);
+    const _formState: FormState = cloneDeep(formState) as FormState;
     const group = getGroup({ formState, inputName });
     if (group) {
       _formState.formValue[inputName] = group.filter((v: InputGroupValue) => {
@@ -95,14 +93,14 @@ export const groups: Groups = ({ updateFormState }) => {
   ): InputGroupValue => {
     let _inputGroupValue = inputGroupValue;
     if (typeof _inputGroupValue.id === 'number') {
-      _inputGroupValue = _.cloneDeep(inputGroupValue);
+      _inputGroupValue = cloneDeep(inputGroupValue) as InputGroupValue;
       _inputGroupValue.id = _inputGroupValue.id.toString();
     }
     return _inputGroupValue;
   };
 
   const addItem: AddItem = ({ formState, inputName, inputGroupValue }) => {
-    const _formState: FormState = _.cloneDeep(formState);
+    const _formState: FormState = cloneDeep(formState) as FormState;
     const group = getGroup({ formState, inputName });
     if (group) {
       (_formState.formValue[inputName] as InputGroupValues).push(

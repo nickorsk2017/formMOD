@@ -1,4 +1,3 @@
-import * as _ from 'lodash';
 import { FormState, InputName } from '../types';
 
 export type VisibilitiesParams = {
@@ -15,9 +14,7 @@ export type GetVisibilitiesResult = () => {
 
 export type GetVisibilityInput = (inputName: InputName) => VisibilityResult;
 
-export type Visibilities = (
-  params: VisibilitiesParams
-) => {
+export type Visibilities = (params: VisibilitiesParams) => {
   getVisibilityInput: GetVisibilityInput;
   getVisibilitiesResult: GetVisibilitiesResult;
 };

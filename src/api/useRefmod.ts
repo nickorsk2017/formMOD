@@ -1,5 +1,5 @@
-import * as _ from 'lodash';
 import { useCallback, useEffect, useRef } from 'react';
+import { isEqual } from '../utils';
 import { addEventListeners } from '../stategy/refComponents/addEventListeners';
 import { removeEventListeners } from '../stategy/refComponents/removeEventListeners';
 import {
@@ -64,7 +64,7 @@ export const useRefMod: UseRefMod = ({
         return getVisibilities({ getFormState }).getVisibilitiesResult();
       };
       const visibilitiesChanges = () => {
-        const changed = !_.isEqual(
+        const changed = !isEqual(
           getVisibilitiesResultNew(),
           visibilitiesResult
         );

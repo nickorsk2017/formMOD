@@ -13,9 +13,9 @@ import {DynamicUncontrolledForm} from "../../../examples/";
 import styles from './Reference.module.css';
 
 export const Reference = () => {
-    const _INPUT_CODE = getCodeSnippet(INPUT_CODE, 'javascript');
-    const _SCHEME = getCodeSnippet(SCHEME, 'javascript');
-    const _FORM_CODE = getCodeSnippet(FORM_CODE, 'javascript');
+    const _INPUT_CODE = getCodeSnippet(INPUT_CODE);
+    const _SCHEME = getCodeSnippet(SCHEME);
+    const _FORM_CODE = getCodeSnippet(FORM_CODE);
   
     return (
         <div className={styles.container}>
@@ -23,15 +23,15 @@ export const Reference = () => {
           <div className="formmod__subtitle">Live example:</div><br/>
           <DynamicUncontrolledForm/><br/>
           <div className="formmod__subtitle">Form scheme:</div>
-          <Content language="json5" preWrap={true} content={_SCHEME}/>
+          <Content countLines={_SCHEME.countLines} language="json5" preWrap={true} content={_SCHEME.result}/>
           <br/>
           <div className="formmod__subtitle">Form component:</div>
-          <Content lines="9-15,17,49-54,56-62,68-75, 78-79, 47" preWrap={true} content={_FORM_CODE}/>
+          <Content countLines={_FORM_CODE.countLines} lines="9-15,17,49-54,56-62,68-75, 78-79, 47" preWrap={true} content={_FORM_CODE.result}/>
           <br/>
           <Content content={PART_3}/>
           <br/>
           <div className="formmod__subtitle">Input component:</div>
-          <Content lines="11,12" preWrap={true} content={_INPUT_CODE}/>
+          <Content countLines={_INPUT_CODE.countLines} lines="11,12" preWrap={true} content={_INPUT_CODE.result}/>
           <br/>
           <Content content={PART_4}/>
         </div>

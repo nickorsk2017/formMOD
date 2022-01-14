@@ -25,11 +25,26 @@
     box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
     word-wrap: break-word;
 }
+.container[pre-wraped] {
+    width: 1322px !important;
+    max-width: unset !important;
+    font-size: 16px !important;
+}
 @media (max-width: 1280px){
     .container[pre-wraped],
     .container [content-code],
     .container [content-ul] {
         max-width: unset !important;
+    }
+    code{
+        font-size: 16px !important;
+        width: 1322px !important;
+        display: inline-block !important;
+    }
+    .line-numbers-rows > span {
+        display: block !important;
+        counter-increment: linenumber !important;
+        line-height: 1.2rem !important;
     }
 }
 .container [content-ul] li {
@@ -41,12 +56,8 @@
     height: 50px;
     width: 100%;
 }
-.container [content-code] code {
-    display: inline-block;
-    word-break: break-word;
-    width: 100%;
-    /*white-space: pre-wrap;*/
-    overflow-y: auto;
+.container code {
+
 }
 .container[pre-wraped] {
     display: inline-block;
@@ -54,4 +65,33 @@
     width: 100%;
     white-space: pre-wrap;
     overflow-y: auto;
+}
+.linesContainer {
+    display: inline-flex;
+    position: absolute;
+    left: 0;
+    top: 12px;
+    flex-direction: column;
+    box-sizing: border-box;
+    width: 56px;
+    border-right: 1px solid #333;
+}
+.line {
+    display: inline-block;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    position: relative;
+    opacity: 0.5;
+}
+.lineBold {
+    opacity: 1;
+}
+.hightline {
+    position: absolute;
+    top: 0;
+    width: 1322px;
+    height: 100%;
+    color: #54c270;
+    background: linear-gradient(to right,rgba(85, 194, 112, 0.1) 70%,rgba(85, 194, 112, 0.1)) !important;
 }

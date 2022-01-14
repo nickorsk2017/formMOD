@@ -1,4 +1,4 @@
-import * as _ from 'lodash';
+import { cloneDeep, isEqual } from '../utils';
 import { getValidationInput } from './getValidationInput';
 import { getValue } from './getValue';
 import { Visibilities } from '../api/visibilities';
@@ -39,7 +39,7 @@ export const validate: Validate = ({
   };
 
   const getValueForm = (formState: FormState): FormValue => {
-    const formValue = _.cloneDeep(formState.formValue);
+    const formValue = cloneDeep(formState.formValue) as FormValue;
     const notVisibleInputs = getNotVisibleInputs();
     notVisibleInputs.forEach((inputName: InputName) => {
       delete formValue[inputName];
@@ -64,19 +64,19 @@ export const validate: Validate = ({
       }
     });
 
-    if (!_.isEqual(formState.rules, cloneRules) || fromSetValue) {
+    if (!isEqual(formState.rules, cloneRules) || fromSetValue) {
       let _formState: FormState;
       const oldFormValue = getFormState ? getFormState() : formState;
       if (fromSetValue) {
         _formState = formState;
       } else {
-        _formState = _.cloneDeep(formState);
+        _formState = cloneDeep(formState) as FormState;
       }
       _formState.valid = formIsValid;
       _formState.rules = cloneRules;
       if (updateValidation) {
         if (editMode) {
-          if (!_.isEqual(_formState, oldFormValue)) {
+          if (!isEqual(_formState, oldFormValue)) {
             updateFormState(_formState, false, editMode);
           }
         } else {

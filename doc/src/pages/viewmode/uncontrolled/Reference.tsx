@@ -13,9 +13,9 @@ import {Form} from "./form/Form";
 import styles from './Reference.module.css';
 
 export const Reference = () => {
-    const _INPUT_CODE = getCodeSnippet(INPUT_CODE, 'javascript');
-    const _SCHEME = getCodeSnippet(SCHEME, 'javascript');
-    const _FORM_CODE = getCodeSnippet(FORM_CODE, 'javascript');
+    const _INPUT_CODE = getCodeSnippet(INPUT_CODE);
+    const _SCHEME = getCodeSnippet(SCHEME);
+    const _FORM_CODE = getCodeSnippet(FORM_CODE);
   
     return (
         <div className={styles.container}>
@@ -23,15 +23,15 @@ export const Reference = () => {
           <div className="formmod__subtitle">Live example:</div><br/>
           <Form/><br/>
           <div className="formmod__subtitle">Form scheme:</div>
-          <Content language="json5" preWrap={true} content={_SCHEME}/>
+          <Content countLines={_SCHEME.countLines} language="json5" preWrap={true} content={_SCHEME.result}/>
           <br/>
           <div className="formmod__subtitle">Form component:</div>
-          <Content lines="12-13, 23, 31, 51, 55, 57, 61 " preWrap={true} content={_FORM_CODE}/>
+          <Content countLines={_FORM_CODE.countLines} lines="12-13, 23, 31, 51, 55, 57, 61 " preWrap={true} content={_FORM_CODE.result}/>
           <br/>
           <Content content={PART_3}/>
           <br/>
           <div className="formmod__subtitle">Input component:</div>
-          <Content lines="13-21" preWrap={true} content={_INPUT_CODE}/>
+          <Content countLines={_INPUT_CODE.countLines} lines="13-21" preWrap={true} content={_INPUT_CODE.result}/>
           <br/>
           <Content content={PART_4}/>
         </div>

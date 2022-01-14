@@ -1,11 +1,11 @@
 export default (() => {
     const code = `import React from 'react'
-    import {useFormMod, useCountRender, Types} from "formmod";
-    import {TextInput, Button} from "../ui";
-    import FORM_SCHEME from "./scheme";
-    import styles from './Dynamic.module.css';
+import {useFormMod, useCountRender, Types} from "formmod";
+import {TextInput, Button} from "../ui";
+import FORM_SCHEME from "./scheme";
+import styles from './Dynamic.module.css';
     
-    export function Dynamic() {
+export function Dynamic() {
         const {
             setValue,
             getValue,
@@ -88,7 +88,7 @@ export default (() => {
                 </div>
         </form>
         )
-    }`;
+}`;
 
     return code;
 })()
