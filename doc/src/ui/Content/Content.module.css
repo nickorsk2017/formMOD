@@ -25,6 +25,13 @@
     box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
     word-wrap: break-word;
 }
+@media (max-width: 1280px){
+    .container[pre-wraped],
+    .container [content-code],
+    .container [content-ul] {
+        max-width: unset !important;
+    }
+}
 .container [content-ul] li {
     display: inline-block;
     width: 100%;
