@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 import {useFormMod, useCountRender, Types} from "formmod";
 import {TextInput, OptionBox, Button} from "../ui";
 import FORM_SCHEME from "./scheme";
 import styles from './Edit.module.css';
 
-export function Form(formValue: any) {
+export function Form({formValue}: any) {
     const {
         validate,
         resetForm,
@@ -23,6 +23,18 @@ export function Form(formValue: any) {
     // edit mode here
     if(formValue){
       setValues(formValue, true);
+    }
+
+    const setSomeValue = () => {
+        setValues({
+            first_name: "test name",
+            last_name: "test last name",
+            address: "test address",
+            havePets: true,
+            haveHobbies: false,
+            petName: "favorite pet name",
+            hobbies: []
+        });
     }
     
     const handleSubmit = (event: React.SyntheticEvent) => {
@@ -119,6 +131,7 @@ export function Form(formValue: any) {
             />
             {!isViewMode() && <div className={styles.buttons}>
                 <Button type="submit" title="Submit"/>
+                <Button title="Set some data" onClick={setSomeValue}/>
                 <Button theme="LIGHT" onClick={setDefault} title="Reset"/>
             </div>}
             {isViewMode() && <div className={styles.buttons}>

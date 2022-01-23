@@ -7,16 +7,16 @@
       "esnext"
     ],
     "moduleResolution": "node",
-    "jsx": "react-jsx",
+    "jsx": "react",
     "sourceMap": true,
-    "declaration": true,
+    "declaration": false,
     "esModuleInterop": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "suppressImplicitAnyIndexErrors": true,
-    "noUnusedLocals": false,
+    "noUnusedLocals": true,
     "noUnusedParameters": true,
     "allowSyntheticDefaultImports": true,
     "target": "es5",
@@ -26,14 +26,15 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "noFallthroughCasesInSwitch": true
+    "noEmit": false
   },
   "include": [
-    "src"
+    "src",
+   // "node_modules",
   ],
   "exclude": [
     "node_modules",
-    "build"
+    "build",
+    "dist"
   ]
 }

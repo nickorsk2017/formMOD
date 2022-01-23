@@ -4,7 +4,7 @@ import {TextInput, Button, OptionBox} from "../../../../examples/referenced/ui";
 import FORM_SCHEME from "./scheme";
 import styles from './Edit.module.css';
 
-export function Form(formValue: any) {
+export function Form({formValue}: any) {
     const {
         validate,
         resetForm,

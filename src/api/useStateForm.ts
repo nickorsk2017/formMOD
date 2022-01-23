@@ -16,7 +16,6 @@ export const useStateForm = (initFormState: FormState) => {
       let timout: ReturnType<typeof setTimeout> | null = null;
       const { forceUpdate } = useForceUpdate();
       let onInitEdit = false;
-
       const updateInitState = (newFormState: FormState) => {
         _initFormState = newFormState;
       };
@@ -51,6 +50,7 @@ export const useStateForm = (initFormState: FormState) => {
         }
         if (editMode && !isOnInitEdit()) {
           setOnInitFromEdit(true);
+          console.log(newFormState, 'newFormState!!');
           updateInitState(newFormState);
         }
         return formState;

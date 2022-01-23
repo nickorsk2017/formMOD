@@ -83,7 +83,7 @@ export function Uncontrolled() {
             <OptionBox
                 label={"Do you have pets?"}
                 refMod={useRefMod("havePets")}
-                id="havePets"
+                id="havePets_ref"
             />
             {<TextInput
                 label={"Pet names"}
@@ -92,7 +92,7 @@ export function Uncontrolled() {
             <OptionBox
                 label={"Do you have hobbies?"}
                 refMod={useRefMod("haveHobbies")}
-                id="haveHobbies"
+                id="haveHobbies_ref"
             />
             {
               getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {

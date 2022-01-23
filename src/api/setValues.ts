@@ -26,15 +26,17 @@ export const setValues: SetValues = ({
 }) => {
   const _formState: FormState = cloneDeep(formState) as FormState;
   Object.keys(inputsValues).forEach((inputName: InputName) => {
-    _formState[inputName] = inputsValues[inputName];
+    _formState.formValue[inputName] = inputsValues[inputName];
   });
 
+  console.log(_formState, 'ddd11s');
   //cancell update state each render for edit mode
   // this state must update only first render
   if (editMode && isOnInitEdit) {
     return formState;
   }
 
+  //if form not was validated and is not edit mode (from props component)
   if (_formState.valid === null && !editMode) {
     if (!isEqual(_formState, formState)) {
       updateFormState(_formState);

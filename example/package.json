@@ -4,10 +4,7 @@
   "version": "1.1.0",
   "private": true,
   "scripts": {
-    "start": "node ./node_modules/react-scripts/bin/react-scripts.js start",
-    "build": "node ./node_modules/react-scripts/bin/react-scripts.js build",
-    "test": "node ./node_modules/react-scripts/bin/react-scripts.js test",
-    "eject": "node ./node_modules/react-scripts/bin/react-scripts.js eject"
+    "start": "webpack serve --config webpack.config.js"
   },
   "dependencies": {
     "@testing-library/jest-dom": "link:../node_modules/@testing-library/jest-dom",
@@ -18,16 +15,25 @@
     "@types/react": "link:../node_modules/@types/react",
     "@types/react-dom": "link:../node_modules/@types/react-dom",
     "formmod": "link:..",
-    "lodash": "link:../node_modules/lodash",
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "^4.0.3",
     "typescript": "link:../node_modules/typescript"
   },
   "devDependencies": {
+    "webpack": "^5.36.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^3.11.2",
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
-    "@types/react-router-dom": "^5.1.7"
+    "@types/react-router-dom": "^5.1.7",
+    "write-file-webpack-plugin": "^4.5.1",
+    "event-hooks-webpack-plugin": "^2.2.0",
+    "copy-webpack-plugin": "^10.2.0",
+    "css-loader": "^5.2.4",
+    "html-webpack-plugin": "^5.3.1",
+    "style-loader": "^2.0.0",
+    "svg-url-loader": "^7.1.1",
+    "ts-loader": "^9.1.1"
   },
   "eslintConfig": {
     "extends": "react-app"

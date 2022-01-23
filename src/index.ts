@@ -28,41 +28,34 @@ export * as Types from './types';
 export { useOptimisationInput } from './api';
 
 export const useFormMod = (initFormState: FormState) => {
-  const {
-    getFormState,
-    updateFormState,
-    isOnInitEdit,
-    getInitFormState
-  } = useStateForm(initFormState);
+  const { getFormState, updateFormState, isOnInitEdit, getInitFormState } =
+    useStateForm(initFormState);
 
-  const {
-    deleteEventListener,
-    deleteAllEventListeners,
-    getEventListeners
-  } = useMemo(() => {
-    let eventListeners: Array<ListenerObj> = [];
+  const { deleteEventListener, deleteAllEventListeners, getEventListeners } =
+    useMemo(() => {
+      let eventListeners: Array<ListenerObj> = [];
 
-    const updateEventListeners = (_eventListeners: Array<ListenerObj>) => {
-      eventListeners = _eventListeners;
-    };
-    const deleteEventListener = (inputName: InputName) => {
-      eventListeners = eventListeners.filter((eventListener: any) => {
-        return eventListener.inputName !== inputName;
-      });
-    };
-    const deleteAllEventListeners = () => {
-      eventListeners = [];
-    };
-    const getEventListeners: GetEventListeners = () => {
-      return eventListeners;
-    };
-    return {
-      getEventListeners,
-      updateEventListeners,
-      deleteEventListener,
-      deleteAllEventListeners
-    };
-  }, []);
+      const updateEventListeners = (_eventListeners: Array<ListenerObj>) => {
+        eventListeners = _eventListeners;
+      };
+      const deleteEventListener = (inputName: InputName) => {
+        eventListeners = eventListeners.filter((eventListener: any) => {
+          return eventListener.inputName !== inputName;
+        });
+      };
+      const deleteAllEventListeners = () => {
+        eventListeners = [];
+      };
+      const getEventListeners: GetEventListeners = () => {
+        return eventListeners;
+      };
+      return {
+        getEventListeners,
+        updateEventListeners,
+        deleteEventListener,
+        deleteAllEventListeners
+      };
+    }, []);
 
   useEffect(() => {
     return () => {
@@ -152,16 +145,17 @@ export const useFormMod = (initFormState: FormState) => {
         skipUpdate,
         getVisibilities
       }),
-    setValues: (inputsValues: FormValue, editMode?: boolean) =>
-      setValues({
+    setValues: (inputsValues: FormValue, editMode?: boolean) => {
+      return setValues({
         formState: getFormState(),
-        inputsValues,
+        inputsValues: inputsValues,
         updateFormState,
         getVisibilities,
         editMode,
         getFormState,
         isOnInitEdit: isOnInitEdit()
-      }),
+      });
+    },
     validate: (
       updateValidation: boolean,
       callback: (valide: boolean | null, formValue: FormValue) => any

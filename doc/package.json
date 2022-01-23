@@ -5,9 +5,7 @@
   "private": true,
   "scripts": {
     "start": "webpack serve --config webpack.config.js",
-    "build": "webpack --config webpack-prod.config.js",
-    "test": "node ../node_modules/react-scripts/bin/react-scripts.js test",
-    "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject"
+    "build": "webpack --config webpack-prod.config.js"
   },
   "dependencies": {
     "@types/jest": "link:../node_modules/@types/jest",

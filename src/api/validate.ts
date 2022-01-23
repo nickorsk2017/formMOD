@@ -77,7 +77,7 @@ export const validate: Validate = ({
       if (updateValidation) {
         if (editMode) {
           if (!isEqual(_formState, oldFormValue)) {
-            updateFormState(_formState, false, editMode);
+            updateFormState(_formState, false, true);
           }
         } else {
           updateFormState(_formState);
