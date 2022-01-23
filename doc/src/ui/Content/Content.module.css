@@ -75,6 +75,7 @@
     box-sizing: border-box;
     width: 56px;
     border-right: 1px solid #333;
+    pointer-events: none !important;
 }
 .line {
     display: inline-block;

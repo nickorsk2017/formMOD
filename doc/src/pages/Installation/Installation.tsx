@@ -24,7 +24,6 @@ export const Installation = () => {
         Dependencies
         </div><br/>
         <div className={styles.formmod__dep}>
-          "lodash": "^4.5.0",<br/>
           "react": "^17.0.1",<br/>
           "react-dom": "^17.0.1"<br/>
         </div>
