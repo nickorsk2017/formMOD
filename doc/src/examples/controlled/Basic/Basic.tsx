@@ -10,7 +10,6 @@ export function Basic() {
     );
     
     const handleSubmit = function(event: any){
-        console.log("handleSubmit");
         if(event && event.preventDefault) {
 			event.preventDefault();
 		}
@@ -24,7 +23,6 @@ export function Basic() {
             }
         });
     }
-    console.log('render!!', getValue("first_name"));
 
     const setDefault = (event: any) => {
         if(event && event.preventDefault) {

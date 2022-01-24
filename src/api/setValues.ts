@@ -29,7 +29,6 @@ export const setValues: SetValues = ({
     _formState.formValue[inputName] = inputsValues[inputName];
   });
 
-  console.log(_formState, 'ddd11s');
   //cancell update state each render for edit mode
   // this state must update only first render
   if (editMode && isOnInitEdit) {

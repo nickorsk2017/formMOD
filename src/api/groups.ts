@@ -47,7 +47,6 @@ export type GroupsParams = {
 
 export const groups: Groups = ({ updateFormState }) => {
   const getItemByIndex: GetItemByIndex = ({ formState, inputName, index }) => {
-    console.log(index, typeof index, 'index');
     if (typeof index === 'number' && index >= 0) {
       const group = getGroup({ formState, inputName });
       return group ? group[index] : undefined;

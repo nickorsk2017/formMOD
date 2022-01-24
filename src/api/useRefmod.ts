@@ -46,9 +46,7 @@ export const useRefMod: UseRefMod = ({
 }) => {
   useEffect(() => {
     const eventListeners = getEventListeners();
-    console.log('mount element!!');
     return () => {
-      console.log('unmount element!!');
       removeEventListeners({ inputName, eventListeners });
       deleteEventListener(inputName);
     };
@@ -136,7 +134,6 @@ export const useRefMod: UseRefMod = ({
                 eventListeners[indexReinit].element
               )
             ) {
-              console.log('new DOM element', eventListeners[indexReinit]);
               eventListeners[indexReinit] = listenerObj;
             }
           } else {
@@ -158,12 +155,11 @@ export const useRefMod: UseRefMod = ({
 
         if (listener) {
           // reinit input
-          console.log('reinit input', listener.inputName);
-
+          //console.log('reinit input', listener.inputName);
           // listener.getFormState = getFormState;
         } else {
           // init input
-          console.log('init input', inputName);
+          //console.log('init input', inputName);
 
           initInput(undefined, groupInputId);
           // updateEventListeners();

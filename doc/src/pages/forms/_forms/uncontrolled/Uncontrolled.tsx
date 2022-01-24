@@ -33,7 +33,6 @@ export function Uncontrolled() {
             }
         });
     };
-    console.log('render!!');
 
     const setDefault = (event: any) => {
         if(event && event.preventDefault) {
@@ -51,7 +50,6 @@ export function Uncontrolled() {
 
     const deleteLastHobby = () => {
         const groupItem = getItemByIndex({inputName: "hobbies", index: getGroup("hobbies").length - 1});
-        console.log(groupItem, 'groupItem')
         if(groupItem){
             deleteGroupItem({inputName: "hobbies", groupInputId: groupItem.id});
         }

@@ -50,7 +50,6 @@ export const useStateForm = (initFormState: FormState) => {
         }
         if (editMode && !isOnInitEdit()) {
           setOnInitFromEdit(true);
-          console.log(newFormState, 'newFormState!!');
           updateInitState(newFormState);
         }
         return formState;

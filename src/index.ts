@@ -59,7 +59,6 @@ export const useFormMod = (initFormState: FormState) => {
 
   useEffect(() => {
     return () => {
-      console.log('unmount form');
       deleteAllEventListeners();
     };
   }, []);

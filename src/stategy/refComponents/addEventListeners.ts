@@ -44,7 +44,6 @@ export const addEventListeners: AddEventListeners = ({
       ) {
         clearTimeout(this.timer);
         this.timer = setTimeout(() => {
-          console.log('change');
           setValue({
             formState: this.getFormState(),
             inputName,
