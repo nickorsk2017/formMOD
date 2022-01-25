@@ -24,6 +24,7 @@ body {
 /* Works on Chrome, Edge, and Safari */
 *::-webkit-scrollbar {
   width: 8px;
+  height: 8px;
 }
 
 *::-webkit-scrollbar-thumb {
@@ -35,8 +36,7 @@ body {
   font-family: Open sans;
 }
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New';
 }
 
 #app-nav {
@@ -165,4 +165,15 @@ nav .active {
 }
 .super-github-star svg {
   margin-right: 5px;
+}
+.steps {
+  background-color: rgb(219, 219, 219);
+  padding: 10px;
+  color: rgb(46, 46, 46);
+  margin-top: 30px;
+}
+
+.steps-header {
+  font-weight: bold;
+  margin-bottom: 10px;
 }
