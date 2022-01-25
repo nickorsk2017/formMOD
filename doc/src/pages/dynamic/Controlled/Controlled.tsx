@@ -27,9 +27,8 @@ export const Controlled = () => {
           <Content content={PART_2}/>
           <br/>
           <div className="formmod__subtitle">Form component:</div>
-          <Content countLines={_FORM_CODE.countLines} lines="9-17,45-50,52-58,68-78, 80-81" preWrap={true} content={_FORM_CODE.result}/>
-          <br/>
           <Content content={PART_3}/>
+          <Content countLines={_FORM_CODE.countLines} lines="9-17,45-50,52-58,68-78, 80-81" preWrap={true} content={_FORM_CODE.result}/>
           <br/>
           <Content content={PART_4}/>
         </div>

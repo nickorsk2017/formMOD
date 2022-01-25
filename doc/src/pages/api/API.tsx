@@ -70,8 +70,8 @@ const CONTENT = [
     type: "Inside form"
   },
   {
-    method: "<b>useRefMod</b>: (inputName: InputName) => useRefModResult",
-    desc: "Create reference of input.<br/> Using only for making uncontrolled inputs.<br/> Return a link to API of input.",
+    method: "<b>useRefMod</b>: (inputName: InputName) => refMod",
+    desc: "Create a reference object for input component.<br/> Use it only for make smart inputs.",
     type: "Inside form"
   },
   {
@@ -84,36 +84,36 @@ const CONTENT = [
 
 const CONTENT_UNCONTROLLED = [
   {
-    method: "<b>useRefModResult</b>",
+    method: "<b>refMod</b>",
     desc: "The link of uncontrolled input with API.",
     type: "Property. Inside form"
   },
   {
-    method: "<b>useRefModResult.ref</b>",
+    method: "<b>refMod.ref</b>",
     desc: "Reference for JSX intput element.",
     type: "Inside uncontrolled input (UI component)."
   },
   {
-    method: "<b>useRefModResult.isViewMode</b>: () => boolean",
+    method: "<b>refMod.isViewMode</b>: () => boolean",
     desc: "Check if a form in view mode. Render a JSX for detail page.",
     type: "Inside uncontrolled input (UI component)."
   },
   {
-    method: `<b>useRefModResult.getError</b>: (params?: {
+    method: `<b>refMod.getError</b>: (params?: {
       inputId?: GroupInputId | undefined;
   } | undefined) => string | null`,
     desc: "Get error of input or item of group input.",
     type: "Inside uncontrolled input (UI component)."
   },
   {
-    method: `<b>useRefModResult.getValue</b>: (params?: {
+    method: `<b>refMod.getValue</b>: (params?: {
       inputId?: GroupInputId | undefined;
   } | undefined) => InputValue`,
     desc: "Get value of input or item of group input.",
     type: "Inside uncontrolled input (UI component)."
   },
   {
-    method: `<b>useRefModResult.isVisible</b>: (params?: {
+    method: `<b>refMod.isVisible</b>: (params?: {
       inputId?: GroupInputId | undefined;
   } | undefined) => boolean`,
     desc: "Check if optional input or item of group is visible. Using for optional inputs.",
@@ -157,7 +157,7 @@ export const API = () => {
           <tbody>
             {render()}
             <tr className={styles.tdHead}>
-              <td colSpan={3}>API of uncontrolled input</td>
+              <td colSpan={3}>API for smart input component</td>
             </tr>
             {renderUncontrolled()}
           </tbody>

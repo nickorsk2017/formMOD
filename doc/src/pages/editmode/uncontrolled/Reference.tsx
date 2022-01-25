@@ -5,7 +5,6 @@ import {
     PART_1,
     PART_2,
     PART_3,
-    PART_4,
     SCHEME,
     FORM_CODE,
     PARENT,
@@ -24,19 +23,15 @@ export const Reference = () => {
           <div className="formmod__subtitle">Live example:</div><br/>
           <Edit/><br/>
           <div className="formmod__subtitle">Parent component:</div>
-          <Content countLines={_PARENT.countLines} lines="6-20, 22" preWrap={true} content={_PARENT.result}/>
-          <br/>
           <Content content={PART_2}/>
+          <Content countLines={_PARENT.countLines} lines="6-20, 22" preWrap={true} content={_PARENT.result}/>
           <br/>
           <div className="formmod__subtitle">Form scheme:</div>
           <Content countLines={_SCHEME.countLines} language="json5" preWrap={true} content={_SCHEME.result}/>
           <br/>
           <div className="formmod__subtitle">Form component:</div>
-          <Content countLines={_FORM_CODE.countLines} lines="19, 24-26" preWrap={true} content={_FORM_CODE.result}/>
-          <br/>
           <Content content={PART_3}/>
-          <br/>
-          <Content content={PART_4}/>
+          <Content countLines={_FORM_CODE.countLines} lines="19, 24-26" preWrap={true} content={_FORM_CODE.result}/>
         </div>
     )
 }

@@ -29,14 +29,12 @@ export const Controlled = () => {
           <Content content={PART_2}/>
           <br/>
           <div className="formmod__subtitle">Form component:</div>
+          <Content content={PART_3}/>
           <Content countLines={_FORM_CODE.countLines} lines="14-15, 17, 27,35, 58, 65, 67, 71" preWrap={true} content={_FORM_CODE.result}/>
           <br/>
-          <Content content={PART_3}/>
-          <br/>
           <div className="formmod__subtitle">Input component:</div>
-          <Content countLines={_INPUT_CODE.countLines} lines="15-23" preWrap={true} content={_INPUT_CODE.result}/>
-          <br/>
           <Content content={PART_4}/>
+          <Content countLines={_INPUT_CODE.countLines} lines="15-23" preWrap={true} content={_INPUT_CODE.result}/>
         </div>
     )
 }

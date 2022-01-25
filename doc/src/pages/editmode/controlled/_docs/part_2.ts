@@ -1,4 +1,7 @@
 export default `
-1. Making value for the edit mode (<b>line 6-20</b>). You can get it form request inside this parent component.<br/>
-2. Pushing value to the form(<b>line 22</b>).<br/>
+<div class="steps">
+    <div class="steps-header">Steps</div>
+    Step 1: Get init value (<b>line 6-20</b>). You can get it from a request, store or other source<br/>
+    Step 2: Push this value to the form(<b>line 22</b>).<br/>
+</div>
 `

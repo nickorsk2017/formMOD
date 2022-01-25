@@ -26,14 +26,12 @@ export const Reference = () => {
           <Content countLines={_SCHEME.countLines} language="json5" preWrap={true} content={_SCHEME.result}/>
           <br/>
           <div className="formmod__subtitle">Form component:</div>
+          <Content content={PART_3}/>
           <Content countLines={_FORM_CODE.countLines} lines="9-15,17,49-54,56-62,68-75, 78-79, 47" preWrap={true} content={_FORM_CODE.result}/>
           <br/>
-          <Content content={PART_3}/>
-          <br/>
           <div className="formmod__subtitle">Input component:</div>
-          <Content countLines={_INPUT_CODE.countLines} lines="11,12" preWrap={true} content={_INPUT_CODE.result}/>
-          <br/>
           <Content content={PART_4}/>
+          <Content countLines={_INPUT_CODE.countLines} lines="11,12" preWrap={true} content={_INPUT_CODE.result}/>
         </div>
     )
 }

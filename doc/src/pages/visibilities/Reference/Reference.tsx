@@ -24,19 +24,16 @@ export const Reference = () => {
           <div className="formmod__subtitle">Live example:</div><br/>
           <VisibilitiesReferencedForm/><br/>
           <div className="formmod__subtitle">Form scheme:</div>
+          <Content content={PART_2}/>
           <Content countLines={_SCHEME.countLines} lines="28-34" language="json5" preWrap={true} content={_SCHEME.result}/>
           <br/>
-          <Content content={PART_2}/>
-          <br/>
           <div className="formmod__subtitle">Form component:</div>
-          <Content countLines={_FORM_CODE.countLines} lines="44,48,53" preWrap={true} content={_FORM_CODE.result}/>
-          <br/>
           <Content content={PART_3}/>
+          <Content countLines={_FORM_CODE.countLines} lines="8-10,44,48,53" preWrap={true} content={_FORM_CODE.result}/>
           <br/>
           <div className="formmod__subtitle">Input component:</div>
-          <Content countLines={_INPUT_CODE.countLines} lines="7-11" preWrap={true} content={_INPUT_CODE.result}/>
-          <br/>
           <Content content={PART_4}/>
+          <Content countLines={_INPUT_CODE.countLines} lines="7,9-11" preWrap={true} content={_INPUT_CODE.result}/>
         </div>
     )
 }

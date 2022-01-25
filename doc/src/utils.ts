@@ -56,9 +56,10 @@ export const getCodeSnippet = (code: string) => {
     let lines = code.trim().replace(/=>|===|==|[><=/\/]/g, (chr) => `%spec%${chr}%spec%`).replace(/[a-zA-Z^s]+\(/g, (chr) => `%fn%${chr.replace("(", "")}%fn%(`).replace(/['"].*?['"]/gm, (chr) => `%qt%${chr}%qt%`).split("\n");
     let cloneLines = cloneDeep(lines) as Array<string>;
     lines.forEach((line, index) => {
-        cloneLines[index] = `%div%${line}%div%`;
+      let _line = line || " ";
+      cloneLines[index] = `%div% ${_line}%div%`;
     });
-
+    countLines = lines.length;
     const preLines = cloneLines.join("");
     //words
     let words = preLines.split(" ");
@@ -84,8 +85,7 @@ export const getCodeSnippet = (code: string) => {
         const str = chr.replaceAll("%spec%", '');
         return `<span style="color: ${OPERATOR};">${str}</span>`;
     }).replace(/(\%div\%).*?(\%div\%)/gm, (chr) => {
-        const str = chr.replaceAll("%div%", '');
-        countLines++;
+        const str = chr.replaceAll("%div% ", '').replaceAll("%div%", '');
         return `<div>${str}</div>`;
     });
 
