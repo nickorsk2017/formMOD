@@ -10,7 +10,7 @@ import {
     SCHEME,
     INPUT_CODE,
 } from "./_docs";
-import {VisibilitiesReferencedForm} from "../../../examples/";
+import {MyForm} from "examples/optional/smart/src/forms/MyForm/MyForm";
 import styles from './Reference.module.css';
 
 export const Reference = () => {
@@ -22,7 +22,7 @@ export const Reference = () => {
         <div className={styles.container}>
           <Content content={PART_1}/>
           <div className="formmod__subtitle">Live example:</div><br/>
-          <VisibilitiesReferencedForm/><br/>
+          <MyForm/><br/>
           <div className="formmod__subtitle">Form scheme:</div>
           <Content content={PART_2}/>
           <Content countLines={_SCHEME.countLines} lines="28-34" language="json5" preWrap={true} content={_SCHEME.result}/>

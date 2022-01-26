@@ -9,7 +9,7 @@ import {
     FORM_CODE,
     PARENT,
 } from "./_docs";
-import {Edit} from "./form/Edit";
+import {Edit} from "examples/editmode/basic/src/forms/MyForm/Edit";
 import styles from './Basic.module.css';
 
 export const Basic = () => {

@@ -4,7 +4,8 @@ const CopyPlugin = require("copy-webpack-plugin");
 const WriteFilePlugin = require('write-file-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const EventHooksPlugin = require('event-hooks-webpack-plugin');
-const fs = require('fs-extra')
+const fs = require('fs-extra');
+const alias = require('./webpack.alias');
 
 module.exports = {
     mode: 'production',
@@ -13,7 +14,8 @@ module.exports = {
     },
     target: 'web',
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.css', ".scss"]
+        extensions: ['.ts', '.tsx', '.js', '.css', ".scss"],
+        alias: alias
     },
     module: {
         rules: [

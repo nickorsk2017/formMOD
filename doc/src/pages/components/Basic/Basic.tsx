@@ -1,7 +1,7 @@
 import React from 'react'
 import {Content} from "../../../ui";
 import {getCodeSnippet} from "../../../utils";
-import {BasicControledForm} from "../../../examples/";
+import {MyForm} from "examples/inputs/basic/src/forms/MyForm/MyForm";
 import {
   PART_1,
   PART_2,
@@ -24,7 +24,7 @@ export const Basic = () => {
       <div className={styles.container}>
         <Content content={PART_1}/>
         <div className="formmod__subtitle">Live example:</div><br/>
-        <BasicControledForm/>
+        <MyForm/>
         <br/>
         <div className="formmod__subtitle">Form scheme:</div>
         <Content countLines={_SCHEME.countLines} preWrap={true} content={_SCHEME.result}/>

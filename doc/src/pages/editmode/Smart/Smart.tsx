@@ -9,7 +9,7 @@ import {
     FORM_CODE,
     PARENT,
 } from "./_docs";
-import {Edit} from "./form/Edit";
+import {Edit} from "examples/editmode/smart/src/forms/MyForm/Edit";
 import styles from './Smart.module.css';
 
 export const Smart = () => {

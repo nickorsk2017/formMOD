@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require("webpack");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const alias = require('./webpack.alias');
 
 module.exports = {
     mode: 'none',
@@ -9,7 +10,8 @@ module.exports = {
     },
     target: 'web',
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.css', ".scss"]
+        extensions: ['.ts', '.tsx', '.js', '.css', ".scss"],
+        alias: alias
     },
     module: {
         rules: [

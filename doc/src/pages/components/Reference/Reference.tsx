@@ -10,7 +10,7 @@ import {
   SCHEME
 } from "./_docs";
 import {getCodeSnippet} from "../../../utils";
-import {BasicReferencedForm} from "../../../examples/";
+import {MyForm} from "examples/inputs/smart/src/forms/MyForm/MyForm";
 import styles from './Reference.module.css';
 
 export type ReferenceParams = {};
@@ -24,7 +24,7 @@ export const Reference = () => {
       <div className={styles.container}>
         <Content content={PART_1}/>
         <div className="formmod__subtitle">Live example:</div><br/>
-        <BasicReferencedForm/><br/>
+        <MyForm/><br/>
         <div className="formmod__subtitle">Form scheme:</div>
         <Content countLines={_SCHEME.countLines} preWrap={true} content={_SCHEME.result}/>
         <Content content={PART_3}/><br/>

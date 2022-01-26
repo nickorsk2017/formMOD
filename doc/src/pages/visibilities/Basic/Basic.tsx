@@ -10,7 +10,7 @@ import {
     FORM_CODE,
     INPUT_CODE
 } from "./_docs";
-import {VisibilitiesControledForm} from "../../../examples/";
+import {MyForm} from "examples/optional/basic/src/forms/MyForm/MyForm";
 import styles from './Basic.module.css';
 
 export const Basic = () => {
@@ -22,7 +22,7 @@ export const Basic = () => {
         <div className={styles.container}>
           <Content content={PART_1}/>
           <div className="formmod__subtitle">Live example:</div><br/>
-          <VisibilitiesControledForm/><br/>
+          <MyForm/><br/>
           <div className="formmod__subtitle">Form scheme:</div>
           <Content content={PART_2}/>
           <Content countLines={_SCHEME.countLines} lines="28-34" language="json5" preWrap={true} content={_SCHEME.result}/>          

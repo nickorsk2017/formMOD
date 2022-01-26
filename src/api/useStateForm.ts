@@ -8,12 +8,18 @@ export type UpdateFormState = (
   editMode?: boolean
 ) => FormState;
 
+/**
+ * This is custom state managment system for form
+ * It need for improving performance, custom logic for inputs or form.
+ */
 export const useStateForm = (initFormState: FormState) => {
   const result = useRef(
     (() => {
       let formState: FormState = initFormState;
       let _initFormState = initFormState;
       let timout: ReturnType<typeof setTimeout> | null = null;
+      //Needs for improving performance,no need to run rendering everytime.
+      //useState can't skip rendering.
       const { forceUpdate } = useForceUpdate();
       let onInitEdit = false;
       const updateInitState = (newFormState: FormState) => {
