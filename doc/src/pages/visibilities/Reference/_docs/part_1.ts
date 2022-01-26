@@ -1,4 +1,4 @@
 export default `
-<h1 content-header class="content-header">Optional uncontrolled components</h1>
+<h1 content-header class="content-header">Optional smart inputs</h1>
 
 `

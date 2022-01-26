@@ -18,7 +18,7 @@ You can make a great apps faster and easy. </br></br>
         <b>3. Maximum functionality and flexible</b> - use form system for all needs.</br>
     </li>
     <li>
-        <b>4. Make a forms faster</b> with JSON scheme. Minimum work.</b>
+        <b>4. Create forms quickly</b> with JSON scheme. Minimum work.</b>
     </li>
 </ul>
 
@@ -26,31 +26,32 @@ You can make a great apps faster and easy. </br></br>
 
 <ul content-ul>
     <li>
-        <b>1. Use uncontrolled inputs API </b> - make your UI library easy with best performace.
+        <b>1. Smart inputs </b> - for best performace and easy way if you want to create your UI kit.
     </li>
     <li>
-        <b>2. Use controlled inputs API</b> - better for completed UI libraries(e.g. material UI, bootstrap) or use it for classic react components.</br>
+        <b>2. Basic inputs </b> - for UI libraries(e.g. material UI, bootstrap) or if want to create basic controlled UI components.</br>
     </li>
     <li>
-        <b>3. The rules for validation</b> - email, empty, max, min, custom validator from box</br>
+        <b>3. Lot of rules of validation</b> - email, empty, max, min, custom from box</br>
     </li>
     <li>
-        <b>4. Optional inputs </b> - if your inputs need to be optional / disabled .
+        <b>4. Optional inputs </b> - if your inputs should be optional / disabled .
     </li>
     <li>
-        <b>5. Group input </b> - if you want add / delete input to form dynamically.
+        <b>5. Group input </b> - create inputs dynamically.
     </li>
     <li>
-        <b>6. View mode </b> - save your time for detail page and less a bugs.
+        <b>6. View mode </b> - save your time for detail page and reduce a bugs.
     </li>
     <li>
-        <b>7. Edit mode </b> - easy way throught one method inside your form component.
+        <b>7. Edit mode </b> - easy way using one method inside your form component.
     </li>
     <li>
-        <b>8. Use one form component for create, edit and view modes.<b>
+        <b>8. Use your form for create, edit and view modes.<b>
     </li>
 </ul>
 <br/>
 <br/>
-This is great? Let's go!
+This is great? Let's go!<br/>
+<br/>
 `

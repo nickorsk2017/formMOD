@@ -1,4 +1,4 @@
 export default `
-<h1 content-header class="content-header">Group input (uncontrolled)</h1>
+<h1 content-header class="content-header">Smart group input</h1>
 
 `

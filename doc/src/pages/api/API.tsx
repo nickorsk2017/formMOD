@@ -85,39 +85,39 @@ const CONTENT = [
 const CONTENT_UNCONTROLLED = [
   {
     method: "<b>refMod</b>",
-    desc: "The link of uncontrolled input with API.",
+    desc: "The link of smart input with API.",
     type: "Property. Inside form"
   },
   {
     method: "<b>refMod.ref</b>",
     desc: "Reference for JSX intput element.",
-    type: "Inside uncontrolled input (UI component)."
+    type: "Inside smart input (UI component)."
   },
   {
     method: "<b>refMod.isViewMode</b>: () => boolean",
     desc: "Check if a form in view mode. Render a JSX for detail page.",
-    type: "Inside uncontrolled input (UI component)."
+    type: "Inside smart input (UI component)."
   },
   {
     method: `<b>refMod.getError</b>: (params?: {
       inputId?: GroupInputId | undefined;
   } | undefined) => string | null`,
     desc: "Get error of input or item of group input.",
-    type: "Inside uncontrolled input (UI component)."
+    type: "Inside smart input (UI component)."
   },
   {
     method: `<b>refMod.getValue</b>: (params?: {
       inputId?: GroupInputId | undefined;
   } | undefined) => InputValue`,
     desc: "Get value of input or item of group input.",
-    type: "Inside uncontrolled input (UI component)."
+    type: "Inside smart input (UI component)."
   },
   {
     method: `<b>refMod.isVisible</b>: (params?: {
       inputId?: GroupInputId | undefined;
   } | undefined) => boolean`,
     desc: "Check if optional input or item of group is visible. Using for optional inputs.",
-    type: "Inside uncontrolled input (UI component)."
+    type: "Inside smart input (UI component)."
   },
 ]
 

@@ -1,3 +1,3 @@
 export default `
-The rendering for uncontrolled inputs be used only when needed.
+The rendering for smart inputs will be used only when needed.
 `

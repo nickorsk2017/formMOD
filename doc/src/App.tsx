@@ -10,7 +10,7 @@ import {RouterApp} from "./router";
 import {
   Introduction,
   Installation,
-  Controlled,
+  Basic,
   Reference,
   IntroductionRules,
   ControlledVisibilities,
@@ -52,10 +52,10 @@ const App = () => {
         <Switch>
           <Route exact strict path={PREFIX}><Introduction/></Route>
           <Route exact strict path={`${PREFIX}installation/`}><Installation/></Route>
-          <Route path={`${PREFIX}controlled/`}>
-            <Controlled/>
+          <Route path={`${PREFIX}basic/`}>
+            <Basic/>
           </Route>
-          <Route path={`${PREFIX}uncontrolled/`}>
+          <Route path={`${PREFIX}smart/`}>
             <Reference />
           </Route>
   
@@ -82,19 +82,19 @@ const App = () => {
           </Route>
 
 
-          <Route path={`${PREFIX}uncontrolled-visibilities/`} strict>
+          <Route path={`${PREFIX}smart-visibilities/`} strict>
             <ReferenceVisibilities/>
           </Route>
 
-          <Route path={`${PREFIX}controlled-visibilities/`} strict>
+          <Route path={`${PREFIX}basic-visibilities/`} strict>
             <ControlledVisibilities/>
           </Route>
 
-          <Route path={`${PREFIX}controlled-dynamic/`} strict>
+          <Route path={`${PREFIX}basic-dynamic/`} strict>
             <ControlledDynamic/>
           </Route>
 
-          <Route path={`${PREFIX}uncontrolled-dynamic/`} strict>
+          <Route path={`${PREFIX}smart-dynamic/`} strict>
             <UncontrolledDynamic/>
           </Route>
 
@@ -102,11 +102,11 @@ const App = () => {
             <IntroViewMode/>
           </Route>
 
-          <Route path={`${PREFIX}uncontrolled-viewmode/`} strict>
+          <Route path={`${PREFIX}smart-viewmode/`} strict>
             <UncontrolledViewMode/>
           </Route>
 
-          <Route path={`${PREFIX}controlled-viewmode/`} strict>
+          <Route path={`${PREFIX}basic-viewmode/`} strict>
             <ControlledViewMode/>
           </Route>
 
@@ -114,11 +114,11 @@ const App = () => {
            
           </Route>
 
-          <Route path={`${PREFIX}uncontrolled-editmode/`} strict>
+          <Route path={`${PREFIX}smart-editmode/`} strict>
             <UncontrolledEditmode/>
           </Route>
 
-          <Route path={`${PREFIX}controlled-editmode/`} strict>
+          <Route path={`${PREFIX}basic-editmode/`} strict>
             <ControlledEditmode/>
           </Route>
 

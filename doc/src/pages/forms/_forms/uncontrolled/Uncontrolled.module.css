@@ -10,6 +10,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 10px;
+    align-items: center;
 }
 .count {
     display: inline-flex;

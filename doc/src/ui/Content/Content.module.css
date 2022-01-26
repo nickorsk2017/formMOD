@@ -23,6 +23,7 @@
     color: #333333;
     background: #fff;
     box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+    padding-left: 20px;
     word-wrap: break-word;
 }
 .container[pre-wraped] {

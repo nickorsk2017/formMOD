@@ -55,10 +55,10 @@ export const RouterApp = memo(() => {
             {checkOpendItems("basicSection") && 
             <>
               <li className={styles.navItem}>
-                <NavLink to={`${PREFIX}controlled/`}>Controlled</NavLink>
+                <NavLink to={`${PREFIX}basic/`}>Basic</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}uncontrolled/`}>Uncontrolled</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}smart/`}>Smart</NavLink>
               </li>
             </>}
           </ul>
@@ -100,10 +100,10 @@ export const RouterApp = memo(() => {
             {checkOpendItems("visibilities") && 
             <>
               <li className={styles.navItem}>
-                <NavLink to={`${PREFIX}controlled-visibilities/`}>Controlled</NavLink>
+                <NavLink to={`${PREFIX}basic-visibilities/`}>Basic</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}uncontrolled-visibilities/`}>Uncontrolled</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}smart-visibilities/`}>Smart</NavLink>
               </li>
             </>}
           </ul>
@@ -115,10 +115,10 @@ export const RouterApp = memo(() => {
             {checkOpendItems("dynamic") && 
             <>
               <li className={styles.navItem}>
-                <NavLink to={`${PREFIX}controlled-dynamic/`}>Controlled</NavLink>
+                <NavLink to={`${PREFIX}basic-dynamic/`}>Basic</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}uncontrolled-dynamic/`}>Uncontrolled</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}smart-dynamic/`}>Smart</NavLink>
               </li>
             </>}
           </ul>
@@ -133,10 +133,10 @@ export const RouterApp = memo(() => {
                 <NavLink activeClassName="active" to={`${PREFIX}introduction-viewmode/`}>Introduction</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink to={`${PREFIX}controlled-viewmode/`}>Controlled</NavLink>
+                <NavLink to={`${PREFIX}basic-viewmode/`}>Basic</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}uncontrolled-viewmode/`}>Uncontrolled</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}smart-viewmode/`}>Smart</NavLink>
               </li>
             </>}
           </ul>
@@ -148,10 +148,10 @@ export const RouterApp = memo(() => {
             {checkOpendItems("editmode") && 
             <>
               <li className={styles.navItem}>
-                <NavLink to={`${PREFIX}controlled-editmode/`}>Controlled</NavLink>
+                <NavLink to={`${PREFIX}basic-editmode/`}>Basic</NavLink>
               </li>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}uncontrolled-editmode/`}>Uncontrolled</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}smart-editmode/`}>Smart</NavLink>
               </li>
             </>}
           </ul>
