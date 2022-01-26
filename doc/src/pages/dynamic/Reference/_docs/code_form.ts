@@ -50,7 +50,7 @@ export function Dynamic() {
         const deleteLastHobby = () => {
             const groupItem = getItemByIndex({inputName: "hobbies", index: getGroup("hobbies").length - 1});
             if(groupItem){
-                deleteGroupItem({inputName: "hobbies", groupControlId: groupItem.id});
+                deleteGroupItem({inputName: "hobbies", groupInputId: groupItem.id});
             }
         };
     
@@ -66,7 +66,7 @@ export function Dynamic() {
             <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.count}>Count render: {getCountRender()}</div>
                 {
-                  getGroup("hobbies").map((input: Types.ControlGroupValue, index: number) => {
+                  getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {
                     return <TextInput
                         key={input.id}
                         inputId={input.id}

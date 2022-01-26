@@ -1,4 +1,4 @@
 export default `
-<h1 content-header class="content-header">Optional controlled components</h1>
+<h1 content-header class="content-header">Optional basic inputs</h1>
 
 `

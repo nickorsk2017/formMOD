@@ -57,7 +57,7 @@ export default (() => {
         const deleteLastHobby = () => {
             const groupItem = getItemByIndex({inputName: "hobbies", index: getGroup("hobbies").length - 1});
             if(groupItem){
-                deleteGroupItem({inputName: "hobbies", groupControlId: groupItem.id});
+                deleteGroupItem({inputName: "hobbies", groupInputId: groupItem.id});
             }
         };
     
@@ -90,7 +90,7 @@ export default (() => {
                     id="haveHobbies"
                 />
                 {
-                  getGroup("hobbies").map((input: Types.ControlGroupValue, index: number) => {
+                  getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {
                     return <TextInput
                         key={input.id}
                         inputId={input.id}
