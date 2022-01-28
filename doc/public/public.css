@@ -177,3 +177,23 @@ nav .active {
   font-weight: bold;
   margin-bottom: 10px;
 }
+.formmod__source {
+  width: 100%;
+  background-color: #333;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  padding-left: 20px;
+  margin: 20px 0;
+  height: 60px;
+  line-height: 60px;
+  color: #fff;
+}
+.formmod__source a {
+  padding: 0 10px;
+  cursor: pointer;
+  color: #fff !important;
+  text-decoration: none !important;
+}
+.formmod__source a:hover {
+  text-decoration: underline !important;
+}
