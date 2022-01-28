@@ -19,5 +19,6 @@ export {License} from "./license/License";
 export {Forms} from "./forms/Forms";
 export {Scheme} from "./ scheme/Scheme";
 export {API} from "./api/API";
-export {Basic as ControlledEditmode} from "./editmode/Basic/Basic"
-export {Smart as UncontrolledEditmode} from "./editmode/Smart/Smart"
+export {Basic as ControlledEditmode} from "./editmode/Basic/Basic";
+export {Smart as UncontrolledEditmode} from "./editmode/Smart/Smart";
+export {Issues} from "./Issues/Issues";

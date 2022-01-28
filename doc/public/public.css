@@ -18,7 +18,7 @@ body {
 /* Works on Firefox */
 * {
   scrollbar-width: thin !important;
-  scrollbar-color: #54c270 !important;
+  scrollbar-color: #505050 !important;
 }
 
 /* Works on Chrome, Edge, and Safari */
@@ -28,7 +28,7 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: #54c270;
+  background-color: #505050;
   border-radius: 20px;
 }
 * {
@@ -196,4 +196,25 @@ nav .active {
 }
 .formmod__source a:hover {
   text-decoration: underline !important;
+}
+.issue-link {
+  font-size: 30px;
+  color: #0969da;
+  text-decoration: none;
+}
+.issue-link:hover {
+  text-decoration: underline;
+}
+.issues-container {
+  height: 80px;
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
+  background: #fff;
+  border-radius: 6px;
+  padding-left: 20px;
+  margin-bottom: 30px;
+  max-width: 500px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 46px;
 }

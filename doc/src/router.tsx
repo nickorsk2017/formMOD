@@ -161,6 +161,10 @@ export const RouterApp = memo(() => {
           <NavLink exact={true} activeClassName="active" to={`${PREFIX}api/`}>API</NavLink>
         </div>
 
+        <div className={[styles.selfItem, styles.selfItemRed].join(" ")}>
+          <NavLink exact={true} activeClassName="active" to={`${PREFIX}issues/`}>Issues</NavLink>
+        </div>
+
         <div className={styles.selfItem}>
           <NavLink exact={true} activeClassName="active" to={`${PREFIX}license/`}>License</NavLink>
         </div>

@@ -31,6 +31,7 @@ import {
   API,
   UncontrolledEditmode,
   ControlledEditmode,
+  Issues,
 } from "./pages";
 
 const PREFIX = process.env.prefixMOD || "/";
@@ -137,6 +138,10 @@ const App = () => {
 
           <Route path={`${PREFIX}api/`} strict>
             <API/>
+          </Route>
+
+          <Route path={`${PREFIX}issues/`} strict>
+            <Issues/>
           </Route>
 
           <Route component={Page404} />

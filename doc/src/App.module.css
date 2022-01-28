@@ -90,3 +90,6 @@
 .sectionIconOpened {
     transform: rotate(90deg);
 }
+.selfItemRed a {
+    color: #fd4242 !important;
+}

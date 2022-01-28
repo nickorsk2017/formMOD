@@ -22,6 +22,10 @@ export const Reference = () => {
           <Content content={PART_1}/>
           <div className="formmod__subtitle">Live example:</div><br/>
           <MyForm/><br/>
+          <div className="formmod__source">
+            <a href="https://github.com/nickorsk2017/formMOD/raw/master/doc/examples/group/smart/formmod-group-smart.zip">Download example code</a>/
+            <a target="_blank" href="https://github.com/nickorsk2017/formMOD/tree/master/doc/examples/group/smart">See example source</a>
+          </div>
           <div className="formmod__subtitle">Form scheme:</div>
           <Content countLines={_SCHEME.countLines} language="json5" preWrap={true} content={_SCHEME.result}/>
           <br/>

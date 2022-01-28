@@ -21,6 +21,10 @@ export const Basic = () => {
           <Content content={PART_1}/>
           <div className="formmod__subtitle">Live example:</div><br/>
           <MyForm/><br/>
+          <div className="formmod__source">
+            <a href="https://github.com/nickorsk2017/formMOD/raw/master/doc/examples/group/basic/formmod-group-basic.zip">Download example code</a>/
+            <a target="_blank" href="https://github.com/nickorsk2017/formMOD/tree/master/doc/examples/group/basic">See example source</a>
+          </div>
           <div className="formmod__subtitle">Form scheme:</div>
           <Content countLines={_SCHEME.countLines} language="json5" preWrap={true} content={_SCHEME.result}/>
           <br/>
