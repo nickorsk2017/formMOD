@@ -2,27 +2,18 @@ export default {
     valid: null,
     viewMode: false,
     formValue: {
-        first_name: "Name",
-        last_name: "2",
+        first_name: "",
+        last_name: "",
         address: "",
-        havePets: false,
+        haveFavorite: false,
         haveHobbies: false,
         petName: "",
-        hobbies: [
-            {
-                id: "1",
-                value: "fishing",
-            },
-            {
-                id: "2",
-                value: "football"
-            }
-        ]
+        hobbies: []
     },
     visibilities: {
         petName: ({formValue} : any) => {
             return {
-                isVisible: formValue.havePets,
+                isVisible: formValue.haveFavorite,
             }
         },
         hobbies: ({formValue} : any) => {
@@ -55,7 +46,7 @@ export default {
                 message: "length should be more than 5"
             }
         ],
-        havePets: [
+        haveFavorite: [
             {
                 name: "empty",
                 message: ""

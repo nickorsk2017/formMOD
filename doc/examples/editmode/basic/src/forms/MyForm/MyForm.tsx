@@ -102,7 +102,7 @@ export function MyForm({formValue}: any) {
             getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {
                 return <TextInput
                     key={input.id}
-                    label={`Hobby ${index}`}
+                    label={`Hobby ${index + 1}`}
                     value={getValue("hobbies", input.id)}
                     error={getError("hobbies", input.id)}
                     visible={isVisible("hobbies")}
@@ -113,7 +113,7 @@ export function MyForm({formValue}: any) {
             }
             {getValue("haveHobbies") && !isViewMode() && getGroup("hobbies") && <div className={styles.buttons}>
                 {getGroup("hobbies").length > 0 && <Button onClick={deleteLastHobby} theme="RED" title="Delete last hobby"/>}
-                <Button onClick={addNewHobby} theme="LIGHT" title="Add new hobby"/>
+                <Button onClick={addNewHobby} theme="LIGHT" title="Add hobby"/>
             </div>}
             {!isViewMode() && <div className={styles.buttons}>
                 <Button type="submit" title="Submit"/>

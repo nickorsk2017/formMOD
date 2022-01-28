@@ -101,7 +101,7 @@ export default (() => {
                 }
                 {getValue("haveHobbies") && !isViewMode() && getGroup("hobbies") && <div className={styles.buttons}>
                     {getGroup("hobbies").length > 0 && <Button onClick={deleteLastHobby} theme="RED" title="Delete last hobby"/>}
-                    <Button onClick={addNewHobby} theme="LIGHT" title="Add new hobby"/>
+                    <Button onClick={addNewHobby} theme="LIGHT" title="Add hobby"/>
                 </div>}
                 {!isViewMode() && <div className={styles.buttons}>
                     <Button type="submit" title="Submit"/>

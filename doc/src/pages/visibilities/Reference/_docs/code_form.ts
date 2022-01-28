@@ -45,12 +45,12 @@ export function Visibilities() {
                 refMod={useRefMod("full_name")}
             />
             <OptionBox
-                label={"Do you have pets?"}
-                refMod={useRefMod("havePets")}
-                id="havePets"
+                label={"Do you have favorite pet?"}
+                refMod={useRefMod("haveFavorite")}
+                id="haveFavorite"
             />
             {<TextInput
-                label={"Favorite pet name"}
+                label={"Pet name"}
                 refMod={useRefMod("petName")}
             />}
             <div className={styles.buttons}>

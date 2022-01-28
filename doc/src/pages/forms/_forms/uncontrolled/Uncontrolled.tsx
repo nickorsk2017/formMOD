@@ -79,12 +79,12 @@ export function Uncontrolled() {
                 refMod={useRefMod("last_name")}
             />
             <OptionBox
-                label={"Do you have pets?"}
-                refMod={useRefMod("havePets")}
-                id="havePets_ref"
+                label={"Do you have favorite pet?"}
+                refMod={useRefMod("haveFavorite")}
+                id="haveFavorite_ref"
             />
             {<TextInput
-                label={"Pet names"}
+                label={"Pet name"}
                 refMod={useRefMod("petName")}
             />}
             <OptionBox
@@ -97,14 +97,14 @@ export function Uncontrolled() {
                 return <TextInput
                     key={input.id}
                     inputId={input.id}
-                    label={`Hobby ${index}`}
+                    label={`Hobby ${index + 1}`}
                     refMod={hobbiesRef}
                 />
               })
             }
             {getValue("haveHobbies") && !isViewMode() && getGroup("hobbies") && <div className={styles.buttons}>
                 {getGroup("hobbies").length > 0 && <Button onClick={deleteLastHobby} theme="RED" title="Delete last hobby"/>}
-                <Button onClick={addNewHobby} theme="LIGHT" title="Add new hobby"/>
+                <Button onClick={addNewHobby} theme="LIGHT" title="Add hobby"/>
             </div>}
              <TextInput
                 label={"Address"}

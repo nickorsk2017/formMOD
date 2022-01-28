@@ -1,3 +1,4 @@
+.containerRed,
 .containerLight,
 .container {
     display: inline-flex;
@@ -13,7 +14,7 @@
     cursor: pointer;
     font-size: 16px;
 }
-.containerRed,
+.containerRed:focus,
 .containerLight:focus,
 .container:focus {
     outline: none;

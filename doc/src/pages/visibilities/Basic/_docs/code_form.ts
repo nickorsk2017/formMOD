@@ -47,14 +47,14 @@ export function Visibilities() {
                 onChange={(value: string) => setValue("full_name", value)}
             />
             <OptionBox
-                label={"Do you have pets?"}
-                value={getValue("havePets") as boolean}
-                error={getError("havePets")}
-                onChange={(value: boolean) => setValue("havePets", value)}
-                id="havePets"
+                label={"Do you have favorite pet?"}
+                value={getValue("haveFavorite") as boolean}
+                error={getError("haveFavorite")}
+                onChange={(value: boolean) => setValue("haveFavorite", value)}
+                id="haveFavorite"
             />
             <TextInput
-                label={"Favorite pet name"}
+                label={"Pet name"}
                 value={getValue("petName")}
                 error={getError("petName")}
                 visible={isVisible("petName")}

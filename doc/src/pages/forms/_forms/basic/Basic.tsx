@@ -85,15 +85,15 @@ export function Basic() {
                 onChange={(value: string) => setValue("last_name", value)}
             />
             <OptionBox
-                label={"Do you have pets?"}
-                value={getValue("havePets") as boolean}
-                error={getError("havePets")}
+                label={"Do you have favorite pet?"}
+                value={getValue("haveFavorite") as boolean}
+                error={getError("haveFavorite")}
                 viewMode={isViewMode()}
-                onChange={(value: boolean) => setValue("havePets", value)}
-                id="havePets"
+                onChange={(value: boolean) => setValue("haveFavorite", value)}
+                id="haveFavorite"
             />
             <TextInput
-                label={"Pet names"}
+                label={"Pet name"}
                 value={getValue("petName")}
                 error={getError("petName")}
                 visible={isVisible("petName")}
@@ -112,7 +112,7 @@ export function Basic() {
             getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {
                 return <TextInput
                     key={input.id}
-                    label={`Hobby ${index}`}
+                    label={`Hobby ${index + 1}`}
                     value={getValue("hobbies", input.id)}
                     error={getError("hobbies", input.id)}
                     visible={isVisible("hobbies")}
@@ -123,7 +123,7 @@ export function Basic() {
             }
             {getValue("haveHobbies") && !isViewMode() && getGroup("hobbies") && <div className={styles.buttons}>
                 {getGroup("hobbies").length > 0 && <Button onClick={deleteLastHobby} theme="RED" title="Delete last hobby"/>}
-                <Button onClick={addNewHobby} theme="LIGHT" title="Add new hobby"/>
+                <Button onClick={addNewHobby} theme="LIGHT" title="Add hobby"/>
             </div>}
             <TextInput
                 label={"Address"}

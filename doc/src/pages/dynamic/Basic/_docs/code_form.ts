@@ -79,7 +79,7 @@ export function Dynamic() {
                 }
                 <div className={styles.buttons}>
                     <Button onClick={deleteLastHobby} theme="RED" title="Delete last hobby"/>
-                    <Button onClick={addNewHobby} theme="LIGHT" title="Add new hobby"/>
+                    <Button onClick={addNewHobby} theme="LIGHT" title="Add hobby"/>
                 </div>
     
                 <div className={styles.buttons}>
