@@ -180,8 +180,6 @@ nav .active {
 .formmod__source {
   width: 100%;
   background-color: #333;
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30px;
   padding-left: 20px;
   margin: 20px 0;
   height: 60px;
@@ -217,4 +215,23 @@ nav .active {
   flex-direction: row;
   align-items: center;
   font-size: 46px;
+}
+.content-header-important {
+  background-color: #ffc561;
+  color: #fff;
+  margin-bottom: 0;
+  padding-left: 20px;
+}
+
+.content-header-important-content {
+  background-color: #fbe8c6;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+.formmod__subtitle-2 {
+  margin-bottom: 0;
+  font-weight: normal;
+}
+b {
+  color: #333;
 }
