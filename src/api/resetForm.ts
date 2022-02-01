@@ -6,17 +6,19 @@ import {
   InputGroupValues
 } from '../types';
 
-export function resetForm({
-  initFormState,
-  formState,
-  updateFormState,
-  getEventListeners
-}: {
+export type ResetForm = (params: {
   initFormState: FormState;
   formState: FormState;
   updateFormState: (updateFormState: FormState) => void;
   getEventListeners: GetEventListeners;
-}): FormState {
+}) => FormState;
+
+export const resetForm: ResetForm = ({
+  initFormState,
+  formState,
+  updateFormState,
+  getEventListeners
+}) => {
   if (!isEqual(initFormState, formState)) {
     const listeners = getEventListeners();
     listeners.forEach((listener) => {
@@ -48,4 +50,4 @@ export function resetForm({
     return initFormState;
   }
   return formState;
-}
+};

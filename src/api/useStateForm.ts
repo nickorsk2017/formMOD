@@ -52,7 +52,7 @@ export const useStateForm = (initFormState: FormState) => {
           }
           timout = setTimeout(() => {
             forceUpdate();
-          }, 20);
+          }, 5);
         }
         if (editMode && !isOnInitEdit()) {
           setOnInitFromEdit(true);

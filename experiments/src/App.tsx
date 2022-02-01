@@ -9,6 +9,7 @@ import { Basic } from './controlled/Basic/Basic';
 import { Edit } from './controlled/Edit/Edit';
 import { Basic as BasicUncontrolled } from './uncontrolled/Basic/Basic';
 import { Edit as EditUncontrolled } from './uncontrolled/Edit/Edit';
+import {Combined as CombinedBasic} from "./controlled/Combined/Combined";
 import './index.css'
 
 const App = () => {
@@ -17,16 +18,19 @@ const App = () => {
       <nav>
         <ul>
           <li>
-            <Link to="/controlled">Controlled</Link>
+            <Link to="/controlled">Basic</Link>
           </li>
           <li>
-            <Link to="/uncontrolled">Uncontrolled</Link>
+            <Link to="/uncontrolled">Smart</Link>
           </li>
           <li>
-            <Link to="/edit-controlled">Edit Controlled</Link>
+            <Link to="/edit-controlled">Edit smart</Link>
           </li>
           <li>
-            <Link to="/edit-uncontrolled">Edit Uncontrolled</Link>
+            <Link to="/edit-uncontrolled">Edit smart</Link>
+          </li>
+          <li>
+            <Link to="/combined-basic">Combined basic</Link>
           </li>
         </ul>
     </nav>
@@ -43,6 +47,12 @@ const App = () => {
         </Route>
         <Route path="/edit-uncontrolled">
           <EditUncontrolled />
+        </Route>
+        <Route path="/edit-uncontrolled">
+          <EditUncontrolled />
+        </Route>
+        <Route path="/combined-basic">
+          <CombinedBasic/>
         </Route>
       </Switch>
     </div>

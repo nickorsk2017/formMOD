@@ -13,6 +13,7 @@ export type SetValueParams = {
   updateFormState: UpdateFormState;
   skipUpdate: boolean | undefined;
   getVisibilities: Visibilities;
+  skipValidation?: boolean;
 };
 
 export type SetValue = (params: SetValueParams) => FormState | false;
@@ -24,7 +25,8 @@ export const setValue: SetValue = ({
   inputValue,
   updateFormState,
   skipUpdate,
-  getVisibilities
+  getVisibilities,
+  skipValidation
 }) => {
   const valueFromForm = getValue({ formState, inputName, groupInputId });
   if (!isEqual(inputValue, valueFromForm)) {
@@ -42,7 +44,7 @@ export const setValue: SetValue = ({
     } else {
       _formState.formValue[inputName] = inputValue;
     }
-    if (_formState.valid === null) {
+    if (_formState.valid === null || skipValidation) {
       updateFormState(_formState, skipUpdate);
       return _formState;
     } else {

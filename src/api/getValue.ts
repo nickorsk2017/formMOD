@@ -11,7 +11,9 @@ export type GetValueParams = {
   inputName?: InputName;
   groupInputId?: GroupInputId;
 };
-export type GetValue = (params: GetValueParams) => InputValue | FormValue;
+export type GetValue = <T>(
+  params: GetValueParams
+) => T | InputValue | FormValue;
 
 export const getValue: GetValue = ({ formState, inputName, groupInputId }) => {
   if (!inputName) {

@@ -133,7 +133,8 @@ export const useFormMod = (initFormState: FormState) => {
       inputName: InputName,
       inputValue: InputValue,
       skipUpdate?: boolean,
-      inputId?: GroupInputId
+      inputId?: GroupInputId,
+      skipValidation?: boolean
     ) =>
       setValue({
         formState: getFormState(),
@@ -142,7 +143,8 @@ export const useFormMod = (initFormState: FormState) => {
         groupInputId: inputId,
         updateFormState,
         skipUpdate,
-        getVisibilities
+        getVisibilities,
+        skipValidation
       }),
     setValues: (inputsValues: FormValue, editMode?: boolean) => {
       return setValues({
@@ -184,13 +186,16 @@ export const useFormMod = (initFormState: FormState) => {
     useRefMod: (inputName: InputName) =>
       useRefMod({
         getFormState,
+        initFormState: getInitFormState(),
         inputName,
         getEventListeners,
         updateFormState,
         deleteEventListener,
         getError,
         getValue,
-        getVisibilities
+        getVisibilities,
+        setValue,
+        resetForm
       }),
     getVisibilities: () => getVisibilities({ getFormState }),
     isVisible: (inputName: InputName) => {

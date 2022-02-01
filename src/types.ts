@@ -4,13 +4,7 @@ export type InputGroupValue = {
   params?: any;
 };
 export type InputGroupValues = Array<InputGroupValue>;
-export type InputValue =
-  | number
-  | string
-  | Record<string, unknown>
-  | boolean
-  | InputGroupValues
-  | null;
+export type InputValue = any | InputGroupValues;
 export type InputName = string;
 export type MessageError = string;
 export type FormValue = {
@@ -70,6 +64,12 @@ export type useRefModResult = {
   isViewMode: () => boolean;
   getError: (params?: { inputId?: GroupInputId }) => string | null;
   getValue: (params?: { inputId?: GroupInputId }) => InputValue;
+  setValue: (
+    inputValue: InputValue,
+    skipUpdate?: boolean,
+    inputId?: GroupInputId,
+    skipValidation?: boolean
+  ) => false | FormState;
   isVisible: (params?: { inputId?: GroupInputId }) => boolean;
   isDisable: (params?: { inputId?: GroupInputId }) => boolean;
 };

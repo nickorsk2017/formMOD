@@ -9,7 +9,8 @@ import {
   InputName,
   GetEventListeners,
   useRefModResult,
-  GroupInputId
+  GroupInputId,
+  InputValue
 } from '../types';
 import {
   updateValueInputFromState,
@@ -17,6 +18,7 @@ import {
 } from '../stategy/refComponents/updateValueInputFromState';
 import { Visibilities } from '../api/visibilities';
 import { GetValue } from '../api/getValue';
+import { SetValue } from '../api/setValue';
 import { GetError } from '../api/getError';
 import { UpdateFormState } from '../api/useStateForm';
 import { viewMode as _viewMode } from '../api/viewMode';
@@ -31,6 +33,7 @@ export type useRefModParams = {
   getError: GetError;
   getValue: GetValue;
   getVisibilities: Visibilities;
+  setValue: SetValue;
 };
 export type UseRefMod = (params: useRefModParams) => useRefModResult;
 
@@ -42,7 +45,8 @@ export const useRefMod: UseRefMod = ({
   deleteEventListener,
   getError,
   getValue,
-  getVisibilities
+  getVisibilities,
+  setValue
 }) => {
   useEffect(() => {
     const eventListeners = getEventListeners();
@@ -193,6 +197,23 @@ export const useRefMod: UseRefMod = ({
         formState: getFormState(),
         inputName,
         groupInputId: params?.inputId
+      });
+    },
+    setValue: (
+      inputValue: InputValue,
+      skipUpdate?: boolean,
+      inputId?: GroupInputId,
+      skipValidation?: boolean
+    ) => {
+      return setValue({
+        formState: getFormState(),
+        inputName,
+        inputValue,
+        groupInputId: inputId,
+        updateFormState,
+        skipUpdate,
+        getVisibilities,
+        skipValidation
       });
     },
     isVisible: () => {

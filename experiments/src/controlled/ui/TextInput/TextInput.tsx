@@ -4,7 +4,7 @@ import {useRef} from "react";
 import styles from './TextInput.module.css';
 
 export function TextInput(props: any) {
-    const {error, onChange, value, label, visible, viewMode} = props;
+    const {error, onChange, value, label, visible, viewMode, autoFocus} = props;
     const inputRef = useRef<any>(null);
     const {onChangeOptimized, onBlurOptimized} = useOptimisationInput({onChange, value, inputRef});
 
@@ -25,7 +25,7 @@ export function TextInput(props: any) {
     return (
       <div className={styles.textInput}>
         {label && <label className={styles.label}>{label}</label>}
-        <input className={styles.input} onBlur={onBlurOptimized} onChange={onChangeOptimized} defaultValue={value} ref={inputRef}/>
+        <input autoFocus={autoFocus} className={styles.input} onBlur={onBlurOptimized} onChange={onChangeOptimized} defaultValue={value} ref={inputRef}/>
         {error && <span className={styles.error}>{error}</span>}
       </div>
     )
