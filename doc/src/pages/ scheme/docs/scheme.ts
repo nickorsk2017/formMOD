@@ -2,19 +2,21 @@ export default `export default {
     valid: null,
     viewMode: false,
     formValue: {
-        inputBolean: false,
+        inputBoolean: false,
         inputWithEmptyInitValue: "",
         inputWithInitValue: "init string value",
-        inputWithArrayValues: [
-            {
-                id: "1",
-                value: "1",
-            },
-            {
-                id: "2",
-                value: "2"
-            }
-        ],
+        inputWithArrayValues: {
+            value: [
+                {
+                    id: "1",
+                    value: "1",
+                },
+                {
+                    id: "2",
+                    value: "2"
+                }
+            ]
+        },
         inputWithObjectValue: {
             title: "My object"
         },
@@ -23,12 +25,12 @@ export default `export default {
     visibilities: {
         inputWithEmptyInitValue: ({formValue} : any) => {
             return {
-                isVisible: formValue.inputBolean,
+                isVisible: formValue.inputBoolean,
             }
         },
         inputWithInitValue: ({formValue} : any) => {
             return {
-                isVisible: formValue.inputWithArrayValues.length > 0,
+                isVisible: formValue.inputWithArrayValues.value.length > 0,
             }
         },
     },
@@ -58,7 +60,7 @@ export default `export default {
                 message: "should be more than 10"
             }
         ],
-        inputWithObjectValue: inputWithArrayValues: [
+        inputWithObjectValue: [
             {
                 name: "func",
                 params: {
@@ -74,8 +76,8 @@ export default `export default {
             {
                 name: "func",
                 params: {
-                    func: (value: array<any>) => {
-                        return value.length > 10
+                    func: (arrayItems: {value: array<any>}) => {
+                        return arrayItems.value.length > 10
                     }
                 },
                 message: "should be more than 10"

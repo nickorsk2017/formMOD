@@ -1,3 +1,5 @@
 export default `
-<h1 content-header class="content-header">Basic components</h1>
-Use this way if you need to use libraries or you want to use standart controlled components<br/><br/>`
+<h1 content-header class="content-header">Basic inputs</h1>
+This page describes how to work with basic components.<br/>
+
+<br/><br/>`

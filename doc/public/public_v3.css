@@ -228,6 +228,10 @@ nav .active {
   padding: 20px;
   margin-bottom: 20px;
 }
+.content-header-important-content pre {
+  background-color: rgba(222, 222, 222, 0.5);
+  padding: 10px;
+}
 .formmod__subtitle-2 {
   margin-bottom: 0;
   font-weight: normal;

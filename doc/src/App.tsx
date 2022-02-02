@@ -22,7 +22,6 @@ import {
   CustomRule,
   ControlledDynamic,
   UncontrolledDynamic,
-  IntroViewMode,
   UncontrolledViewMode,
   ControlledViewMode,
   License,
@@ -97,10 +96,6 @@ const App = () => {
 
           <Route path={`${PREFIX}smart-dynamic/`} strict>
             <UncontrolledDynamic/>
-          </Route>
-
-          <Route path={`${PREFIX}introduction-viewmode/`} strict>
-            <IntroViewMode/>
           </Route>
 
           <Route path={`${PREFIX}smart-viewmode/`} strict>

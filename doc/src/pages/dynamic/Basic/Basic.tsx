@@ -7,7 +7,7 @@ import {
     PART_3,
     PART_4,
     SCHEME,
-    FORM_CODE,
+    FORM_CODE
 } from "./_docs";
 import {MyForm} from "examples/group/basic/src/forms/MyForm/MyForm";
 import styles from './Basic.module.css';

@@ -1,7 +1,7 @@
 import React from 'react'
 import {getCodeSnippet} from "../../utils";
 import {Content} from "../../ui";
-import {PART_1, PART_2, SCHEME} from "./docs";
+import {PART_1, PART_2, SCHEME, IMPORTANT} from "./docs";
 import styles from './Scheme.module.css';
 
 export type SchemeParams = {};
@@ -16,6 +16,7 @@ export const Scheme = () => {
         <Content countLines={countLines} language="json5" preWrap={true} content={result}/>
         <div className="formmod__subtitle">Sections:</div>
         <Content content={PART_2}/>
+        <Content content={IMPORTANT}/>
       </div>
     )
 }

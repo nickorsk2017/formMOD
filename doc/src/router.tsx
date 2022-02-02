@@ -48,25 +48,32 @@ export const RouterApp = memo(() => {
         <div className={styles.selfItem}>
           <NavLink exact={true} activeClassName="active" to={`${PREFIX}scheme/`}>Form scheme</NavLink>
         </div>
-        
+
         <div className={styles.section}>
-          <div onClick={() => toggleMenuItem("basicSection")} className={[checkOpendItems("basicSection") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Inputs <i className={[checkOpendItems("basicSection") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
-          <ul className={[checkOpendItems("basicSection") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
-            {checkOpendItems("basicSection") && 
+          <div onClick={() => toggleMenuItem("formInputs")} className={[checkOpendItems("formInputs") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Form inputs<i className={[checkOpendItems("formInputs") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
+          <ul className={[checkOpendItems("formInputs") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
+            {checkOpendItems("formInputs") && 
             <>
               <li className={styles.navItem}>
                 <NavLink to={`${PREFIX}basic/`}>Basic</NavLink>
               </li>
+
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}smart/`}>Smart</NavLink>
+                <NavLink to={`${PREFIX}basic-visibilities/`}>Optional</NavLink>
               </li>
+
+              <li className={styles.navItem}>
+                <NavLink to={`${PREFIX}basic-dynamic/`}>Group</NavLink>
+              </li>
+
             </>}
           </ul>
         </div>
+    
 
         <div className={styles.section}>
           <div onClick={() => toggleMenuItem("rules")} className={[checkOpendItems("rules") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>
-              Validation form
+              Validation rules
               <i className={[checkOpendItems("rules") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> 
             </div>
           <ul className={[checkOpendItems("rules") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
@@ -94,65 +101,39 @@ export const RouterApp = memo(() => {
           </ul>
         </div>
 
-        <div className={styles.section}>
-          <div onClick={() => toggleMenuItem("visibilities")} className={[checkOpendItems("visibilities") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Optional inputs<i className={[checkOpendItems("visibilities") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
-          <ul className={[checkOpendItems("visibilities") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
-            {checkOpendItems("visibilities") && 
-            <>
-              <li className={styles.navItem}>
-                <NavLink to={`${PREFIX}basic-visibilities/`}>Basic</NavLink>
-              </li>
-              <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}smart-visibilities/`}>Smart</NavLink>
-              </li>
-            </>}
-          </ul>
+        <div className={styles.selfItem}>
+          <NavLink exact={true} activeClassName="active" to={`${PREFIX}basic-viewmode/`}>View mode</NavLink>
+        </div>
+
+        <div className={styles.selfItem}>
+          <NavLink exact={true} activeClassName="active" to={`${PREFIX}basic-editmode/`}>Edit mode</NavLink>
         </div>
 
         <div className={styles.section}>
-          <div onClick={() => toggleMenuItem("dynamic")} className={[checkOpendItems("dynamic") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Group input<i className={[checkOpendItems("dynamic") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
-          <ul className={[checkOpendItems("dynamic") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
-            {checkOpendItems("dynamic") && 
+          <div onClick={() => toggleMenuItem("smartInput")} className={[checkOpendItems("smartInput") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Smart inputs (experiment) <i className={[checkOpendItems("smartInput") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
+          <ul className={[checkOpendItems("smartInput") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
+            {checkOpendItems("smartInput") && 
             <>
               <li className={styles.navItem}>
-                <NavLink to={`${PREFIX}basic-dynamic/`}>Basic</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}smart/`}>Inputs</NavLink>
               </li>
-              <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}smart-dynamic/`}>Smart</NavLink>
-              </li>
-            </>}
-          </ul>
-        </div>
 
-        <div className={styles.section}>
-          <div onClick={() => toggleMenuItem("viewmode")} className={[checkOpendItems("viewmode") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>View mode<i className={[checkOpendItems("viewmode") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
-          <ul className={[checkOpendItems("viewmode") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
-            {checkOpendItems("viewmode") && 
-            <>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}introduction-viewmode/`}>Introduction</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}smart-visibilities/`}>Optional inputs</NavLink>
               </li>
-              <li className={styles.navItem}>
-                <NavLink to={`${PREFIX}basic-viewmode/`}>Basic</NavLink>
-              </li>
-              <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}smart-viewmode/`}>Smart</NavLink>
-              </li>
-            </>}
-          </ul>
-        </div>
 
-        <div className={styles.section}>
-          <div onClick={() => toggleMenuItem("editmode")} className={[checkOpendItems("editmode") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Edit mode<i className={[checkOpendItems("editmode") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
-          <ul className={[checkOpendItems("editmode") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
-            {checkOpendItems("editmode") && 
-            <>
               <li className={styles.navItem}>
-                <NavLink to={`${PREFIX}basic-editmode/`}>Basic</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}smart-dynamic/`}>Group inputs</NavLink>
               </li>
+
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}smart-editmode/`}>Smart</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}smart-viewmode/`}>View mode</NavLink>
               </li>
+
+              <li className={styles.navItem}>
+                <NavLink activeClassName="active" to={`${PREFIX}smart-editmode/`}>Edit mode</NavLink>
+              </li>
+
             </>}
           </ul>
         </div>
