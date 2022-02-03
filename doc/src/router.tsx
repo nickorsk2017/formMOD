@@ -107,12 +107,12 @@ export const RouterApp = memo(() => {
           <ul className={[checkOpendItems("crud") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
             {checkOpendItems("crud") && 
             <>
-              <li className={styles.navItem}>
-                <NavLink to={`${PREFIX}basic-viewmode/`}>View</NavLink>
+               <li className={styles.navItem}>
+                <NavLink to={`${PREFIX}basic-editmode/`}>Edit / Create</NavLink>
               </li>
 
               <li className={styles.navItem}>
-                <NavLink to={`${PREFIX}basic-editmode/`}>Edit / Create</NavLink>
+                <NavLink to={`${PREFIX}basic-viewmode/`}>View</NavLink>
               </li>
 
             </>}
@@ -141,11 +141,11 @@ export const RouterApp = memo(() => {
               </li>
 
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}smart-viewmode/`}>View</NavLink>
-              </li>
-
-              <li className={styles.navItem}>
                 <NavLink activeClassName="active" to={`${PREFIX}smart-editmode/`}>Edit / Create</NavLink>
+              </li>
+              
+              <li className={styles.navItem}>
+                <NavLink activeClassName="active" to={`${PREFIX}smart-viewmode/`}>View</NavLink>
               </li>
 
             </>}
