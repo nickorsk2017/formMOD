@@ -31,6 +31,7 @@ import {
   UncontrolledEditmode,
   ControlledEditmode,
   Issues,
+  SmartIntro,
 } from "./pages";
 
 const PREFIX = process.env.prefixMOD || "/";
@@ -112,6 +113,10 @@ const App = () => {
 
           <Route path={`${PREFIX}smart-editmode/`} strict>
             <UncontrolledEditmode/>
+          </Route>
+
+          <Route path={`${PREFIX}smart-introduction/`} strict>
+            <SmartIntro/>
           </Route>
 
           <Route path={`${PREFIX}basic-editmode/`} strict>

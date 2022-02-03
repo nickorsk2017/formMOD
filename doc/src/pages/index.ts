@@ -21,3 +21,4 @@ export {API} from "./api/API";
 export {Basic as ControlledEditmode} from "./editmode/Basic/Basic";
 export {Smart as UncontrolledEditmode} from "./editmode/Smart/Smart";
 export {Issues} from "./Issues/Issues";
+export {SmartIntro} from "./smartIntro/SmartIntro";

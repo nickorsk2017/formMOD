@@ -101,12 +101,22 @@ export const RouterApp = memo(() => {
           </ul>
         </div>
 
-        <div className={styles.selfItem}>
-          <NavLink exact={true} activeClassName="active" to={`${PREFIX}basic-viewmode/`}>View mode</NavLink>
-        </div>
 
-        <div className={styles.selfItem}>
-          <NavLink exact={true} activeClassName="active" to={`${PREFIX}basic-editmode/`}>Edit mode</NavLink>
+        <div className={styles.section}>
+          <div onClick={() => toggleMenuItem("crud")} className={[checkOpendItems("crud") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>CRUD<i className={[checkOpendItems("crud") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
+          <ul className={[checkOpendItems("crud") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
+            {checkOpendItems("crud") && 
+            <>
+              <li className={styles.navItem}>
+                <NavLink to={`${PREFIX}basic-viewmode/`}>View</NavLink>
+              </li>
+
+              <li className={styles.navItem}>
+                <NavLink to={`${PREFIX}basic-editmode/`}>Edit / Create</NavLink>
+              </li>
+
+            </>}
+          </ul>
         </div>
 
         <div className={styles.section}>
@@ -115,23 +125,27 @@ export const RouterApp = memo(() => {
             {checkOpendItems("smartInput") && 
             <>
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}smart/`}>Inputs</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}smart-introduction/`}>Introduction</NavLink>
               </li>
 
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}smart-visibilities/`}>Optional inputs</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}smart/`}>Basic</NavLink>
               </li>
 
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}smart-dynamic/`}>Group inputs</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}smart-visibilities/`}>Optional</NavLink>
               </li>
 
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}smart-viewmode/`}>View mode</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}smart-dynamic/`}>Group</NavLink>
               </li>
 
               <li className={styles.navItem}>
-                <NavLink activeClassName="active" to={`${PREFIX}smart-editmode/`}>Edit mode</NavLink>
+                <NavLink activeClassName="active" to={`${PREFIX}smart-viewmode/`}>View</NavLink>
+              </li>
+
+              <li className={styles.navItem}>
+                <NavLink activeClassName="active" to={`${PREFIX}smart-editmode/`}>Edit / Create</NavLink>
               </li>
 
             </>}

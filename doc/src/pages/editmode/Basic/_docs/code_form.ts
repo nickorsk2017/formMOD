@@ -5,7 +5,7 @@ export default (() => {
     import FORM_SCHEME from "./scheme";
     import styles from './Edit.module.css';
     
-    export function Form({formValue}: any) {
+    export function Form({initValue}: any) {
         const {
             setValue,
             getValue,
@@ -24,9 +24,9 @@ export default (() => {
             FORM_SCHEME
         );
     
-        // edit mode here
-        if(formValue){
-            setValues(formValue, true);
+        // set edit mode if initValue was filled
+        if(initValue){
+            setValues(initValue, true);
         }
         
         const handleSubmit = function(event: any){
