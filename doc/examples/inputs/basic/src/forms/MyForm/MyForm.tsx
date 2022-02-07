@@ -1,15 +1,15 @@
-import React from 'react'
-import {useFormMod, useCountRender, Types} from "formmod";
+import React from 'react';
+import {useFormMod, Types} from "formmod";
 import {TextInput, Button} from "../../ui";
 import FORM_SCHEME from "./scheme";
 import styles from './MyForm.module.css';
 
-export function MyForm() {
+export const MyForm = () => {
     const {setValue, getValue, getError, validate, resetForm} = useFormMod(
         FORM_SCHEME
     );
     
-    const handleSubmit = function(event: any){
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         if(event && event.preventDefault) {
 			event.preventDefault();
 		}
@@ -31,14 +31,8 @@ export function MyForm() {
         resetForm();
     };
 
-    // count of render
-    const {getCountRender, counter} = useCountRender();
-    counter();
-    // count of render [END]
-        
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
-            <div className={styles.count}>Count render: {getCountRender()}</div>
             <TextInput
                 label={"First name"}
                 value={getValue("first_name")}

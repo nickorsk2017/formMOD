@@ -1,6 +1,6 @@
 export default `
 
-export default (initFormValue: {} || object) =>  {
+export default () =>  {
    ...
     rules: {
         // first input

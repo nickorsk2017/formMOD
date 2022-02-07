@@ -65,7 +65,9 @@ export const getCodeSnippet = (code: string) => {
     let words = preLines.split(" ");
     let cloneWords = cloneDeep(words) as Array<string>;
     words.forEach((word, index) => {
-        if(KEYWORD_ARR.includes(word)){
+        if(word == "*if*"){
+          cloneWords[index] = "if";
+        } else if(KEYWORD_ARR.includes(word)){
             cloneWords[index] = `<span style="color: ${KEYWORD};">${word}</span>`;   
         }
     });

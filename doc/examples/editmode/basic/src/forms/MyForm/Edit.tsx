@@ -1,22 +1,17 @@
 import React from 'react';
 import { MyForm } from './MyForm';
 
+export type ValueForm = {
+    first_name: string,
+    last_name: string,
+}
+
 export function Edit() {
-    // this is value for edit mode.
-    const formvalue = {
+    // init value of form.
+    const initValue: ValueForm = {
         first_name: "Jack",
         last_name: "Pack",
-        haveHobbies: true,
-        hobbies: [
-            {
-                id: "1",
-                value: "fishing",
-            },
-            {
-                id: "2",
-                value: "football"
-            }
-        ]
     };
-    return <MyForm formValue={formvalue}/>
+    
+    return <MyForm initValue={initValue}/>
 }

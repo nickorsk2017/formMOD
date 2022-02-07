@@ -1,3 +1,4 @@
 export default `
-<b>That all :-)</b><br/><br/>
+For create mode you don't need to do anything.<br/>
+If to your form pushed empty init value.<br/><br/>
 `

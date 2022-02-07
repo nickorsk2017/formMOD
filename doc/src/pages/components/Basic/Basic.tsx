@@ -35,10 +35,10 @@ export const Basic = () => {
         <Content content={PART_3}/>
         <div className="formmod__subtitle">Form component:</div>
         <Content content={PART_2}/>
-        <Content countLines={_FORM_CODE.countLines} lines='8-10, 42-53' preWrap={true} content={_FORM_CODE.result}/>
+        <Content countLines={_FORM_CODE.countLines} lines='8-10, 36-47' preWrap={true} content={_FORM_CODE.result}/>
         <div className="formmod__subtitle">Input component:</div>
         <Content content={PART_4}/><br/>
-        <Content countLines={_INPUT_CODE.countLines} lines='5, 12-13' preWrap={true} content={_INPUT_CODE.result}/>
+        <Content countLines={_INPUT_CODE.countLines} lines='14-21, 28-32' preWrap={true} content={_INPUT_CODE.result}/>
       </div>
   )
 }

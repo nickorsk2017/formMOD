@@ -1,5 +1,5 @@
-import React from 'react'
-import {useFormMod, useCountRender, Types} from "formmod";
+import React from 'react';
+import {useFormMod, Types} from "formmod";
 import {TextInput, Button} from "../../ui";
 import FORM_SCHEME from "./scheme";
 import styles from './MyForm.module.css';
@@ -9,21 +9,24 @@ export function MyForm() {
         FORM_SCHEME
     );
     
-    const handleSubmit = function(event: any){
+    const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         if(event && event.preventDefault) {
 			event.preventDefault();
 		}
         validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
             if(valid) {
-                console.log("FORM IS VALID, value:", formValue );
+                alert('Form is valid');
+                console.log(formValue, 'RESULT TRUE');
+                // set this form to view mode
                 setViewMode(true);
             } else {
-                console.log('FORM IS WRONG, value:', formValue );
+                alert('Form is wrong');
+                console.log(formValue, 'RESULT FALSE');
             }
         });
     }
 
-    const edit = () => {
+    const toEdit = () => {
         setViewMode(false);
     };
 
@@ -33,15 +36,12 @@ export function MyForm() {
 		}
         resetForm();
     };
-
-    // count of render
-    const {getCountRender, counter} = useCountRender();
-    counter();
-    // count of render [END]
         
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
-            <div className={styles.count}>Count render: {getCountRender()}</div>
+            <div className={styles.title}>
+                {!isViewMode() ? "New user" : "User detail"}
+            </div>
             <TextInput
                 label={"First name"}
                 value={getValue("first_name")}
@@ -61,7 +61,7 @@ export function MyForm() {
                 <Button theme="LIGHT" onClick={setDefault} title="Reset"/>
             </div>}
             {isViewMode() && <div className={styles.buttons}>
-                <Button onClick={edit} title="Edit"/>
+                <Button onClick={toEdit} title="Edit"/>
             </div>}
         </form>
     )

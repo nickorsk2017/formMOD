@@ -1,36 +1,44 @@
 export default (() => {
-    const code = `import React from 'react'
-    import {useRef} from "react";
-    import {useOptimisationInput} from "./useOptimisationInput";
-    import styles from './TextInput.module.css';
+const code = `import React from 'react';
+import styles from './TextInput.module.css';
     
-    export function TextInput(props: any) {
-        const {error, onChange, value, label, visible, viewMode} = props;
-        const inputRef = useRef<any>(null);
-        const {onChangeOptimized, onBlurOptimized} = useOptimisationInput({onChange, value, inputRef});
+export type TextInputParams = {
+  label: string;
+  value: string;
+  onChange: (value: string) => void;
+  error: string | null;
+  viewMode: boolean;
+};
     
-        if(typeof visible === "boolean" && !visible){
-          return null;
-        }
+export const TextInput = (props: TextInputParams) => {
+  const {
+    error,
+    onChange,
+    value,
+    label,
+    viewMode
+  } = props;
     
-        if(viewMode){
-          return (
-          <div className={styles.textInput}>
-            {label && <label className={styles.label}>{label}</label>}
-            <div className={styles.inputDetail}>{value}</div>
-            {error && <span className={styles.error}>{error}</span>}
-          </div>
-          )
-        }
+  const _onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    onChange(e.target.value);
+  }
     
-        return (
-          <div className={styles.textInput}>
-            {label && <label className={styles.label}>{label}</label>}
-            <input className={styles.input} onBlur={onBlurOptimized} onChange={onChangeOptimized} defaultValue={value} ref={inputRef}/>
-            {error && <span className={styles.error}>{error}</span>}
-          </div>
-        )
-    }`;
+  if(viewMode){
+    return (
+      <div className={styles.textInput}>
+        {label && <label className={styles.label}>{label}</label>}
+        <div className={styles.inputDetail}>{value}</div>
+        {error && <span className={styles.error}>{error}</span>}
+    </div>)
+  }
+    
+  return (
+    <div className={styles.textInput}>
+      {label && <label className={styles.label}>{label}</label>}
+      <input className={styles.input} onChange={_onChange} value={value}/>
+      {error && <span className={styles.error}>{error}</span>}
+    </div>)
+  }`;
 
     return code;
 })()

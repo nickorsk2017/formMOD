@@ -32,6 +32,7 @@ import {
   ControlledEditmode,
   Issues,
   SmartIntro,
+  Combined,
 } from "./pages";
 
 const PREFIX = process.env.prefixMOD || "/";
@@ -87,11 +88,11 @@ const App = () => {
             <ReferenceVisibilities/>
           </Route>
 
-          <Route path={`${PREFIX}basic-visibilities/`} strict>
+          <Route path={`${PREFIX}visibilities/`} strict>
             <ControlledVisibilities/>
           </Route>
 
-          <Route path={`${PREFIX}basic-dynamic/`} strict>
+          <Route path={`${PREFIX}dynamic/`} strict>
             <ControlledDynamic/>
           </Route>
 
@@ -103,7 +104,7 @@ const App = () => {
             <UncontrolledViewMode/>
           </Route>
 
-          <Route path={`${PREFIX}basic-viewmode/`} strict>
+          <Route path={`${PREFIX}viewmode/`} strict>
             <ControlledViewMode/>
           </Route>
 
@@ -119,7 +120,7 @@ const App = () => {
             <SmartIntro/>
           </Route>
 
-          <Route path={`${PREFIX}basic-editmode/`} strict>
+          <Route path={`${PREFIX}editmode/`} strict>
             <ControlledEditmode/>
           </Route>
 
@@ -134,6 +135,10 @@ const App = () => {
 
           <Route path={`${PREFIX}scheme/`} strict>
             <Scheme/>
+          </Route>
+
+          <Route path={`${PREFIX}combined/`} strict>
+            <Combined/>
           </Route>
 
           <Route path={`${PREFIX}api/`} strict>

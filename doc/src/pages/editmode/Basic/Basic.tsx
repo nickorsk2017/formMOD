@@ -5,6 +5,7 @@ import {
     PART_1,
     PART_2,
     PART_3,
+    PART_4,
     SCHEME,
     FORM_CODE,
     PARENT,
@@ -28,14 +29,18 @@ export const Basic = () => {
             </div>
             <div className="formmod__subtitle">Parent component:</div>
             <Content content={PART_2}/>
-            <Content countLines={_PARENT.countLines} lines="6-20, 22" preWrap={true} content={_PARENT.result}/>
+            <Content countLines={_PARENT.countLines} lines="11-14,16" preWrap={true} content={_PARENT.result}/>
             <br/>
             <div className="formmod__subtitle">Form scheme:</div>
+            <br/>
+            You don't have to do anything in the scheme. 
             <Content countLines={_SCHEME.countLines} language="json5" preWrap={true} content={_SCHEME.result}/>
             <br/>
             <div className="formmod__subtitle">Form component:</div>
             <Content content={PART_3}/>
-            <Content countLines={_FORM_CODE.countLines} lines="21, 26-29" preWrap={true} content={_FORM_CODE.result}/>
+            <Content countLines={_FORM_CODE.countLines} lines="18, 23-26" preWrap={true} content={_FORM_CODE.result}/>
+            <div className="formmod__subtitle">Create mode:</div><br/>
+            <Content content={PART_4}/>
         </div>
     )
 }

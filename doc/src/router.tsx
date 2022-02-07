@@ -59,11 +59,15 @@ export const RouterApp = memo(() => {
               </li>
 
               <li className={styles.navItem}>
-                <NavLink to={`${PREFIX}basic-visibilities/`}>Optional</NavLink>
+                <NavLink to={`${PREFIX}visibilities/`}>Optional</NavLink>
               </li>
 
               <li className={styles.navItem}>
-                <NavLink to={`${PREFIX}basic-dynamic/`}>Group</NavLink>
+                <NavLink to={`${PREFIX}dynamic/`}>Group</NavLink>
+              </li>
+
+              <li className={styles.navItem}>
+                <NavLink to={`${PREFIX}combined/`}>Combined</NavLink>
               </li>
 
             </>}
@@ -108,11 +112,41 @@ export const RouterApp = memo(() => {
             {checkOpendItems("crud") && 
             <>
                <li className={styles.navItem}>
-                <NavLink to={`${PREFIX}basic-editmode/`}>Edit / Create</NavLink>
+                <NavLink to={`${PREFIX}editmode/`}>Edit / Create</NavLink>
               </li>
 
               <li className={styles.navItem}>
-                <NavLink to={`${PREFIX}basic-viewmode/`}>View</NavLink>
+                <NavLink to={`${PREFIX}viewmode/`}>View</NavLink>
+              </li>
+
+            </>}
+          </ul>
+        </div>
+
+        <div className={styles.section}>
+          <div onClick={() => toggleMenuItem("gallery")} className={[checkOpendItems("gallery") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Gallery UI<i className={[checkOpendItems("gallery") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
+          <ul className={[checkOpendItems("gallery") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
+            {checkOpendItems("gallery") && 
+            <>
+               <li className={styles.navItem}>
+                <NavLink to={`${PREFIX}gallery-textinput/`}>TextInput</NavLink>
+              </li>
+
+            </>}
+          </ul>
+        </div>
+
+        <div className={styles.section}>
+          <div onClick={() => toggleMenuItem("recommendations")} className={[checkOpendItems("recommendations") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Recommendations<i className={[checkOpendItems("recommendations") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
+          <ul className={[checkOpendItems("recommendations") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
+            {checkOpendItems("recommendations") && 
+            <>
+              <li className={styles.navItem}>
+                <NavLink to={`${PREFIX}recommendations/`}>Use data converter</NavLink>
+              </li>
+
+              <li className={styles.navItem}>
+                <NavLink to={`${PREFIX}recommendations/`}>Work with store</NavLink>
               </li>
 
             </>}

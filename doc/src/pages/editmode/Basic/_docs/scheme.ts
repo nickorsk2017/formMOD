@@ -1,18 +1,8 @@
 export default `export default {
     valid: null,
-    viewMode: false,
     formValue: {
         first_name: "",
         last_name: "",
-        haveHobbies: false,
-        hobbies: []
-    },
-    visibilities: {
-        hobbies: ({formValue} : any) => {
-            return {
-                isVisible: formValue.haveHobbies,
-            }
-        },
     },
     rules: {
         first_name: [
@@ -27,11 +17,5 @@ export default `export default {
                 message: "last name is required"
             }
         ],
-        hobbies: [
-            {
-                name: "empty",
-                message: "please write about your hobby"
-            },
-        ]
     }
 }`;

@@ -28,17 +28,18 @@ export const Basic = () => {
             <a target="_blank" href="https://github.com/nickorsk2017/formMOD/tree/master/doc/examples/viewmode/basic">See example source</a>
           </div>
           <div className="formmod__subtitle">Form scheme:</div>
+          <br/>You don't have to do anything in the scheme. 
           <Content countLines={_SCHEME.countLines} language="json5" preWrap={true} content={_SCHEME.result}/>
           <br/>
           <Content content={PART_2}/>
           <br/>
           <div className="formmod__subtitle">Form component:</div>
           <Content content={PART_3}/>
-          <Content countLines={_FORM_CODE.countLines} lines="14-15, 17, 27,35, 58, 65, 67, 71" preWrap={true} content={_FORM_CODE.result}/>
+          <Content countLines={_FORM_CODE.countLines} lines="8-10,21,30,50,57,59-65" preWrap={true} content={_FORM_CODE.result}/>
           <br/>
           <div className="formmod__subtitle">Input component:</div>
           <Content content={PART_4}/>
-          <Content countLines={_INPUT_CODE.countLines} lines="15-23" preWrap={true} content={_INPUT_CODE.result}/>
+          <Content countLines={_INPUT_CODE.countLines} lines="25-32" preWrap={true} content={_INPUT_CODE.result}/>
         </div>
     )
 }
