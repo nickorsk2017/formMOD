@@ -60,3 +60,6 @@
     background-color: transparent;
     cursor: pointer;
 }
+.inputContainer {
+    position: relative;
+}

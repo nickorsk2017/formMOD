@@ -1,45 +1,39 @@
 export default (() => {
-    const code = `import React from 'react';
-import {useFormMod, useCountRender} from "formmod";
-import {TextInput, Button, OptionBox} from "../ui";
+const code = `import React from 'react';
+import {useFormMod, Types} from "formmod";
+import {TextInput, Button, OptionBox} from "../../ui";
 import FORM_SCHEME from "./scheme";
-import styles from './Visibilities.module.css';
+import styles from './MyForm.module.css';
 
-export function Visibilities() {
-        const {setValue, getValue, getError, validate, resetForm, isVisible} = useFormMod(
-            FORM_SCHEME,
-        );
-        
-        const handleSubmit = function(event: any){
-            if(event && event.preventDefault) {
-                event.preventDefault();
+export function MyForm() {
+    const {setValue, getValue, getError, validate, resetForm,isVisible} = useFormMod(
+        FORM_SCHEME
+    );
+    
+    const handleSubmit = function(event: any){
+        if(event && event.preventDefault) {
+			event.preventDefault();
+		}
+        validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
+            if(valid) {
+                alert('Form is valid');
+                console.log("FORM IS VALID, value:", formValue );
+            } else {
+                alert('Form is wrong');
+                console.log('FORM IS WRONG, value:', formValue );
             }
-            validate(true, (valid: boolean, formValue: any) => {
-                if(valid) {
-                    alert('Form is valid');
-                    console.log("FORM IS VALID, value:", formValue );
-                } else {
-                    alert('Form is wrong');
-                    console.log('FORM IS WRONG, value:', formValue );
-                }
-            });
-        }
-        
-        const setDefault = (event: any) => {
-            if(event && event.preventDefault) {
-                event.preventDefault();
-            }
-            resetForm();
-        };
-        
-        // count of render
-        const {getCountRender, counter} = useCountRender();
-        counter();
-        // count of render [END]
-        
-        return (
-            <form onSubmit={handleSubmit} className={styles.form}>
-            <div className={styles.count}>Count render: {getCountRender()}</div>
+        });
+    }
+
+    const setDefault = (event: any) => {
+        if(event && event.preventDefault) {
+			event.preventDefault();
+		}
+        resetForm();
+    };
+
+    return (
+        <form onSubmit={handleSubmit} className={styles.form}>
             <TextInput
                 label={"Your full name"}
                 value={getValue("full_name")}
@@ -53,7 +47,7 @@ export function Visibilities() {
                 onChange={(value: boolean) => setValue("haveFavorite", value)}
                 id="haveFavorite"
             />
-            <TextInput
+              <TextInput
                 label={"Pet name"}
                 value={getValue("petName")}
                 error={getError("petName")}
@@ -65,8 +59,8 @@ export function Visibilities() {
                 <Button theme="LIGHT" onClick={setDefault} title="Reset"/>
             </div>
         </form>
-        )
-    }`;
+    )
+}`;
 
-    return code;
+return code;
 })()

@@ -33,11 +33,11 @@ export const Basic = () => {
           <br/>
           <div className="formmod__subtitle">Form component:</div>
           <Content content={PART_3}/>
-          <Content countLines={_FORM_CODE.countLines} lines="59" preWrap={true} content={_FORM_CODE.result}/>
+          <Content countLines={_FORM_CODE.countLines} lines="8-10,53" preWrap={true} content={_FORM_CODE.result}/>
           <br/>
           <div className="formmod__subtitle">Input component:</div>
           <Content content={PART_4}/>
-          <Content countLines={_INPUT_CODE.countLines} lines="14-16" preWrap={true} content={_INPUT_CODE.result}/>
+          <Content countLines={_INPUT_CODE.countLines} lines="21-23" preWrap={true} content={_INPUT_CODE.result}/>
         </div>
     )
 }
