@@ -4,7 +4,7 @@ import styles from './App.module.css';
 
 export default () => {
     return <div className={styles.container}>
-        <h1>Example: Form with basic inputs</h1>
+        <h1>formMOD Example</h1>
         <MyForm/>
     </div>
 }
