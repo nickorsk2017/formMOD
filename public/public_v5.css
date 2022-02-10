@@ -14,6 +14,7 @@ body {
   display: block;
   overflow: hidden;
   -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
 }
 /* Works on Firefox */
 * {
@@ -54,9 +55,33 @@ code {
   position: relative;
   z-index: 10;
   padding-bottom: 50px;
+  transition: min-width 0.2s ease;
 }
+.content {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  padding: 30px 30px 50px 30px;
+}
+
+
+#app-nav.closed {
+  flex-basis: 60px;
+  min-width: 60px;
+  width: 60px;
+  height: 100%;
+}
+#app-nav.closed .menu-items{
+  display: none;
+}
+#app-nav.closed .mobile-menu {
+  padding-right: 17px;
+}
+
 ul, li {
-  display: inline-block;
+  list-style-type: circle !important;
+  display: list-item;
 }
 nav ul {
   padding-left: 42px;
@@ -77,13 +102,20 @@ nav .active {
 #root {
   display: flex;
   height: 100%;
+  width: 100%;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 #appContainer {
   display: flex;
-  flex-grow: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  /* flex-grow: 1; */
   height: 100%;
+  width: 100%;
   position: relative;
-  padding-bottom: 50px;
 }
 .super-github {
   display: inline-flex;
@@ -98,6 +130,7 @@ nav .active {
   background: transparent;
   align-items: center;
   justify-content: center;
+  z-index: 10;
 }
 
 /* fixes code hightligh*/
@@ -134,7 +167,9 @@ nav .active {
 }
 .formmod__subtitle {
   color: #000;
-  font-size: 23px;
+  font-size: 30px;
+  font-weight: 600;
+  min-width: 300px;
 }
 .line-highlight {
   color: #54c270;
@@ -171,6 +206,7 @@ nav .active {
   padding: 10px;
   color: rgb(46, 46, 46);
   margin-top: 30px;
+  min-width: 750px;
 }
 
 .steps-header {
@@ -185,6 +221,7 @@ nav .active {
   height: 60px;
   line-height: 60px;
   color: #fff;
+  min-width: 750px;
 }
 .formmod__source a {
   padding: 0 10px;
@@ -238,4 +275,86 @@ nav .active {
 }
 b {
   color: #333;
+}
+
+pre.line-numbers {
+  position: relative;
+  padding-left: 3.8em !important;
+  line-height: 1.5;
+  text-shadow: 0 1px #fff;
+  padding: 1em;
+  overflow: auto;
+}
+pre[class*=language-].line-numbers>code {
+  position: relative;
+  white-space: inherit;
+  line-height: 1.5;
+  -ms-hyphens: none;
+  hyphens: none;
+  word-spacing: normal;
+  text-shadow: 0 1px #fff;
+}
+.big-text {
+  font-size: 20px;
+}
+.targets-block {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 20px 0;
+  flex-wrap: wrap;
+}
+.target {
+  width: 200px;
+  height: 200px;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #333;
+  margin: 10px;
+  background: #cbf5ff;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 10px;
+}
+.ul-title {
+  color: #008000;
+  font-size: 24px;
+}
+.mobile-menu {
+  display: none;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 50px;
+  margin-bottom: 20px;
+}
+.mobile-menu span {
+  font-size: 30px;
+  cursor: pointer;
+}
+
+@media (max-width: 820px) {
+  #app-nav {
+    position: absolute;
+    width: 280px;
+    z-index: 1;
+  }
+  .content {
+    padding: 30px 0 30px 80px !important;
+  }
+  .content>div {
+    margin-right: 30px !important;
+  }
+  .mobile-menu {
+    display: flex;
+  }
+}
+@media (max-width: 1230px) {
+  .target {
+    width: 150px;
+    height: 150px;
+    font-size: 16px;
+  }
 }
