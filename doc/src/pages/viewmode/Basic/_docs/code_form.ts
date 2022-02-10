@@ -6,7 +6,15 @@ import FORM_SCHEME from "./scheme";
 import styles from './MyForm.module.css';
     
 export function MyForm() {
-    const {setValue, getValue, getError, validate, resetForm, isViewMode, setViewMode} = useFormMod(
+    const {
+        setValue,
+        getValue,
+        getError,
+        validate,
+        resetForm,
+        isViewMode,
+        setViewMode
+    } = useFormMod(
         FORM_SCHEME
     );
         

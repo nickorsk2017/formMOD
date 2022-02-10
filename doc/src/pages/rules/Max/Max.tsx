@@ -12,8 +12,8 @@ export const Max = () => {
     return (
       <div className={styles.container}>
         <Content content={PART_1}/>
-        <div className="formmod__subtitle">Format:</div>
-        <Content preWrap={true} content={_SCHEME.result}/>
+        <div className="formmod__subtitle">Format</div>
+        <Content minWidth="700px" preWrap={true} content={_SCHEME.result}/>
         <Content content={PART_2}/>
       </div>
     )

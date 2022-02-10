@@ -5,7 +5,8 @@ import {Content} from "../../ui";
 import {
   PART_1,
   PART_2,
-  //PART_3,
+  PART_3,
+  PART_4,
   CODE_INPUT,
   CODE_INPUT_CHILD,
 } from "./_docs";
@@ -18,13 +19,15 @@ export const Combined = () => {
     return (
       <div className={styles.container}>
         <Content content={PART_1}/>
-        <div className="formmod__subtitle">Live example:</div><br/>
+        <div className="formmod__subtitle">Live example</div><br/>
         <MyForm/><br/>
         <Content content={PART_2}/>
-        <div className="formmod__subtitle">Combined component:</div>
-        <Content countLines={_CODE_INPUT.countLines}  preWrap content={_CODE_INPUT.result}/>
-        <div className="formmod__subtitle">Child UI component:</div><br/>
-        <Content countLines={_CODE_INPUT_CHILD.countLines}  preWrap content={_CODE_INPUT_CHILD.result}/>
+        <div className="formmod__subtitle">Combined component</div>
+        <Content content={PART_3}/>
+        <Content lines='22-30,32-39,41-47,109-115' minWidth="750px" countLines={_CODE_INPUT.countLines}  preWrap content={_CODE_INPUT.result}/>
+        <div className="formmod__subtitle">Child component</div><br/>
+        <Content content={PART_4}/>
+        <Content minWidth="750px" countLines={_CODE_INPUT_CHILD.countLines}  preWrap content={_CODE_INPUT_CHILD.result}/>
       </div>
     )
 }

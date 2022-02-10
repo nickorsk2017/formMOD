@@ -1,5 +1,5 @@
 .container {
-    
+    min-width: 600px;
 }
 .container [content-header] {
     font-size: 35px;
@@ -24,10 +24,17 @@
     box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
     padding-left: 20px;
     word-wrap: break-word;
+    padding-left: 35px;
+    padding-right: 35px;
+}
+@media (max-width: 400px){
+    .container [content-ul]{
+        width: 600px !important;
+    }
 }
 .container[pre-wraped] {
-    width: 1322px !important;
-    max-width: unset !important;
+    max-width: 1322px !important;
+    width: 100%;
     font-size: 16px !important;
 }
 @media (max-width: 1280px){
@@ -38,7 +45,7 @@
     }
     code{
         font-size: 16px !important;
-        width: 1322px !important;
+       /* width: 1322px !important; */
         display: inline-block !important;
     }
     .line-numbers-rows > span {
@@ -48,9 +55,9 @@
     }
 }
 .container [content-ul] li {
-    display: inline-block;
     width: 100%;
     margin-bottom: 16px;
+    font-size: 18px;
 }
 .container [content-help] {
     height: 50px;

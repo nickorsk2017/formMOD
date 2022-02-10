@@ -23,20 +23,20 @@ export const SmartIntro = () => {
     return (
       <div className={styles.container}>
         <Content content={PART_1}/>
-        <div className="formmod__subtitle">Form with basic inputs:</div><br/>
+        <div className="formmod__subtitle">Form with basic inputs</div><br/>
         <Content content={PART_2}/><br/><br/>
         <Basic/><br/>
-        <h3 className='formmod__subtitle-2'>Example of basic input component:</h3>
+        <h3 className='formmod__subtitle-2'>Example of basic input component</h3>
         <Content countLines={_CODE_BASIC.countLines} preWrap={true} content={_CODE_BASIC.result}/>
         <Content content={NOTICE_BASIC}/><br/><br/><br/>
-        <div className="formmod__subtitle">Form with smart inputs:</div><br/>
+        <div className="formmod__subtitle">Form with smart inputs</div><br/>
         <Content content={PART_3}/><br/><br/>
         <Uncontrolled/><br/>
-        <h3 className='formmod__subtitle-2'>Example of smart input component:</h3>
+        <h3 className='formmod__subtitle-2'>Example of smart input component</h3>
         <Content lines='5' countLines={_CODE_SMART.countLines} preWrap={true} content={_CODE_SMART.result}/>
         <Content content={NOTICE_SMART}/>
         <br/>
-        <div className="formmod__subtitle">Restrictions:</div><br/>
+        <div className="formmod__subtitle">Restrictions</div><br/>
         <Content content={PART_4}/>
         <br/><br/>
       </div>

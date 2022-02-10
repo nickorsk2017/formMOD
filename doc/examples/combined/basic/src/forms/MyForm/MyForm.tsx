@@ -21,8 +21,10 @@ export const MyForm = () => {
 		}
         validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
             if(valid) {
+                alert('Form is valid');
                 console.log(formValue, 'RESULT TRUE');
             } else {
+                alert('Form is wrong');
                 console.log(formValue, 'RESULT FALSE');
             }
         });

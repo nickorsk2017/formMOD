@@ -12,9 +12,9 @@ export const Scheme = () => {
     return (
       <div className={styles.container}>
         <Content content={PART_1}/>
-        <div className="formmod__subtitle">Example:</div>
-        <Content countLines={countLines} language="json5" preWrap={true} content={result}/>
-        <div className="formmod__subtitle">Sections:</div>
+        <div className="formmod__subtitle">Example</div>
+        <Content minWidth="700px" countLines={countLines} language="json5" preWrap={true} content={result}/>
+        <div className="formmod__subtitle">Sections</div>
         <Content content={PART_2}/>
         <Content content={IMPORTANT}/>
       </div>

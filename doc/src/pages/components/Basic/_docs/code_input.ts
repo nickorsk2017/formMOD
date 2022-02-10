@@ -7,8 +7,6 @@ export type TextInputParams = {
   value: string;
   onChange: (value: string) => void;
   error: string | null;
-  onFocus?: () => void;
-  onBlur?: () => void;
 };
 
 export const TextInput = (props: TextInputParams) => {
@@ -17,8 +15,6 @@ export const TextInput = (props: TextInputParams) => {
       onChange,
       value,
       label,
-      onFocus,
-      onBlur,
     } = props;
 
     const _onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -28,7 +24,7 @@ export const TextInput = (props: TextInputParams) => {
     return (
       <div className={styles.textInput}>
         {label && <label className={styles.label}>{label}</label>}
-        <input className={styles.input} onFocus={onFocus}  onBlur={onBlur} onChange={_onChange} value={value}/>
+        <input className={styles.input} onChange={_onChange} value={value}/>
         {error && <span className={styles.error}>{error}</span>}
       </div>
     )

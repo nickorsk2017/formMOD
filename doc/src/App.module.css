@@ -32,7 +32,7 @@
     width: 100%;
     max-height: 1px;
     height: 1px;
-    transition: max-height 10s ease, opacity 0.3s;
+    transition: max-height 3s ease, opacity 0.3s;
     background-color: #e6e6e6;
     overflow: hidden;
     opacity: 0;

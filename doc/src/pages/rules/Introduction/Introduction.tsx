@@ -12,8 +12,8 @@ export const Introduction = () => {
     return (
       <div className={styles.container}>
         <Content content={PART_1}/>
-        <div className="formmod__subtitle">Form scheme:</div>
-        <Content countLines={_SCHEME.countLines} preWrap={true} content={_SCHEME.result}/>
+        <div className="formmod__subtitle">Form scheme</div>
+        <Content minWidth="700px" countLines={_SCHEME.countLines} preWrap={true} content={_SCHEME.result}/>
         <Content content={PART_2}/>
       </div>
     )

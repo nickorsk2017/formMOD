@@ -28,7 +28,13 @@ export const TextInput = (props: TextInputParams) => {
   return (
     <div className={styles.textInput}>
       {label && <label className={styles.label}>{label}</label>}
-      <input className={styles.input} onFocus={onFocus}  onBlur={onBlur} onChange={_onChange} value={value}/>
+      <input
+        className={styles.input}
+        onFocus={onFocus}
+        onBlur={onBlur}
+        onChange={_onChange}
+        value={value}
+      />
       {error && <span className={styles.error}>{error}</span>}
     </div>
     )
