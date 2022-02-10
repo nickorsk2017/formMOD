@@ -35,7 +35,7 @@ export const Basic = () => {
           <br/>
           <div className="formmod__subtitle">Form component</div>
           <Content content={PART_3}/>
-          <Content minWidth="750px" countLines={_FORM_CODE.countLines} lines="8-10,21,30,50,57,59-65" preWrap={true} content={_FORM_CODE.result}/>
+          <Content minWidth="750px" countLines={_FORM_CODE.countLines} lines="8-18,29,38,58,65,67-73" preWrap={true} content={_FORM_CODE.result}/>
           <br/>
           <div className="formmod__subtitle">Input component</div>
           <Content content={PART_4}/>
