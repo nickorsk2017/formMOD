@@ -56,7 +56,7 @@ module.exports = {
         publicPath: '/'
     },
     devServer: {
-        contentBase: path.join(__dirname, "/"),
+        static: path.join(__dirname, "/"),
         historyApiFallback: true,
         port: 3000,
         open: true,

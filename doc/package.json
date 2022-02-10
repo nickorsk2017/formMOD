@@ -8,31 +8,30 @@
     "build": "webpack --config webpack-prod.config.js"
   },
   "dependencies": {
-    "@types/jest": "link:../node_modules/@types/jest",
-    "@types/node": "link:../node_modules/@types/node",
-    "@types/react": "link:../node_modules/@types/react",
-    "@types/react-dom": "link:../node_modules/@types/react-dom",
-    "@types/react-router-dom": "^5.1.7",
-    "event-hooks-webpack-plugin": "^2.2.0",
     "formmod": "link:..",
     "react": "link:../node_modules/react",
     "react-dom": "link:../node_modules/react-dom",
-    "react-router-dom": "^5.2.0",
-    "typescript": "link:../node_modules/typescript",
-    "webpack": "^5.36.0",
-    "webpack-cli": "^4.6.0",
-    "write-file-webpack-plugin": "^4.5.1"
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
-    "@types/react-router-dom": "^5.1.7",
     "copy-webpack-plugin": "^10.2.0",
     "css-loader": "^5.2.4",
     "html-webpack-plugin": "^5.3.1",
     "style-loader": "^2.0.0",
     "svg-url-loader": "^7.1.1",
     "ts-loader": "^9.1.1",
-    "webpack-dev-server": "^3.11.2"
+    "typescript": "link:../node_modules/typescript",
+    "write-file-webpack-plugin": "^4.5.1",
+    "@types/jest": "link:../node_modules/@types/jest",
+    "@types/node": "link:../node_modules/@types/node",
+    "@types/react": "link:../node_modules/@types/react",
+    "@types/react-dom": "link:../node_modules/@types/react-dom",
+    "@types/react-router-dom": "^5.1.7",
+    "event-hooks-webpack-plugin": "^2.2.0",
+    "webpack": "^5.36.0",
+    "webpack-cli": "^4.6.0",
+    "webpack-dev-server": "^4.7.4"
   },
   "eslintConfig": {
     "extends": "react-app"
