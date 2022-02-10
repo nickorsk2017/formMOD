@@ -6,12 +6,12 @@ This is example from page of formMOD documentation.
 
 Intallation with npm:
 ```bash
-npm i formmod
+npm i
 ```
 
 Intallation with yarn:
 ```bash
-yarn add formmod
+yarn install
 ```
 ## Quick Start
 
