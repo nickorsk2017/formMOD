@@ -23,7 +23,7 @@ Intallation with npm:
 npm i formmod
 ```
 
-Intallation with npm:
+Intallation with yarn:
 ```bash
 yarn add formmod
 ```
@@ -33,4 +33,4 @@ yarn add formmod
 
 ## License
 
-MIT © [Nickolay Stepanov](https://github.com/nickorsk2017)
+MIT
