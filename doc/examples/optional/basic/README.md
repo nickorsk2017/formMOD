@@ -4,12 +4,12 @@ This is example from page of formMOD documentation.
 
 ## Installation
 
-Intallation with npm:
+Installation with npm:
 ```bash
 npm i
 ```
 
-Intallation with yarn:
+Installation with yarn:
 ```bash
 yarn install
 ```
