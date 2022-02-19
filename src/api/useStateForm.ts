@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useForceUpdate } from '../utils';
 import { FormState } from '../types';
 
@@ -13,11 +13,18 @@ export type UpdateFormState = (
  * It need for improving performance, custom logic for inputs or form.
  */
 export const useStateForm = (initFormState: FormState) => {
+  const timeout = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      timeout.current && clearTimeout(timeout.current);
+    };
+  }, []);
+
   const result = useRef(
     (() => {
       let formState: FormState = initFormState;
       let _initFormState = initFormState;
-      let timout: ReturnType<typeof setTimeout> | null = null;
       //Needs for improving performance,no need to run rendering everytime.
       //useState can't skip rendering.
       const { forceUpdate } = useForceUpdate();
@@ -47,10 +54,10 @@ export const useStateForm = (initFormState: FormState) => {
         // fix multipale updates
         // need only one last
         if ((!skipUpdate || formState.valid !== null) && !editMode) {
-          if (timout) {
-            clearTimeout(timout);
+          if (timeout.current) {
+            clearTimeout(timeout.current);
           }
-          timout = setTimeout(() => {
+          timeout.current = setTimeout(() => {
             forceUpdate();
           }, 5);
         }

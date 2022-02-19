@@ -48,9 +48,12 @@ export const useRefMod: UseRefMod = ({
   getVisibilities,
   setValue
 }) => {
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   useEffect(() => {
     const eventListeners = getEventListeners();
     return () => {
+      timer.current && clearTimeout(timer.current);
       removeEventListeners({ inputName, eventListeners });
       deleteEventListener(inputName);
     };
@@ -96,7 +99,7 @@ export const useRefMod: UseRefMod = ({
           groupInputId?: number | string
         ) => {
           const listenerObj: ListenerObj = {
-            timer: null,
+            timer,
             getFormState,
             inputName,
             groupInputId,

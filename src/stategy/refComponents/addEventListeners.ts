@@ -42,8 +42,8 @@ export const addEventListeners: AddEventListeners = ({
         this.getFormState().formValue &&
         !isEqual(valueFromFormState, inputValue)
       ) {
-        clearTimeout(this.timer);
-        this.timer = setTimeout(() => {
+        clearTimeout(this.timer.current);
+        this.timer.current = setTimeout(() => {
           setValue({
             formState: this.getFormState(),
             inputName,

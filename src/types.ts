@@ -50,7 +50,8 @@ export type GetEventListeners = () => Array<ListenerObj>;
 export type GroupInputId = string | number | null;
 
 export type ListenerObj = {
-  timer: ReturnType<typeof setTimeout> | null;
+  //timer: ReturnType<typeof setTimeout> | null;
+  timer: React.MutableRefObject<NodeJS.Timeout | null>;
   getFormState: () => FormState;
   inputName: string;
   element: ElementMod;
