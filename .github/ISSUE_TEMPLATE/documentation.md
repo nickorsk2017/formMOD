@@ -2,7 +2,7 @@
 name: Documentation
 about: Documentation tasks
 title: ''
-labels: documentation
+labels: ''
 assignees: nickorsk2017
 
 ---

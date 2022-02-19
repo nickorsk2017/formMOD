@@ -2,7 +2,7 @@
 name: Documentation report
 about: Documentation issues (e.g. translation, lack of information ... )
 title: ''
-labels: documentation
+labels: ''
 assignees: nickorsk2017
 
 ---
