@@ -4,7 +4,7 @@ import {TextInput, Button, OptionBox} from "../../ui";
 import FORM_SCHEME from "./scheme";
 import styles from './Edit.module.css';
 
-export function MyForm({formValue}: any) {
+export function MyForm({initValue}: any) {
     const {
         validate,
         resetForm,
@@ -21,8 +21,8 @@ export function MyForm({formValue}: any) {
         FORM_SCHEME,
     );
     // edit mode here
-    if(formValue){
-      setValues(formValue, {skipUpdate: true});
+    if(initValue){
+      setValues(initValue, {init: true});
     }
     
     const handleSubmit = (event: React.SyntheticEvent) => {

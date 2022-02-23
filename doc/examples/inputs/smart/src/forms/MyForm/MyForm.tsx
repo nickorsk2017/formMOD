@@ -35,6 +35,8 @@ export function MyForm() {
     const {getCountRender, counter} = useCountRender();
     counter();
     // count of render [END]
+
+    console.log("render");
     
     return (
         <form onSubmit={handleSubmit} className={styles.form}>

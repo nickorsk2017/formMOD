@@ -28,8 +28,13 @@ export * as Types from './types';
 export { useDebounce } from './api';
 
 export const useFormMod = (initFormState: FormState) => {
-  const { getFormState, updateFormState, isOnInitEdit, getInitFormState } =
-    useStateForm(initFormState);
+  const {
+    getFormState,
+    updateFormState,
+    isOnInitEdit,
+    getInitFormState,
+    updateViewForm
+  } = useStateForm(initFormState);
 
   const { deleteEventListener, deleteAllEventListeners, getEventListeners } =
     useMemo(() => {
@@ -197,7 +202,8 @@ export const useFormMod = (initFormState: FormState) => {
         getError,
         getValue,
         getVisibilities,
-        setValue
+        setValue,
+        updateViewForm
       }),
     getVisibilities: () => getVisibilities({ getFormState }),
     isVisible: (inputName: InputName) => {

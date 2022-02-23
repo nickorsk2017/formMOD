@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useForceUpdate } from '../utils';
 import { FormState } from '../types';
 
@@ -15,14 +15,6 @@ export type UpdateFormState = (
  * It need for improving performance, custom logic for inputs or form.
  */
 export const useStateForm = (initFormState: FormState) => {
-  const timeout = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  useEffect(() => {
-    return () => {
-      timeout.current && clearTimeout(timeout.current);
-    };
-  }, []);
-
   const result = useRef(
     (() => {
       let formState: FormState = initFormState;
@@ -46,19 +38,17 @@ export const useStateForm = (initFormState: FormState) => {
       const isOnInitEdit = () => {
         return onInitEdit;
       };
+      const updateViewForm = () => {
+        forceUpdate();
+      };
 
       const updateFormState: UpdateFormState = (newFormState, props) => {
         setState(newFormState);
         // fix multipale rendering in short time
         // need check a last state of form and render one time
         // for a big and difficult form
-        if ((!props?.skipUpdate || formState.valid !== null) && !props?.init) {
-          if (timeout.current) {
-            clearTimeout(timeout.current);
-          }
-          timeout.current = setTimeout(() => {
-            forceUpdate();
-          }, 5);
+        if (!props?.skipUpdate && formState.valid !== null && !props?.init) {
+          forceUpdate();
         }
         if (props?.init && !isOnInitEdit()) {
           setOnInitFromEdit(true);
@@ -71,7 +61,8 @@ export const useStateForm = (initFormState: FormState) => {
         getFormState: () => formState,
         getInitFormState,
         updateFormState,
-        isOnInitEdit
+        isOnInitEdit,
+        updateViewForm
       };
     })()
   ).current;

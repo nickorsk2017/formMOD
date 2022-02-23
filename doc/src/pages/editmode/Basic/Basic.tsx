@@ -5,7 +5,7 @@ import {
     PART_1,
     PART_2,
     PART_3,
-    PART_4,
+    PART_5,
     SCHEME,
     FORM_CODE,
     PARENT,
@@ -17,6 +17,7 @@ export const Basic = () => {
     const _SCHEME = getCodeSnippet(SCHEME);
     const _FORM_CODE = getCodeSnippet(FORM_CODE);
     const _PARENT = getCodeSnippet(PARENT);
+    const _PART_5 = getCodeSnippet(PART_5);
   
     return (
         <div className={styles.container}>
@@ -39,8 +40,12 @@ export const Basic = () => {
             <div className="formmod__subtitle">Form component</div>
             <Content content={PART_3}/>
             <Content minWidth="750px" countLines={_FORM_CODE.countLines} lines="18, 23-26" preWrap={true} content={_FORM_CODE.result}/>
-            <div className="formmod__subtitle">Create mode</div><br/>
-            <Content content={PART_4}/>
+            <div className="formmod__subtitle">Form with dynamic value</div><br/>
+            If your form using a dynamic form value you can use  this flow:
+            <Content minWidth="750px" preWrap={true} content={_PART_5.result}/><br/>
+            Property <b>skipUpdate</b> skip rendering.<br/> It can be helpfull if your form value was pushed from a global store / state / component props.<br/>
+            But if you want use setValues manually and update form view you should set <b>skipUpdate</b> to false.
+            <br/><br/>
         </div>
     )
 }

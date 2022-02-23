@@ -4,7 +4,7 @@ export default (() => {
     
     export function Edit() {
         // value for edit.
-        const initValue = {
+        const formValue = {
             first_name: "Jack",
             last_name: "Pack",
             haveHobbies: true,
@@ -20,7 +20,7 @@ export default (() => {
             ]
         };
         
-        return <Form initValue={initValue}/>
+        return <Form initValue={formValue}/>
     }`;
 
     return code;

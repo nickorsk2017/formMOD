@@ -21,9 +21,9 @@ export const MyForm = ({initValue}: Props) => {
         FORM_SCHEME
     );
     
-    // edit mode or create *if* initValue empty
+    // fill form data
     if(initValue){
-        setValues(initValue, {skipUpdate: true});
+        setValues(initValue, {init: true});
     }
         
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {

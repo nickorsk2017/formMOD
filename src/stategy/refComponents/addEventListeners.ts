@@ -11,6 +11,7 @@ export type AddEventListenersParams = {
   groupInputId?: GroupInputId;
   updateFormState: UpdateFormState;
   getVisibilities: Visibilities;
+  updateViewForm: () => void;
 };
 export type AddEventListeners = (
   params: AddEventListenersParams
@@ -21,12 +22,12 @@ export const addEventListeners: AddEventListeners = ({
   inputName,
   groupInputId,
   updateFormState,
-  getVisibilities
+  getVisibilities,
+  updateViewForm
 }) => {
   if (element instanceof HTMLElement) {
     const listenerHandler = function (event: any) {
       let inputValue = event.target.value;
-      let _skipUpdate = true;
       let timeout = 300;
       const v = this.getFormState().formValue[inputName];
       const valueFromFormState = !groupInputId ? v : v.value;
@@ -35,26 +36,31 @@ export const addEventListeners: AddEventListeners = ({
         if (typeof valueFromFormState !== 'string') {
           inputValue = !valueFromFormState;
         }
-        _skipUpdate = false;
+        //_skipUpdate = false;
         timeout = 0;
       }
       if (
         this.getFormState().formValue &&
         !isEqual(valueFromFormState, inputValue)
       ) {
-        clearTimeout(this.timer.current);
+        const formState = this.getFormState();
+        setValue({
+          formState,
+          inputName,
+          groupInputId,
+          inputValue,
+          updateFormState,
+          skipUpdate: timeout ? true : false,
+          getVisibilities,
+          getFormState: this.getFormState
+        });
         // debounce startegy
-        this.timer.current = setTimeout(() => {
-          setValue({
-            formState: this.getFormState(),
-            inputName,
-            groupInputId,
-            inputValue,
-            updateFormState,
-            skipUpdate: _skipUpdate,
-            getVisibilities
-          });
-        }, timeout);
+        if (timeout && formState.valid !== null) {
+          clearTimeout(this.timer.current);
+          this.timer.current = setTimeout(() => {
+            updateViewForm();
+          }, timeout);
+        }
       }
     };
     // element.addEventListener("input", listenerHandler);

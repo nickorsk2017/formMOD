@@ -61,11 +61,11 @@ export const Content = (props: ContentParams) => {
         });
       };
       return (
-        <pre ref={refPre} style={{minWidth: `${minWidth}`}} pre-wraped="true" className={[styles.container, "content-overriding", "line-numbers", lang].join(" ")}>
+        <pre ref={refPre} style={{minWidth: `${minWidth}`}} pre-wraped="true" className={[styles.container, !countLines ? styles.withoutLines: "", "content-overriding", "line-numbers", lang].join(" ")}>
           <code dangerouslySetInnerHTML={{__html: content}}></code>
-            <div className={styles.linesContainer}>
+            {countLines > 0 && <div className={styles.linesContainer}>
               {renderLines()}
-            </div>
+            </div>}
           </pre>
       )
     }

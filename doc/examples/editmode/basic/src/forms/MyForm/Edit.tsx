@@ -8,10 +8,10 @@ export type ValueForm = {
 
 export function Edit() {
     // init value of form.
-    const initValue: ValueForm = {
+    const formValue: ValueForm = {
         first_name: "Jack",
         last_name: "Pack",
     };
     
-    return <MyForm initValue={initValue}/>
+    return <MyForm initValue={formValue}/>
 }

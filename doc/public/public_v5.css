@@ -277,12 +277,10 @@ b {
   color: #333;
 }
 
-pre.line-numbers {
+body pre.line-numbers[pre-wraped] {
   position: relative;
-  padding-left: 3.8em !important;
   line-height: 1.5;
   text-shadow: 0 1px #fff;
-  padding: 1em;
   overflow: auto;
 }
 pre[class*=language-].line-numbers>code {

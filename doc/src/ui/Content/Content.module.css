@@ -22,10 +22,10 @@
     color: #333333;
     background: #fff;
     box-shadow: 0 1px 4px 0 rgb(0 0 0 / 14%);
-    padding-left: 20px;
     word-wrap: break-word;
-    padding-left: 35px;
+    padding-left: 60px;
     padding-right: 35px;
+    padding-bottom: 12px;
 }
 @media (max-width: 400px){
     .container [content-ul]{
@@ -102,4 +102,7 @@
     height: 100%;
     color: #54c270;
     background: linear-gradient(to right,rgba(85, 194, 112, 0.1) 70%,rgba(85, 194, 112, 0.1)) !important;
+}
+.withoutLines {
+    padding-left: 12px !important;
 }

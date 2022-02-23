@@ -2,7 +2,7 @@ import React from 'react'
 import { Form } from './Form'
 
 export function Edit() {
-    const formvalue = {
+    const formValue = {
         first_name: "Jack",
         last_name: "Pack",
         address: "New York",
@@ -21,6 +21,6 @@ export function Edit() {
         ]
     };
     return (
-        <Form formValue={formvalue}/>
+        <Form initValue={formValue}/>
     )
 }

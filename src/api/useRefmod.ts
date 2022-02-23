@@ -34,6 +34,7 @@ export type useRefModParams = {
   getValue: GetValue;
   getVisibilities: Visibilities;
   setValue: SetValue;
+  updateViewForm: () => void;
 };
 export type UseRefMod = (params: useRefModParams) => useRefModResult;
 
@@ -46,7 +47,8 @@ export const useRefMod: UseRefMod = ({
   getError,
   getValue,
   getVisibilities,
-  setValue
+  setValue,
+  updateViewForm
 }) => {
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
@@ -104,14 +106,16 @@ export const useRefMod: UseRefMod = ({
             inputName,
             groupInputId,
             element,
-            listenerHandler: () => {}
+            listenerHandler: () => {},
+            clearEffects: () => {}
           };
           listenerObj.listenerHandler = addEventListeners({
             element,
             inputName,
             groupInputId,
             updateFormState,
-            getVisibilities
+            getVisibilities,
+            updateViewForm
           }).bind(listenerObj);
           // set init value from formState
           updateValueInputFromState({

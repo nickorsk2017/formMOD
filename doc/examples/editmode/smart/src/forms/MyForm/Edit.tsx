@@ -3,7 +3,7 @@ import { MyForm } from './MyForm'
 
 export function Edit() {
     // this is value for edit mode.
-    const formvalue = {
+    const formValue = {
         first_name: "Jack",
         last_name: "Pack",
         haveHobbies: true,
@@ -18,5 +18,5 @@ export function Edit() {
             }
         ]
     };
-    return <MyForm formValue={formvalue}/>
+    return <MyForm initValue={formValue}/>
 }

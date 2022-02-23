@@ -57,6 +57,7 @@ export type ListenerObj = {
   element: ElementMod;
   groupInputId?: GroupInputId;
   listenerHandler: () => void | EventListenerObject;
+  clearEffects: () => void;
 };
 
 export type useRefModResult = {
