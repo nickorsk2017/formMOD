@@ -22,7 +22,7 @@ export function MyForm({formValue}: any) {
     );
     // edit mode here
     if(formValue){
-      setValues(formValue, true);
+      setValues(formValue, {skipUpdate: true});
     }
     
     const handleSubmit = (event: React.SyntheticEvent) => {

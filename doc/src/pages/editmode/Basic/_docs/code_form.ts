@@ -23,7 +23,7 @@ export const MyForm = ({initValue}: Props) => {
     
     // edit mode or create *if* initValue empty
     if(initValue){
-        setValues(initValue, true);
+        setValues(initValue, {skipUpdate: true});
     }
         
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {

@@ -13,7 +13,8 @@ export type ValidateParams = {
   updateFormState: UpdateFormState;
   getVisibilities: Visibilities;
   getFormState?: () => FormState;
-  editMode?: boolean;
+  init?: boolean;
+  skipUpdate?: boolean;
 };
 export type Validate = (params: ValidateParams) => FormState;
 
@@ -25,7 +26,8 @@ export const validate: Validate = ({
   updateFormState,
   getVisibilities,
   getFormState,
-  editMode
+  init,
+  skipUpdate
 }) => {
   const cloneRules = {};
   let formIsValid = true;
@@ -75,9 +77,9 @@ export const validate: Validate = ({
       _formState.valid = formIsValid;
       _formState.rules = cloneRules;
       if (updateValidation) {
-        if (editMode) {
+        if (init || skipUpdate) {
           if (!isEqual(_formState, oldFormValue)) {
-            updateFormState(_formState, false, true);
+            updateFormState(_formState, { skipUpdate, init });
           }
         } else {
           updateFormState(_formState);

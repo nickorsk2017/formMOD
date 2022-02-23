@@ -45,7 +45,7 @@ export const setValue: SetValue = ({
       _formState.formValue[inputName] = inputValue;
     }
     if (_formState.valid === null || skipValidation) {
-      updateFormState(_formState, skipUpdate);
+      updateFormState(_formState, { skipUpdate });
       return _formState;
     } else {
       return validate({

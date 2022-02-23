@@ -23,7 +23,7 @@ export default (() => {
         );
         // set edit mode if initValue was filled
         if(initValue){
-          setValues(initValue, true);
+          setValues(initValue, {skipUpdate: true});
         }
         
         const handleSubmit = (event: React.SyntheticEvent) => {

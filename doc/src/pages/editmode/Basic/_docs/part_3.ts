@@ -3,6 +3,6 @@ export default `
     <div class="steps-header">Steps</div>
     Step 1: Use setValues method (<b>line 18</b>).<br/>
     Step 2: Set a init value if need(<b>line 23-26</b>).<br/>
-    <b>setValues(formValue, true)</b> - second parameter need to run this method only one time (on first rendering).
+    <b>setValues(formValue, {skipUpdate: true})</b> -  skipUpdate parameter need to run this method only one time (on first rendering).
 </div>
 `

@@ -25,7 +25,7 @@ export function Form({formValue}: any) {
 
     // edit mode here
     if(formValue){
-        setValues(formValue, true);
+        setValues(formValue, {editMode: true});
     }
     
     const handleSubmit = function(event: any){

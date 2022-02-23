@@ -9,7 +9,8 @@ export type SetValuesParams = {
   inputsValues: FormValue;
   updateFormState: UpdateFormState;
   getVisibilities: Visibilities;
-  editMode?: boolean;
+  skipUpdate?: boolean;
+  init?: boolean;
   getFormState: () => FormState;
   isOnInitEdit: boolean;
 };
@@ -20,7 +21,8 @@ export const setValues: SetValues = ({
   inputsValues,
   updateFormState,
   getVisibilities,
-  editMode,
+  skipUpdate,
+  init,
   getFormState,
   isOnInitEdit
 }) => {
@@ -29,14 +31,13 @@ export const setValues: SetValues = ({
     _formState.formValue[inputName] = inputsValues[inputName];
   });
 
-  //cancell update state each render for edit mode
-  // this state must update only first render
-  if (editMode && isOnInitEdit) {
+  //cancell double rendering and validation on init form value
+  if (init && isOnInitEdit) {
     return formState;
   }
 
-  //if form not was validated and is not edit mode (from props component)
-  if (_formState.valid === null && !editMode) {
+  //skip validation if form init with epmty value
+  if (_formState.valid === null && !init) {
     if (!isEqual(_formState, formState)) {
       updateFormState(_formState);
     }
@@ -50,7 +51,8 @@ export const setValues: SetValues = ({
         updateFormState,
         getVisibilities,
         getFormState,
-        editMode
+        skipUpdate,
+        init
       });
     } else {
       return formState;

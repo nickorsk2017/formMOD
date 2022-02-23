@@ -43,6 +43,7 @@ export const addEventListeners: AddEventListeners = ({
         !isEqual(valueFromFormState, inputValue)
       ) {
         clearTimeout(this.timer.current);
+        // debounce startegy
         this.timer.current = setTimeout(() => {
           setValue({
             formState: this.getFormState(),

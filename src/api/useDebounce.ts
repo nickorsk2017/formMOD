@@ -1,4 +1,4 @@
-type UseOptimisationInputType = ({
+type UseDebounceType = ({
   onChange,
   value,
   inputRef
@@ -11,7 +11,7 @@ type UseOptimisationInputType = ({
   onBlurOptimized: (e: any) => void;
 };
 
-export const useOptimisationInput: UseOptimisationInputType = (props) => {
+export const useDebounce: UseDebounceType = (props) => {
   const { onChange, value, inputRef } = props;
   if (inputRef && inputRef.current && inputRef.current.value !== value) {
     inputRef.current.value = value;

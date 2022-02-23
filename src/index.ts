@@ -25,7 +25,7 @@ import {
 } from './types';
 export { useCountRender } from './utils';
 export * as Types from './types';
-export { useOptimisationInput } from './api';
+export { useDebounce } from './api';
 
 export const useFormMod = (initFormState: FormState) => {
   const { getFormState, updateFormState, isOnInitEdit, getInitFormState } =
@@ -146,13 +146,17 @@ export const useFormMod = (initFormState: FormState) => {
         getVisibilities,
         skipValidation
       }),
-    setValues: (inputsValues: FormValue, editMode?: boolean) => {
+    setValues: (
+      inputsValues: FormValue,
+      props?: { init?: boolean; skipUpdate?: boolean }
+    ) => {
       return setValues({
         formState: getFormState(),
         inputsValues: inputsValues,
         updateFormState,
         getVisibilities,
-        editMode,
+        init: props?.init || false,
+        skipUpdate: props?.skipUpdate || false,
         getFormState,
         isOnInitEdit: isOnInitEdit()
       });
@@ -186,7 +190,6 @@ export const useFormMod = (initFormState: FormState) => {
     useRefMod: (inputName: InputName) =>
       useRefMod({
         getFormState,
-        initFormState: getInitFormState(),
         inputName,
         getEventListeners,
         updateFormState,
@@ -194,8 +197,7 @@ export const useFormMod = (initFormState: FormState) => {
         getError,
         getValue,
         getVisibilities,
-        setValue,
-        resetForm
+        setValue
       }),
     getVisibilities: () => getVisibilities({ getFormState }),
     isVisible: (inputName: InputName) => {

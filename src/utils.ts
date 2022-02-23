@@ -63,36 +63,72 @@ export const cloneDeep = (
   return obj;
 };
 
-export const isObject = (object: null | Record<string, any> | string) => {
-  return object != null && typeof object === 'object';
-};
-
 export const isEqual = (
-  object1: Record<string, any> | string | number | null | boolean,
-  object2: Record<string, any> | string | number | null | boolean
+  value: any,
+  other: any,
+  excludeProperties: Array<string> = []
 ) => {
-  if (
-    object1 &&
-    object2 &&
-    typeof object1 !== 'string' &&
-    typeof object2 !== 'string'
-  ) {
-    const keys1 = Object.keys(object1);
-    const keys2 = Object.keys(object2);
-    if (keys1.length !== keys2.length) {
-      return false;
+  if (!value && !other) {
+    return true;
+  }
+  const eqSting = JSON.stringify(value) === JSON.stringify(other);
+  if (eqSting) {
+    return true;
+  }
+  const type = Object.prototype.toString.call(value);
+  if (type !== Object.prototype.toString.call(other)) {
+    return false;
+  }
+  if (['[object Array]', '[object Object]'].indexOf(type) < 0) {
+    return false;
+  }
+  const valueLen =
+    type === '[object Array]' ? value.length : Object.keys(value).length;
+  const otherLen =
+    type === '[object Array]' ? other.length : Object.keys(other).length;
+  if (valueLen !== otherLen) {
+    return false;
+  }
+  const compare = (item1: any, item2: any) => {
+    const itemType = Object.prototype.toString.call(item1);
+    if (['[object Array]', '[object Object]'].indexOf(itemType) >= 0) {
+      if (!isEqual(item1, item2, excludeProperties)) {
+        return false;
+      }
+    } else {
+      if (itemType !== Object.prototype.toString.call(item2)) {
+        return false;
+      }
+      if (itemType === '[object Function]') {
+        if (item1.toString() !== item2.toString()) {
+          return false;
+        }
+      } else {
+        if (item1 !== item2) {
+          return false;
+        }
+      }
     }
-    for (const key of keys1) {
-      const val1 = object1[key];
-      const val2 = object2[key];
-      const areObjects = isObject(val1) && isObject(val2);
-      if (
-        (areObjects && !isEqual(val1, val2)) ||
-        (!areObjects && val1 !== val2)
-      ) {
+    return false;
+  };
+  // Compare properties
+  if (type === '[object Array]') {
+    for (let i = 0; i < valueLen; i++) {
+      if (compare(value[i], other[i]) === false) {
         return false;
       }
     }
+  } else {
+    for (const key in value) {
+      if (excludeProperties.indexOf(key) === -1) {
+        if (Object.prototype.hasOwnProperty.call(value, key)) {
+          if (compare(value[key], other[key]) === false) {
+            return false;
+          }
+        }
+      }
+    }
   }
-  return object1 === object2;
+  // If nothing failed, return true
+  return true;
 };

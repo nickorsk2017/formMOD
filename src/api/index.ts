@@ -10,4 +10,4 @@ export { useRefMod } from './useRefMod';
 export { getVisibilities } from './visibilities';
 export { groups } from './groups';
 export { viewMode } from './viewMode';
-export { useOptimisationInput } from './useOptimisationInput';
+export { useDebounce } from './useDebounce';

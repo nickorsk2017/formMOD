@@ -4,8 +4,10 @@ import { FormState } from '../types';
 
 export type UpdateFormState = (
   newFormState: FormState,
-  skipUpdate?: boolean,
-  editMode?: boolean
+  props?: {
+    skipUpdate?: boolean;
+    init?: boolean;
+  }
 ) => FormState;
 
 /**
@@ -45,15 +47,12 @@ export const useStateForm = (initFormState: FormState) => {
         return onInitEdit;
       };
 
-      const updateFormState: UpdateFormState = (
-        newFormState,
-        skipUpdate,
-        editMode
-      ) => {
+      const updateFormState: UpdateFormState = (newFormState, props) => {
         setState(newFormState);
-        // fix multipale updates
-        // need only one last
-        if ((!skipUpdate || formState.valid !== null) && !editMode) {
+        // fix multipale rendering in short time
+        // need check a last state of form and render one time
+        // for a big and difficult form
+        if ((!props?.skipUpdate || formState.valid !== null) && !props?.init) {
           if (timeout.current) {
             clearTimeout(timeout.current);
           }
@@ -61,7 +60,7 @@ export const useStateForm = (initFormState: FormState) => {
             forceUpdate();
           }, 5);
         }
-        if (editMode && !isOnInitEdit()) {
+        if (props?.init && !isOnInitEdit()) {
           setOnInitFromEdit(true);
           updateInitState(newFormState);
         }

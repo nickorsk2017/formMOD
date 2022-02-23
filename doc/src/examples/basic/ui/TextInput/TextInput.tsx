@@ -1,12 +1,12 @@
 import React from 'react'
 import {useRef} from "react";
-import {useOptimisationInput} from "./useOptimisationInput";
+import {useDebounce} from "formmod";
 import styles from './TextInput.module.css';
 
 export function TextInput(props: any) {
     const {error, onChange, value, label, visible, viewMode} = props;
     const inputRef = useRef<any>(null);
-    const {onChangeOptimized, onBlurOptimized} = useOptimisationInput({onChange, value, inputRef});
+    const {onChangeOptimized, onBlurOptimized} = useDebounce({onChange, value, inputRef});
 
     if(typeof visible === "boolean" && !visible){
       return null;

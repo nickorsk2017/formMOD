@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useFormMod, Types } from "formmod";
 import { TextInput, Button } from "../../ui";
 import {ValueForm} from "./Edit";
@@ -16,15 +16,23 @@ export const MyForm = ({initValue}: Props) => {
         getError,
         validate,
         setValues,
+        resetForm,
     } = useFormMod(
         FORM_SCHEME
     );
+    if(initValue){
+        setValues(initValue, {init: true});
+    }
 
     // edit mode or create if initValue empty
-    if(initValue){
-        setValues(initValue, true);
-    }
-    
+    useEffect(() => {
+        if(initValue){
+            setValues(initValue, {skipUpdate: true});
+        } else {
+            resetForm()
+        }
+    }, [initValue]);
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         if(event && event.preventDefault) {
 			event.preventDefault();
