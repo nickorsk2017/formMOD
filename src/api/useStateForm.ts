@@ -47,7 +47,7 @@ export const useStateForm = (initFormState: FormState) => {
         // fix multipale rendering in short time
         // need check a last state of form and render one time
         // for a big and difficult form
-        if (!props?.skipUpdate && formState.valid !== null && !props?.init) {
+        if (!props?.skipUpdate && !props?.init) {
           forceUpdate();
         }
         if (props?.init && !isOnInitEdit()) {
