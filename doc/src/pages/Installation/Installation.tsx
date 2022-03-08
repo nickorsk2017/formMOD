@@ -3,7 +3,7 @@ import {Content} from "../../ui";
 import {PART_1} from "./docs";
 import styles from './Installation.module.css';
 
-export type InstallationParams = {};
+export type InstallationProps = {};
 
 export const Installation = () => {
     //const {} = props;

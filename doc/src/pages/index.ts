@@ -23,3 +23,4 @@ export {Smart as UncontrolledEditmode} from "./editmode/Smart/Smart";
 export {Issues} from "./Issues/Issues";
 export {SmartIntro} from "./smartIntro/SmartIntro";
 export {Combined} from "./combined/Combined";
+export {Textinput} from "./gallery/Textinput/Textinput";

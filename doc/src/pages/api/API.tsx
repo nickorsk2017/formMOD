@@ -3,7 +3,7 @@ import {Content} from "../../ui";
 import {PART_1, PART_2} from "./docs";
 import styles from './API.module.css';
 
-export type APIParams = {};
+export type APIProps = {};
 
 const CONTENT = [
   {

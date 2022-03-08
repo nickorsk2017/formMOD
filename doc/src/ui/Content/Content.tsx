@@ -1,7 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import styles from './Content.module.css';
 
-export type ContentParams = {
+export type ContentProps = {
   content: string;
   preWrap?: boolean;
   language?: string;
@@ -10,7 +10,7 @@ export type ContentParams = {
   minWidth?: string;
 };
 
-export const Content = (props: ContentParams) => {
+export const Content = (props: ContentProps) => {
     const {content, preWrap, lines, language, countLines = 0, minWidth} = props;
     const refPre: React.LegacyRef<HTMLPreElement> = useRef(null);
     const [init, setInit] = useState(0);

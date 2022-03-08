@@ -1,9 +1,9 @@
 import { FormState, InputName } from '../types';
 
-export type VisibilitiesParams = {
+export type VisibilitiesProps = {
   getFormState: () => FormState;
 };
-/* export type getVisibilitiesResultParams = {
+/* export type getVisibilitiesResultProps = {
   getFormState: () => FormState,
 } */
 export type VisibilityResult = { disable: boolean; isVisible: boolean };
@@ -14,7 +14,7 @@ export type GetVisibilitiesResult = () => {
 
 export type GetVisibilityInput = (inputName: InputName) => VisibilityResult;
 
-export type Visibilities = (params: VisibilitiesParams) => {
+export type Visibilities = (params: VisibilitiesProps) => {
   getVisibilityInput: GetVisibilityInput;
   getVisibilitiesResult: GetVisibilitiesResult;
 };

@@ -1,14 +1,14 @@
 import React from 'react'
 import styles from './Button.module.css';
 
-export type ButtonParams = {
+export type ButtonProps = {
   onClick?: (event: React.SyntheticEvent) => void,
   title: string, 
   type?: "button" | "submit" | "reset" | undefined,
   theme?: "LIGHT"  | "RED" | undefined
 };
 
-export const Button = (props: ButtonParams) => {
+export const Button = (props: ButtonProps) => {
     const {type, onClick, title, theme} = props;
 
     const getTheme = () => {

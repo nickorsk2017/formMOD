@@ -3,7 +3,7 @@ import {Content} from "../../ui";
 import CONTENT from "./doc";
 import styles from './License.module.css';
 
-export type LicenseParams = {};
+export type LicenseProps = {};
 
 export const License = () => {
     //const {} = props;

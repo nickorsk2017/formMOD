@@ -27,6 +27,7 @@ import {
     Issues,
     SmartIntro,
     Combined,
+    Textinput,
   } from "./pages";
 
 const PREFIX = process.env.prefixMOD || "/";
@@ -133,6 +134,10 @@ export const Routers = () => {
 
             <Route path={`${PREFIX}issues/`} strict>
               <Issues/>
+            </Route>
+
+            <Route path={`${PREFIX}gallery-textinput/`} strict>
+              <Textinput/>
             </Route>
 
             <Route component={Page404} />

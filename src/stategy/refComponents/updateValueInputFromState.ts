@@ -11,7 +11,7 @@ import {
 export const toUseOnChangeEvent = (element: ElementMod) =>
   element !== null && (element.type === 'radio' || element.type === 'checkbox');
 
-export type UpdateValueInputFromStateParams = {
+export type UpdateValueInputFromStateProps = {
   getFormState: () => FormState;
   element: ElementMod;
   inputName: string;
@@ -20,7 +20,7 @@ export type UpdateValueInputFromStateParams = {
 };
 
 export type UpdateValueInputFromState = (
-  params: UpdateValueInputFromStateParams
+  params: UpdateValueInputFromStateProps
 ) => void;
 
 export const updateValueInputFromState: UpdateValueInputFromState = ({

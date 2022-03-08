@@ -6,13 +6,13 @@ import {
   GroupInputId
 } from '../types';
 
-export type GetErrorParams = {
+export type GetErrorProps = {
   formState: FormState;
   inputName: InputName;
   groupInputId?: GroupInputId;
 };
 
-export type GetError = (params: GetErrorParams) => MessageError | null;
+export type GetError = (params: GetErrorProps) => MessageError | null;
 
 export const getError: GetError = ({ formState, inputName, groupInputId }) => {
   const rules = formState.rules;

@@ -5,7 +5,7 @@ import { Visibilities } from '../api/visibilities';
 import { UpdateFormState } from '../api/useStateForm';
 import { FormState, InputName, FormValue } from '../types';
 
-export type ValidateParams = {
+export type ValidateProps = {
   formState: FormState;
   updateValidation: boolean;
   callback?: (valid: boolean | null, formValue: FormValue) => any;
@@ -16,7 +16,7 @@ export type ValidateParams = {
   init?: boolean;
   skipUpdate?: boolean;
 };
-export type Validate = (params: ValidateParams) => FormState;
+export type Validate = (params: ValidateProps) => FormState;
 
 export const validate: Validate = ({
   formState,

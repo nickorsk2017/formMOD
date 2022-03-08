@@ -9,7 +9,7 @@ export type ItemType = {
   value: any,
 };
   
-export type SearchInputParams = {
+export type SearchInputProps = {
   label: string;
   selectedItem: ItemType;
   items: Array<ItemType>;
@@ -19,7 +19,7 @@ export type SearchInputParams = {
   getterItemStringValue: (item: any) => string;
 };
   
-export const SearchInput = (props: SearchInputParams) => {
+export const SearchInput = (props: SearchInputProps) => {
   const {
     label,
     selectedItem,

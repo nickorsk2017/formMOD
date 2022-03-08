@@ -13,7 +13,7 @@ import {
 } from "./_docs";
 import styles from './Basic.module.css';
 
-export type ControlledParams = {};
+export type ControlledProps = {};
 
 export const Basic = () => {
   const _INPUT_CODE = getCodeSnippet(INPUT_CODE);
@@ -27,7 +27,7 @@ export const Basic = () => {
         <MyForm/>
         <br/>
         <div className="formmod__source">
-          <a href="https://github.com/nickorsk2017/formMOD/raw/master/doc/examples/inputs/basic/formMOD-input.zip">Download example code</a>/
+          <a href="https://github.com/nickorsk2017/formMOD/raw/master/doc/examples/inputs/basic/formMOD-input.zip">Download example source</a>/
           <a target="_blank" href="https://github.com/nickorsk2017/formMOD/tree/master/doc/examples/inputs/basic">See example source</a>
         </div>
         <div className="formmod__subtitle">Form scheme</div>

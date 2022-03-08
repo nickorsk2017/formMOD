@@ -5,7 +5,7 @@ import { Visibilities } from '../../api/visibilities';
 import { toUseOnChangeEvent } from '../../stategy/refComponents/updateValueInputFromState';
 import { UpdateFormState } from '../../api/useStateForm';
 
-export type AddEventListenersParams = {
+export type AddEventListenersProps = {
   element: ElementMod;
   inputName: InputName;
   groupInputId?: GroupInputId;
@@ -14,7 +14,7 @@ export type AddEventListenersParams = {
   updateViewForm: () => void;
 };
 export type AddEventListeners = (
-  params: AddEventListenersParams
+  params: AddEventListenersProps
 ) => (params?: any) => any;
 
 export const addEventListeners: AddEventListeners = ({

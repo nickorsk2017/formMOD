@@ -4,7 +4,7 @@ import { Visibilities } from '../api/visibilities';
 import { UpdateFormState } from '../api/useStateForm';
 import { FormState, FormValue, InputName } from '../types';
 
-export type SetValuesParams = {
+export type SetValuesProps = {
   formState: FormState;
   inputsValues: FormValue;
   updateFormState: UpdateFormState;
@@ -14,7 +14,7 @@ export type SetValuesParams = {
   getFormState: () => FormState;
   isOnInitEdit: boolean;
 };
-export type SetValues = (params: SetValuesParams) => FormState | false;
+export type SetValues = (params: SetValuesProps) => FormState | false;
 
 export const setValues: SetValues = ({
   formState,
@@ -39,7 +39,7 @@ export const setValues: SetValues = ({
   //skip validation if form init with epmty value
   if (_formState.valid === null && !init) {
     if (!isEqual(_formState, formState)) {
-      updateFormState(_formState);
+      updateFormState(_formState, { skipUpdate, init });
     }
     return _formState;
   } else {

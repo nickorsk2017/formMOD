@@ -1,7 +1,7 @@
 import { cloneDeep } from '../utils';
 import { FormState } from '../types';
 
-export type ViewModeParams = {
+export type ViewModeProps = {
   updateFormState: (updateFormState: FormState) => void;
 };
 
@@ -11,7 +11,7 @@ export type SetViewMode = (params: {
 }) => boolean;
 export type GetViewMode = (params: { formState: FormState }) => boolean;
 
-export type ViewMode = (params: ViewModeParams) => {
+export type ViewMode = (params: ViewModeProps) => {
   setViewMode: SetViewMode;
   getViewMode: GetViewMode;
 };

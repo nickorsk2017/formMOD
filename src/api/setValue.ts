@@ -5,7 +5,7 @@ import { FormState, InputName, InputValue, GroupInputId } from '../types';
 import { Visibilities } from '../api/visibilities';
 import { UpdateFormState } from './useStateForm';
 
-export type SetValueParams = {
+export type SetValueProps = {
   formState: FormState;
   inputName: InputName;
   groupInputId?: GroupInputId;
@@ -17,7 +17,7 @@ export type SetValueParams = {
   getFormState?: () => FormState;
 };
 
-export type SetValue = (params: SetValueParams) => FormState | false;
+export type SetValue = (params: SetValueProps) => FormState | false;
 
 export const setValue: SetValue = ({
   formState,

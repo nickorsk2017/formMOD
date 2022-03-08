@@ -8,7 +8,7 @@ export type Item = {
   value: string
 };
 
-export type SearchSelectParams = {
+export type SearchSelectProps = {
   label: string;
   selectedItem: Item;
   items: Array<Item>;
@@ -17,7 +17,7 @@ export type SearchSelectParams = {
   error: string | null;
 };
 
-export const SearchSelect = (props: SearchSelectParams) => {
+export const SearchSelect = (props: SearchSelectProps) => {
   const {
     label,
     selectedItem,

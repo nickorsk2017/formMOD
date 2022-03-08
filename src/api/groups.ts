@@ -33,7 +33,7 @@ export type GetItemByIndex = (params: {
   index: number;
 }) => InputGroupValue | undefined;
 
-export type Groups = (params: GroupsParams) => {
+export type Groups = (params: GroupsProps) => {
   addItem: AddItem;
   deleteItem: DeleteItem;
   getGroup: GetGroup;
@@ -41,7 +41,7 @@ export type Groups = (params: GroupsParams) => {
   getItemByIndex: GetItemByIndex;
 };
 
-export type GroupsParams = {
+export type GroupsProps = {
   updateFormState: UpdateFormState;
 };
 

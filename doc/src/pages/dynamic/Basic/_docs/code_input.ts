@@ -2,14 +2,14 @@ export default (() => {
 const code = `import React from 'react';
 import styles from './TextInput.module.css';
 
-export type TextInputParams = {
+export type TextInputProps = {
   label: string;
   value: string;
   onChange: (value: string) => void;
   error: string | null;
 };
 
-export const TextInput = (props: TextInputParams) => {
+export const TextInput = (props: TextInputProps) => {
     const {
       error,
       onChange,

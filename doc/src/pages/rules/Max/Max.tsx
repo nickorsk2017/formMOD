@@ -4,7 +4,7 @@ import {getCodeSnippet} from "../../../utils";
 import {PART_1, PART_2, SCHEME} from "./_docs";
 import styles from './Max.module.css';
 
-export type MaxParams = {};
+export type MaxProps = {};
 
 export const Max = () => {
     const _SCHEME = getCodeSnippet(SCHEME);

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './HelpUs.module.css';
 
-export type HelpUsParams = {};
+export type HelpUsProps = {};
 
 export const HelpUs = () => {
     //const {} = props;

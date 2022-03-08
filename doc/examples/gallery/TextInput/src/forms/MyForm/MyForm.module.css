@@ -1,0 +1,24 @@
+.form {
+    width: 100%;
+    max-width: 360px;
+    border: 1px solid #b5b5b5;
+    background-color: #fff;
+    border-radius: 4px;
+}
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+.count {
+    display: inline-flex;
+    width: 100%;
+    padding: 0 10px;
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}

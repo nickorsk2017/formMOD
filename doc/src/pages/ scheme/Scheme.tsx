@@ -4,7 +4,7 @@ import {Content} from "../../ui";
 import {PART_1, PART_2, SCHEME, IMPORTANT} from "./docs";
 import styles from './Scheme.module.css';
 
-export type SchemeParams = {};
+export type SchemeProps = {};
 
 export const Scheme = () => {
     const {result, countLines} = getCodeSnippet(SCHEME);

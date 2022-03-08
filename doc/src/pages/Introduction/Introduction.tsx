@@ -3,7 +3,7 @@ import {Content} from "../../ui";
 import CONTENT from "./doc";
 import styles from './Introduction.module.css';
 
-export type IntroductionParams = {};
+export type IntroductionProps = {};
 
 export const Introduction = () => {
     //const {} = props;

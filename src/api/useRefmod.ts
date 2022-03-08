@@ -23,7 +23,7 @@ import { GetError } from '../api/getError';
 import { UpdateFormState } from '../api/useStateForm';
 import { viewMode as _viewMode } from '../api/viewMode';
 
-export type useRefModParams = {
+export type useRefModProps = {
   getFormState: () => FormState;
   inputName: InputName;
   getEventListeners: GetEventListeners;
@@ -36,7 +36,7 @@ export type useRefModParams = {
   setValue: SetValue;
   updateViewForm: () => void;
 };
-export type UseRefMod = (params: useRefModParams) => useRefModResult;
+export type UseRefMod = (params: useRefModProps) => useRefModResult;
 
 export const useRefMod: UseRefMod = ({
   getFormState,

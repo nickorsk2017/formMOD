@@ -6,13 +6,13 @@ import {
   GroupInputId
 } from '../types';
 
-export type GetValueParams = {
+export type GetValueProps = {
   formState: FormState;
   inputName?: InputName;
   groupInputId?: GroupInputId;
 };
 export type GetValue = <T>(
-  params: GetValueParams
+  params: GetValueProps
 ) => T | InputValue | FormValue;
 
 export const getValue: GetValue = ({ formState, inputName, groupInputId }) => {

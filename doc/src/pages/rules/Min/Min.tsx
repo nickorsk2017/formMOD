@@ -4,7 +4,7 @@ import {getCodeSnippet} from "../../../utils";
 import {PART_1, PART_2, SCHEME} from "./_docs";
 import styles from './Min.module.css';
 
-export type MinParams = {};
+export type MinProps = {};
 
 export const Min = () => {
     const _SCHEME = getCodeSnippet(SCHEME);

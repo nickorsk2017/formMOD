@@ -129,7 +129,7 @@ export const MenuApp = memo(() => {
                 </ul>
               </div>
 
-              {/* <div className={styles.section}>
+              <div className={styles.section}>
                 <div onClick={() => toggleMenuItem("gallery")} className={[checkOpendItems("gallery") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Gallery UI<i className={[checkOpendItems("gallery") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
                 <ul className={[checkOpendItems("gallery") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
                   {checkOpendItems("gallery") && 
@@ -137,12 +137,27 @@ export const MenuApp = memo(() => {
                     <li className={styles.navItem}>
                       <NavLink to={`${PREFIX}gallery-textinput/`}>TextInput</NavLink>
                     </li>
+                    <li className={styles.navItem}>
+                      <NavLink to={`${PREFIX}gallery-textarea/`}>Textarea</NavLink>
+                    </li>
+                    <li className={styles.navItem}>
+                      <NavLink to={`${PREFIX}gallery-checkbox/`}>Checkbox</NavLink>
+                    </li>
+                    <li className={styles.navItem}>
+                      <NavLink to={`${PREFIX}filebox-filebox/`}>Filebox</NavLink>
+                    </li>
+                    <li className={styles.navItem}>
+                      <NavLink to={`${PREFIX}filebox-searchbox/`}>Searchbox</NavLink>
+                    </li>
+                    <li className={styles.navItem}>
+                      <NavLink to={`${PREFIX}filebox-button/`}>Button</NavLink>
+                    </li>
 
                   </>}
                 </ul>
               </div>
 
-              <div className={styles.section}>
+              {/*<div className={styles.section}>
                 <div onClick={() => toggleMenuItem("recommendations")} className={[checkOpendItems("recommendations") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Recommendations<i className={[checkOpendItems("recommendations") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
                 <ul className={[checkOpendItems("recommendations") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
                   {checkOpendItems("recommendations") && 

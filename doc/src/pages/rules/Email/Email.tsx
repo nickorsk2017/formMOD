@@ -4,7 +4,7 @@ import {getCodeSnippet} from "../../../utils";
 import {PART_1, PART_2, SCHEME} from "./_docs";
 import styles from './Email.module.css';
 
-export type EmailParams = {};
+export type EmailProps = {};
 
 export const Email = () => {
     const _SCHEME = getCodeSnippet(SCHEME);

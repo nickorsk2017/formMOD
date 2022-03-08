@@ -4,7 +4,7 @@ import {getCodeSnippet} from "../../../utils";
 import {PART_1, PART_2, SCHEME} from "./_docs";
 import styles from './Custom.module.css';
 
-export type CustomParams = {};
+export type CustomProps = {};
 
 export const Custom = () => {
     const _SCHEME = getCodeSnippet(SCHEME);
