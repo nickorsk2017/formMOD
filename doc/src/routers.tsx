@@ -28,6 +28,7 @@ import {
     SmartIntro,
     Combined,
     Textinput,
+    Checkbox,
   } from "./pages";
 
 const PREFIX = process.env.prefixMOD || "/";
@@ -138,6 +139,10 @@ export const Routers = () => {
 
             <Route path={`${PREFIX}gallery-textinput/`} strict>
               <Textinput/>
+            </Route>
+
+            <Route path={`${PREFIX}gallery-checkbox/`} strict>
+              <Checkbox/>
             </Route>
 
             <Route component={Page404} />

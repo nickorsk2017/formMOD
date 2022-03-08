@@ -1,19 +1,19 @@
 import React from 'react';
 import styles from './CheckBox.module.css';
 
-export interface Props {
+export interface CheckBoxProps {
   id: string,
   label?: string;
   style?: React.CSSProperties;
   prefixJSX?: React.ReactNode;
   sufixJSX?: React.ReactNode;
-  error: string | null,
+  error?: string | null,
   onChange: (value: boolean) => void,
   value: boolean,
   viewMode?: boolean,
 }
 
-export const OptionBox: React.FC<Props> = (props) =>  {
+export const CheckBox: React.FC<CheckBoxProps> = (props) =>  {
     const {error, value, label, style, prefixJSX, sufixJSX, id, viewMode, onChange} = props;
     const isChecked = value;
     const PREFIX_PUBLIC = process.env.prefixPublic || "/";

@@ -24,3 +24,4 @@ export {Issues} from "./Issues/Issues";
 export {SmartIntro} from "./smartIntro/SmartIntro";
 export {Combined} from "./combined/Combined";
 export {Textinput} from "./gallery/Textinput/Textinput";
+export {Checkbox} from "./gallery/Checkbox/Checkbox";
