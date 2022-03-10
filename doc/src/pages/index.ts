@@ -25,3 +25,7 @@ export {SmartIntro} from "./smartIntro/SmartIntro";
 export {Combined} from "./combined/Combined";
 export {Textinput} from "./gallery/Textinput/Textinput";
 export {Checkbox} from "./gallery/Checkbox/Checkbox";
+export {Textarea} from "./gallery/Textarea/Textarea";
+export {SearchInput} from "./gallery/SearchInput/SearchInput";
+export {Button} from "./gallery/Button/Button";
+export {Fileinput} from "./gallery/Fileinput/Fileinput";

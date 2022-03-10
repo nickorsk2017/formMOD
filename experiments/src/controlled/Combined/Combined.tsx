@@ -84,7 +84,7 @@ export function Combined({formValue}: any) {
                 selectedItem={getValue("student") as Item}
                 items={items}
                 onChangeItem={(item: Item) => setValue("student", item)}
-                onReset={() => {setValue("student", "", undefined, undefined, true)}}
+                onReset={() => {setValue("student", "", {skipValidation: true})}}
                 error={getError("student")}
             />
             {!isViewMode() && <div className={styles.buttons}>

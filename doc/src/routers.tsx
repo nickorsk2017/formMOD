@@ -29,6 +29,10 @@ import {
     Combined,
     Textinput,
     Checkbox,
+    Textarea,
+    SearchInput,
+    Button,
+    Fileinput,
   } from "./pages";
 
 const PREFIX = process.env.prefixMOD || "/";
@@ -143,6 +147,22 @@ export const Routers = () => {
 
             <Route path={`${PREFIX}gallery-checkbox/`} strict>
               <Checkbox/>
+            </Route>
+
+            <Route path={`${PREFIX}gallery-textarea/`} strict>
+              <Textarea/>
+            </Route>
+
+            <Route path={`${PREFIX}gallery-searchInput/`} strict>
+              <SearchInput/>
+            </Route>
+
+            <Route path={`${PREFIX}gallery-button/`} strict>
+              <Button/>
+            </Route>
+
+            <Route path={`${PREFIX}gallery-fileinput/`} strict>
+              <Fileinput/>
             </Route>
 
             <Route component={Page404} />

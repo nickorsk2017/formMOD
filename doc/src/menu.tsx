@@ -144,13 +144,13 @@ export const MenuApp = memo(() => {
                       <NavLink to={`${PREFIX}gallery-checkbox/`}>Checkbox</NavLink>
                     </li>
                     <li className={styles.navItem}>
-                      <NavLink to={`${PREFIX}filebox-filebox/`}>Filebox</NavLink>
+                      <NavLink to={`${PREFIX}gallery-fileinput/`}>Fileinput</NavLink>
                     </li>
                     <li className={styles.navItem}>
-                      <NavLink to={`${PREFIX}filebox-searchbox/`}>Searchbox</NavLink>
+                      <NavLink to={`${PREFIX}gallery-searchInput/`}>SearchInput</NavLink>
                     </li>
                     <li className={styles.navItem}>
-                      <NavLink to={`${PREFIX}filebox-button/`}>Button</NavLink>
+                      <NavLink to={`${PREFIX}gallery-button/`}>Button</NavLink>
                     </li>
 
                   </>}

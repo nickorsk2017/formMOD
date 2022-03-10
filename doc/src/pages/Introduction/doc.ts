@@ -3,7 +3,7 @@ const PREFIX_PUBLIC = process.env.prefixPublic || "/";
 export default `
 <h1 content-header class="content-header">Introduction</h1>
 
-<div class="big-text">The formMOD is powerful react library for forms.</br></br>
+<div class="big-text">The formMOD is powerful <b>React</b> library for forms.</br></br>
 
 This is open source project, we want to make it public, making it easier to develop large, complex applications.</br>
 This project became as public in early 2022.</br></br>

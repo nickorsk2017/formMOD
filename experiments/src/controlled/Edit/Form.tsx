@@ -119,11 +119,14 @@ export function Form({formValue}: any) {
                 return <TextInput
                     key={input.id}
                     label={`Hobby ${index}`}
-                    value={getValue("hobbies", input.id)}
-                    error={getError("hobbies", input.id)}
+                    value={getValue("hobbies", {inputId: input.id})}
+                    error={getError("hobbies", {inputId: input.id})}
                     visible={isVisible("hobbies")}
                     viewMode={isViewMode()}
-                    onChange={(value: string) => setValue("hobbies", value, false, input.id)}
+                    onChange={(value: string) => setValue("hobbies", value, {
+                        skipUpdate: false,
+                        inputId: input.id
+                    })}
                 />
             })
             }

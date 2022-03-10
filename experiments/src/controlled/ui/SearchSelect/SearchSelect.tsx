@@ -57,7 +57,9 @@ export const SearchSelect = (props: SearchSelectProps) => {
   };
 
   const resetInput = () => {
-    setValue("searchText", "", undefined, undefined, true);
+    setValue("searchText", "", {
+      skipValidation: true
+    });
     onReset();
   };
 
@@ -67,7 +69,9 @@ export const SearchSelect = (props: SearchSelectProps) => {
 
   const changeItem = (item: Item) => {
     onChangeItem(item);
-    setValue("searchText", "", undefined, undefined, true);
+    setValue("searchText", "", {
+      skipValidation: true
+    });
   };
 
   const renderList = () => {

@@ -64,9 +64,12 @@ export function MyForm() {
                 return <TextInput
                     key={input.id}
                     label={`Hobby ${index + 1}`}
-                    value={getValue("hobbies", input.id)}
-                    error={getError("hobbies", input.id)}
-                    onChange={(value: string) => setValue("hobbies", value, false, input.id)}
+                    value={getValue("hobbies", {inputId: input.id})}
+                    error={getError("hobbies", {inputId: input.id})}
+                    onChange={(value: string) => setValue("hobbies", value, {
+                        skipUpdate: false,
+                        inputId: input.id
+                    })}
                 />
             })
             }

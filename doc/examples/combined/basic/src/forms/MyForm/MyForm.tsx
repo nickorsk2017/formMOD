@@ -87,7 +87,9 @@ export const MyForm = () => {
                 selectedItem={getValue("student") as ItemType}
                 items={items}
                 onChangeItem={(item: ItemType) => setValue("student", item)}
-                onReset={() => {setValue("student", "", undefined, undefined, true)}}
+                onReset={() => {setValue("student", "", {
+                    skipValidation: true
+                })}}
                 error={getError("student")}
                 getterItemStringValue={getterItemString}
             />

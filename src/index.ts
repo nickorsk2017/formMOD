@@ -23,7 +23,7 @@ import {
   GroupInputId,
   InputGroupValue
 } from './types';
-export { useCountRender } from './utils';
+export { useCountRender, isEqual } from './utils';
 export * as Types from './types';
 export { useDebounce } from './api';
 
@@ -128,28 +128,34 @@ export const useFormMod = (initFormState: FormState) => {
         }) as InputGroupValues) || []
       );
     },
-    getValue: (inputName?: InputName, inputId?: GroupInputId) =>
+    getValue: (
+      inputName?: InputName,
+      props?: { inputId?: GroupInputId; cloneDeep?: boolean }
+    ) =>
       getValue({
         formState: getFormState(),
         inputName,
-        groupInputId: inputId
+        groupInputId: props?.inputId,
+        cloneDeep: props?.cloneDeep
       }),
     setValue: (
       inputName: InputName,
       inputValue: InputValue,
-      skipUpdate?: boolean,
-      inputId?: GroupInputId,
-      skipValidation?: boolean
+      props?: {
+        skipUpdate?: boolean;
+        inputId?: GroupInputId;
+        skipValidation?: boolean;
+      }
     ) =>
       setValue({
         formState: getFormState(),
         inputName,
         inputValue,
-        groupInputId: inputId,
+        groupInputId: props?.inputId,
         updateFormState,
-        skipUpdate,
+        skipUpdate: props?.skipUpdate,
         getVisibilities,
-        skipValidation
+        skipValidation: props?.skipValidation
       }),
     setValues: (
       inputsValues: FormValue,
@@ -179,11 +185,11 @@ export const useFormMod = (initFormState: FormState) => {
         getVisibilities,
         getFormState
       }),
-    getError: (inputName: InputName, inputId?: GroupInputId) =>
+    getError: (inputName: InputName, props?: { inputId?: GroupInputId }) =>
       getError({
         formState: getFormState(),
         inputName,
-        groupInputId: inputId
+        groupInputId: props?.inputId
       }),
     resetForm: () =>
       resetForm({

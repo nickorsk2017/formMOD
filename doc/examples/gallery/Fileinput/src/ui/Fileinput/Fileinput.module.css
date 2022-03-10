@@ -1,0 +1,61 @@
+.container {
+    border: 1px solid #333;
+    padding: 30px;
+    cursor: pointer;
+}
+.container:hover {
+    border: 1px solid #b5b5b5;
+}
+.fileInput {
+    display: none;
+}
+.label {
+
+}
+.imageContainer {
+    width: 100px;
+    height: 100px;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: #cacaca;
+    margin-right: 5px;
+    margin-top: 5px;
+    overflow: hidden;
+    position: relative;
+}
+.imageContainer img {
+    width: 100%;
+    height: auto;
+}
+.files {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 5px;
+}
+.fileContainer {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-right: 5px;
+    position: relative;
+}
+.clearImg,
+.clearFile {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    background: #333;
+    border-radius: 100%;
+    border: unset;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+}
