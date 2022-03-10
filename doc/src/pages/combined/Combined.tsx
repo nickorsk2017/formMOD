@@ -28,7 +28,7 @@ export const Combined = () => {
         <Content content={PART_2}/>
         <div className="formmod__subtitle">Combined component</div>
         <Content content={PART_3}/>
-        <Content lines='22-30,32-39,41-47,109-115' minWidth="750px" countLines={_CODE_INPUT.countLines}  preWrap content={_CODE_INPUT.result}/>
+        <Content lines='22-30,32-39,41-47,102-108' minWidth="750px" countLines={_CODE_INPUT.countLines}  preWrap content={_CODE_INPUT.result}/>
         <div className="formmod__subtitle">Child component</div><br/>
         <Content content={PART_4}/>
         <Content minWidth="750px" countLines={_CODE_INPUT_CHILD.countLines}  preWrap content={_CODE_INPUT_CHILD.result}/>

@@ -54,7 +54,9 @@ export const SearchInput = (props: SearchInputProps) => {
   };
 
   const resetInput = () => {
-    setValue("searchText", "", undefined, undefined, true);
+    setValue("searchText", "", {
+      skipValidation: true
+    });
     onReset();
   };
 
@@ -64,7 +66,9 @@ export const SearchInput = (props: SearchInputProps) => {
 
   const changeItem = (item: ItemType) => {
     onChangeItem(item);
-    setValue("searchText", "", undefined, undefined, true);
+    setValue("searchText", "", {
+      skipValidation: true
+    });
   };
 
   // getter a string value of item of component
@@ -108,7 +112,8 @@ export const SearchInput = (props: SearchInputProps) => {
       </div>}
     </div>
   )
-}`;
+}
+  `;
 
 return code;
 })()

@@ -43,10 +43,7 @@ export function MyForm() {
     }
 
     const deleteLastHobby = () => {
-        const groupItem = getItemByIndex({
-            inputName: "hobbies",
-            index: getGroup("hobbies").length - 1
-        });
+        const groupItem = getItemByIndex({inputName: "hobbies", index: getGroup("hobbies").length - 1});
         if(groupItem){
             deleteGroupItem({inputName: "hobbies", groupInputId: groupItem.id});
         }
@@ -63,25 +60,22 @@ export function MyForm() {
         
     return (
         <form onSubmit={handleSubmit} className={styles.form}>
-            {getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {
+            {
+            getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {
                 return <TextInput
                     key={input.id}
                     label={\`Hobby \${index + 1}\`}
                     value={getValue("hobbies", {inputId: input.id})}
                     error={getError("hobbies", {inputId: input.id})}
-                    onChange={(value: string) => setValue("hobbies", value, false, input.id)}
+                    onChange={(value: string) => setValue("hobbies", value, {
+                        skipUpdate: false,
+                        inputId: input.id
+                    })}
                 />
-                })
-            }
+            })}
             
             <div className={styles.buttons}>
-                {getGroup("hobbies").length > 0 &&
-                    <Button
-                        onClick={deleteLastHobby}
-                        theme="RED"
-                        title="Delete last hobby"
-                    />
-                }
+                {getGroup("hobbies").length > 0 && <Button onClick={deleteLastHobby} theme="RED" title="Delete last hobby"/>}
                 <Button onClick={addNewHobby} theme="LIGHT" title="Add hobby"/>
             </div>
 
