@@ -20,7 +20,7 @@ export function Combined({formValue}: any) {
     );
     // edit mode here
     if(formValue){
-      setValues(formValue, {editMode: true});
+      setValues(formValue, {init: true});
     }
     
     const handleSubmit = (event: React.SyntheticEvent) => {

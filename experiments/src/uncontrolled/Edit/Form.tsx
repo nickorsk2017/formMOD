@@ -22,7 +22,7 @@ export function Form({formValue}: any) {
     );
     // edit mode here
     if(formValue){
-      setValues(formValue, {editMode: true});
+      setValues(formValue, {init: true});
     }
 
     const setSomeValue = () => {
