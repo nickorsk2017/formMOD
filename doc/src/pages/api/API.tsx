@@ -5,6 +5,8 @@ import styles from './API.module.css';
 
 export type APIProps = {};
 
+const PREFIX = process.env.prefixMOD || "/";
+
 const CONTENT = [
   {
     method: "<b>formState</b>",
@@ -13,12 +15,12 @@ const CONTENT = [
   },
   {
     method: "<b>setViewMode</b>: (viewMode: boolean) => boolean",
-    desc: "Set view mode in a form.",
+    desc: "Set view mode of form.",
     type: "Inside form"
   },
   {
     method: "<b>isViewMode</b>: () => boolean",
-    desc: "Check a form in view mode.",
+    desc: "Check view mode endabled.",
     type: "Inside form"
   },
   {
@@ -45,13 +47,26 @@ const CONTENT = [
     type: "Inside form"
   },
   {
-    method: "<b>setValue</b>: (inputName: InputName, inputValue: InputValue, skipUpdate?: boolean | undefined, inputId?: GroupInputId | undefined) => false | FormState",
-    desc: "Set value of input or item of group inputs. <br/> - If property <b>skipUpdate</b> is true, the rendering will be canceled. <br/> - If using property <b>inputId</b> will set value for a item of group input.<br/> Return a form state or false.",
+    method: "<b>getValue</b>: (inputName?: string, props?: { inputId?: GroupInputId; cloneDeep?: boolean } ) => ",
+    desc: "Get value of input or form value.<br/><br/> - If <b>inputName</b> filled return an input value else a form value. <br/> - If <b>inputId</b> filled return value of group item.<br/> - Property <b>cloneDeep</b> return clonned value - use it if modify it then.",
     type: "Inside form"
   },
   {
-    method: "<b>setValues</b>: (inputsValues: FormValue) => false | FormState",
-    desc: "Set value for a multiple inputs.",
+    method: `<b>setValue</b>: (
+      inputName: InputName,
+      inputValue: InputValue,
+      props?: {
+        skipUpdate?: boolean;
+        inputId?: GroupInputId;
+        skipValidation?: boolean;
+      }) => false | FormState`,
+    desc: "Set value of input or group item. <br/> - If property <b>skipUpdate</b> is true, the rendering will be canceled. <br/> - If using property <b>inputId</b> will set value for a group item.<br/> Return a new form state or false.",
+    type: "Inside form"
+  },
+  {
+    method: `<b>setValues</b>: ( inputsValues: FormValue,
+      props?: { init?: boolean; skipUpdate?: boolean }) => false | FormState`,
+    desc: `Set value for a multiple inputs. <br/> - If <b>init</b> has true value set init value one time (for edit mode). Please reed details <a href="/#${PREFIX}editmode/">here</a> <br/> - If <b>skipUpdate</b> skiped rendering. <br/>`,
     type: "Inside form"
   },
   {
@@ -60,8 +75,8 @@ const CONTENT = [
     type: "Inside form"
   },
   {
-    method: "<b>getError</b>: (inputName: InputName, inputId?: GroupInputId | undefined) => string | null",
-    desc: "Get error of input or item of group. Return a message of error or null if value is valid.",
+    method: "<b>getError</b>: (inputName: InputName, props?: { inputId?: GroupInputId }) => string | null",
+    desc: "Get error of input or group item. Return a message of error or null if value is valid.",
     type: "Inside form"
   },
   {
@@ -70,19 +85,19 @@ const CONTENT = [
     type: "Inside form"
   },
   {
-    method: "<b>useRefMod</b>: (inputName: InputName) => refMod",
-    desc: "Create a reference object for input component.<br/> Use it only for make smart inputs.",
+    method: "<b>isVisible</b>: (inputName: string) => boolean",
+    desc: "Check if a input is visible. Using for an optional inputs.",
     type: "Inside form"
   },
   {
-    method: "<b>isVisible</b>: (inputName: InputName) => boolean",
-    desc: "Check if a input is visible. Using for a optional inputs.",
+    method: "<b>useRefMod</b>: (inputName: InputName) => refMod",
+    desc: "Create a reference object for smart input component.<br/>",
     type: "Inside form"
   },
 ];
 
 
-const CONTENT_UNCONTROLLED = [
+const CONTENT_SMART = [
   {
     method: "<b>refMod</b>",
     desc: "The link of smart input with API.",
@@ -100,23 +115,23 @@ const CONTENT_UNCONTROLLED = [
   },
   {
     method: `<b>refMod.getError</b>: (params?: {
-      inputId?: GroupInputId | undefined;
-  } | undefined) => string | null`,
-    desc: "Get error of input or item of group input.",
+      inputId?: GroupInputId;
+    }) => string | null`,
+    desc: "Get error of input or group item.",
     type: "Inside smart input (UI component)."
   },
   {
     method: `<b>refMod.getValue</b>: (params?: {
-      inputId?: GroupInputId | undefined;
-  } | undefined) => InputValue`,
-    desc: "Get value of input or item of group input.",
+      inputId?: GroupInputId;
+    }) => InputValue`,
+    desc: "Get value of input or group item.",
     type: "Inside smart input (UI component)."
   },
   {
     method: `<b>refMod.isVisible</b>: (params?: {
-      inputId?: GroupInputId | undefined;
-  } | undefined) => boolean`,
-    desc: "Check if optional input or item of group is visible. Using for optional inputs.",
+      inputId?: GroupInputId;
+    }) => boolean`,
+    desc: "Check if optional input or group item is visible. Using for optional inputs.",
     type: "Inside smart input (UI component)."
   },
 ]
@@ -134,7 +149,7 @@ export const API = () => {
     };
 
     const renderUncontrolled = () => {
-      return CONTENT_UNCONTROLLED.map((content, index) => {
+      return CONTENT_SMART.map((content, index) => {
         return (<tr key={index}>
           <td dangerouslySetInnerHTML={{__html: content.method}}></td>
           <td dangerouslySetInnerHTML={{__html: content.desc}}></td>

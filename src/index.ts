@@ -174,7 +174,7 @@ export const useFormMod = (initFormState: FormState) => {
     },
     validate: (
       updateValidation: boolean,
-      callback: (valide: boolean | null, formValue: FormValue) => any
+      callback: (valid: boolean | null, formValue: FormValue) => any
     ) =>
       validate({
         formState: getFormState(),
