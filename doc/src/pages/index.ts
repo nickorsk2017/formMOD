@@ -29,3 +29,6 @@ export {Textarea} from "./gallery/Textarea/Textarea";
 export {SearchInput} from "./gallery/SearchInput/SearchInput";
 export {Button} from "./gallery/Button/Button";
 export {Fileinput} from "./gallery/Fileinput/Fileinput";
+export {DataConverters} from "./recommendations/DataConverters/DataConverters";
+export {Stores} from "./recommendations/Stores/Stores";
+export {Helpers} from "./helpers/Helpers";

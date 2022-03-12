@@ -33,6 +33,9 @@ import {
     SearchInput,
     Button,
     Fileinput,
+    DataConverters,
+    Stores,
+    Helpers,
   } from "./pages";
 
 const PREFIX = process.env.prefixMOD || "/";
@@ -163,6 +166,18 @@ export const Routers = () => {
 
             <Route path={`${PREFIX}gallery-fileinput/`} strict>
               <Fileinput/>
+            </Route>
+
+            <Route path={`${PREFIX}recommendations/converters/`} strict>
+              <DataConverters/>
+            </Route>
+
+            <Route path={`${PREFIX}recommendations/stores/`} strict>
+              <Stores/>
+            </Route>
+
+            <Route path={`${PREFIX}helpers`} strict>
+              <Helpers/>
             </Route>
 
             <Route component={Page404} />

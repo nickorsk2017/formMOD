@@ -23,7 +23,7 @@ import {
   GroupInputId,
   InputGroupValue
 } from './types';
-export { useCountRender, isEqual } from './utils';
+export { useCountRender, isEqual, cloneDeep } from './utils';
 export * as Types from './types';
 export { useDebounce } from './api';
 

@@ -76,15 +76,15 @@ You can make a great apps faster and easy. </br></br> We are working for you! Th
     </li>
 
     <li>
+        <b>Gallery UI components</b> - you can use completed work examples and modify it.
+    </li>
+
+    <li>
+        <b>Recommendations (planned)</b> - how work with store, data and other.
+    </li>
+
+    <li>
         <b>Smart input (experiment)</b> - UI component working through reference.
-    </li>
-
-    <li>
-        <b>Gallery UI components (planned)</b> - you can use completed work examples and modify it.
-    </li>
-
-    <li>
-        <b>Recommendations (planned)</b> - how work with store, optimisation your input component and other.
     </li>
 
 </ul>

@@ -30,7 +30,7 @@ export const useCountRender: () => {
 export const cloneDeep = (
   obj: Record<string, any> | string | null,
   infinityLinks: Array<string> = []
-): Record<string, any> | string | null | undefined => {
+): any => {
   let copy;
   if (null == obj || 'object' !== typeof obj || typeof obj === 'undefined') {
     return obj;

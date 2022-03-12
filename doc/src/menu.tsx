@@ -157,22 +157,26 @@ export const MenuApp = memo(() => {
                 </ul>
               </div>
 
-              {/*<div className={styles.section}>
+              <div className={styles.section}>
                 <div onClick={() => toggleMenuItem("recommendations")} className={[checkOpendItems("recommendations") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Recommendations<i className={[checkOpendItems("recommendations") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
                 <ul className={[checkOpendItems("recommendations") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
                   {checkOpendItems("recommendations") && 
                   <>
                     <li className={styles.navItem}>
-                      <NavLink to={`${PREFIX}recommendations/`}>Use data converter</NavLink>
+                      <NavLink to={`${PREFIX}recommendations/converters/`}>Use data converters</NavLink>
                     </li>
 
                     <li className={styles.navItem}>
-                      <NavLink to={`${PREFIX}recommendations/`}>Work with store</NavLink>
+                      <NavLink to={`${PREFIX}recommendations/stores/`}>Work with store</NavLink>
                     </li>
 
                   </>}
                 </ul>
-              </div> */}
+              </div>
+
+              <div className={styles.selfItem}>
+                <NavLink exact={true} activeClassName="active" to={`${PREFIX}helpers/`}>Helpers</NavLink>
+              </div>
 
               <div className={styles.section}>
                 <div onClick={() => toggleMenuItem("smartInput")} className={[checkOpendItems("smartInput") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Smart inputs (experiment) <i className={[checkOpendItems("smartInput") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
@@ -206,6 +210,7 @@ export const MenuApp = memo(() => {
                   </>}
                 </ul>
               </div>
+              
 
               <div className={styles.selfItem}>
                 <NavLink exact={true} activeClassName="active" to={`${PREFIX}api/`}>API</NavLink>
