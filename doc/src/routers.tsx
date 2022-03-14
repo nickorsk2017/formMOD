@@ -88,11 +88,11 @@ export const Routers = () => {
               <ReferenceVisibilities/>
             </Route>
 
-            <Route path={`${PREFIX}visibilities/`} strict>
+            <Route path={`${PREFIX}optional/`} strict>
               <ControlledVisibilities/>
             </Route>
 
-            <Route path={`${PREFIX}dynamic/`} strict>
+            <Route path={`${PREFIX}group/`} strict>
               <ControlledDynamic/>
             </Route>
 

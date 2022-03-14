@@ -80,7 +80,7 @@ You can make a great apps faster and easy. </br></br> We are working for you! Th
     </li>
 
     <li>
-        <b>Recommendations (planned)</b> - how work with store, data and other.
+        <b>Recommendations</b> - how work with store, data and other.
     </li>
 
     <li>

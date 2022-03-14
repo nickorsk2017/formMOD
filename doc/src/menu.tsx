@@ -65,11 +65,11 @@ export const MenuApp = memo(() => {
                     </li>
 
                     <li className={styles.navItem}>
-                      <NavLink to={`${PREFIX}visibilities/`}>Optional</NavLink>
+                      <NavLink to={`${PREFIX}optional/`}>Optional</NavLink>
                     </li>
 
                     <li className={styles.navItem}>
-                      <NavLink to={`${PREFIX}dynamic/`}>Group</NavLink>
+                      <NavLink to={`${PREFIX}group/`}>Group</NavLink>
                     </li>
 
                     <li className={styles.navItem}>
