@@ -181,7 +181,7 @@ export const Routers = () => {
               <Helpers/>
             </Route>
 
-            <Route path={`${PREFIX}blog-example`} strict>
+            <Route path={`${PREFIX}example`} strict>
               <BlogExample/>
             </Route>
 

@@ -106,7 +106,7 @@ export function MyForm() {
             getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {
                 return <TextInput
                     key={input.id}
-                    label={`Hobby ${index}`}
+                    label={`Hobby ${index + 1}`}
                     value={getValue("hobbies", {inputId: input.id})}
                     error={getError("hobbies", {inputId: input.id})}
                     visible={isVisible("hobbies")}
