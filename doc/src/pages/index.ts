@@ -32,3 +32,4 @@ export {Fileinput} from "./gallery/Fileinput/Fileinput";
 export {DataConverters} from "./recommendations/DataConverters/DataConverters";
 export {Stores} from "./recommendations/Stores/Stores";
 export {Helpers} from "./helpers/Helpers";
+export {BlogExample} from "./blogExample/BlogExample";

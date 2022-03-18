@@ -1,10 +1,10 @@
 import React from 'react'
 import {useFormMod, Types} from "formmod";
-import {TextInput, Button, OptionBox} from "../ui";
+import {TextInput, Button, CheckBox} from "../../ui";
 import FORM_SCHEME from "./scheme";
-import styles from './Basic.module.css';
+import styles from './MyForm.module.css';
 
-export function Basic() {
+export function MyForm() {
     const {
         setValue,
         getValue,
@@ -78,7 +78,7 @@ export function Basic() {
                 viewMode={isViewMode()}
                 onChange={(value: string) => setValue("last_name", value)}
             />
-            <OptionBox
+            <CheckBox
                 label={"Do you have favorite pet?"}
                 value={getValue("havePets") as boolean}
                 error={getError("havePets")}
@@ -94,7 +94,7 @@ export function Basic() {
                 viewMode={isViewMode()}
                 onChange={(value: string) => setValue("petName", value)}
             />
-            <OptionBox
+            <CheckBox
                 label={"Do you have hobbies?"}
                 value={getValue("haveHobbies") as boolean}
                 error={getError("haveHobbies")}

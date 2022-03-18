@@ -1,21 +1,15 @@
 const path = require('path');
 const webpack = require("webpack");
-const CopyPlugin = require("copy-webpack-plugin");
-const WriteFilePlugin = require('write-file-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const EventHooksPlugin = require('event-hooks-webpack-plugin');
-const fs = require('fs-extra');
-const alias = require('./webpack.alias');
 
 module.exports = {
-    mode: 'production',
+    mode: 'none',
     entry: {
         app: path.join(__dirname, 'src', 'index.tsx')
     },
     target: 'web',
     resolve: {
-        extensions: ['.ts', '.tsx', '.js', '.css', ".scss"],
-        alias: alias
+        extensions: ['.ts', '.tsx', '.js', '.css', ".scss"]
     },
     module: {
         rules: [
@@ -55,27 +49,28 @@ module.exports = {
         ],
     },
     output: {
-        publicPath: ".",
         filename: '[name]-[contenthash].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath: '/'
+    },
+    devServer: {
+        static: path.join(__dirname, "/"),
+        historyApiFallback: true,
+        port: 3000,
+        open: true,
+        hot: true
     },
     plugins: [
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production'),
+            'process.env.NODE_ENV': JSON.stringify('development'),
             'process.env.prefixMOD': JSON.stringify('/'),
             'process.env.prefixPublic': JSON.stringify('/public/'),
         }),
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'public', 'index.html'),
-            PUBLIC_URL: "public",
-            BASE_HREF: ".",
+            PUBLIC_URL: "/public",
+            BASE_HREF: "/",
         }),
         new webpack.HotModuleReplacementPlugin(),
-        new EventHooksPlugin({
-          'beforeRun': (compilation, done) => {
-            console.log('Copying source files to compiled')
-            fs.copy('public', 'dist/public', done);
-          }
-        }),
     ]
 }
