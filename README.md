@@ -31,7 +31,7 @@ We are working for you! Thank you!
 
 ## Full documentation
 
-https://nickorsk2017.github.io/formMOD/
+https://doc.formmod.org/
 
 ## Installation
 
