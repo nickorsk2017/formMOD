@@ -26,7 +26,7 @@ export const Combined = () => {
           <a target="_blank" href="https://github.com/nickorsk2017/formMOD/tree/master/doc/examples/combined/basic">See example source</a>
         </div>
         <Content content={PART_2}/>
-        <div className="formmod__subtitle">Combined component</div>
+        <div className="formmod__subtitle">Composite component</div>
         <Content content={PART_3}/>
         <Content lines='22-30,32-39,41-47,102-108' minWidth="750px" countLines={_CODE_INPUT.countLines}  preWrap content={_CODE_INPUT.result}/>
         <div className="formmod__subtitle">Child component</div><br/>

@@ -1,6 +1,6 @@
 export default `
 {
     name: "empty",
-    message: "Form message"
+    message: "is empty"
 }
 `;

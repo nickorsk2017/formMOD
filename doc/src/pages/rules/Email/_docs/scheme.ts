@@ -1,6 +1,6 @@
 export default `
 {
     name: "email",
-    message: "Form message"
+    message: "is not email"
 }
 `;
