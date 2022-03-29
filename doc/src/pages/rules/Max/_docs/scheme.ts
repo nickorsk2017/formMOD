@@ -1,6 +1,7 @@
-export default `
-{
+export default `  {
     name: "max",
-    message: "Form message"
-}
-`;
+    message: "length should be 5 or less",
+    params: {
+        max: 5,
+    }
+}`;

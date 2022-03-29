@@ -37,6 +37,7 @@ import {
     Stores,
     Helpers,
     BlogExample,
+    LoginForm,
   } from "./pages";
 
 const PREFIX = process.env.prefixMOD || "/";
@@ -133,7 +134,7 @@ export const Routers = () => {
               <Scheme/>
             </Route>
 
-            <Route path={`${PREFIX}combined/`} strict>
+            <Route path={`${PREFIX}composite/`} strict>
               <Combined/>
             </Route>
 
@@ -183,6 +184,10 @@ export const Routers = () => {
 
             <Route path={`${PREFIX}example`} strict>
               <BlogExample/>
+            </Route>
+
+            <Route path={`${PREFIX}login-example`} strict>
+              <LoginForm/>
             </Route>
 
             <Route component={Page404} />

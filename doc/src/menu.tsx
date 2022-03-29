@@ -73,7 +73,7 @@ export const MenuApp = memo(() => {
                     </li>
 
                     <li className={styles.navItem}>
-                      <NavLink to={`${PREFIX}combined/`}>Combined</NavLink>
+                      <NavLink to={`${PREFIX}composite/`}>Composite</NavLink>
                     </li>
 
                   </>}

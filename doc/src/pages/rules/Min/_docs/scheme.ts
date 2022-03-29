@@ -1,6 +1,7 @@
-export default `
-{
+export default `{
     name: "min",
-    message: "Form message"
-}
-`;
+    message: "length should be 5 or more",
+    params: {
+        min: 5,
+    }
+}`;

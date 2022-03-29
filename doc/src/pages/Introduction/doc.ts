@@ -67,7 +67,7 @@ You can make a great apps faster and easy. </br></br> We are working for you! Th
     </li>
 
     <li>
-        <b>Flow for combined inputs</b> - if you want to create an UI component containing other UI components.
+        <b>Flow for composite inputs</b> - if you want to create an UI component containing other UI components.
     </li>
     <br/>
     <div class="ul-title">Other</div>

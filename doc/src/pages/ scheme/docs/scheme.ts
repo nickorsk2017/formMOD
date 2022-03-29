@@ -2,10 +2,9 @@ export default `export default {
     valid: null,
     viewMode: false,
     formValue: {
-        inputBoolean: false,
-        inputWithEmptyInitValue: "",
-        inputWithInitValue: "init string value",
-        inputWithArrayValues: {
+        booleanInput: false,
+        stringInput: "",
+        arrayInput: {
             value: [
                 {
                     id: "1",
@@ -17,37 +16,27 @@ export default `export default {
                 }
             ]
         },
-        inputWithObjectValue: {
+        objectInput: {
             title: "My object"
         },
-        inputNumber: 10
+        numberInput: 0
     },
+    // for optional inputs of form
     visibilities: {
-        inputWithEmptyInitValue: ({formValue} : any) => {
+        stringInput: ({formValue} : any) => {
             return {
-                isVisible: formValue.inputBoolean,
-            }
-        },
-        inputWithInitValue: ({formValue} : any) => {
-            return {
-                isVisible: formValue.inputWithArrayValues.value.length > 0,
+                isVisible: formValue.booleanInput,
             }
         },
     },
     rules: {
-        inputWithEmptyInitValue: [
+        stringInput: [
             {
                 name: "empty",
                 message: "is required"
             }
         ],
-        inputWithInitValue: [
-            {
-                name: "empty",
-                message: "is required"
-            }
-        ],
-        inputNumber: [
+        numberInput: [
             {
                 name: "empty",
                 message: "is required"
@@ -60,7 +49,7 @@ export default `export default {
                 message: "should be more than 10"
             }
         ],
-        inputWithObjectValue: [
+        objectInput: [
             {
                 name: "func",
                 params: {
@@ -72,7 +61,7 @@ export default `export default {
                 message: "should be more than 10"
             }
         ],
-        inputWithArrayValues: [
+        arrayInput: [
             {
                 name: "func",
                 params: {
