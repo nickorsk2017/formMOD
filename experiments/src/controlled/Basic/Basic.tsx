@@ -22,12 +22,13 @@ export function Basic() {
         FORM_SCHEME
     );
     
-    const handleSubmit = function(event: any){
+    const handlerSubmit = function(event: any){
         if(event && event.preventDefault) {
 			event.preventDefault();
 		}
         validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
             if(valid) {
+                // here you can send a request or call callback function
                 console.log(formValue, 'RESULT TRUE');
                 setViewMode(true);
             } else {
@@ -63,7 +64,7 @@ export function Basic() {
     };
         
     return (
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <form onSubmit={handlerSubmit} className={styles.form}>
             <TextInput
                 label={"First name"}
                 value={getValue("first_name")}

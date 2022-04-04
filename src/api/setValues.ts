@@ -31,7 +31,7 @@ export const setValues: SetValues = ({
     _formState.formValue[inputName] = inputsValues[inputName];
   });
 
-  //cancell double rendering and validation on init form value
+  //cancell double rendering and validation on initialisation form
   if (init && isOnInitEdit) {
     return formState;
   }

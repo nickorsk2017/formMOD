@@ -46,7 +46,7 @@ export const SearchInput = (props: SearchInputProps) => {
   } = useFormMod(
     SCHEME,
   );
-  const handleSubmit = (event: React.KeyboardEvent<HTMLInputElement>) => {
+  const handlerSubmit = (event: React.KeyboardEvent<HTMLInputElement>) => {
     if(event.key === 'Enter') {
       event.preventDefault();
 
@@ -95,7 +95,7 @@ export const SearchInput = (props: SearchInputProps) => {
   };
 
   return (
-    <div onSubmit={handleSubmit} className={styles.container}>
+    <div onSubmit={handlerSubmit} className={styles.container}>
       {selectedItem ? <div className={styles.selectedContainer}>
         <div className={styles.selectedLabel}>{label}</div>
         <div className={styles.selected}>{getSelectedItemString(selectedItem)}</div>

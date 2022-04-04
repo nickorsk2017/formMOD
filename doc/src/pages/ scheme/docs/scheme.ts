@@ -46,7 +46,7 @@ export default `export default {
                 params: {
                     min: 10
                 },
-                message: "should be more than 10"
+                message: "should be greater than 10"
             }
         ],
         objectInput: [
@@ -58,7 +58,7 @@ export default `export default {
                         return value.title === "My object"
                     }
                 },
-                message: "should be more than 10"
+                message: "should be greater than 10"
             }
         ],
         arrayInput: [
@@ -69,7 +69,7 @@ export default `export default {
                         return arrayItems.value.length > 10
                     }
                 },
-                message: "should be more than 10"
+                message: "should be greater than 10"
             }
         ]
     }

@@ -80,7 +80,7 @@ code {
 }
 
 ul, li {
-  list-style-type: circle !important;
+  list-style-type: disc !important;
   display: list-item;
 }
 nav ul {
@@ -337,7 +337,7 @@ pre[class*=language-].line-numbers>code {
   #app-nav {
     position: absolute;
     width: 280px;
-    z-index: 1;
+    z-index: 99;
   }
   .content {
     padding: 30px 0 30px 80px !important;
@@ -355,4 +355,7 @@ pre[class*=language-].line-numbers>code {
     height: 150px;
     font-size: 16px;
   }
+}
+.hightligh-comment span {
+ color: #a7a6a6 !important;
 }

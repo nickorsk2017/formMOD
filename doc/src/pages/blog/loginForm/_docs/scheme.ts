@@ -1,4 +1,4 @@
-export default {
+export default `export default {
     valid: null,
     formValue: {
         email: "",
@@ -38,4 +38,4 @@ export default {
             }
         ],
     }
-}
+}`;

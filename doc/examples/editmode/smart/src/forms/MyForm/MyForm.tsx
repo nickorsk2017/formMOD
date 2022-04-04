@@ -25,12 +25,13 @@ export function MyForm({initValue}: any) {
       setValues(initValue, {init: true});
     }
     
-    const handleSubmit = (event: React.SyntheticEvent) => {
+    const handlerSubmit = (event: React.SyntheticEvent) => {
         if(event && event.preventDefault) {
 			event.preventDefault();
 		}
         validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
             if(valid) {
+                // here you can send a request or call callback function
                 setViewMode(true);
                 console.log(formValue, 'RESULT TRUE');
             } else {
@@ -73,7 +74,7 @@ export function MyForm({initValue}: any) {
     };
 
     return (
-        <form onSubmit={handleSubmit} className={styles.form}>
+        <form onSubmit={handlerSubmit} className={styles.form}>
             <div className={styles.count}>Count render: {getCountRender()}</div>
             <TextInput
                 label={"First name"}

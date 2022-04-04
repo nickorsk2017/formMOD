@@ -6,5 +6,5 @@ export default `
             return value.length > 5
         }
     },
-    message: "length should be more than 5"
+    message: "length should be greater than 5"
 }`;

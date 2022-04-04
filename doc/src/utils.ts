@@ -41,6 +41,7 @@ export const getCodeSnippet = (code: string) => {
     const STRING = "#207e43";
     const OPERATOR = "#9a6e3a;";
     const FN = "#dd4a68;";
+    const COMMENT = "#a7a6a6";
     const KEYWORD_ARR = [
         "export", 
         "function",
@@ -53,7 +54,7 @@ export const getCodeSnippet = (code: string) => {
         "new",
     ];
     // lines
-    let lines = code.trim().replace(/=>|===|==|[><=/\/]/g, (chr) => `%spec%${chr}%spec%`).replace(/[a-zA-Z^s]+\(/g, (chr) => `%fn%${chr.replace("(", "")}%fn%(`).replace(/['"].*?['"]/gm, (chr) => `%qt%${chr}%qt%`).split("\n");
+    let lines = code.trim().replace(/\/\/.*/g, (chr) => {console.log(chr, "chr");return `%comment%${chr.replace("//", "")}%comment%`}).replace(/=>|:|===|==|[><=/\/]/g, (chr) => `%spec%${chr}%spec%`).replace(/[a-zA-Z^s]+\(/g, (chr) => `%fn%${chr.replace("(", "")}%fn%(`).replace(/['"].*?['"]/gm, (chr) => `%qt%${chr}%qt%`).split("\n");
     let cloneLines = cloneDeep(lines) as Array<string>;
     lines.forEach((line, index) => {
       let _line = line || " ";
@@ -65,7 +66,7 @@ export const getCodeSnippet = (code: string) => {
     let words = preLines.split(" ");
     let cloneWords = cloneDeep(words) as Array<string>;
     words.forEach((word, index) => {
-        if(word == "*if*" || word == "*for*" || word == "*from*"){
+        if(word === "*if*" || word === "*for*" || word === "*from*" || word === "*import*"){
           cloneWords[index] = word.replaceAll("*", "");
         } else if(KEYWORD_ARR.includes(word)){
             cloneWords[index] = `<span style="color: ${KEYWORD};">${word}</span>`;   
@@ -86,7 +87,11 @@ export const getCodeSnippet = (code: string) => {
     .replace(/(\%spec\%).*?(\%spec\%)/gm, (chr) => {
         const str = chr.replaceAll("%spec%", '');
         return `<span style="color: ${OPERATOR};">${str}</span>`;
-    }).replace(/(\%div\%).*?(\%div\%)/gm, (chr) => {
+    }).replace(/(\%comment\%).*?(\%comment\%)/gm, (comment) => {
+      const str = comment.replaceAll("%comment%", '');
+      return `<span class="hightligh-comment" style="color: ${COMMENT} !important;">//${str}</span>`
+    })
+    .replace(/(\%div\%).*?(\%div\%)/gm, (chr) => {
         const str = chr.replaceAll("%div% ", '').replaceAll("%div%", '');
         return `<div>${str}</div>`;
     });

@@ -18,7 +18,7 @@ export default `
                             return value.length > 5
                         }
                     },
-                    message: "Length should be more than 5 lenght"
+                    message: "Length should be greater than 5 lenght"
                 }
             ],
             last_name: [

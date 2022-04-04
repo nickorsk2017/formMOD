@@ -34,7 +34,7 @@ export const Basic = () => {
             <br/>
             <div className="formmod__subtitle">Form scheme</div>
             <br/>
-            You don't have to do anything in the scheme. 
+            You don't have to do anything in the scheme.<br/>
             <Content minWidth="700px" countLines={_SCHEME.countLines} language="json5" preWrap={true} content={_SCHEME.result}/>
             <br/>
             <div className="formmod__subtitle">Form component</div>

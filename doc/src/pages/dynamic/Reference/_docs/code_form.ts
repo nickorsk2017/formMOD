@@ -18,12 +18,13 @@ export function Dynamic() {
         FORM_SCHEME
     );
         
-    const handleSubmit = function(event: React.SyntheticEvent){
+    const handlerSubmit = function(event: React.SyntheticEvent){
         if(event && event.preventDefault) {
                 event.preventDefault();
         }
         validate(true, (valid: boolean, formValue: any) => {
             if(valid) {
+                    // here you can send a request or call callback function
                     alert('Form is valid');
                     console.log("FORM IS VALID, value:", formValue );
                 } else {
@@ -63,7 +64,7 @@ export function Dynamic() {
         };
     
         return (
-            <form onSubmit={handleSubmit} className={styles.form}>
+            <form onSubmit={handlerSubmit} className={styles.form}>
                 <div className={styles.count}>Count render: {getCountRender()}</div>
                 {
                   getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {

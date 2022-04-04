@@ -28,7 +28,7 @@ export const Basic = () => {
             <a target="_blank" href="https://github.com/nickorsk2017/formMOD/tree/master/doc/examples/viewmode/basic">See example source</a>
           </div>
           <div className="formmod__subtitle">Form scheme</div>
-          <br/>You don't have to do anything in the scheme. 
+          <br/>You don't have to do anything in the scheme.<br/>
           <Content minWidth="700px" countLines={_SCHEME.countLines} language="json5" preWrap={true} content={_SCHEME.result}/>
           <br/>
           <Content content={PART_2}/>

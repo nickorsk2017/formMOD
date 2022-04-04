@@ -1,5 +1,6 @@
-import React from 'react'
-// Step 1: import library 
+export default (() => {
+const code = `import React from 'react'
+// Step 1: *import* library 
 import {useFormMod, Types} from "formmod";
 import {TextInput, Button} from "../../ui";
 import FORM_SCHEME from "./scheme";
@@ -53,4 +54,7 @@ export function MyForm() {
             </div>
     </form>
     )
-}
+}`;
+
+return code;
+})()

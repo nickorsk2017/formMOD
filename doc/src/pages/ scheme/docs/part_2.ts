@@ -1,7 +1,7 @@
 export default `
 <ul content-ul>
     <li>
-        <b>1. valid</b> - initial validation of form. </br> Set null value as default, it mean that a form dont toched(not validated) on init.
+        <b>1. valid</b> - initial validation of form. </br> Set null value as default, it mean that a form dont toched(not validated) on initialisation.
     </li>
     <li>
         <b>2. viewMode</b> - a view mode for detail page.
