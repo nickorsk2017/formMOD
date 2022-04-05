@@ -8,10 +8,9 @@
     "build": "webpack --config webpack-prod.config.js"
   },
   "dependencies": {
-    "formmod": "^1.3.6",
+    "formmod": "^1.5.4",
     "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0"
+    "react-dom": "^17.0.1"
   },
   "devDependencies": {
     "@babel/plugin-syntax-object-rest-spread": "^7.8.3",

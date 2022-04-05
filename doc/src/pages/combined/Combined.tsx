@@ -1,6 +1,6 @@
 import React from 'react'
 import {getCodeSnippet} from "../../utils";
-import {MyForm} from "examples/combined/basic/src/forms/MyForm/MyForm";
+import {MyForm} from "examples/composite/basic/src/forms/MyForm/MyForm";
 import {Content} from "../../ui";
 import {
   PART_1,
@@ -22,8 +22,8 @@ export const Combined = () => {
         <div className="formmod__subtitle">Live example</div><br/>
         <MyForm/><br/>
         <div className="formmod__source">
-          <a href="https://github.com/nickorsk2017/formMOD/raw/master/doc/examples/combined/basic/formMOD-combined.zip">Download example source</a>/
-          <a target="_blank" href="https://github.com/nickorsk2017/formMOD/tree/master/doc/examples/combined/basic">See example source</a>
+          <a href="https://github.com/nickorsk2017/formMOD/raw/master/doc/examples/composite/basic/formMOD-composite.zip">Download example source</a>/
+          <a target="_blank" href="https://github.com/nickorsk2017/formMOD/tree/master/doc/examples/composite/basic">See example source</a>
         </div>
         <Content content={PART_2}/>
         <div className="formmod__subtitle">Composite component</div>

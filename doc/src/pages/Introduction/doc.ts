@@ -84,7 +84,7 @@ You can make a great apps faster and easy. </br></br> We are working for you! Th
     </li>
 
     <li>
-        <b>Smart input (experiment)</b> - UI component working through reference.
+        <b>Smart input (experiment)</b> - UI component working via reference.
     </li>
 
 </ul>

@@ -13,7 +13,7 @@ export const Max = () => {
       <div className={styles.container}>
         <Content content={PART_1}/>
         <div className="formmod__subtitle">Format</div>
-        <Content minWidth="700px" preWrap={true} content={_SCHEME.result}/>
+        <Content minWidth="700px" countLines={_SCHEME.countLines} preWrap={true} content={_SCHEME.result}/>
         <Content content={PART_2}/>
       </div>
     )

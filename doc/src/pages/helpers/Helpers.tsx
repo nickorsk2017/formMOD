@@ -14,7 +14,7 @@ export const Helpers = () => {
         You can avoid using bulky libraries.<br/><br/>
         <div className="formmod__subtitle">Example</div>
         <Content minWidth="750px" countLines={_EXAMPLE_1.countLines} preWrap={true} content={_EXAMPLE_1.result}/><br/>
-        <b>Do no use shallow copy (e.g. spread, Object.assign()) for a tree objects, because its do it with links.</b>
+        <b>Do not use a shallow copy (e.g. spread, Object.assign()) for a tree objects, because its do it with a links.</b>
         <br/><br/>
       </div>
     )

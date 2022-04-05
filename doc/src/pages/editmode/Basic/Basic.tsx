@@ -34,7 +34,7 @@ export const Basic = () => {
             <br/>
             <div className="formmod__subtitle">Form scheme</div>
             <br/>
-            You don't have to do anything in the scheme.<br/>
+            You don't have to do anything in the scheme for it.<br/>
             <Content minWidth="700px" countLines={_SCHEME.countLines} language="json5" preWrap={true} content={_SCHEME.result}/>
             <br/>
             <div className="formmod__subtitle">Form component</div>
@@ -42,9 +42,7 @@ export const Basic = () => {
             <Content minWidth="750px" countLines={_FORM_CODE.countLines} lines="18, 23-26" preWrap={true} content={_FORM_CODE.result}/>
             <div className="formmod__subtitle">Form with dynamic value</div><br/>
             If your form using a dynamic form value you can use  this flow:
-            <Content minWidth="750px" preWrap={true} content={_PART_5.result}/><br/>
-            Property <b>skipUpdate</b> skip rendering.<br/> It can be helpfull if your form value was pushed from a global store / state / component props.<br/>
-            But if you want use setValues manually and update form view you should set <b>skipUpdate</b> to false.
+            <Content minWidth="750px" preWrap={true} content={_PART_5.result}/>
             <br/><br/>
         </div>
     )

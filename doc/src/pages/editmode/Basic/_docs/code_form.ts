@@ -21,7 +21,7 @@ export const MyForm = ({initValue}: Props) => {
         FORM_SCHEME
     );
     
-    // fill form data
+    // fill data
     if(initValue){
         setValues(initValue, {init: true});
     }

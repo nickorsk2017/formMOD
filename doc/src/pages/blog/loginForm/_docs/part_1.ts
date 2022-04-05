@@ -1,3 +1,3 @@
 export default `
-<h1 content-header class="content-header">Registartion form example</h1>
+<h1 content-header class="content-header">Login form example</h1>
 `
