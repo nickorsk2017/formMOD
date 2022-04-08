@@ -80,7 +80,7 @@ export function Uncontrolled() {
                 refMod={useRefMod("last_name")}
             />
             <OptionBox
-                label={"Do you have favorite pet?"}
+                label={"Do you have a favorite pet?"}
                 refMod={useRefMod("haveFavorite")}
                 id="haveFavorite_ref"
             />

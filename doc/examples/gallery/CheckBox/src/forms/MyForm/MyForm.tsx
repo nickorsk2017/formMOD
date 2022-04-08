@@ -32,7 +32,7 @@ export const MyForm = () => {
     return (
         <form onSubmit={handlerSubmit} className={styles.form}>
             <CheckBox
-                label={"Do you have favorite pet?"}
+                label={"Do you have a favorite pet?"}
                 value={getValue("haveFavorite") as boolean}
                 onChange={(value: boolean) => setValue("haveFavorite", value)}
                 id="haveFavorite"

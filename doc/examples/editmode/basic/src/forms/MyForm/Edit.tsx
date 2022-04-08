@@ -6,8 +6,8 @@ export type ValueForm = {
     last_name: string,
 }
 
-export function Edit() {
-    // init value of form.
+export const Edit = () => {
+    
     const formValue: ValueForm = {
         first_name: "Jack",
         last_name: "Pack",

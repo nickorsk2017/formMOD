@@ -40,12 +40,12 @@ export function MyForm() {
         setViewMode(false);
     };
     
-    const setDefault = (event: any) => {
+    %collapse%const setDefault = (event: any) => {
         if(event && event.preventDefault) {
             event.preventDefault();
         }
         resetForm();
-    };
+    };%collapse%
             
     return (
         <form onSubmit={handlerSubmit} className={styles.form}>

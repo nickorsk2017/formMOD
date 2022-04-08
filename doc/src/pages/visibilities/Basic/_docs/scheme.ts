@@ -5,7 +5,7 @@ export default `export default {
         petName: "",
         haveFavorite: false,
     },
-    rules: {
+    %collapse%rules: {
         full_name: [
             {
                 name: "empty",
@@ -24,7 +24,7 @@ export default `export default {
                 message: ""
             },
         ],
-    },
+    },%collapse%
     visibilities: {
         petName: ({formValue} : any) => {
             return {

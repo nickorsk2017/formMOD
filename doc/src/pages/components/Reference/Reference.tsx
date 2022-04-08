@@ -23,7 +23,7 @@ export const Reference = () => {
     return (
       <div className={styles.container}>
         <Content content={PART_1}/>
-        <div className="formmod__subtitle">Live example</div><br/>
+        <div className="formmod__subtitle">Live demo</div><br/>
         <MyForm/><br/>
         <div className="formmod__source">
           <a href="https://github.com/nickorsk2017/formMOD/raw/master/doc/examples/inputs/smart/formMOD-smart-inp.zip">Download example source</a>/

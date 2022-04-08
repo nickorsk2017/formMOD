@@ -167,7 +167,7 @@ export const MenuApp = memo(() => {
                     </li>
 
                     <li className={styles.navItem}>
-                      <NavLink to={`${PREFIX}recommendations/stores/`}>Work with store</NavLink>
+                      <NavLink to={`${PREFIX}recommendations/stores/`}>Working with store</NavLink>
                     </li>
 
                   </>}
@@ -178,7 +178,7 @@ export const MenuApp = memo(() => {
                 <NavLink exact={true} activeClassName="active" to={`${PREFIX}helpers/`}>Helpers</NavLink>
               </div>
 
-              <div className={styles.section}>
+              {/*<div className={styles.section}>
                 <div onClick={() => toggleMenuItem("smartInput")} className={[checkOpendItems("smartInput") ? styles.sectionNavOpened : null, styles.sectionNav].join(" ")}>Smart inputs (experiment) <i className={[checkOpendItems("smartInput") ? styles.sectionIconOpened : null, styles.sectionIcon, "fas fa-angle-right"].join(" ")}></i> </div>
                 <ul className={[checkOpendItems("smartInput") ? styles.sectionSpecOpened : null, styles.sectionSpec].join(" ")}>
                   {checkOpendItems("smartInput") && 
@@ -209,7 +209,7 @@ export const MenuApp = memo(() => {
 
                   </>}
                 </ul>
-              </div>
+              </div>*/}
               
 
               <div className={styles.selfItem}>

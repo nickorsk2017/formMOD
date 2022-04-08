@@ -43,6 +43,9 @@ export const MyForm = ({initValue}: Props) => {
         
     return (
         <form onSubmit={handlerSubmit} className={styles.form}>
+            <div className={styles.title}>
+                {!initValue ? "New user" : "Edit user"}
+            </div>
             <TextInput
                 label={"First name"}
                 value={getValue("first_name")}

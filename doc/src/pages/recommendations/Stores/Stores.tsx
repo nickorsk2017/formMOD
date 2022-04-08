@@ -11,9 +11,10 @@ export const Stores = () => {
     return (
       <div className={styles.container}>
         <Content content={PART_1}/>
-        When user changing a data the system modifeid it.<br/>
-        It means that it mutable data.<br/>
-        If you uses data store, react context you must do it safe.<br/>     <br/>
+        The system changes the data when the user fills out the form.<br/>
+        If you uses store libraries or react context you must do it safe.<br/>
+        The data in form is mutable.
+        <br/><br/>
         <div className="formmod__subtitle">Redux, React context like </div>
         <Content minWidth="750px" preWrap={true} content={_EXAMPLE_1.result}/>
         <br/>

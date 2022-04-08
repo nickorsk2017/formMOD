@@ -36,12 +36,13 @@ export const cloneDeep = (
 
 export const getCodeSnippet = (code: string) => {
     let countLines = 0;
+    let countHiddenLines = 0;
     let result = code;
     const KEYWORD = "#813782";
     const STRING = "#207e43";
     const OPERATOR = "#9a6e3a;";
     const FN = "#dd4a68;";
-    const COMMENT = "#a7a6a6";
+    const COMMENT = "#a9941f";
     const KEYWORD_ARR = [
         "export", 
         "function",
@@ -54,16 +55,21 @@ export const getCodeSnippet = (code: string) => {
         "new",
     ];
     // lines
-    let lines = code.trim().replace(/\/\/.*/g, (chr) => {console.log(chr, "chr");return `%comment%${chr.replace("//", "")}%comment%`}).replace(/=>|:|===|==|[><=/\/]/g, (chr) => `%spec%${chr}%spec%`).replace(/[a-zA-Z^s]+\(/g, (chr) => `%fn%${chr.replace("(", "")}%fn%(`).replace(/['"].*?['"]/gm, (chr) => `%qt%${chr}%qt%`).split("\n");
+    let lines = code.trim().
+    replace(/\%collapse\%/gm, (collapse) => `${collapse} `).
+    replace(/\/\/.*/g, (chr) => `%comment%${chr.replace("//", "")}%comment%`).
+    replace(/=>|:|===|==|[><=/\/]/g, (chr) => `%spec%${chr}%spec%`).
+    replace(/[a-zA-Z^s]+\(/g, (chr) => `%fn%${chr.replace("(", "")}%fn%(`).
+    replace(/['"].*?['"]/gm, (chr) => `%qt%${chr}%qt%`).split("\n");
     let cloneLines = cloneDeep(lines) as Array<string>;
     lines.forEach((line, index) => {
       let _line = line || " ";
-      cloneLines[index] = `%div% ${_line}%div%`;
+      cloneLines[index] = `%div line=${index}% ${_line}%div%`;
     });
     countLines = lines.length;
     const preLines = cloneLines.join("");
     //words
-    let words = preLines.split(" ");
+    let words = preLines.split(/\s/gm);
     let cloneWords = cloneDeep(words) as Array<string>;
     words.forEach((word, index) => {
         if(word === "*if*" || word === "*for*" || word === "*from*" || word === "*import*"){
@@ -74,6 +80,7 @@ export const getCodeSnippet = (code: string) => {
     });
     // /(?<=\%spec\%).*?(?=\%spec\%)/g beetween
     result = cloneWords.join(" ").
+    replace(/\%collapse\%\s/gm, '%collapse%').
     replace(/(\%qt\%).*?(\%qt\%)/gm, (chr) => {
         const str = chr.replaceAll("%qt%", '');
         return `<span style="color: ${STRING};">${str}</span>`;
@@ -91,13 +98,40 @@ export const getCodeSnippet = (code: string) => {
       const str = comment.replaceAll("%comment%", '');
       return `<span class="hightligh-comment" style="color: ${COMMENT} !important;">//${str}</span>`
     })
-    .replace(/(\%div\%).*?(\%div\%)/gm, (chr) => {
-        const str = chr.replaceAll("%div% ", '').replaceAll("%div%", '');
-        return `<div>${str}</div>`;
-    });
+    .replace(/\%div line=[0-9]+\%\s+\%collapse\%/g, (chr) => {
+      return "%collapse%"+chr.replace("%collapse%", "")}
+    )
+    .replace(/\%collapse\%\%div\%/g, (chr) => {
+      return chr.replace("%collapse%", "")+"%collapse%"}
+    )
+    .replace(/(\%div line=[0-9]+\%).*?(\%div\%)/gm, (chr) => {
+        const line = chr.match(/line=[0-9]+/g);
+        let resultLine = "0";
+        if(line){
+          resultLine = line[0].replace("line=", "");
+        }
+        const str = chr.replace(/\%div line=[0-9]+\%\s/gm, '').replaceAll("%div%", '');
+        return `<div class="highlight-block" data-line="${resultLine}">${str}</div>`;
+    })
+    .replace(/\%collapse\%[\s\S]*?\%collapse\%/gm, (chr) => {
+      const divBlocks = chr.match(/<div.*?>/gm);
+      const countHiddent = divBlocks?.length || 0;
+      countHiddenLines += countHiddent;
+      const str = chr.replaceAll("%collapse%", '');
+      const lines = Array.from(chr.matchAll(/data-line="([0-9]+)"/gi)).map((_match) => {
+        return parseInt(_match[1]);
+      });
+      const last = Math.max(...lines);
+      return `<div class="collapse"  data-last-line="${last}" data-lines="${lines.join(",")}" data-count-hidden="${countHiddent}">
+        <div class="collapse__label">---Show hidden code---</div>
+        <div class="collapse__content">${str}</div>
+        <div class="collapse__hide">hide</div>
+      </div>`;
+    })
 
     return {
         result,
-        countLines
+        countLines,
+        countHiddenLines
     };
 }

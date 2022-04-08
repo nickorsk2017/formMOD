@@ -15,7 +15,7 @@ We want to thank everyone who helps our project.</br></br>
 <b>We will be very happy if you help us and open community, just set a star in our <a target="_blank" href="https://github.com/nickorsk2017/formMOD">github page</a></b></br></br>
 <img src="${PREFIX_PUBLIC}stars.png"/></br></br>
 
-You can make a great apps faster and easy. </br></br> We are working for you! Thank you!</div>
+You can create a great apps faster and easy. </br></br> We are working for you! Thank you!</div>
 
 </br></br>
 
@@ -83,14 +83,8 @@ You can make a great apps faster and easy. </br></br> We are working for you! Th
         <b>Recommendations</b> - how work with store, data and other.
     </li>
 
-    <li>
-        <b>Smart input (experiment)</b> - UI component working via reference.
-    </li>
-
 </ul>
 
 <br/>
-<br/>
-<b>This is great? Let's go!<b/><br/>
 <br/>
 `
