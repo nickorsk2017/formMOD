@@ -20,17 +20,17 @@ export function MyForm() {
         FORM_SCHEME
     );
 
-    const setDefault = (event: any) => {
+    %collapse%const setDefault = (event: any) => {
         if(event && event.preventDefault) {
-			event.preventDefault();
-		}
+            event.preventDefault();
+        }
         resetForm();
     };
     
     const handlerSubmit = function(event: any){
         if(event && event.preventDefault) {
-			event.preventDefault();
-		}
+            event.preventDefault();
+        }
         validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
             if(valid) {
                 // here you can send a request or call callback function
@@ -41,7 +41,7 @@ export function MyForm() {
                 console.log('FORM IS WRONG, value:', formValue );
             }
         });
-    }
+    }%collapse%
 
     const deleteLastHobby = () => {
         const groupItem = getItemByIndex({inputName: "hobbies", index: getGroup("hobbies").length - 1});
@@ -58,11 +58,9 @@ export function MyForm() {
         });
     };
 
-        
     return (
         <form onSubmit={handlerSubmit} className={styles.form}>
-            {
-            getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {
+            {getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {
                 return <TextInput
                     key={input.id}
                     label={\`Hobby \${index + 1}\`}

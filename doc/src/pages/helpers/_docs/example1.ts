@@ -3,7 +3,7 @@ const code = `import {cloneDeep, isEqual} from "formmod";
 
 const myData = {...};
 
-//clone data safe.
+//clone safety data.
 const cloneMyData = cloneDeep(myData);
 
 // check if two object equal

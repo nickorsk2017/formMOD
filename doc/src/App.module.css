@@ -58,7 +58,7 @@
 .selfItem a:hover ,
 .sectionNav:hover .sectionIcon,
 .sectionNav:hover {
-    background-color: #54c270;
+    background-color: #008000;
     color: #fff !important;
 }
 .navItem {
@@ -73,7 +73,7 @@
     padding-left: 50px;
 }
 .navItem:hover{
-    background-color: #54c270;
+    background-color: #008000;
 }
 .navItem:hover a {
     color: #fff !important;

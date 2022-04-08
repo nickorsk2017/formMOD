@@ -1,5 +1,5 @@
 export default (() => {
-const code = `import {cloneDeep} from "formmod;`;
+const code = `import {cloneDeep} from "formmod";`;
 
 return code;
 })()

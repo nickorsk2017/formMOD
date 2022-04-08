@@ -1,9 +1,9 @@
 const PREFIX = process.env.prefixMOD || "/";
 
 export default `
-<h2 class="content-header-important">Inputs with value as array</h1>
+<h2 class="content-header-important">Inputs with array value</h1>
 <div class="content-header-important-content">
-    Array is reserved for <a href="/#${PREFIX}basic-dynamic/">group input components</a>. Do not use it in your scheme.
+    Array is reserved for <a href="/#${PREFIX}group/">group input components</a>. Do not use it in your scheme.
 <pre>
 <code>formValue: {
     students: [

@@ -3,7 +3,8 @@
     min-height: 50px;
     width: 100%;
     bottom: 0;
-    background-color: #ffc5c5;;
+    background-color: #505050;
+    color: #fff;
     text-align: center;
     display: flex;
     flex-direction: row;

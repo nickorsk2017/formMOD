@@ -80,7 +80,7 @@ export function MyForm() {
                 onChange={(value: string) => setValue("last_name", value)}
             />
             <CheckBox
-                label={"Do you have favorite pet?"}
+                label={"Do you have a favorite pet?"}
                 value={getValue("havePets") as boolean}
                 error={getError("havePets")}
                 viewMode={isViewMode()}

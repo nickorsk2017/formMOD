@@ -11,7 +11,7 @@ We want to thank everyone who helps our project.
 
 We will be very happy if you help us and open community, just set a star here.
 
-You can make a great apps faster and easy.
+You can create a great apps faster and easy.
 
 We are working for you! Thank you!
 
@@ -23,7 +23,7 @@ We are working for you! Thank you!
 
     3. Abstract data model - use it for any UI kit's.
     
-    4. Make a forms faster with JSON scheme.
+    4. Create a forms faster via javascript scheme.
     
     5. Best performance.
 

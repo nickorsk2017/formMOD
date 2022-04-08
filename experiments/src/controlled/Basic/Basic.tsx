@@ -80,7 +80,7 @@ export function Basic() {
                 onChange={(value: string) => setValue("last_name", value)}
             />
             <OptionBox
-                label={"Do you have favorite pet?"}
+                label={"Do you have a favorite pet?"}
                 value={getValue("havePets") as boolean}
                 error={getError("havePets")}
                 viewMode={isViewMode()}

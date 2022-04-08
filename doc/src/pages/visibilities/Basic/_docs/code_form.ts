@@ -10,10 +10,10 @@ export function MyForm() {
         FORM_SCHEME
     );
     
-    const handlerSubmit = function(event: any){
+    %collapse%const handlerSubmit = function(event: any){
         if(event && event.preventDefault) {
-			event.preventDefault();
-		}
+            event.preventDefault();
+        }
         validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
             if(valid) {
                 // here you can send a request or call callback function
@@ -28,27 +28,27 @@ export function MyForm() {
 
     const setDefault = (event: any) => {
         if(event && event.preventDefault) {
-			event.preventDefault();
-		}
+            event.preventDefault();
+        }
         resetForm();
-    };
+    };%collapse%
 
     return (
         <form onSubmit={handlerSubmit} className={styles.form}>
-            <TextInput
+            %collapse%<TextInput
                 label={"Your full name"}
                 value={getValue("full_name")}
                 error={getError("full_name")}
                 onChange={(value: string) => setValue("full_name", value)}
             />
             <OptionBox
-                label={"Do you have favorite pet?"}
+                label={"Do you have a favorite pet?"}
                 value={getValue("haveFavorite") as boolean}
                 error={getError("haveFavorite")}
                 onChange={(value: boolean) => setValue("haveFavorite", value)}
                 id="haveFavorite"
-            />
-              <TextInput
+            />%collapse%
+            <TextInput
                 label={"Pet name"}
                 value={getValue("petName")}
                 error={getError("petName")}

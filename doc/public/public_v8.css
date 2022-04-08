@@ -97,7 +97,7 @@ nav a {
   font-size: 15px;
 }
 nav .active {
-  color: #22a243 !important;
+  color: #008000 !important;
 }
 #root {
   display: flex;
@@ -312,7 +312,7 @@ pre[class*=language-].line-numbers>code {
   justify-content: center;
   border: 4px solid #333;
   margin: 10px;
-  background: #cbf5ff;
+  background: #fed2d2;
   font-size: 20px;
   font-weight: 500;
   border-radius: 10px;
@@ -320,6 +320,7 @@ pre[class*=language-].line-numbers>code {
 .ul-title {
   color: #008000;
   font-size: 24px;
+  margin-bottom: 10px;
 }
 .mobile-menu {
   display: none;
@@ -358,4 +359,44 @@ pre[class*=language-].line-numbers>code {
 }
 .hightligh-comment span {
  color: #a7a6a6 !important;
+}
+.highlight-block {
+  width: 100%;
+  height: 24px;
+}
+.collapse {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.collapse[open] .collapse__content{
+  display: flex;
+  border: 1px dashed #d2d2d2;
+  box-sizing:border-box;
+  background-color: #f7f7f7;
+}
+.collapse[open] .collapse__label,
+.collapse__content {
+  display: none;
+  flex-direction: column;
+}
+.collapse__label {
+  width: 100%;
+  text-align: center;
+  color: #6e6e6e !important;
+  border: 1px dashed #d2d2d2;
+  box-sizing:border-box;
+  cursor: pointer;
+  height: 24px;
+}
+.collapse__hide {
+  display: none;
+  position: absolute;
+  right: 5px;
+  top: 0;
+  color: #6e6e6e;
+  cursor: pointer;
+}
+.collapse[open] .collapse__hide {
+  display: inline-block;
 }

@@ -1,20 +1,22 @@
 export default (() => {
-const code = `import {cloneDeep} from "formmod";
+const code = `
 
-const convertDataToFormValue = (studentData: StudentData) => {
+// some helpers 
+import {cloneDeep} from "formmod";
+
+export const convertDataToFormValue = (studentData) => {
   return {
     firstName: studentData.user.firstName,
     lastName: studentData.user.lastName,
   }
-}
+};
 
-const convertDataFromFormValue = (formValue) => {
-  let data = cloneDeep(StudentDataFromAPI);
+export const convertDataFromFormValue = (studentData, formValue) => {
+  let data = cloneDeep(studentData);
   data.user.firstName = formValue.firstName;
   data.user.lastName = formValue.lastName;
-  data.updated = new Date().toUTCString();
-}
-`;
+  return data;
+};`;
 
 return code;
 })()

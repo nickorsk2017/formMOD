@@ -18,7 +18,7 @@ export function MyForm() {
                 // here you can send a request or call callback function
                 alert('Form is valid');
                 console.log(formValue, 'RESULT TRUE');
-                // set this form to view mode
+                // to view mode
                 setViewMode(true);
             } else {
                 alert('Form is wrong');

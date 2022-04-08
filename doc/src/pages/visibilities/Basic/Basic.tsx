@@ -21,7 +21,7 @@ export const Basic = () => {
     return (
         <div className={styles.container}>
           <Content content={PART_1}/>
-          <div className="formmod__subtitle">Live example</div><br/>
+          <div className="formmod__subtitle">Live demo</div><br/>
           <MyForm/><br/>
           <div className="formmod__source">
             <a href="https://github.com/nickorsk2017/formMOD/raw/master/doc/examples/optional/basic/formMOD-optional.zip">Download example source</a>/
@@ -33,7 +33,7 @@ export const Basic = () => {
           <br/>
           <div className="formmod__subtitle">Form component</div>
           <Content content={PART_3}/>
-          <Content minWidth="750px" countLines={_FORM_CODE.countLines} lines="8-10,53" preWrap={true} content={_FORM_CODE.result}/>
+          <Content minWidth="750px" countLines={_FORM_CODE.countLines} lines="8-10,54" preWrap={true} content={_FORM_CODE.result}/>
           <br/>
           <div className="formmod__subtitle">Input component</div>
           <Content content={PART_4}/>

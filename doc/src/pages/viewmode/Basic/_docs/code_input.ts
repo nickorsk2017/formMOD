@@ -1,5 +1,5 @@
 export default (() => {
-const code = `import React from 'react';
+const code = `%collapse%import React from 'react';
 import styles from './TextInput.module.css';
     
 export type TextInputProps = {
@@ -8,7 +8,7 @@ export type TextInputProps = {
   onChange: (value: string) => void;
   error: string | null;
   viewMode: boolean;
-};
+};%collapse%
     
 export const TextInput = (props: TextInputProps) => {
   const {
@@ -32,12 +32,12 @@ export const TextInput = (props: TextInputProps) => {
     </div>)
   }
     
-  return (
+  %collapse%return (
     <div className={styles.textInput}>
       {label && <label className={styles.label}>{label}</label>}
       <input className={styles.input} onChange={_onChange} value={value}/>
       {error && <span className={styles.error}>{error}</span>}
-    </div>)
+    </div>)%collapse%
   }`;
 
     return code;

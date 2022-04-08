@@ -1,7 +1,8 @@
 export default `
 <h1 content-header class="content-header">Scheme</h1>
-The form scheme is state that have values and form settings.<br>
-The form has only one state at one moment.<br><br>
+Scheme is a state which describes everything that your form contains.<br>
+A form must only  have one state at a time.<br>
+A scheme contains only initial values, do not modify a scheme for edit mode.<br><br>
 
-You can change a state of form only via API methods.<br><br>
+You can change a state(scheme) only via API formMod.<br><br>
 `

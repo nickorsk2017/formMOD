@@ -41,7 +41,7 @@ export function MyForm() {
                 onChange={(value: string) => setValue("full_name", value)}
             />
             <OptionBox
-                label={"Do you have favorite pet?"}
+                label={"Do you have a favorite pet?"}
                 value={getValue("haveFavorite") as boolean}
                 error={getError("haveFavorite")}
                 onChange={(value: boolean) => setValue("haveFavorite", value)}

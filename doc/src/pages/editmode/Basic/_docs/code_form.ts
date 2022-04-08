@@ -1,5 +1,5 @@
 export default (() => {
-const code = `import React from 'react';
+const code = `%collapse%import React from 'react';
 import { useFormMod, Types } from "formmod";
 import { TextInput, Button } from "../../ui";
 import {ValueForm} from "./Edit";
@@ -8,7 +8,7 @@ import styles from './Edit.module.css';
     
 type Props = {
     initValue?: ValueForm
-};
+};%collapse%
     
 export const MyForm = ({initValue}: Props) => {
     const {
@@ -26,7 +26,7 @@ export const MyForm = ({initValue}: Props) => {
         setValues(initValue, {init: true});
     }
         
-    const handlerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    %collapse%const handlerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         if(event && event.preventDefault) {
             event.preventDefault();
         }
@@ -59,7 +59,7 @@ export const MyForm = ({initValue}: Props) => {
             <div className={styles.buttons}>
                 <Button type="submit" title="Submit"/>
             </div>
-        </form>)
+        </form>)%collapse%
     }`;
 
     return code;

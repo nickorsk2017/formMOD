@@ -10,7 +10,7 @@ export const MyForm = () => {
         FORM_SCHEME
     );
     
-    const handlerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    %collapse%const handlerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         if(event && event.preventDefault) {
 			event.preventDefault();
 		}
@@ -31,7 +31,7 @@ export const MyForm = () => {
 			event.preventDefault();
 		}
         resetForm();
-    };
+    };%collapse%
 
     return (
         <form onSubmit={handlerSubmit} className={styles.form}>

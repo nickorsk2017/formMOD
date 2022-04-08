@@ -45,7 +45,7 @@ export function MyForm() {
                 refMod={useRefMod("full_name")}
             />
             <OptionBox
-                label={"Do you have favorite pet?"}
+                label={"Do you have a favorite pet?"}
                 refMod={useRefMod("haveFavorite")}
                 id="haveFavorite"
             />

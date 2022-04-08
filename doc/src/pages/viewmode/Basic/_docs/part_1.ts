@@ -1,7 +1,8 @@
 export default `
 <h1 content-header class="content-header">View</h1>
 This page describes how set a form to view mode.<br/>
-This way good for make a detail page.<br/>
-Just fill and submit the form below to see how it works.
+This can be useful for example for a detail page.
+<br/><br/>
+Fill out the below form and see how it works.
 <br/><br/>
 `

@@ -17,6 +17,7 @@ export const Scheme = () => {
         <div className="formmod__subtitle">Sections</div>
         <Content content={PART_2}/>
         <Content content={IMPORTANT}/>
+        <br/><br/>
       </div>
     )
 }
