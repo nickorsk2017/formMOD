@@ -11,6 +11,7 @@ export const SearchInput = () => {
     return (
       <div className={styles.container}>
         <Content content={PART_1}/>
+        This is an example of writing UI component.<br/> You can use it, modify for your project.<br/> This is just a help for new developers<br/><br/>
         <div className="formmod__subtitle">Live demo</div><br/>
         <MyForm/>
         <br/>

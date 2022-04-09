@@ -280,7 +280,6 @@ b {
 body pre.line-numbers[pre-wraped] {
   position: relative;
   line-height: 1.5;
-  text-shadow: 0 1px #fff;
   overflow: auto;
 }
 pre[class*=language-].line-numbers>code {
@@ -290,7 +289,6 @@ pre[class*=language-].line-numbers>code {
   -ms-hyphens: none;
   hyphens: none;
   word-spacing: normal;
-  text-shadow: 0 1px #fff;
 }
 .big-text {
   font-size: 20px;
@@ -384,6 +382,7 @@ pre[class*=language-].line-numbers>code {
   width: 100%;
   text-align: center;
   color: #6e6e6e !important;
+  background-color: #e0e0e0;
   border: 1px dashed #d2d2d2;
   box-sizing:border-box;
   cursor: pointer;

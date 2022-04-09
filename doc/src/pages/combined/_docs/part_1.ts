@@ -1,7 +1,7 @@
 export default `
 <h1 content-header class="content-header">Composite inputs</h1>
-This page describes how to create a composite input.<br/>
+<b>This page describes an example of creating a composite input.</b><br/><br/>
 
-Since the formMOD library is abstract data model, you can use it inside components.<br/>
+Since the library is abstract data model, you can use it inside your UI components.<br/>
 <br/>
 `

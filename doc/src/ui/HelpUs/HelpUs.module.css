@@ -11,6 +11,7 @@
     align-items: center;
     justify-content: center;
     z-index: 5;
+    font-weight: 600;
 }
 @media only screen and (max-width: 820px) {
     .container {
