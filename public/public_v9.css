@@ -399,3 +399,6 @@ pre[class*=language-].line-numbers>code {
 .collapse[open] .collapse__hide {
   display: inline-block;
 }
+.border-red {
+  color: red;
+}
