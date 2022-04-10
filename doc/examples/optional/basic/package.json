@@ -8,7 +8,7 @@
     "build": "webpack --config webpack-prod.config.js"
   },
   "dependencies": {
-    "formmod": "^1.5.4",
+    "formmod": "^1.6.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
   },

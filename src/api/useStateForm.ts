@@ -17,15 +17,15 @@ export type UpdateFormState = (
 export const useStateForm = (initFormState: InitFormState) => {
   const result = useRef(
     (() => {
-      let _initFormState = convertShortRulesToObjects(initFormState);
+      const _initFormState = convertShortRulesToObjects(initFormState);
       let formState: FormState = _initFormState;
       //for improving performance
       //useState can't skip rendering
       const { forceUpdate } = useForceUpdate();
       let onInitEdit = false;
-      const updateInitState = (newFormState: FormState) => {
+      /*const updateInitState = (newFormState: FormState) => {
         _initFormState = newFormState;
-      };
+      };*/
       const getInitFormState = () => {
         return _initFormState;
       };
@@ -52,7 +52,7 @@ export const useStateForm = (initFormState: InitFormState) => {
         }
         if (props?.init && !isOnInitEdit()) {
           setOnInitFromEdit(true);
-          updateInitState(newFormState);
+          //updateInitState(newFormState);
         }
         return formState;
       };
