@@ -6,7 +6,7 @@ const myData = {...};
 //clone safety data.
 const cloneMyData = cloneDeep(myData);
 
-// check if two object equal
+// check *if* two object equal
 const isEqual: boolean = isEqual(myObj1, myObj2);
 `;
 

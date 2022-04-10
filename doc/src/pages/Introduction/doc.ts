@@ -49,7 +49,7 @@ You can create a great apps faster and easy. </br></br> We are working for you! 
     </li>
 
     <li>
-        <b>Abstract data model</b> - for flexible work, you can use it with any UI kit's or your components.
+        <b>Abstract</b> - flexible, compatible with most UI kits.
     </li>
 
     <br/>
