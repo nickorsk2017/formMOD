@@ -1,6 +1,6 @@
 import { useRef } from 'react';
-import { useForceUpdate } from '../utils';
-import { FormState } from '../types';
+import { useForceUpdate, convertShortRulesToObjects } from '../utils';
+import { FormState, InitFormState } from '../types';
 
 export type UpdateFormState = (
   newFormState: FormState,
@@ -14,13 +14,13 @@ export type UpdateFormState = (
  * This is custom state managment system for form
  * It need for improving performance, custom logic for inputs or form.
  */
-export const useStateForm = (initFormState: FormState) => {
+export const useStateForm = (initFormState: InitFormState) => {
   const result = useRef(
     (() => {
-      let formState: FormState = initFormState;
-      let _initFormState = initFormState;
-      //Needs for improving performance,no need to run rendering everytime.
-      //useState can't skip rendering.
+      let _initFormState = convertShortRulesToObjects(initFormState);
+      let formState: FormState = _initFormState;
+      //for improving performance
+      //useState can't skip rendering
       const { forceUpdate } = useForceUpdate();
       let onInitEdit = false;
       const updateInitState = (newFormState: FormState) => {

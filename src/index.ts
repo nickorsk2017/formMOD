@@ -13,7 +13,7 @@ import {
   viewMode as _viewMode
 } from './api';
 import {
-  FormState,
+  InitFormState,
   FormValue,
   InputName,
   ListenerObj,
@@ -27,7 +27,7 @@ export { useCountRender, isEqual, cloneDeep } from './utils';
 export * as Types from './types';
 export { useDebounce } from './api';
 
-export const useFormMod = (initFormState: FormState) => {
+export const useFormMod = (initFormState: InitFormState) => {
   const {
     getFormState,
     updateFormState,

@@ -5,6 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import {Rules} from "./controlled/Rules/Rules";
 import { Basic } from './controlled/Basic/Basic';
 import { Edit } from './controlled/Edit/Edit';
 import { Basic as BasicUncontrolled } from './uncontrolled/Basic/Basic';
@@ -17,6 +18,9 @@ const App = () => {
     <Router>
       <nav>
         <ul>
+          <li>
+            <Link to="/rules">Rules</Link>
+          </li>
           <li>
             <Link to="/controlled">Basic</Link>
           </li>
@@ -36,6 +40,9 @@ const App = () => {
     </nav>
     <div id="appContainer">
       <Switch>
+        <Route path="/rules">
+          <Rules/>
+        </Route>
         <Route path="/controlled">
           <Basic />
         </Route>

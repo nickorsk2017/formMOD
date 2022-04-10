@@ -1,4 +1,11 @@
 import { useCallback, useState, useRef } from 'react';
+import {
+  FormState,
+  InitFormState,
+  InputName,
+  FormRule,
+  FormRuleShort
+} from './types';
 
 export const useForceUpdate = () => {
   const [, updateState] = useState({});
@@ -131,4 +138,34 @@ export const isEqual = (
   }
   // If nothing failed, return true
   return true;
+};
+
+export const convertShortRulesToObjects = (
+  initFormState: InitFormState
+): FormState => {
+  if (initFormState.rules) {
+    const cloneRules = {};
+    const copyFormState = cloneDeep(initFormState);
+    Object.keys(copyFormState.rules).forEach((inputName: InputName) => {
+      cloneRules[inputName] = copyFormState.rules[inputName].map(
+        (rule: FormRule | FormRuleShort) => {
+          if (!Array.isArray(rule)) {
+            return rule as FormRule;
+          }
+          // ["ruleName", "message", {params}, valid, groupRules]
+          const copyRule = {
+            name: rule[0],
+            valid: rule[3],
+            groupRules: rule[4],
+            message: rule[1],
+            params: rule[2]
+          };
+          return copyRule as FormRule;
+        }
+      );
+    });
+    copyFormState.rules = cloneRules;
+    return copyFormState;
+  }
+  return initFormState as FormState;
 };

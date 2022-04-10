@@ -10,24 +10,43 @@ export type MessageError = string;
 export type FormValue = {
   [key: string]: InputValue;
 };
+
+export type FormRuleParams = {
+  func?: (params?: any) => any;
+  max?: number;
+  min?: number;
+  isNumber?: boolean;
+};
+
+export type GroupRules = {
+  [key: string]: {
+    id: string | number;
+    valid?: boolean;
+  };
+};
+
 export type FormRule = {
   name: string;
   valid?: boolean;
-  groupRules?: {
-    [key: string]: {
-      id: string | number;
-      valid?: boolean;
-    };
-  };
+  groupRules?: GroupRules;
   message: string;
-  params?: { func?: (params?: any) => any; max?: number; min?: number };
+  params?: FormRuleParams;
 };
+
+// short syntax validation rule
+// ["ruleName", "message", {params}, valid, groupRules]
+// eslint-disable-next-line prettier/prettier
+export type FormRuleShort = (string | FormRuleParams | boolean | GroupRules)[]
+
 export type ResultValidationInput = {
   rulesInput: Array<FormRule>;
   validationStatus: boolean;
 };
 export type FormRules = {
   [key: string]: Array<FormRule>;
+};
+export type FormRulesInit = {
+  [key: string]: (FormRule | FormRuleShort)[];
 };
 export type FormVisibilities = {
   [key: string]: any;
@@ -40,6 +59,16 @@ export type FormState = {
   rules?: FormRules;
   disabledInputs?: Array<string>;
 };
+
+export type InitFormState = {
+  valid: boolean | null;
+  viewMode?: boolean;
+  formValue: FormValue;
+  visibilities?: FormVisibilities;
+  rules?: FormRulesInit;
+  disabledInputs?: Array<string>;
+};
+
 export type ElementMod =
   | HTMLInputElement
   | HTMLSelectElement

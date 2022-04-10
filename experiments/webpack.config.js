@@ -11,6 +11,7 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.tsx', '.js', '.css', ".scss"]
     },
+    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -30,7 +31,7 @@ module.exports = {
                         localIdentName: "[name]__[local]___[hash:base64:5]",
                     },
                     importLoaders: 1,
-                    sourceMap: false,
+                    sourceMap: true,
                   },
                 },
               ],
