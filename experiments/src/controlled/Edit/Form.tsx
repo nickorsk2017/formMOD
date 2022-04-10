@@ -4,7 +4,7 @@ import {TextInput, Button, OptionBox} from "../ui";
 import FORM_SCHEME from "./scheme";
 import styles from './Edit.module.css';
 
-export function Form({formValue}: any) {
+export function Form({initValue}: any) {
     const {
         setValue,
         getValue,
@@ -24,8 +24,8 @@ export function Form({formValue}: any) {
     );
 
     // edit mode here
-    if(formValue){
-        setValues(formValue, {init: true});
+    if(initValue){
+        setValues(initValue, {init: true});
     }
     
     const handlerSubmit = function(event: any){

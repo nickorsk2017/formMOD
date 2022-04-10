@@ -28,7 +28,7 @@ const App = () => {
             <Link to="/uncontrolled">Smart</Link>
           </li>
           <li>
-            <Link to="/edit-controlled">Edit smart</Link>
+            <Link to="/edit-controlled">Edit</Link>
           </li>
           <li>
             <Link to="/edit-uncontrolled">Edit smart</Link>

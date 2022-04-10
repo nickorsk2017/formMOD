@@ -24,16 +24,10 @@ export default {
     },
     rules: {
         first_name: [
-            {
-                name: "empty",
-                message: "first name is required"
-            }
+            ["empty", "first name is required"]
         ],
         last_name: [
-            {
-                name: "empty",
-                message: "last name is required"
-            }
+            ["empty", "last name is required"]
         ],
         address: [
             {
@@ -46,23 +40,11 @@ export default {
                 message: "length should be greater than 5"
             }
         ],
-        havePets: [
-            {
-                name: "empty",
-                message: ""
-            },
-        ],
         petName: [
-            {
-                name: "empty",
-                message: "please write about your pets"
-            },
+            ["empty", "please write about your pets"] 
         ],
         hobbies: [
-            {
-                name: "empty",
-                message: "please write about your hobby"
-            },
+            ["empty", "please write about your hobby"]
         ]
     }
 }
