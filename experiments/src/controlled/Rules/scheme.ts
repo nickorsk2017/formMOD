@@ -20,10 +20,10 @@ export default {
             ["min", "length should be 5 or greater", { min: 5 }]
         ],
         maxNum: [
-            ["max", "number should be 5 or less", { max: 5, isNumber: true, }]
+            ["max", "number should be 5 or less", { max: 5, isNumeric: true, }]
         ],
         minNum: [
-            ["min", "number should be 5 or greater", { min: 5,  isNumber: true, }]
+            ["min", "number should be 5 or greater", { min: 5,  isNumeric: true, }]
         ],
         email: [
             ["email", "is not email"]

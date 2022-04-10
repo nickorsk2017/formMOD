@@ -4,7 +4,7 @@ export const min = {
   validate: (value: string | number, rule: FormRule) => {
     const valid = false;
     if (rule.params) {
-      if (rule.params.isNumber && typeof rule.params.min === 'number') {
+      if (rule.params.isNumeric && typeof rule.params.min === 'number') {
         if (!value && value !== 0) {
           return true;
         }

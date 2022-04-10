@@ -4,7 +4,7 @@ export const max = {
   validate: (value: string | number, rule: FormRule) => {
     const valid = false;
     if (rule.params) {
-      if (rule.params.isNumber && typeof rule.params.max === 'number') {
+      if (rule.params.isNumeric && typeof rule.params.max === 'number') {
         if (!value && value !== 0) {
           return true;
         }

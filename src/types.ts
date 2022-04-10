@@ -16,7 +16,7 @@ export type FormRuleParams = {
   rule?: (params?: any) => any;
   max?: number;
   min?: number;
-  isNumber?: boolean;
+  isNumeric?: boolean;
 };
 
 export type GroupRules = {
