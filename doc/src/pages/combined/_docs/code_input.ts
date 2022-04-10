@@ -17,10 +17,10 @@ export type SearchInputProps = {
   onReset: () => void;
   error: string | null;
   getterItemStringValue: (item: any) => string;
-};%collapse%
+};
   
-export const SearchInput = (props: SearchInputProps) => {
-  const {
+%collapse%export const SearchInput = (props: SearchInputProps) => {
+  %collapse%const {
     label,
     selectedItem,
     items,
@@ -28,8 +28,8 @@ export const SearchInput = (props: SearchInputProps) => {
     onReset,
     error,
     getterItemStringValue,
-  } = props;
-  //Define a scheme for child UI component
+  } = props;%collapse%
+  //define a scheme for child UI component
   const SCHEME = {
     valid: null,
     formValue: {
@@ -37,10 +37,10 @@ export const SearchInput = (props: SearchInputProps) => {
       focused: false,
     },
     rules: {
-      // You can describe a validation rules for your child UI component.
+      // you can describe a validation rules for your child UI component.
     }
   };
-  //Connect a scheme and get methods.
+  //define a scheme and methods.
   const {
     getValue,
     getError,

@@ -1,10 +1,10 @@
 export default `
 {
-    name: "func",
+    name: "custom",
     params: {
-        func: (value) => {
-            return value.length > 5
+        rule: (value: string) => {
+            return /[a-zA-Z]/.test(value)
         }
     },
-    message: "length should be greater than 5"
+    message: "password should have at least one letter"
 }`;

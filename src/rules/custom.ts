@@ -1,13 +1,13 @@
 import { FormRule } from '../types';
 
-export const func = {
+export const custom = {
   validate: (
     value: string | Record<string, any> | null | number,
     rule: FormRule
   ) => {
     let valid = true;
-    if (rule.params && typeof rule.params.func === 'function') {
-      valid = rule.params.func(value);
+    if (rule.params && typeof rule.params.rule === 'function') {
+      valid = rule.params.rule(value);
     }
     return valid;
   }

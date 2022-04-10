@@ -6,36 +6,17 @@ export default `export default {
     },
     rules: {
         email: [
-            {
-                name: "empty",
-                message: "email is empty"
-            },
-            {
-                name: "email",
-                message: "wrong format of email"
-            }
+            ["epmty", "email is empty"],
+            ["email", "wrong format of email"]
         ],
         password: [
-            {
-                name: "empty",
-                message: "password is empty"
-            },
-            {
-                name: "min",
-                message: "length should be 5 or greater",
-                params: {
-                    min: 5,
+            ["epmty", "password is empty"],
+            ["min", "length should be 5 or greater", {min: 5}],
+            ["custom", "password should have at least one letter", {
+                rule: (value: string) => {
+                    return /[a-zA-Z]/.test(value)
                 }
-            },
-            {
-                name: "func",
-                params: {
-                    func: (value: string) => {
-                        return /[a-zA-Z]/.test(value)
-                    }
-                },
-                message: "password should have at least one letter"
-            }
+            }],
         ],
     }
 }`;

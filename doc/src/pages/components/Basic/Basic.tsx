@@ -6,8 +6,6 @@ import {
   PART_1,
   PART_2,
   PART_3,
-  PART_4,
-  INPUT_CODE,
   FORM_CODE,
   SCHEME
 } from "./_docs";
@@ -16,7 +14,6 @@ import styles from './Basic.module.css';
 export type ControlledProps = {};
 
 export const Basic = () => {
-  const _INPUT_CODE = getCodeSnippet(INPUT_CODE);
   const _FORM_CODE = getCodeSnippet(FORM_CODE);
   const _SCHEME = getCodeSnippet(SCHEME);
 
@@ -35,10 +32,7 @@ export const Basic = () => {
         <Content content={PART_3}/>
         <div className="formmod__subtitle">Form component</div>
         <Content content={PART_2}/>
-        <Content minWidth="750px" countLines={_FORM_CODE.countLines} lines='8-10, 36-47' preWrap={true} content={_FORM_CODE.result}/>
-        <div className="formmod__subtitle">Input component</div>
-        <Content content={PART_4}/><br/>
-        <Content minWidth="750px" countLines={_INPUT_CODE.countLines} lines='12-17, 24-28' preWrap={true} content={_INPUT_CODE.result}/>
+        <Content minWidth="750px" countLines={_FORM_CODE.countLines} lines='8-10, 30-41' preWrap={true} content={_FORM_CODE.result}/>
       </div>
   )
 }

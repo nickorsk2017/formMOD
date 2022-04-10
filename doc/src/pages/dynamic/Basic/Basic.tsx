@@ -26,15 +26,12 @@ export const Basic = () => {
             <a target="_blank" href="https://github.com/nickorsk2017/formMOD/tree/master/doc/examples/group/basic">See example source</a>
           </div>
           <div className="formmod__subtitle">Form scheme</div>
-          <br/>
-          You don't have to do anything here.<br/>
           <Content minWidth="700px" countLines={_SCHEME.countLines} language="json5" preWrap={true} content={_SCHEME.result}/>
           <br/>
           <Content content={PART_2}/>
-          <br/>
           <div className="formmod__subtitle">Form component</div>
           <Content content={PART_3}/>
-          <Content minWidth="750px" countLines={_FORM_CODE.countLines} lines="8-20,45-58,61-73,75-78" preWrap={true} content={_FORM_CODE.result}/>
+          <Content minWidth="750px" countLines={_FORM_CODE.countLines} lines="14-17,45-58,62-73,75-78" preWrap={true} content={_FORM_CODE.result}/>
           <br/>
           <Content content={PART_4}/>
         </div>

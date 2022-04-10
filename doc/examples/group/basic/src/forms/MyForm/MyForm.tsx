@@ -60,11 +60,12 @@ export function MyForm() {
         
     return (
         <form onSubmit={handlerSubmit} className={styles.form}>
+            <div className={styles.title}>My hobbies</div>
             {
             getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {
                 return <TextInput
                     key={input.id}
-                    label={`Hobby ${index + 1}`}
+                    label={`hobby ${index + 1}`}
                     value={getValue("hobbies", {inputId: input.id})}
                     error={getError("hobbies", {inputId: input.id})}
                     onChange={(value: string) => setValue("hobbies", value, {
@@ -74,7 +75,7 @@ export function MyForm() {
                 />
             })
             }
-            <div className={styles.buttons}>
+            <div className={[styles.buttons, !getGroup("hobbies").length ? styles.oneButton : ""].join(" ")}>
                 {getGroup("hobbies").length > 0 && <Button onClick={deleteLastHobby} theme="RED" title="Delete last hobby"/>}
                 <Button onClick={addNewHobby} theme="LIGHT" title="Add hobby"/>
             </div>

@@ -167,7 +167,7 @@ nav .active {
 }
 .formmod__subtitle {
   color: #000;
-  font-size: 30px;
+  font-size: 20px;
   font-weight: 600;
   min-width: 300px;
 }
@@ -369,9 +369,9 @@ pre[class*=language-].line-numbers>code {
 }
 .collapse[open] .collapse__content{
   display: flex;
-  border: 1px dashed #d2d2d2;
+  border: 1px dashed #eaeaea;
   box-sizing:border-box;
-  background-color: #f7f7f7;
+  background-color: #fcfcfc;
 }
 .collapse[open] .collapse__label,
 .collapse__content {
@@ -381,9 +381,9 @@ pre[class*=language-].line-numbers>code {
 .collapse__label {
   width: 100%;
   text-align: center;
-  color: #6e6e6e !important;
-  background-color: #e0e0e0;
-  border: 1px dashed #d2d2d2;
+  color: #c9c8c8 !important;
+  background-color: #FAFAFB;
+  border: 1px dashed #eaeaea;
   box-sizing:border-box;
   cursor: pointer;
   height: 24px;

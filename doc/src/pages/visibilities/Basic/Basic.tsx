@@ -29,11 +29,11 @@ export const Basic = () => {
           </div>
           <div className="formmod__subtitle">Form scheme</div>
           <Content content={PART_2}/>
-          <Content minWidth="700px" countLines={_SCHEME.countLines} lines="28-34" language="json5" preWrap={true} content={_SCHEME.result}/>          
+          <Content minWidth="700px" countLines={_SCHEME.countLines} lines="17-21" language="json5" preWrap={true} content={_SCHEME.result}/>          
           <br/>
           <div className="formmod__subtitle">Form component</div>
           <Content content={PART_3}/>
-          <Content minWidth="750px" countLines={_FORM_CODE.countLines} lines="8-10,54" preWrap={true} content={_FORM_CODE.result}/>
+          <Content minWidth="750px" countLines={_FORM_CODE.countLines} lines="8-10,47" preWrap={true} content={_FORM_CODE.result}/>
           <br/>
           <div className="formmod__subtitle">Input component</div>
           <Content content={PART_4}/>

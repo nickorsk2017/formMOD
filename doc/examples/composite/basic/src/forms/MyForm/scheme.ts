@@ -8,9 +8,9 @@ export default {
     rules: {
         student: [
             {
-                name: "func",
+                name: "custom",
                 params: {
-                    func: (item: ItemType | null) => {
+                    rule: (item: ItemType | null) => {
                         return item?.value !== undefined
                     }
                 },

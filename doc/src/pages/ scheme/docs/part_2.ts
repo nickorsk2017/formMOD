@@ -4,9 +4,6 @@ export default `
         <b>valid</b> - initial validation of form. </br> Set null value as default, it mean that a form dont toched(not validated) on initialisation.
     </li>
     <li>
-        <b>viewMode</b> - a view mode for detail page.
-    </li>
-    <li>
         <b>formValue</b> - section for a values of inputs form.
     </li>
     <li>

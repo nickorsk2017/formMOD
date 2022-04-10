@@ -1,11 +1,11 @@
 export default (() => {
-const code = `import React from 'react';
+const code = `%collapse%import React from 'react';
 import {useFormMod, Types} from "formmod";
 import {TextInput, Button} from "../../ui";
 import FORM_SCHEME from "./scheme";
 import styles from './MyForm.module.css';
 
-export function MyForm() {
+%collapse%export function MyForm() {
     const {
         setValue,
         getValue,
@@ -63,7 +63,7 @@ export function MyForm() {
             {getGroup("hobbies").map((input: Types.InputGroupValue, index: number) => {
                 return <TextInput
                     key={input.id}
-                    label={\`Hobby \${index + 1}\`}
+                    label={\`hobby \${index + 1}\`}
                     value={getValue("hobbies", {inputId: input.id})}
                     error={getError("hobbies", {inputId: input.id})}
                     onChange={(value: string) => setValue("hobbies", value, {

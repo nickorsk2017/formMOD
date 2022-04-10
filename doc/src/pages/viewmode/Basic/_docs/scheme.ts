@@ -6,17 +6,10 @@ export default `export default {
     },
     rules: {
         first_name: [
-            {
-                name: "empty",
-                message: "first name is required"
-            },
+            ["empty", "first name is required"]
         ],
         last_name: [
-            {
-                name: "empty",
-                message: "last name is required"
-            },
-        ]
+            ["empty", "last name is required"]
+        ],
     }
-}
-`;
+}`;

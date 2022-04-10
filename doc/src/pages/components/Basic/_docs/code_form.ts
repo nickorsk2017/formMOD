@@ -1,19 +1,19 @@
 export default (() => {
-const code = `import React from 'react';
+const code = `%collapse%import React from 'react';
 import {useFormMod, Types} from "formmod";
 import {TextInput, Button} from "../../ui";
 import FORM_SCHEME from "./scheme";
 import styles from './MyForm.module.css';
 
-export const MyForm = () => {
-    const {setValue, getValue, getError, validate, resetForm} = useFormMod(
+%collapse%export const MyForm = () => {
+    const {setValue, getValue, getError, validate} = useFormMod(
         FORM_SCHEME
-    );
+    );%collapse%
     
-    %collapse%const handlerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    const handlerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         if(event && event.preventDefault) {
-			event.preventDefault();
-		}
+            event.preventDefault();
+        }
         validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
             if(valid) {
                 // here you can send a request or call callback function
@@ -26,14 +26,7 @@ export const MyForm = () => {
         });
     }
 
-    const setDefault = (event: any) => {
-        if(event && event.preventDefault) {
-			event.preventDefault();
-		}
-        resetForm();
-    };%collapse%
-
-    return (
+    %collapse%return (
         <form onSubmit={handlerSubmit} className={styles.form}>
             <TextInput
                 label={"First name"}
@@ -49,7 +42,6 @@ export const MyForm = () => {
             />
             <div className={styles.buttons}>
                 <Button type="submit" title="Submit"/>
-                <Button theme="LIGHT" onClick={setDefault} title="Reset"/>
             </div>
         </form>
     )

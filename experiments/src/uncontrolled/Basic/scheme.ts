@@ -46,9 +46,9 @@ export default {
         ],
         address: [
             {
-                name: "func",
+                name: "custom",
                 params: {
-                    func: (value: string) => {
+                    rule: (value: string) => {
                         return value.length > 5
                     }
                 },

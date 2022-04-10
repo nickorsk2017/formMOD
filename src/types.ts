@@ -12,7 +12,8 @@ export type FormValue = {
 };
 
 export type FormRuleParams = {
-  func?: (params?: any) => any;
+  // for custom rule
+  rule?: (params?: any) => any;
   max?: number;
   min?: number;
   isNumber?: boolean;

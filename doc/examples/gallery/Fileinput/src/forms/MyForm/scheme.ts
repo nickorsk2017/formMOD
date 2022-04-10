@@ -6,9 +6,9 @@ export default {
     rules: {
         files: [
             {
-                name: "func",
+                name: "custom",
                 params: {
-                    func: (files: Array<any>) => {
+                    rule: (files: Array<any>) => {
                         return files.length > 0
                     }
                 },

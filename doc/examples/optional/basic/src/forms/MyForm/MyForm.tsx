@@ -5,14 +5,14 @@ import FORM_SCHEME from "./scheme";
 import styles from './MyForm.module.css';
 
 export function MyForm() {
-    const {setValue, getValue, getError, validate, resetForm,isVisible} = useFormMod(
+    const {setValue, getValue, getError, validate, isVisible} = useFormMod(
         FORM_SCHEME
     );
     
-    const handlerSubmit = function(event: any){
+    const handlerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         if(event && event.preventDefault) {
-			event.preventDefault();
-		}
+            event.preventDefault();
+        }
         validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
             if(valid) {
                 // here you can send a request or call callback function
@@ -24,13 +24,6 @@ export function MyForm() {
             }
         });
     }
-
-    const setDefault = (event: any) => {
-        if(event && event.preventDefault) {
-			event.preventDefault();
-		}
-        resetForm();
-    };
 
     return (
         <form onSubmit={handlerSubmit} className={styles.form}>
@@ -49,14 +42,13 @@ export function MyForm() {
             />
               <TextInput
                 label={"Pet name"}
-                value={getValue("petName")}
-                error={getError("petName")}
-                visible={isVisible("petName")}
-                onChange={(value: string) => setValue("petName", value)}
+                value={getValue("favoritePetName")}
+                error={getError("favoritePetName")}
+                visible={isVisible("favoritePetName")}
+                onChange={(value: string) => setValue("favoritePetName", value)}
             />
             <div className={styles.buttons}>
                 <Button type="submit" title="Submit"/>
-                <Button theme="LIGHT" onClick={setDefault} title="Reset"/>
             </div>
         </form>
     )

@@ -1,16 +1,16 @@
 export default (() => {
-const code = `import React from 'react';
+const code = `%collapse%import React from 'react';
 import styles from './TextInput.module.css';
 
-%collapse%export type TextInputProps = {
+export type TextInputProps = {
   label: string;
   value: string;
   onChange: (value: string) => void;
   error: string | null;
   visible?: boolean;
-};%collapse%
+};
 
-export const TextInput = (props: TextInputProps) => {
+%collapse%export const TextInput = (props: TextInputProps) => {
     const {
       error,
       onChange,
@@ -21,7 +21,7 @@ export const TextInput = (props: TextInputProps) => {
 
     if(typeof visible === "boolean" && !visible){
       return null;
-    }
+    }%collapse%
 
     const _onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       onChange(e.target.value);
@@ -34,7 +34,6 @@ export const TextInput = (props: TextInputProps) => {
         {error && <span className={styles.error}>{error}</span>}
       </div>
     )
-}
-  `;
+}%collapse%`;
 return code;
 })()

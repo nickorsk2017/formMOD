@@ -2,31 +2,19 @@ export default {
     valid: null,
     formValue: {
         full_name: "",
-        petName: "",
+        favoritePetName: "",
         haveFavorite: false,
     },
     rules: {
         full_name: [
-            {
-                name: "empty",
-                message: "Please write your full name"
-            }
+            ["empty", "please write your full name"]
         ],
-        petName: [
-            {
-                name: "empty",
-                message: "Please write name of your favorite pet "
-            },
-        ],
-        haveFavorite: [
-            {
-                name: "empty",
-                message: ""
-            },
+        favoritePetName: [
+            ["empty", "please write name of your favorite pet"]
         ],
     },
     visibilities: {
-        petName: ({formValue} : any) => {
+        favoritePetName: ({formValue} : any) => {
             return {
                 isVisible: formValue.haveFavorite,
             }

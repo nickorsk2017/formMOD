@@ -1,16 +1,16 @@
 export default (() => {
-const code = `import React from 'react';
+const code = `%collapse%import React from 'react';
 import {useFormMod, Types} from "formmod";
 import {TextInput, Button, OptionBox} from "../../ui";
 import FORM_SCHEME from "./scheme";
 import styles from './MyForm.module.css';
 
-export function MyForm() {
-    const {setValue, getValue, getError, validate, resetForm,isVisible} = useFormMod(
+%collapse%export function MyForm() {
+    const {setValue, getValue, getError, validate, isVisible} = useFormMod(
         FORM_SCHEME
-    );
+    );%collapse%
     
-    %collapse%const handlerSubmit = function(event: any){
+    const handlerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         if(event && event.preventDefault) {
             event.preventDefault();
         }
@@ -26,16 +26,9 @@ export function MyForm() {
         });
     }
 
-    const setDefault = (event: any) => {
-        if(event && event.preventDefault) {
-            event.preventDefault();
-        }
-        resetForm();
-    };%collapse%
-
-    return (
+    %collapse%return (
         <form onSubmit={handlerSubmit} className={styles.form}>
-            %collapse%<TextInput
+            <TextInput
                 label={"Your full name"}
                 value={getValue("full_name")}
                 error={getError("full_name")}
@@ -47,17 +40,16 @@ export function MyForm() {
                 error={getError("haveFavorite")}
                 onChange={(value: boolean) => setValue("haveFavorite", value)}
                 id="haveFavorite"
-            />%collapse%
+            />
             <TextInput
                 label={"Pet name"}
-                value={getValue("petName")}
-                error={getError("petName")}
-                visible={isVisible("petName")}
-                onChange={(value: string) => setValue("petName", value)}
+                value={getValue("favoritePetName")}
+                error={getError("favoritePetName")}
+                visible={isVisible("favoritePetName")}
+                onChange={(value: string) => setValue("favoritePetName", value)}
             />
             <div className={styles.buttons}>
                 <Button type="submit" title="Submit"/>
-                <Button theme="LIGHT" onClick={setDefault} title="Reset"/>
             </div>
         </form>
     )

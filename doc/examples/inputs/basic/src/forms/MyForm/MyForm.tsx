@@ -5,14 +5,14 @@ import FORM_SCHEME from "./scheme";
 import styles from './MyForm.module.css';
 
 export const MyForm = () => {
-    const {setValue, getValue, getError, validate, resetForm} = useFormMod(
+    const {setValue, getValue, getError, validate} = useFormMod(
         FORM_SCHEME
     );
     
     const handlerSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         if(event && event.preventDefault) {
-			event.preventDefault();
-		}
+            event.preventDefault();
+        }
         validate(true, (valid: boolean | null, formValue: Types.FormValue) => {
             if(valid) {
                 // here you can send a request or call callback function
@@ -24,13 +24,6 @@ export const MyForm = () => {
             }
         });
     }
-
-    const setDefault = (event: any) => {
-        if(event && event.preventDefault) {
-			event.preventDefault();
-		}
-        resetForm();
-    };
 
     return (
         <form onSubmit={handlerSubmit} className={styles.form}>
@@ -48,7 +41,6 @@ export const MyForm = () => {
             />
             <div className={styles.buttons}>
                 <Button type="submit" title="Submit"/>
-                <Button theme="LIGHT" onClick={setDefault} title="Reset"/>
             </div>
         </form>
     )

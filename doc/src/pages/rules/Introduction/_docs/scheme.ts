@@ -12,9 +12,9 @@ export default () =>  {
             },
             // next rule
             {
-                name: "func",
+                name: "custom",
                 params: {
-                    func: (value: string) => {
+                    rule: (value: string) => {
                         return value.length > 5
                     }
                 },
