@@ -25,7 +25,7 @@ export const Basic = () => {
             <div className="formmod__subtitle">Live demo</div><br/>
             <Edit/><br/>
             <div className="formmod__source">
-                <a href="https://github.com/nickorsk2017/formMOD/raw/master/doc/examples/editmode/basic/formmod-edit.zip">Download example source</a>/
+                <a href="https://github.com/nickorsk2017/formMOD/raw/master/doc/examples/editmode/basic/formMOD-edit.zip">Download example source</a>/
                 <a target="_blank" href="https://github.com/nickorsk2017/formMOD/tree/master/doc/examples/editmode/basic">See example source</a>
             </div>
             <div className="formmod__subtitle">Parent component</div>
