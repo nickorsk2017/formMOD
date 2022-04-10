@@ -5,8 +5,8 @@ export default {
         empty: "",
         max: "",
         min: "",
-        maxNum: "",
-        minNum: "",
+        maxNum: 0,
+        minNum: 0,
         email: "",
     },
     rules: {
