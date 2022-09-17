@@ -3,7 +3,7 @@ import { Form } from './Form'
 
 export function Edit() {
     const formValue = {
-        first_name: "Jack",
+        first_name: "",
         last_name: "Pack",
         address: "New York",
         havePets: true,

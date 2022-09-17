@@ -57,7 +57,7 @@ export const validate: Validate = ({
         inputValue: getValue({ formState, inputName })
       });
       if (resultValidationInput) {
-        // the input is ignored if input not visible
+        //input is ignored if input not visible
         const isVisible = visibilities.getVisibilityInput(inputName).isVisible;
         if (!resultValidationInput.validationStatus && isVisible) {
           formIsValid = false;
@@ -66,9 +66,14 @@ export const validate: Validate = ({
       }
     });
 
-    if (!isEqual(formState.rules, cloneRules) || fromSetValue) {
+    if (
+      !isEqual(formState.rules, cloneRules) ||
+      fromSetValue ||
+      (!init && !formState.touched)
+    ) {
       let _formState: FormState;
       const oldFormValue = getFormState ? getFormState() : formState;
+
       if (fromSetValue) {
         _formState = formState;
       } else {
@@ -76,7 +81,9 @@ export const validate: Validate = ({
       }
       _formState.valid = formIsValid;
       _formState.rules = cloneRules;
+
       if (updateValidation) {
+        //todo: check need of init
         if (init || skipUpdate) {
           if (!isEqual(_formState, oldFormValue)) {
             updateFormState(_formState, { skipUpdate, init });
@@ -85,6 +92,7 @@ export const validate: Validate = ({
           updateFormState(_formState);
         }
       }
+
       if (typeof callback === 'function') {
         callback(_formState.valid, getValueForm(_formState));
       }

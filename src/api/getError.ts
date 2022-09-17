@@ -16,7 +16,13 @@ export type GetError = (params: GetErrorProps) => MessageError | null;
 
 export const getError: GetError = ({ formState, inputName, groupInputId }) => {
   const rules = formState.rules;
-  if (formState.valid !== null && rules && rules[inputName]) {
+
+  if (
+    formState.valid !== null &&
+    formState.touched &&
+    rules &&
+    rules[inputName]
+  ) {
     const rulesInput = rules[inputName];
     let errorRule = null;
     if (groupInputId) {
@@ -37,5 +43,6 @@ export const getError: GetError = ({ formState, inputName, groupInputId }) => {
     }
     return errorRule ? errorRule.message : null;
   }
+
   return null;
 };

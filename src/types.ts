@@ -59,6 +59,7 @@ export type FormState = {
   visibilities?: FormVisibilities;
   rules?: FormRules;
   disabledInputs?: Array<string>;
+  touched?: boolean;
 };
 
 export type InitFormState = {

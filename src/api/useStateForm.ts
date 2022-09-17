@@ -1,5 +1,9 @@
 import { useRef } from 'react';
-import { useForceUpdate, convertShortRulesToObjects } from '../utils';
+import {
+  useForceUpdate,
+  convertShortRulesToObjects,
+  cloneDeep
+} from '../utils';
 import { FormState, InitFormState } from '../types';
 
 export type UpdateFormState = (
@@ -18,7 +22,7 @@ export const useStateForm = (initFormState: InitFormState) => {
   const result = useRef(
     (() => {
       const _initFormState = convertShortRulesToObjects(initFormState);
-      let formState: FormState = _initFormState;
+      let formState: FormState = { ..._initFormState, touched: false };
       //for improving performance
       //useState can't skip rendering
       const { forceUpdate } = useForceUpdate();
@@ -43,7 +47,11 @@ export const useStateForm = (initFormState: InitFormState) => {
       };
 
       const updateFormState: UpdateFormState = (newFormState, props) => {
-        setState(newFormState);
+        const cloneState = cloneDeep(newFormState);
+        if (!props?.init) {
+          cloneState.touched = true;
+        }
+        setState(cloneState);
         // fix multipale rendering in short time
         // need check a last state of form and render one time
         // for a big and difficult form
