@@ -46,7 +46,12 @@ export const setValue: SetValue = ({
     } else {
       _formState.formValue[inputName] = inputValue;
     }
-    if (_formState.valid === null || skipValidation) {
+
+    if (_formState.onFly) {
+      _formState.onFlyTouched = [..._formState.onFlyTouched, inputName];
+    }
+
+    if (!_formState.onFly && (_formState.valid === null || skipValidation)) {
       updateFormState(_formState, { skipUpdate });
       return _formState;
     } else {
@@ -61,5 +66,6 @@ export const setValue: SetValue = ({
       });
     }
   }
+
   return false;
 };

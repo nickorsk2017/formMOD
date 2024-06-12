@@ -1,6 +1,7 @@
 export default {
     valid: null,
     viewMode: false,
+    onFly: true,
     formValue: {
         first_name: "",
         last_name: "",
@@ -27,7 +28,8 @@ export default {
             {
                 name: "empty",
                 message: "first name is required"
-            }
+            },
+           ["max", "length should be 5 or less", { max: 5 }]
         ],
         last_name: [
             {

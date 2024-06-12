@@ -41,6 +41,13 @@ export const getError: GetError = ({ formState, inputName, groupInputId }) => {
         return !rule.valid;
       });
     }
+
+    if (formState.onFly) {
+      if (!formState.onFlyTouched.includes(inputName)) {
+        return null;
+      }
+    }
+
     return errorRule ? errorRule.message : null;
   }
 

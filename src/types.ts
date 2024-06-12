@@ -60,6 +60,8 @@ export type FormState = {
   rules?: FormRules;
   disabledInputs?: Array<string>;
   touched?: boolean;
+  onFly?: boolean;
+  onFlyTouched: Array<string>;
 };
 
 export type InitFormState = {
@@ -69,6 +71,7 @@ export type InitFormState = {
   visibilities?: FormVisibilities;
   rules?: FormRulesInit;
   disabledInputs?: Array<string>;
+  onFly?: boolean;
 };
 
 export type ElementMod =

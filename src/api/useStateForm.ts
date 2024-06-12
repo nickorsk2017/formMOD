@@ -22,7 +22,11 @@ export const useStateForm = (initFormState: InitFormState) => {
   const result = useRef(
     (() => {
       const _initFormState = convertShortRulesToObjects(initFormState);
-      let formState: FormState = { ..._initFormState, touched: false };
+      let formState: FormState = {
+        ..._initFormState,
+        touched: false,
+        onFlyTouched: []
+      };
       //for improving performance
       //useState can't skip rendering
       const { forceUpdate } = useForceUpdate();
